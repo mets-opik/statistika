@@ -1,0 +1,7 @@
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Peatükk "
+
+before_chapter_script: ["proc_funcs.R"]
+output_dir: docs

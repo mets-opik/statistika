@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Peatükk 6 Statistilised hinnangud | A Minimal Book Example</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Peatükk 6 Statistilised hinnangud | A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Peatükk 6 Statistilised hinnangud | A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Allan Sims" />
+
+
+<meta name="date" content="2025-01-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="jaotusfunktsioonid.html"/>
+<link rel="next" href="mitme-tunnuse-koosanalüüs.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Metsanduslik statistika R ja MS Excel keskkonnas</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="sissejuhatus.html"><a href="sissejuhatus.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="sissejuhatus.html"><a href="sissejuhatus.html#statistikaprogramm-r"><i class="fa fa-check"></i><b>1.1</b> Statistikaprogramm R</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="06-hinnangud.html"><a href="#andmete-importimine-ja-t%C3%B6%C3%B6tlemine"><i class="fa fa-check"></i><b>1.1.1</b> Andmete importimine ja töötlemine</a></li>
+<li class="chapter" data-level="1.1.2" data-path="06-hinnangud.html"><a href="#andmete-anal%C3%BC%C3%BCs"><i class="fa fa-check"></i><b>1.1.2</b> Andmete analüüs</a></li>
+<li class="chapter" data-level="1.1.3" data-path="06-hinnangud.html"><a href="#statistilised-mudelid-ja-anal%C3%BC%C3%BCsimeetodid"><i class="fa fa-check"></i><b>1.1.3</b> Statistilised mudelid ja analüüsimeetodid</a></li>
+<li class="chapter" data-level="1.1.4" data-path="sissejuhatus.html"><a href="sissejuhatus.html#andmete-visualiseerimine"><i class="fa fa-check"></i><b>1.1.4</b> Andmete visualiseerimine</a></li>
+<li class="chapter" data-level="1.1.5" data-path="sissejuhatus.html"><a href="sissejuhatus.html#laiendatavus-ja-kogukond"><i class="fa fa-check"></i><b>1.1.5</b> Laiendatavus ja kogukond</a></li>
+<li class="chapter" data-level="1.1.6" data-path="sissejuhatus.html"><a href="sissejuhatus.html#r-i-paketid"><i class="fa fa-check"></i><b>1.1.6</b> R-i paketid</a></li>
+<li class="chapter" data-level="1.1.7" data-path="sissejuhatus.html"><a href="sissejuhatus.html#r-i-keskkonnas-arvutamine"><i class="fa fa-check"></i><b>1.1.7</b> R-i keskkonnas arvutamine</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="sissejuhatus.html"><a href="sissejuhatus.html#ms-excel"><i class="fa fa-check"></i><b>1.2</b> MS Excel</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="sissejuhatus.html"><a href="sissejuhatus.html#andmete-importimine-ja-korraldamine"><i class="fa fa-check"></i><b>1.2.1</b> Andmete importimine ja korraldamine</a></li>
+<li class="chapter" data-level="1.2.2" data-path="06-hinnangud.html"><a href="#andmete-anal%C3%BC%C3%BCsimine"><i class="fa fa-check"></i><b>1.2.2</b> Andmete analüüsimine</a></li>
+<li class="chapter" data-level="1.2.3" data-path="06-hinnangud.html"><a href="#statistilised-testid-ja-anal%C3%BC%C3%BCsimeetodid"><i class="fa fa-check"></i><b>1.2.3</b> Statistilised testid ja analüüsimeetodid</a></li>
+<li class="chapter" data-level="1.2.4" data-path="sissejuhatus.html"><a href="sissejuhatus.html#andmete-visualiseerimine-1"><i class="fa fa-check"></i><b>1.2.4</b> Andmete visualiseerimine</a></li>
+<li class="chapter" data-level="1.2.5" data-path="sissejuhatus.html"><a href="sissejuhatus.html#makrod-ja-vba-skriptimine"><i class="fa fa-check"></i><b>1.2.5</b> Makrod ja VBA skriptimine</a></li>
+<li class="chapter" data-level="1.2.6" data-path="06-hinnangud.html"><a href="#lisandmoodulid-ja-t%C3%B6%C3%B6riistad"><i class="fa fa-check"></i><b>1.2.6</b> Lisandmoodulid ja tööriistad</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="andmestik.html"><a href="andmestik.html"><i class="fa fa-check"></i><b>2</b> Andmestik</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="06-hinnangud.html"><a href="#andmestike-t%C3%BC%C3%BCbid"><i class="fa fa-check"></i><b>2.1</b> Andmestike tüübid</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="andmestik.html"><a href="andmestik.html#arvulised-tunnused"><i class="fa fa-check"></i><b>2.1.1</b> Arvulised tunnused</a></li>
+<li class="chapter" data-level="2.1.2" data-path="andmestik.html"><a href="andmestik.html#mittearvulised-tunnused"><i class="fa fa-check"></i><b>2.1.2</b> Mittearvulised tunnused</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="andmestik.html"><a href="andmestik.html#andmestiku-struktuur"><i class="fa fa-check"></i><b>2.2</b> Andmestiku struktuur</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="andmestik.html"><a href="andmestik.html#vektor"><i class="fa fa-check"></i><b>2.2.1</b> Vektor</a></li>
+<li class="chapter" data-level="2.2.2" data-path="andmestik.html"><a href="andmestik.html#maatriks-array"><i class="fa fa-check"></i><b>2.2.2</b> Maatriks, array</a></li>
+<li class="chapter" data-level="2.2.3" data-path="andmestik.html"><a href="andmestik.html#data.frame"><i class="fa fa-check"></i><b>2.2.3</b> data.frame</a></li>
+<li class="chapter" data-level="2.2.4" data-path="andmestik.html"><a href="andmestik.html#list"><i class="fa fa-check"></i><b>2.2.4</b> list</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="andmestik.html"><a href="andmestik.html#andmestike-sisse-toomine"><i class="fa fa-check"></i><b>2.3</b> Andmestike sisse toomine</a></li>
+<li class="chapter" data-level="2.4" data-path="andmestik.html"><a href="andmestik.html#arvutamine-r-i-keskkonnas"><i class="fa fa-check"></i><b>2.4</b> Arvutamine R-i keskkonnas</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="06-hinnangud.html"><a href="#andmestike-r%C3%BChmitamine"><i class="fa fa-check"></i><b>3</b> Andmestike rühmitamine</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html"><i class="fa fa-check"></i><b>3.1</b> Jaotused</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#empiiriline-jaotus"><i class="fa fa-check"></i><b>3.1.1</b> Empiiriline jaotus</a></li>
+<li class="chapter" data-level="3.1.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#teoreetiline-jaotus"><i class="fa fa-check"></i><b>3.1.2</b> Teoreetiline jaotus</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#histogramm"><i class="fa fa-check"></i><b>3.2</b> Histogramm</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#r-keskkonnas"><i class="fa fa-check"></i><b>3.2.1</b> R keskkonnas:</a></li>
+<li class="chapter" data-level="3.2.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#exceli-keskkonnas"><i class="fa fa-check"></i><b>3.2.2</b> Exceli keskkonnas:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="karakteristikud.html"><a href="karakteristikud.html"><i class="fa fa-check"></i><b>4</b> Karakteristikud</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="karakteristikud.html"><a href="karakteristikud.html#keskmised"><i class="fa fa-check"></i><b>4.1</b> Keskmised</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="karakteristikud.html"><a href="karakteristikud.html#aritmeetiline-keskmine"><i class="fa fa-check"></i><b>4.1.1</b> Aritmeetiline keskmine</a></li>
+<li class="chapter" data-level="4.1.2" data-path="karakteristikud.html"><a href="karakteristikud.html#ruutkeskmine"><i class="fa fa-check"></i><b>4.1.2</b> Ruutkeskmine</a></li>
+<li class="chapter" data-level="4.1.3" data-path="karakteristikud.html"><a href="karakteristikud.html#geomeetriline-keskmine"><i class="fa fa-check"></i><b>4.1.3</b> Geomeetriline keskmine</a></li>
+<li class="chapter" data-level="4.1.4" data-path="karakteristikud.html"><a href="karakteristikud.html#harmooniline-keskmine"><i class="fa fa-check"></i><b>4.1.4</b> Harmooniline keskmine</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="karakteristikud.html"><a href="karakteristikud.html#mediaan"><i class="fa fa-check"></i><b>4.2</b> Mediaan</a></li>
+<li class="chapter" data-level="4.3" data-path="karakteristikud.html"><a href="karakteristikud.html#kvantiilid"><i class="fa fa-check"></i><b>4.3</b> Kvantiilid</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="jaotusfunktsioonid.html"><a href="jaotusfunktsioonid.html"><i class="fa fa-check"></i><b>5</b> Jaotusfunktsioonid</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="06-hinnangud.html"><a href="#h%C3%BCpotees"><i class="fa fa-check"></i><b>5.1</b> Hüpotees</a></li>
+<li class="chapter" data-level="5.2" data-path="jaotusfunktsioonid.html"><a href="jaotusfunktsioonid.html#jaotusfunktsioon"><i class="fa fa-check"></i><b>5.2</b> Jaotusfunktsioon</a></li>
+<li class="chapter" data-level="5.3" data-path="jaotusfunktsioonid.html"><a href="jaotusfunktsioonid.html#tihedusfunktsioon"><i class="fa fa-check"></i><b>5.3</b> Tihedusfunktsioon</a></li>
+<li class="chapter" data-level="5.4" data-path="jaotusfunktsioonid.html"><a href="jaotusfunktsioonid.html#normaaljaotus"><i class="fa fa-check"></i><b>5.4</b> Normaaljaotus</a></li>
+<li class="chapter" data-level="5.5" data-path="jaotusfunktsioonid.html"><a href="jaotusfunktsioonid.html#t-jaotus"><i class="fa fa-check"></i><b>5.5</b> T-jaotus</a></li>
+<li class="chapter" data-level="5.6" data-path="jaotusfunktsioonid.html"><a href="jaotusfunktsioonid.html#f-jaotus"><i class="fa fa-check"></i><b>5.6</b> F-jaotus</a></li>
+<li class="chapter" data-level="5.7" data-path="jaotusfunktsioonid.html"><a href="jaotusfunktsioonid.html#hii-ruut-jaotus"><i class="fa fa-check"></i><b>5.7</b> Hii-ruut-jaotus</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistilised-hinnangud.html"><a href="statistilised-hinnangud.html"><i class="fa fa-check"></i><b>6</b> Statistilised hinnangud</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="statistilised-hinnangud.html"><a href="statistilised-hinnangud.html#hinnangud"><i class="fa fa-check"></i><b>6.1</b> Hinnangud</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="statistilised-hinnangud.html"><a href="statistilised-hinnangud.html#punkthinnang"><i class="fa fa-check"></i><b>6.1.1</b> Punkthinnang</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="statistilised-hinnangud.html"><a href="statistilised-hinnangud.html#vahemikhinnangud"><i class="fa fa-check"></i><b>6.2</b> Vahemikhinnangud</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="06-hinnangud.html"><a href="#keskv%C3%A4%C3%A4rtuse-usalduspiirid"><i class="fa fa-check"></i><b>6.2.1</b> Keskväärtuse usalduspiirid</a></li>
+<li class="chapter" data-level="6.2.2" data-path="statistilised-hinnangud.html"><a href="statistilised-hinnangud.html#dispersiooni-usalduspiirid"><i class="fa fa-check"></i><b>6.2.2</b> Dispersiooni usalduspiirid</a></li>
+<li class="chapter" data-level="6.2.3" data-path="statistilised-hinnangud.html"><a href="statistilised-hinnangud.html#binoomjaotuse-usalduspiirid"><i class="fa fa-check"></i><b>6.2.3</b> Binoomjaotuse usalduspiirid</a></li>
+<li class="chapter" data-level="6.2.4" data-path="06-hinnangud.html"><a href="#standardh%C3%A4lbe-usalduspiirid"><i class="fa fa-check"></i><b>6.2.4</b> Standardhälbe usalduspiirid</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="06-hinnangud.html"><a href="#mitme-tunnuse-koosanal%C3%BC%C3%BCs"><i class="fa fa-check"></i><b>7</b> Mitme tunnuse koosanalüüs</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="mitme-tunnuse-koosanalüüs.html"><a href="mitme-tunnuse-koosanalüüs.html"><i class="fa fa-check"></i><b>7.1</b> Lineaarne regressioon</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="mitme-tunnuse-koosanalüüs.html"><a href="mitme-tunnuse-koosanalüüs.html#eeldused"><i class="fa fa-check"></i><b>7.1.1</b> Eeldused</a></li>
+<li class="chapter" data-level="7.1.2" data-path="06-hinnangud.html"><a href="#v%C3%A4ljund-ja-hinnangud"><i class="fa fa-check"></i><b>7.1.2</b> Väljund ja hinnangud</a></li>
+<li class="chapter" data-level="7.1.3" data-path="mitme-tunnuse-koosanalüüs.html"><a href="mitme-tunnuse-koosanalüüs.html#homoskedastilisuse-testimine"><i class="fa fa-check"></i><b>7.1.3</b> Homoskedastilisuse testimine</a></li>
+<li class="chapter" data-level="7.1.4" data-path="06-hinnangud.html"><a href="#j%C3%A4%C3%A4kide-normaalsuse-test"><i class="fa fa-check"></i><b>7.1.4</b> Jääkide normaalsuse test</a></li>
+<li class="chapter" data-level="7.1.5" data-path="mitme-tunnuse-koosanalüüs.html"><a href="mitme-tunnuse-koosanalüüs.html#multikollineaarsus"><i class="fa fa-check"></i><b>7.1.5</b> Multikollineaarsus</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="06-hinnangud.html"><a href="#dispersioonanal%C3%BC%C3%BCs"><i class="fa fa-check"></i><b>7.2</b> Dispersioonanalüüs</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="mittelineaarne-regressioon.html"><a href="mittelineaarne-regressioon.html"><i class="fa fa-check"></i><b>8</b> Mittelineaarne regressioon</a></li>
+<li class="chapter" data-level="9" data-path="06-hinnangud.html"><a href="#mitteparameetriline-anal%C3%BC%C3%BCs"><i class="fa fa-check"></i><b>9</b> Mitteparameetriline analüüs</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="06-hinnangud.html"><a href="#%C3%BCldistatud-aditiivne-mudel"><i class="fa fa-check"></i><b>9.1</b> Üldistatud aditiivne mudel</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publitseeritud bookdown paketiga</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="statistilised-hinnangud" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Peatükk 6</span> Statistilised hinnangud<a href="statistilised-hinnangud.html#statistilised-hinnangud" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="hinnangud" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Hinnangud<a href="statistilised-hinnangud.html#hinnangud" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="punkthinnang" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Punkthinnang<a href="statistilised-hinnangud.html#punkthinnang" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Üldkogumi tunnuseid analüüsides huvitavad uurijat tavaliselt järgnevad probleemid:</p>
+<ul>
+<li>üldkogumi tunnuse jaotusseadus;</li>
+<li>selle jaotuse arvkarakteristikute ehk parameetrite arvulised väärtused (hinnangud);</li>
+<li>otsustused üldkogumi parameetrite kohta (hüpoteesid).</li>
+</ul>
+<p>Statistilises analüüsis vaadatakse sageli esimesena, kas uuritavate andmete jaotus meenutab normaaljaotust, mis on teatud tüüpi jaotus, kus enamik väärtusi koondub keskmise ümber ja vähem levinud väärtused jäävad äärtesse. Mõnikord eeldatakse, et andmed järgivad normaaljaotust ilma seda eraldi kontrollimata, sest varasemad uuringud või teoreetilised põhjendused viitavad sellele. Kui aga selgub, et andmed ei järgi normaaljaotust, tuleks kasutada erilisi, niinimetatud jaotusvabu ehk mitteparameetrilisi meetodeid. Need meetodid võimaldavad teha järeldusi andmekogumi kohta ka siis, kui eeldatav jaotus ei ole normaalne, tagades seeläbi täpsemad tulemused.</p>
+<p>Üldkogumi parameetri punkthinnang on number, mille saame valimi andmetest, kasutades kindlat arvutusviisi. See number annab meile aimu, mis võiks olla mingi omaduse tegelik väärtus kogu rühmas, mida me uurime. Punkthinnangut näidatakse sageli sama sümboliga, mida kasutatakse selle omaduse kirjeldamiseks kogu grupis, lisades sellele väikese erimärgi nagu katuse või tärni. Kuna valim võetakse juhuslikult, sõltub punkthinnangu väärtus juhusest ja see võib iga kord erineda, kui võtame uue valimi. Seetõttu käsitleme punkthinnangut kui juhuslikku suurust, millel on oma jaotus ja parameetrid nagu keskmine väärtus või hajuvus. See tähendab, et punkthinnangu abil püüame mõista kogu grupi omadusi, lähtudes vaid osast sellest grupist.</p>
+<p>Üldkogumi parameetri, näiteks keskväärtuse, hindamiseks erinevatest valimi andmetest võib kasutada mitmesuguseid arvutusreegleid. Üks lihtne viis keskväärtuse määramiseks on võtta valimi kõige väiksema ja suurima väärtuse keskmine, st. liita need kaks väärtust kokku ja jagada kahega. See meetod on eriti kasulik, kui valim on väike ja soovitakse kiiresti saada ligikaudset hinnangut keskväärtusele. Kui aga valim on suur ja sisaldab äärmuslikke väärtusi, mis võivad tulemust moonutada, on mõistlik kasutada aritmeetilist keskmist, kust on välja jäetud kõige väiksem ja suurim väärtus. Selline lähenemine aitab vähendada üksikute ebatavaliste väärtuste mõju keskmisele, andes seeläbi usaldusväärsema ülevaate üldkogumi keskväärtusest.</p>
+<p>Punkthinnangute arvutuseeskirjade analüüsiga tegelevat matemaatilise statistika haru nimetatakse <strong>hinnangute teooriaks</strong>.</p>
+<p>Nihketa hinnang tähendab, et kui me arvutame keskmise väärtuse kõikidest võimalikest hinnangutest, mida me saame valimi andmete põhjal, siis see keskmine peaks langema kokku tegeliku väärtusega, mida me üritame hinnata. See on nagu täpselt sihtpunkti tabamine. Kui hinnang on nihkega, siis see tähendab, et meie hinnangud kipuvad süstemaatiliselt olema kas liiga kõrged või liiga madalad võrreldes tegeliku väärtusega.</p>
+<p>Hinnangu headust mõjutab oluliselt ka selle hajuvus, mida näitab standardhälve – see ütleb meile, kui palju hinnangud tegelikust väärtusest keskmiselt kõiguvad. Mida väiksem on hajuvus, seda usaldusväärsem on hinnang. Hajuvus sõltub suuresti valimi suurusest: mida suurem on valim, seda väiksem on hajuvus. See tähendab, et hinnangu täpsuse suurendamiseks, näiteks kahekordistamiseks, peame valimi suurust suurendama neli korda. Teisisõnu, suurema valimi korral saame täpsemaid hinnanguid, mis aitab meil teha paremaid järeldusi üldkogumi kohta.</p>
+<p>Kui kasutame sama valimit, võime saada erinevaid punkthinnanguid, olenevalt sellest, millist arvutusreeglit rakendame. Näiteks keskväärtuse hindamisel võib aritmeetiline keskmine anda kõige väiksema hajuvusega tulemuse, samas kui valimi minimaalse ja maksimaalse väärtuse keskmise kasutamine toob kaasa kõige suurema hajuvuse. Seega, kui valime hindamiseeskirja, peaksime otsima sellise, mis annab võimalikult väikese hajuvusega hinnangu.</p>
+<div id="keskväärtus" class="section level4 hasAnchor" number="6.1.1.1">
+<h4><span class="header-section-number">6.1.1.1</span> Keskväärtus<a href="#keskv%C3%A4%C3%A4rtus" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Keskväärtus ehk keskmine on statistiline näitaja, mis annab aritmeetilise keskmise kõikidest väärtustest mõõtmisel. See võimaldab kokku võtta suure hulga andmeid üheks esinduslikuks näitajaks, mis näitab, kui suur on väärtuste kogusumma ja kui palju on neid väärtusi.</p>
+<p>Keskväärtuse leidmiseks tuleb kõik andmed kokku liita ja seejärel jagada andmete arvu ehk elementide arvuga. Valem keskmise leidmiseks: Keskväärtus = (x1 + x2 + … + xn) / n, kus x1, x2, …, xn on andmed ja n on andmete arv.</p>
+<p>Näide R-is:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="statistilised-hinnangud.html#cb50-1" tabindex="-1"></a><span class="co"># Arvutame keskmise</span></span>
+<span id="cb50-2"><a href="statistilised-hinnangud.html#cb50-2" tabindex="-1"></a><span class="fu">mean</span>(andmed)</span></code></pre></div>
+<pre><code>## [1] 50,16128</code></pre>
+<p><strong>Näide Excelis:</strong></p>
+<pre class="excel"><code>Lahtrisse B1 sisesta järgnev valem: `=AVERAGE(andmeplokk)`</code></pre>
+<p>Excel arvutab nüüd nende andmete keskmise, näidates tulemust lahtris B1.</p>
+</div>
+<div id="dispersioon" class="section level4 hasAnchor" number="6.1.1.2">
+<h4><span class="header-section-number">6.1.1.2</span> Dispersioon<a href="statistilised-hinnangud.html#dispersioon" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Dispersioon on statistiline mõiste, mis kirjeldab, kui palju hajuvad andmed keskmisest väärtusest. Dispersioon annab aimu sellest, kui palju erinevad üksikandmed keskmisest ning kui suur on nende vahemik. Mida suurem on dispersioon, seda ebaühtlasemalt on andmed hajunud keskmise ümber.</p>
+<p><strong>R näide:</strong></p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="statistilised-hinnangud.html#cb53-1" tabindex="-1"></a><span class="co"># Leiame andmehulga dispersiooni funktsiooni var()</span></span>
+<span id="cb53-2"><a href="statistilised-hinnangud.html#cb53-2" tabindex="-1"></a><span class="fu">var</span>(andmed)</span></code></pre></div>
+<pre><code>## [1] 98,34589</code></pre>
+<p><strong>Näide Excelis:</strong></p>
+<pre class="excel"><code>`=VAR(andmeplokk)`</code></pre>
+<p>Mida väiksem on dispersioon, seda kitsam on andmehulga hajuvus. Dispersiooni arvutamise valem võib Excelis varieeruda sõltuvalt sellest, kas soovite arvutada dispersiooni populatsiooni (VAR.P) või valimi (VAR.S) põhjal. R-is kasutatakse funktsiooni <code>var()</code> populatsiooni hinnangu jaoks ning <code>var(x, y = 1)</code> valimi hinnangu jaoks, kus <code>x</code> on andmehulk ja <code>y</code> on valimi põhjal arvutatava dispersiooni korrigeerimise parameetrit väljendav arv.</p>
+</div>
+<div id="dispersiooni-viga" class="section level4 hasAnchor" number="6.1.1.3">
+<h4><span class="header-section-number">6.1.1.3</span> Dispersiooni viga<a href="statistilised-hinnangud.html#dispersiooni-viga" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Dispersiooni viga (inglise keeles dispersion error) on statistiline mõiste, mis mõõdab hajuvust või ebatäpsust andmete hulgas. See näitab, kui palju erinevad individuaalsed andmed keskmisest ning omab olulist tähtsust hinnangute usaldusväärsuse hindamisel.</p>
+<p>Dispersiooni viga arvutatakse tavaliselt järgmise valemiga:
+<span class="math display">\[ SE = \sqrt{\frac{s^2}{n}} \]</span>
+kus <span class="math inline">\(SE\)</span> on dispersiooni viga, <span class="math inline">\(s^2\)</span> on proovikogumi dispersioon (standardhälve ruudus) ja <span class="math inline">\(n\)</span> on proovikogumi suurus.</p>
+<p>Näide R-is:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="statistilised-hinnangud.html#cb56-1" tabindex="-1"></a><span class="co"># Arvutame keskmise ja standardhälbe</span></span>
+<span id="cb56-2"><a href="statistilised-hinnangud.html#cb56-2" tabindex="-1"></a>keskmine <span class="ot">&lt;-</span> <span class="fu">mean</span>(andmed)</span>
+<span id="cb56-3"><a href="statistilised-hinnangud.html#cb56-3" tabindex="-1"></a>dispersioon <span class="ot">&lt;-</span> <span class="fu">sd</span>(andmed)</span>
+<span id="cb56-4"><a href="statistilised-hinnangud.html#cb56-4" tabindex="-1"></a></span>
+<span id="cb56-5"><a href="statistilised-hinnangud.html#cb56-5" tabindex="-1"></a><span class="co"># Arvutame dispersiooni vea</span></span>
+<span id="cb56-6"><a href="statistilised-hinnangud.html#cb56-6" tabindex="-1"></a><span class="fu">sqrt</span>(dispersioon<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> <span class="fu">length</span>(andmed))</span></code></pre></div>
+<pre><code>## [1] 0,3136015</code></pre>
+<p><strong>Näide Excelis:</strong></p>
+<pre class="excel"><code>=SQRT(STDEV(A1:A10)^2/COUNT(A1:A10)) # dispersioonivea arvutamine</code></pre>
+<p>Nii R-is kui ka Excelis arvutatud dispersiooni viga võimaldab hinnata, kui hästi keskmine esindab tervet andmestikku ning milline võiks olla keskmise usaldusväärsus.</p>
+</div>
+<div id="standardhälve" class="section level4 hasAnchor" number="6.1.1.4">
+<h4><span class="header-section-number">6.1.1.4</span> Standardhälve<a href="#standardh%C3%A4lve" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Standardhälve (või standardhälve, lühendina SD) on statistiline mõõde, mis näitab, kui palju erinevad andmed üldisest keskmisest. Mida suurem on standardhälve, seda laiem on andmehulkude ja keskmise hajuvus. Standardhälve on oluline näitaja, kui soovitakse analüüsida andmete levikut ning võrrelda erinevaid andmehulki.</p>
+<p><strong>Näide R-is:</strong></p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="statistilised-hinnangud.html#cb59-1" tabindex="-1"></a><span class="co"># Arvutame standardhälbe</span></span>
+<span id="cb59-2"><a href="statistilised-hinnangud.html#cb59-2" tabindex="-1"></a><span class="fu">sd</span>(andmed)</span></code></pre></div>
+<pre><code>## [1] 9,91695</code></pre>
+<p><strong>Näide Excelis:</strong></p>
+<pre class="excel"><code>=STDEV(A1:A10)</code></pre>
+<p>Näiteks standardhälve arvutamine saab olla vajalik, kui soovitakse teada saada, kui palju erinevad metsanduses mõõdetud puude kõrgused üksteisest ning millised puud on silmatorkavalt kõrgemad või madalamad.</p>
+</div>
+<div id="standardhälbe-viga" class="section level4 hasAnchor" number="6.1.1.5">
+<h4><span class="header-section-number">6.1.1.5</span> Standardhälbe viga<a href="#standardh%C3%A4lbe-viga" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Standardhälve viga on statistiline mõõde, mis näitab, kui palju keskmisest erinevad kogumandmete proovide keskmised tulemused. Standardhälbe viga arvutatakse kogu andmestiku standardhälbe ja proovide arvu ruutjuure suhtes ning seda väljendatakse tavaliselt protsentides.</p>
+<p>Standardhälbe vea valem on järgmine:
+<span class="math display">\[ SE = \frac{s}{\sqrt{n}}\]</span>
+Kus:
+- <span class="math inline">\(SE\)</span> on standardhälbe viga
+- <span class="math inline">\(s\)</span> on proovi standardhälve
+- <span class="math inline">\(n\)</span> on proovide arv</p>
+<p>Näide R-is:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="statistilised-hinnangud.html#cb62-1" tabindex="-1"></a><span class="co"># Arvuta standardhälve</span></span>
+<span id="cb62-2"><a href="statistilised-hinnangud.html#cb62-2" tabindex="-1"></a>sd_andmed <span class="ot">&lt;-</span> <span class="fu">sd</span>(andmed)</span>
+<span id="cb62-3"><a href="statistilised-hinnangud.html#cb62-3" tabindex="-1"></a></span>
+<span id="cb62-4"><a href="statistilised-hinnangud.html#cb62-4" tabindex="-1"></a><span class="co"># Arvuta standardhälbe viga</span></span>
+<span id="cb62-5"><a href="statistilised-hinnangud.html#cb62-5" tabindex="-1"></a>sd_andmed <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(andmed))</span></code></pre></div>
+<pre><code>## [1] 0,3136015</code></pre>
+<p><strong>Näide Excelis:</strong></p>
+<ul>
+<li>Arvuta standardhälbe viga: <code>=STDEV.S(A1:A10)/SQRT(COUNT(A1:A10))</code></li>
+</ul>
+<p>Saadud tulemus annabki standardhälbe vea, mis aitab hinnata, kui täpselt proov keskmisega kogu populatsiooni keskmine kokku langeb. Mida väiksem on standardhälbe viga, seda täpsem on proovi keskmine hinnang kogu populatsiooni keskmisele.</p>
+</div>
+<div id="standardviga" class="section level4 hasAnchor" number="6.1.1.6">
+<h4><span class="header-section-number">6.1.1.6</span> Standardviga<a href="statistilised-hinnangud.html#standardviga" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Standardviga on statistiline mõiste, mis näitab, kui suur on keskmise arvutatud vaatlusväärtuse kõikumine tegeliku keskmise hinnangu ümber. Standardviga väljendatakse tavaliselt samades ühikutes nagu uuritav tunnus. Mida väiksem on standardviga, seda usaldusväärsemat hinnangut saab anda populatsiooni keskmisele.</p>
+<p>Näide R-is:
+Eeldame, et meil on andmestik veekogude sügavuste kohta:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="statistilised-hinnangud.html#cb64-1" tabindex="-1"></a>keskmine <span class="ot">&lt;-</span> <span class="fu">mean</span>(andmed)</span>
+<span id="cb64-2"><a href="statistilised-hinnangud.html#cb64-2" tabindex="-1"></a><span class="fu">sd</span>(andmed) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(andmed))</span></code></pre></div>
+<pre><code>## [1] 0,3136015</code></pre>
+<p>Antud näites arvutatakse andmestiku standardiga funktsiooniga <code>sd</code> ning seejärel jagatakse see juur arvutatud andmete arvuga, et saada standardviga.</p>
+<p><strong>Näide Excelis:</strong></p>
+<pre class="excel"><code>=STDEV(A1:A10) / SQRT(COUNT(A1:A10))</code></pre>
+<p>Seejärel saab Excelis automaatselt arvutada standardvea vastavalt antud andmestikule.</p>
+</div>
+<div id="katsetäpsus" class="section level4 hasAnchor" number="6.1.1.7">
+<h4><span class="header-section-number">6.1.1.7</span> Katsetäpsus<a href="#katset%C3%A4psus" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Katsetäpsus või eksperimentaaltäpsus kirjeldab seda, kui hästi korduvad mõõtmised või katsetulemused on omavahel kooskõlas. See mõiste aitab hinnata katse tulemuste usaldusväärsust ja täpsust. Kõrge katsetäpsuse puhul on korduvate katsete tulemused sarnased, samas kui madala katsetäpsuse korral võivad tulemused varieeruda suurel määral.</p>
+<p>Näide R-is:</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="statistilised-hinnangud.html#cb67-1" tabindex="-1"></a><span class="co"># Loome andmestiku</span></span>
+<span id="cb67-2"><a href="statistilised-hinnangud.html#cb67-2" tabindex="-1"></a></span>
+<span id="cb67-3"><a href="statistilised-hinnangud.html#cb67-3" tabindex="-1"></a><span class="co"># Leiame keskmise ning standardhälbe</span></span>
+<span id="cb67-4"><a href="statistilised-hinnangud.html#cb67-4" tabindex="-1"></a>keskmine <span class="ot">&lt;-</span> <span class="fu">mean</span>(andmed)</span>
+<span id="cb67-5"><a href="statistilised-hinnangud.html#cb67-5" tabindex="-1"></a>sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(andmed)</span>
+<span id="cb67-6"><a href="statistilised-hinnangud.html#cb67-6" tabindex="-1"></a></span>
+<span id="cb67-7"><a href="statistilised-hinnangud.html#cb67-7" tabindex="-1"></a><span class="co"># Arvutame katsetäpsuse</span></span>
+<span id="cb67-8"><a href="statistilised-hinnangud.html#cb67-8" tabindex="-1"></a>sd <span class="sc">/</span> keskmine</span></code></pre></div>
+<pre><code>## [1] 0,1977013</code></pre>
+<p><strong>Näide Excelis:</strong></p>
+<pre class="excel"><code>`=STDEV(A1:A10)/AVERAGE(A1:A10)` (katsetäpsus)</code></pre>
+<p>Sellisel juhul väljastavad R ja Excel katsetäpsuse väärtuse, mis aitab hinnata antud mõõtmiste korduvust ja usaldusväärsust.</p>
+</div>
+<div id="variatsioonikordaja" class="section level4 hasAnchor" number="6.1.1.8">
+<h4><span class="header-section-number">6.1.1.8</span> Variatsioonikordaja<a href="statistilised-hinnangud.html#variatsioonikordaja" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Variatsioonikordaja on statistiline mõõde, mis väljendab protsendina muutuvust numbriliste andmete hulgas. See võimaldab hinnata, kui suur on andmete hajuvus keskmisest väärtusest ning võrrelda erinevate muutujate hajuvust.</p>
+<p>Variatsioonikordajat saab arvutada järgmise valemiga:</p>
+<p><span class="math display">\[
+CV = \left(\frac{sd}{\bar{x}}\right) \times 100\%,
+\]</span></p>
+<p>kus:
+- <span class="math inline">\(CV\)</span> on variatsioonikordaja,
+- <span class="math inline">\(sd\)</span> on standardhälve ehk standardne kõrvalekalle ja
+- <span class="math inline">\(\bar{x}\)</span> on aritmeetiline keskmine.</p>
+<p>Näide R-is:</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="statistilised-hinnangud.html#cb70-1" tabindex="-1"></a><span class="co"># Arvutame keskmise ja standardhälbe</span></span>
+<span id="cb70-2"><a href="statistilised-hinnangud.html#cb70-2" tabindex="-1"></a>keskmine <span class="ot">&lt;-</span> <span class="fu">mean</span>(andmed)</span>
+<span id="cb70-3"><a href="statistilised-hinnangud.html#cb70-3" tabindex="-1"></a>sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(andmed)</span>
+<span id="cb70-4"><a href="statistilised-hinnangud.html#cb70-4" tabindex="-1"></a></span>
+<span id="cb70-5"><a href="statistilised-hinnangud.html#cb70-5" tabindex="-1"></a><span class="co"># Arvutame variatsioonikordaja</span></span>
+<span id="cb70-6"><a href="statistilised-hinnangud.html#cb70-6" tabindex="-1"></a>(sd <span class="sc">/</span> keskmine) <span class="sc">*</span> <span class="dv">100</span></span></code></pre></div>
+<pre><code>## [1] 19,77013</code></pre>
+<p>=STDEV(A1:A10)/AVERAGE(A1:A10) * 100</p>
+<p>Loodetavasti aitas see selgitus ja näited mõista variatsioonikordaja mõistet ja selle arvutamist nii R-is kui ka Excelis.</p>
+</div>
+<div id="variatsioonikordaja-viga" class="section level4 hasAnchor" number="6.1.1.9">
+<h4><span class="header-section-number">6.1.1.9</span> Variatsioonikordaja viga<a href="statistilised-hinnangud.html#variatsioonikordaja-viga" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Variatsioonikordaja viga on statistiline mõiste, mis näitab suurust, millega proov valimina võetud andmed erinevad populatsiooni üldisest muutujast. See arvutatakse suhtelise veana, võttes arvesse andmete keskmist ja standardhälvet.</p>
+<p>Variatsioonikordaja vigade arvutusvalemit saab defineerida järgnevalt:
+<span class="math display">\[ CV = \frac{s}{\bar{x}} \times 100\% \]</span>
+kus
+<span class="math inline">\(CV\)</span> - variatsioonikordaja viga,
+<span class="math inline">\(s\)</span> - standardhälve ja
+<span class="math inline">\(\bar{x}\)</span> - keskmine.</p>
+<p>Kui variatsioonikordaja viga on väike, siis võib järeldada, et andmed on stabiilsed ja usaldusväärsed. Kui see aga on suur, siis võib see tähendada, et andmed on dispersiooniga ebaühtlased.</p>
+<p>Näide R-keskkonnas:</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="statistilised-hinnangud.html#cb72-1" tabindex="-1"></a><span class="co"># Andmestik</span></span>
+<span id="cb72-2"><a href="statistilised-hinnangud.html#cb72-2" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>)</span>
+<span id="cb72-3"><a href="statistilised-hinnangud.html#cb72-3" tabindex="-1"></a></span>
+<span id="cb72-4"><a href="statistilised-hinnangud.html#cb72-4" tabindex="-1"></a><span class="co"># Keskmine ja standardhälve</span></span>
+<span id="cb72-5"><a href="statistilised-hinnangud.html#cb72-5" tabindex="-1"></a>keskmine <span class="ot">&lt;-</span> <span class="fu">mean</span>(andmed)</span>
+<span id="cb72-6"><a href="statistilised-hinnangud.html#cb72-6" tabindex="-1"></a>sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(andmed)</span>
+<span id="cb72-7"><a href="statistilised-hinnangud.html#cb72-7" tabindex="-1"></a></span>
+<span id="cb72-8"><a href="statistilised-hinnangud.html#cb72-8" tabindex="-1"></a><span class="co"># Variatsioonikordaja viga</span></span>
+<span id="cb72-9"><a href="statistilised-hinnangud.html#cb72-9" tabindex="-1"></a>sd <span class="sc">/</span> keskmine <span class="sc">*</span> <span class="dv">100</span></span></code></pre></div>
+<p>Excelis saab variatsioonikordaja vea lihtsalt arvutada järgmise valemi abil: <code>=STDEV(A2:E2)/A4*100</code>, kus A2:E2 on andmehulk ja A4 on keskmine.</p>
+<p>Variatsioonikordaja viga aitab hinnata andmete usaldusväärsust ja stabiilsust ning on oluline tööriist statistiliste analüüside tegemisel.</p>
+</div>
+</div>
+</div>
+<div id="vahemikhinnangud" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Vahemikhinnangud<a href="statistilised-hinnangud.html#vahemikhinnangud" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Üldkogumi parameetri vahemikhinnanguks nimetatakse valimi põhjal määratud vahemikku, kuhu see üldkogumi parameeter kuulub teatud (küllalt suure) tõenäosusega. Seda uurija poolt etteantavat tõenäosust nimetatakse usaldusnivooks ja tähistatakse traditsiooniliselt 1-<span class="math inline">\(\alpha\)</span>. Usaldusnivoo väärtuseks võetakse metsanduslikes uurimustes tavaliselt 0,95, kuid vastavalt uurija kaalutlustele võib selleks olla ka 0,90; 0,99 või mingi muu suur tõenäosus. Vastavalt usaldusnivoo etteantud väärtusele arvutatakse parameetri usalduspiirid, s.o kaks arvu, mille vahel asub üldkogumi parameeter tõenäosusega 1-<span class="math inline">\(\alpha\)</span>. Teades, et parameetri hinnang on juhuslik suurus, võib alumist usalduspiiri vaadelda kui parameetri hinnangu <span class="math inline">\(\alpha\)</span>/2-kvantiili ja ülemist usalduspiiri kui parameetri hinnangu 1-<span class="math inline">\(\alpha\)</span>/2-kvantiili.</p>
+<div id="keskväärtuse-usalduspiirid" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Keskväärtuse usalduspiirid<a href="#keskv%C3%A4%C3%A4rtuse-usalduspiirid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Keskväärtuse usalduspiirid on statistiline mõiste, mis aitab hinnata keskmise väärtuse usaldusväärsust. Keskväärtus ehk tõenäosusega 1-<span class="math inline">\(\alpha\)</span> keskmisele vastav populatsiooni parameeter paikneb usalduspiiride vahemikus keskmise ise ja sellest suurema või väiksema arvu vahel.</p>
+<p>Usalduspiirid aitavad mõõta seda, kui kindlalt võime väita, et hinnatud keskmine väärtus on populatsiooni tegelik keskmine väärtus. Usalduspiiride arvutamiseks kasutatakse tavaliselt keskväärtuse ja standardvea suhet ning t-tabelist leitakse vastav kriitiline tõenäosus. Näiteks 95% usaldusvahemik tähendab, et oleme 95% kindlad, et populatsiooni keskmine jääb antud vahemiku sisse.</p>
+<p>Keskväärtuse usalduspiirid on olulised, kui soovime teha järeldusi populatsiooni keskmise kohta, kuid ei saa seda täpselt kindlaks teha. Need aitavad meil hinnata tulemuste usaldusväärsust ja teha otsuseid põhinedes piisavalt kindlatel andmetel.</p>
+</div>
+<div id="dispersiooni-usalduspiirid" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Dispersiooni usalduspiirid<a href="statistilised-hinnangud.html#dispersiooni-usalduspiirid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Dispersiooni usalduspiirid on statistilised piirid, mis näitavad, kui palju võib populatsiooni dispersioon, standardhälve või varieerumine erineda, kui võtame arvesse valimi dispersiooni. Usalduspiirid annavad meile võimaluse teha järeldusi populatsiooni dispersiooni kohta, kui meil on vaid valimi andmed.</p>
+<p>Dispersiooni usalduspiirid arvutatakse tavaliselt usaldusvahemikuna, mis näitab, milline on tõenäosus, et populatsiooni dispersioon jääb kindla vahemiku piiresse. Näiteks 95% usalduspiirid tähendavad, et 95% tõenäosusega langeb populatsiooni dispersioon selle vahemiku sisse.</p>
+<p>Usalduspiiride arvutamine toimub tavaliselt tundmatu populatsiooni dispersiooni põhjal, kasutades valimi dispersiooni ja valimi suurust. Usalduspiiride laiust mõjutavad valimi suurus, usaldusvahemik ning populatsiooni dispersiooni enda suurus.</p>
+<p>Dispersiooni usalduspiirid on olulised tööriistad statistikas, sest need aitavad meil teha järeldusi populatsiooni varieeruvuse kohta ning hinnata, kui usaldusväärsed on meie tulemused. Mõistes dispersiooni usalduspiiride kontseptsiooni, saavad metsandustudengid paremini analüüsida ja tõlgendada metsanduslike andmete varieeruvust ning teha ratsionaalseid otsuseid metsandusalastes uurimustes.</p>
+</div>
+<div id="binoomjaotuse-usalduspiirid" class="section level3 hasAnchor" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Binoomjaotuse usalduspiirid<a href="statistilised-hinnangud.html#binoomjaotuse-usalduspiirid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Binoomjaotus on tõenäosusteoorias kasutatav jaotus, mis kirjeldab kahe võimaliku tulemusega eksperimentide tulemuste jaotust. Näiteks võib binoomjaotust kasutada olukorras, kus uuritakse mingi sündmuse (nt müntide viskamine, taimede ellujäämine) kordaminekut (edu) või ebaõnnestumist (ebaedu). Binoomjaotuse parameeter p tähistab tõenäosust, et sündmus toimub ühel katsekorral.</p>
+<p>Usalduspiirid on hinnangulised piirid, mille sisaldamisel on kindel usaldustase, et parameetri tegelik väärtus jääb nende piiride vahele. Binoomjaotuse puhul tähendab see, et soovime leida piirid, mille vahel paikneb tõenäosus, et sündmus toimub ühel katsekorral.</p>
+<p>Binoomjaotuse puhul saab leida 100(1-<span class="math inline">\(\alpha\)</span>)% usaldusvahemiku soovitud usaldustasemega <span class="math inline">\(\alpha\)</span>. Usalduspiirid leitakse tavaliselt normaaljaotuse abil, kasutades normaaljaotuse ligilähedast seost binoomjaotusega (kui n on piisavalt suur). Kui binoomjaotuse põhjal antakse 100(1-<span class="math inline">\(\alpha\)</span>)% usaldusvahemik, siis näeb see välja järgmine:</p>
+<p><span class="math display">\[
+\hat{p} ± Z_{1-\frac{\alpha}{2}} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}},
+\]</span></p>
+<p>kus <span class="math inline">\(\hat{p}\)</span> on valimi proportsioon, <span class="math inline">\(Z_{1-\frac{\alpha}{2}}\)</span> on normaaljaotuse kvantiil vastava usaldustasemega ja n on valimi suurus.</p>
+<p>Kokkuvõttes on binoomjaotuse parameetri p usalduspiirid hinnangulised piirid, mille vahel on kindel usaldustase, et parameetri tegelik väärtus paikneb. Need piirid aitavad teha järeldusi tõenäosuse kohta, et sündmus toimub ühel katsekorral.</p>
+</div>
+<div id="standardhälbe-usalduspiirid" class="section level3 hasAnchor" number="6.2.4">
+<h3><span class="header-section-number">6.2.4</span> Standardhälbe usalduspiirid<a href="#standardh%C3%A4lbe-usalduspiirid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Standardhälbe usalduspiirid on statistiline mõiste, mis aitab hinnata andmeid või tulemusi ning nende usaldusväärtust. Standardhälve on mõõtühik, mis näitab, kui palju erinevad keskmised tulemused koondumisest keskmise ümber.</p>
+<p>Standardhälbe usalduspiirid näitavad, kui kindlalt võib olla keskmise tulemuse usaldusväärsus teatud vahemikus. Enamasti kasutatakse 95% usalduspiire, mis tähendab, et 95% tõenäosusega jääb tulemus antud usalduspiiride vahemikku. Usalduspiirid arvutatakse keskmise tulemuse ja standardhälbe põhjal.</p>
+<p>Standardhälbe usalduspiiride kasutamine aitab hinnata andmete usaldusväärsust ning teha järeldusi selle kohta, kui suures määras võivad andmed hajuda. See on oluline statistiline tööriist, mis aitab metsandustudengitel analüüsida andmeid ja teha tõenduspõhiseid otsuseid metsanduse valdkonnas.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="jaotusfunktsioonid.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="mitme-tunnuse-koosanalüüs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

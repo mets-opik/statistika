@@ -1,0 +1,61 @@
+# Mitteparameetriline analüüs
+
+## Üldistatud aditiivne mudel
+
+Üldistatud aditiivne mudel (GAM) on statistiline mudel, mis laieneb lineaarregressiooni R-keele abil. See võimaldab modelleerida mitte-lineaarset sõltuvussuhet eesmärgi muutuja ja sellega seotud tunnuste vahel, lisades mudelisse siledaid funktsioone.
+
+GAM mudelit saab R-keskkonnas rakendada package'iga "mgcv" (Multidimensional Generalized Cross-Validation) ning see võimaldab kasutajal määrata siledad funktsioonid (nt splines, loess), mis kajastavad eesmärgi muutuja ja sellega seotud tunnuste vahelist mitte-lineaarset seost.
+
+GAM mudeli loomisel tuleb määrata eesmärgi muutuja ning sellega seotud tunnused, mida soovitakse mudelis arvesse võtta. Samuti tuleb valida siledad funktsioonid ja kontrollida, kas mudel on piisavalt hea eesmärgi või nähtuse seletamiseks. Mudeli sobivuse hindamiseks saab kasutada erinevaid meetodeid, nagu näiteks R-ruut (R-squared) või ristvaliatsioon.
+
+Kokkuvõttes võimaldab GAM mudel R-keskkonnas paindlikult modelleerida mitte-lineaarseid seoseid andmete vahel ning anda sügavamat arusaamist analüüsitava nähtuse kohta.
+
+GAM mudel on statistiline meetod, mis võimaldab mittemeetriliste muutujate mitte-lineaarset mõju modelleerimist. Allpool on näide GAM mudeli kasutamisest R-i tarkvaras:
+
+Järgnevalt demonstreerime, kuidas kasutada üldistatud aditiivset mudelit (GAM) sõltuva muutuja \(H\) ja sõltumatu muutuja \(D1\) suhte modelleerimiseks, kasutades andmestikku `andmed`. Seejärel visualiseeritakse andmed ja mudeli ennustused.
+```{r}
+require(mgcv)
+```
+
+
+- **Mudeli loomine kasutades `gam` funktsiooni:**
+ - `gam_model <- gam(H ~ s(D1), data=andmed)`
+ - See rida loob generaliseeritud aditiivse mudeli, määrates sõltuvaks muutujaks \(H\) ja sõltumatuks muutujaks \(D1\), kasutades sujuvusfunktsiooni `s()`. Sujuvusfunktsioon võimaldab modelleerida keerukamaid, mittelineaarseid suhteid \(H\) ja \(D1\) vahel. Mudeli loomiseks kasutatakse andmestikku `andmed`.
+
+```{r}
+# loome GAM mudeli
+(gam_model <- gam(H ~ s(D1), data=andmed))
+```
+- **Andmete visualiseerimine:**
+ - `plot(H~D1, andmed, ylim=c(10, 35), xlim = c(10, 40))`
+ - See rida visualiseerib andmed, joonistades \(H\) väärtused sõltuvalt \(D1\) väärtustest, kasutades andmestikku `andmed`. `ylim` ja `xlim` argumendid määravad vastavalt y- ja x-telje piirid, et parandada graafiku loetavust, seades y-telje piirid vahemikku 10 kuni 35 ja x-telje piirid vahemikku 10 kuni 40.
+ - `curve(predict(gam_model, data.frame(D1 = x)), 10, 40, add=T, col = 2)`
+ - See rida lisab esialgsele graafikule mudeli ennustused. `predict` funktsioon arvutab ennustatud \(H\) väärtused uute \(D1\) väärtuste jaoks, kasutades `gam_model` mudelit. `curve` funktsioon joonistab need ennustused graafikule vahemikus 10 kuni 40, kasutades `x` kui sõltumatut muutujat, mis esindab \(D1\) väärtusi. `add=T` argument tähistab, et ennustuskõver lisatakse olemasolevale graafikule, ja `col = 2` määrab ennustuskõvera värvi (tavaliselt punane).
+
+```{r, fig.cap = "Üldistatud aditiivse mudel"}
+plot(H~D1, andmed, ylim=c(10, 35), xlim = c(10, 40))
+curve(predict(gam_model, data.frame(D1 = x)), 10, 40, add=T, col = 2)
+```
+
+- **Komponendi sujuvusgraafikud:**
+ - `plot(gam_model)`. 
+ - Kui mudel sisaldab sujuvusfunktsiooni `s()` kasutades määratletud sõltumatu muutuja \(D1\), genereeritakse sujuvusgraafik, mis näitab, kuidas sõltuv muutuja \(H\) muutub sõltumatu muutuja \(D1\) suhtes. Graafikud illustreerivad sujuva komponendi mõju, koos usaldusvahemikega, mis aitavad hinnata mudeli kindlust ja varieeruvust.
+
+```{r, fig.cap = "Üldistatud aditiivse mudeli mõju"}
+plot(gam_model)
+```
+
+- **jääkide tihedusjaotust**
+ - `resid(gam_model)`
+ - See funktsioon arvutab ja tagastab mudeli `gam_model` jäägid, mis on vahe tegelike ja ennustatud väärtuste vahel. Jäägid on olulised mudeli sobivuse ja eelduste kontrollimiseks.
+
+ - `density()`
+ - Funktsioon arvutab jääkide tihedusfunktsiooni, mis on sujuv hinnang jääkide jaotusele. Tihedusfunktsioon näitab, kui tõenäoline on iga jääkide väärtus, andes visuaalse esituse jääkide jaotusest.
+
+ - `plot()`
+ - Lõpuks joonistab `plot` funktsioon tihedusfunktsiooni graafiku. Parameeter `main = ""` määrab, et graafikul ei ole pealkirja, jättes graafiku ülaosa tühjaks.
+
+
+```{r, fig.cap = "Jääkide tihedusfunktsioon"}
+plot(density(resid(gam_model)), main = "")
+```

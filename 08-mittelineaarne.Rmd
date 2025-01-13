@@ -1,0 +1,51 @@
+# Mittelineaarne regressioon
+
+Mõnikord on vaja funktsioontunnuse sõltuvust argumenttunnusest lähendada funkt-siooniga, mida ei ole võimalik teisendada parameetrite suhtes lineaarsele kujule. Tavaliselt kasutatakse mitte¬lineaarseid funktsioone suhteliselt keeruliste tugevalt kõver-jooneliste sõltuvuste modelleerimiseks. Mudelina rakendatavad funktsioonid on mitte-lineaarsed seetõttu, et nad on tuletatud modelleeritava protsessi olemust kajas¬tavatest eeldustest. 
+Mittelineaarse regressioonivalemi parameetrite hindamine katseandmete põhjal on üsna problemaatiline ülesanne. Selleks peab funktsiooni parameetrite kohta teadma nende ligikaudseid alghinnanguid. Mittelineaarsete parameetrite hindamiseks tuleb kasutada mingit optimeerimis¬algoritmi, mille arvutamine on tunduvalt aeganõudvam, kui lineaarse regressioonanalüüsi tegemine. Lisaks sellele ei õnnestugi alati optimaalset lahendit saada. 
+
+Näiteks, kui soovime R-is kasutada `nls()` mudelit, mis kirjeldab puu kõrgust sõltuvalt puu diameetrist, võime kasutada järgmist näidiskoodi. 
+
+```{r}
+# Loe andmed sisse failist "puud.xlsx"
+andmed <- subset(openxlsx::read.xlsx("data/puud.xlsx"), H > 0)
+
+# Määratle mudeli funktsioon
+puu_mudel <- function(D, a, b, c) {
+ 1.3 + a * (D / (D + b))^c
+}
+
+# Omista algväärtused parameetritele
+algväärtused <- list(a = 1, c = 0.5)
+
+# Sobita mudel andmetele
+mudel <- nls(H ~ puu_mudel(D1, a, 5, c), data = andmed, start = algväärtused)
+
+# Vaata mudeli kokkuvõtet
+summary(mudel)
+```
+
+Esitame selle kohta ka graafiku, millele lisame mudeli joone funktsioonidega `curve()` ja `predict()`, milles kasutame loodud mudeli objekti.
+
+```{r, fig.cap = "Mittelineaarne regressioon"}
+plot(H~D1, andmed, ylim=c(10, 35), xlim = c(10, 40))
+curve(predict(mudel, data.frame(D1 = x)), 10, 40, add=T, col = 2)
+```
+
+Kontrollime 
+
+```{r, fig.cap = "Jäägid vs ennustatud"}
+plot(fitted(mudel), resid(mudel),
+ xlab = "Ennustatud väärtused",
+ ylab = "Jäägid"
+ )
+abline(h = 0, col = "red")
+```
+
+```{r, fig.cap = "Jääkide normaaljaotuse test"}
+qqnorm(resid(mudel), main = "")
+qqline(resid(mudel), col = "red")
+```
+
+
+MS Exceli keskkonnas saab mittelineaarse funktsiooni parameetrite hindamiseks kasutada optimeerimisprotseduuri Solver. Selleks tuleks MS Exceli töölehele salvestada argumenttunnuse väärtused, funktsioontunnuse väärtused, prognoosifunktsiooni arvutusvalemid ja prognoosijääkide ruutude summa arvutuseeskiri. Samuti peavad töölehel olema lahtrid funktsiooni parameetrite jaoks, mida prognoosifunktsiooni arvutusvalemid kasutavad. 
+

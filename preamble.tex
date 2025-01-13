@@ -1,0 +1,97 @@
+\usepackage{booktabs}
+
+%\usepackage{titlesec}
+%\newcommand{\sectionbreak}{\clearpage}
+%, provide=*
+\usepackage[estonian, provide=*]{babel}
+\usepackage{float}
+
+\usepackage{CormorantGaramond}
+%\usepackage{ebgaramond-maths}
+\usepackage{times}
+
+\usepackage{makeidx}
+
+
+\usepackage[top=25mm,
+   bottom=25mm,
+   inner=25mm,
+   outer=20mm]{geometry}
+
+\usepackage[labelsep=period,small,singlelinecheck=false]{caption}
+
+\usepackage{fancyhdr}
+
+\setlength{\headheight}{15pt}
+\fancypagestyle{plain}{%
+	\fancyhf{} % eemalda kõik päised ja jalused
+	\renewcommand{\headrulewidth}{0pt} % eemalda joon päise all
+	\fancyfoot[C]{\thepage} % ainult lehekülje number
+}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\leftmark}
+\fancyhead[LO]{\rightmark}
+
+   
+% Kaane kujunduse määratlus
+\usepackage{graphicx} % Vajalik piltide lisamiseks
+\usepackage[absolute,overlay]{textpos} % Teksti paigutamiseks pildi peale
+\usepackage{xcolor} % Värvi kasutamiseks
+
+\DefineVerbatimEnvironment{naideExcel}{Verbatim}{
+	xleftmargin=.5cm,
+	fontsize=\small,
+	formatcom=\color{blue},
+	baselinestretch=0.9,
+	fontfamily=cmtt
+}
+
+
+\renewcommand{\normalsize}{\fontsize{12}{18}\selectfont}
+
+
+%\RecustomVerbatimEnvironment{Highlighting}{Verbatim}{fontsize=\small}
+\renewenvironment{Shaded} {\begin{snugshade}\footnotesize} {\end{snugshade}}
+% Kaane lehe määratlus
+\newcommand{\kaanekaas}{
+    \begin{titlepage} % Alustab kaane lehte
+    \begin{center}
+        \vspace*{5cm} % Lisab vertikaalset ruumi
+
+        % Raamatu pealkiri
+        {\Huge\bfseries Metsanduslik statistika }\\
+        \vspace{0.5cm}
+        
+        % Alapealkiri
+        {\Large R ja MS Excel keskkonnas}\\
+        \vspace{3cm}
+        
+        % Autor
+        {\Large\textit{Allan Sims}}\\
+        \vspace{0.5cm}
+        {\Large\textit{Andres Kiviste}}\\
+        \vspace{0.5cm}
+        {\Large\textit{Diana Laarmann}}\\
+        \vspace{1cm}
+        
+        % Kaanepilt
+        %\includegraphics[width=\textwidth]{kaanepilt.jpg}\\
+        %\vspace{2cm}
+        
+        % Avaldamise kuupäev või muu tekst
+        %{\Large 2024}
+        
+        \vfill
+        
+        % Kirjastuse või muu asjakohase info lisamine
+        {\large 2025}
+        
+    \end{center}
+    \end{titlepage}
+}
+
+% Kaane lehe lisamine dokumenti enne sisu algust
+\AtBeginDocument{\kaanekaas}
+   

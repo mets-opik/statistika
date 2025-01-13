@@ -1,0 +1,341 @@
+# Jaotusfunktsioonid
+
+Teoreetilisi jaotusi kasutatakse hüpoteeside testimisel statistilistes analüüsides selleks, et teha kindlaks, kas vaatlusandmete hajuvus on juhuslik või on olemas mingi muster või seos. Oluline on märkida, et enamik statistilisi teste eeldab teatud jaotuse tundmist, mille põhjal tehakse järeldusi populatsiooni kohta.
+
+Kõige tuntum teoreetiline jaotus on normaaljaotus, mis on sümmeetriline kõver ning annab tihti paljudele looduslikele nähtustele lähedase jaotuse. Normaaljaotus on oluline paljudes statistilistes testimistes, näiteks t-testis või ANOVA analüüsis. Kui andmed järgivad normaaljaotust, saab kasutada erinevaid statistilisi meetodeid.
+
+Lisaks normaaljaotusele on olulised ka teised jaotused, nagu näiteks binoomjaotus (kasutatakse binomiaalsete katsete puhul), eksponentiaaljaotus (kasutatakse elupikkuste analüüsimisel) ja Poissoni jaotus (kasutatakse haruldaste sündmuste analüüsimisel).
+
+Hüpoteeside testimisel võrreldakse empiirilisi andmeid teoreetiliste jaotustega, et teha järeldusi populatsiooni kohta. Näiteks võib uurida, kas kahe rühma keskmiste vahel on oluline erinevus või kas mingi seos on juhuslik või mitte. Sellisel juhul kasutatakse statistilisi teste, et hinnata, kas tulemus võib olla juhuslik või on tõenäoliselt tingitud tegelikust mõjust või seosest.
+
+## Hüpotees
+Hüpotees on statistikas väide või eeldus, millele toetudes teostatakse uuringuid, analüüsi või katseid. Hüpotees võib olla kas uurija poolt esitatud eeldus, mida on vaja tõestada või ümber lükata või juba olemasolev teooria, mida soovitakse kontrollida. Statistilises analüüsis on nullhüpotees (tähistatud kui \(H_0\)) teoreetiline väide, mis tavaliselt väljendab, et mingisugust mõju, erinevust või seost uuritavate muutujate vahel ei ole. See on baashüpotees, mida testitakse statistiliste meetodite abil, et hinnata, kas kogutud andmed annavad piisavalt tõendeid nullhüpoteesi tagasilükkamiseks või mitte.
+
+Statistilise testi põhiprotsess nullhüpoteesi kontekstis hõlmab järgmisi samme:
+
+1. **Nullhüpoteesi ja alternatiivhüpoteesi (\(H_a\)) sõnastamine**: Alternatiivhüpotees väljendab uuritava efekti, erinevuse või seose olemasolu. Hüpoteesid võib jagada kaheks: 
+
+- **Nullhüpotees (H0):** Nullhüpotees esitab eelduse, et mingit seost või erinevust populatsiooni omaduste vahel ei ole. Näiteks, kui soovid uurida, kas kahe rühma keskmised on erinevad, siis nullhüpotees võib olla, et keskmised ei erine.
+ 
+- **Alternatiivhüpotees (H1 või Ha):** Alternatiivhüpotees esitab vastupidise väite nullhüpoteesile. Kas nullhüpoteesi ei ole põhjust uskuda või kas kehtib eeldus, mille kohaselt on mingi seos olemas. jätkates eelnevat näidet, alternatiivhüpotees võib olla, et kahe rühma keskmised on erinevad.
+
+2. **Taseme (\(\alpha\)) valimine**: See on tõenäosus, millega ollakse valmis aktsepteerima valepositiivset tulemust (tüüp I viga), ehk olukorda, kus nullhüpoteesi lükatakse tagasi, kuigi see on tegelikult tõene. Tavaliselt kasutatakse 0.05 või 5% tasemet.
+
+3. **Sobiva statistilise testi valik** sõltuvalt andmete omadustest ja uurimisküsimusest.
+
+4. **Teststatistiku arvutamine ja P-väärtuse leidmine**: Teststatistiku väärtus näitab, kui tõenäoline on saadud või veelgi äärmuslikum tulemus, eeldusel, et nullhüpotees on tõene. P-väärtus väljendab seda tõenäosust.
+
+5. **Otsuse tegemine**: Kui P-väärtus on väiksem kui eelnevalt valitud tase \(\alpha\), siis lükatakse nullhüpotees tagasi. See tähendab, et leiti statistiliselt oluline erinevus. Kui P-väärtus on suurem kui \(\alpha\), siis nullhüpoteesi ei lükata tagasi.
+
+Tuleb arvestada, et nullhüpoteesi ei saa "tõestada", kuna statistiliste testidega ei saa nullhüpoteesi tõestada samamoodi, nagu matemaatikas võidakse tõestada väiteid. Selle asemel saab statistiliste testide abil hinnata, kas on piisavalt tõendeid nullhüpoteesi tagasilükkamiseks. Kui testi tulemus näitab, et andmed on nullhüpoteesiga vastuolus, siis võidakse nullhüpotees tagasi lükata. Kui aga testi tulemus ei näita olulist vastuolu nullhüpoteesiga, siis ei lükata nullhüpoteesi tagasi. Siiski, see ei tähenda, et nullhüpotees oleks "tõestatud"; pigem öeldakse, et ei leitud piisavalt tõendeid nullhüpoteesi ümberlükkamiseks. Oluline on mõista, et nullhüpoteesi mitte-tagasilükkamine ei tõesta selle paikapidavust. See viitab lihtsalt sellele, et andmed ei andnud piisavalt alust nullhüpoteesi ümber lükata. Samuti on oluline meeles pidada, et statistiliste testide tulemused annavad ainult tõenäosusliku hinnangu ning need tuleb alati panna laiemasse konteksti koos teiste tõendite ja teadmistega valdkonnast.
+
+## Jaotusfunktsioon
+
+Jaotusfunktsioon on viis näidata, kui tõenäoline on, et mingi arv (mida me nimetame muutujaks) on väiksem või võrdne kindla arvuga x. See aitab meil mõista, kuidas arvud (või muutujad) ühes grupis paiknevad või jaotuvad, näiteks kui me tahame teada, kui tõenäoline on, et metsa pindala on teatud suurusega või väiksem.
+
+Jaotusfunktsiooni olulised omadused on:
+
+1. Vahemik: jaotusfunktsioon võtab väärtuseid 0 ja 1 vahemikus, mis tähendab, et tõenäosus on alati selles vahemikus.
+
+2. Mittelangus: jaotusfunktsioon ei kasva kunagi tagurpidi; see liigub alati kas võrdse kõrguse juurde või kõrgemale.
+
+3. Ühekordsus: Ükskõik millised on väärtused, jaotusfunktsiooni koguulatus on alati 1.
+
+Jaotusfunktsiooni abil saame lahendada paljusid statistilisi ülesandeid. See aitab meil leida näiteks keskmisi väärtusi, hajuvust (ehk kui laiali arvud on jaotunud), tõenäosusi (kui tõenäoline on mingi sündmus), ja isegi määrata arvude jaotuse erinevaid tasemeid. See tähendab, et jaotusfunktsioon on tööriist, mis aitab meil mõista, kuidas andmed käituvad, ja teha selle põhjal täpseid otsuseid või järeldusi.
+
+Näide R-is jaotusfunktsiooni graafiliseks esitamiseks:
+
+Käsk `plot(ecdf(x), verticals = TRUE, main = "", xlab = "x", ylab = "F(x)", lwd = 2)` R keeles genereerib empirilise kumulatiivse jaotusfunktsiooni (ECDF) graafiku muutuja `x` andmetele. ECDF on kasulik statistiline tööriist, mis näitab iga andmepunkti või väiksemat väärtust omavate andmepunktide suhtelist osakaalu andmestikus. Allpool on toodud, kuidas see käsk töötab ja mida see illustreerib:
+
+
+- **`ecdf(x)`:** Loob empirilise kumulatiivse jaotusfunktsiooni andmestikust `x`. ECDF on funktsioon, mille väärtus igas punktis \(x\) on andmepunktide osakaal, mis on väiksem või võrdne \(x\)-ga. See on kasulik andmete jaotuse visualiseerimiseks ja andmepunktide vaheliste suhete mõistmiseks.
+
+- **`plot()`:** Joonistab ECDF graafiku. Selles kontekstis:
+ - `verticals = TRUE` määrab, et graafikule joonistatakse vertikaalsed jooned iga hüppe kohale, mis muudab jaotuse astmed visuaalselt selgemaks.
+ - `main = ""` jätab graafiku pealkirja tühjaks.
+ - `xlab = "x"` ja `ylab = "F(x)"` määravad vastavalt x-telje ja y-telje sildid. `x` tähistab andmepunkte ja `F(x)` on kumulatiivse jaotusfunktsiooni väärtus, mis näitab andmepunktide suhtelist kumulatiivset osakaalu.
+ - `lwd = 2` määrab joone laiuse, muutes joone graafikul paksemaks ja paremini nähtavaks.
+
+
+- **Andmete Jaotus:** ECDF graafik annab intuitiivse ülevaate andmete jaotusest, näidates, kui suur osa andmestikust on alla või võrdne iga võimaliku väärtusega. See on eriti kasulik andmete jaotuse mõistmiseks ilma eeldamata mingit konkreetset jaotustüüpi.
+
+- **Outlierid ja Andmete Levik:** Graafik võib samuti aidata tuvastada võimalikke väljapoole jäävaid väärtusi (outliereid) ja muid andmete leviku iseärasusi, näiteks kui andmete jaotus ei ole ühtlane.
+
+ECDF graafik on väärtuslik tööriist andmete uurimisel, võimaldades kiiresti hinnata andmete jaotuse omadusi ja tuvastada andmete levikuga seotud probleeme.
+
+```{r, fig.cap="Empiiriline jaotusfunktsioon erinevate meetoditega"}
+# Loome andmestik
+set.seed(123)
+x <- rnorm(1000, mean = 0, sd = 1)
+
+# Loome kumulatiivse jaotusfunktsiooni graafiku
+plot(ecdf(x), verticals = TRUE, main = "", xlab = "x", ylab = "F(x)", lwd = 2)
+
+# Arvutame sama kasutades funktsiooni quantile
+kv.pos <- seq(0, 1, by = 0.05)
+jf.q <- quantile(x, probs = kv.pos)
+lines(jf.q, kv.pos, col = 2, lty = 2, lwd=2)
+
+# Arvutame andmete sortimise kaudu
+# y tunnus on selle suhteline järjekorranumber ehk vahemikul 0 ... 1
+n <- length(x)
+lines(sort(x), 1:n/n, col = 3)
+
+```
+
+Selgitus:
+
+- Loome andmestiku `x`, kasutades siin normaaljaotuse näidet.
+- Joonistame kumulatiivse jaotusfunktsiooni kasutades `ecdf()` funktsiooni, mis arvutab empiirilise kumulatiivse jaotusfunktsiooni andmestiku põhjal.
+- `plot` funktsiooniga joonistame graafiku x-telje nimetuse ("x") ja y-telje nimetuse ("F(x)").
+- Arvutame kvantiilid (`quantile(x, probs = kv.pos)`) ning lisame joonisele tulemuse.
+- Järjestame kasvavas järjekorras (`sort(x)`) ning arvutame selle suhtelise järjekorranumbri (1:n/n)
+
+Need on erinevad võimalused arvutada empiirilist jaotusfunktsiooni.
+
+## Tihedusfunktsioon
+Tihedusfunktsioon on statistikas kasutatav funktsioon, mis kirjeldab tõenäosust, et juhuslik suurus langeb mingisse kindlasse vahemikku. Tihedusfunktsiooni saab kasutada tõenäosusjaotuse (nt normaaljaotus, Bernoulli jaotus jne) karakteriseerimiseks. See näitab, kui tõenäoline on konkreetse väärtuse saamine selle jaotuse järgi.
+
+Tihedusfunktsioon on graphiline joon, mis esitab tõenäosuse jaotuse ühtlase tervikuna. Üksiku väärtuse tõenäosus on antud tihedusfunktsiooni abil vahemikuna, mida funktsioon katab selles punktis. Tavaliselt on tihedusfunktsioon positiivne ja integreerub üle vahemiku 1, mis tähendab, et kõikidele võimalikele väärtustele vastavate tõenäosuste summa on alati 1.
+
+Metsanduses võib tihedusfunktsiooni kasutada näiteks puistu tiheduse jaotuse kirjeldamisel, kus tihedusfunktsioon näitab puude arvu tõenäosust kindlas pindalas. Tihedusfunktsioonide abil saab hinnata erinevaid statistilisi parameetreid nagu keskmine, mediaan, variatsioon jt, ning teha ennustusi ja otsuseid metsaressursi haldamisel ja planeerimisel.
+
+Tihedusfunktsioon (inglise keeles probability density function, lühidalt PDF) on statistikas oluline mõiste, mida kasutatakse tõenäosusjaotuse kirjeldamiseks. Tihedusfunktsioon annab meile informatsiooni selle kohta, kuidas on tõenäosus mingi juhusliku muutuja väärtuse jaotustel. Allpool on toodud mõned olulised statistilised omadused tihedusfunktsiooni kohta:
+
+`r print_termin('Integreeruvus')`: tihedusfunktsioon peab olema integreeruv kogu kandva ala suhtes, st selle integraal alates miinimum- kuni maksimumväärtuseni peab olema võrdne ühega. Teisisõnu, kogu võimaliku vaadeldava mahu (nt kogu metsaala, kus uuritakse puude tihedust) peab olema 100%.
+
+`r print_termin('Positiivsus:')` Tihedusfunktsiooni väärtused peavad olema alati positiivsed. See tähendab, et tõenäosus väärtuse sattumiseks konkreetsesse intervalli ei saa olla negatiivne.
+
+`r print_termin('Normaliseerumine:')` Tihedusfunktsioon peab olema normaliseeritud, mis tähendab, et alati, kui me integreerime tihedusfunktsiooni kogu liinil või tasandil, siis tulemuseks peab olema üks. See tagab, et tihedusfunktsioon annab meile täpse tõenäosuse, et vaadeldav suurus langeb mingisse kindlasse vahemikku.
+
+`r print_termin('Mitte-negatiivsus:')` Tihedusfunktsioon ei või mitte kunagi võtta negatiivseid väärtusi. See tähendab, et tõenäosus mingi suuruse väärtuse jaoks on alati null või suurem.
+
+`r print_termin('Tipukoha lokaliseerimine:')` Tihedusfunktsiooni tippkoht näitab moodi ehk suurimat tõenäosust mingi väärtuse saamiseks. Mood on statistikas näitaja, mis näitab, milline väärtus esineb andmehulgas kõige sagedamini ehk mis väärtusega esineb andmehulkade hulgas enim kordi. Mood on üks keskmiste näitajate tüüpe, mis aitab anda ülevaadet andmete esinemissagedusest konkreetse väärtuse juures. 
+
+Need omadused on olulised tihedusfunktsiooni mõistmisel ja kasutamisel statistilistes analüüsides, sealhulgas metsanduses, kus tihedusfunktsiooni abil saab kirjeldada erinevaid muutujaid nagu puu tihedus, metsa elujõulisus jne.
+
+Näide R-i koodist, mis genereerib normaaljaotuse tihedusfunktsiooni graafiku:
+
+```{r, fig.cap = "Empiiriline tihedusfunktsioon."}
+# Genereerime juhuslikud andmed normaaljaotusest
+
+# Koostame graafiku
+plot(df.tul <- density(x, bw = 0.3), main = "", xlab="x", ylab="f(x)")
+# leiame mood väärtuse: x väärtus, mille y on maksimaalne
+abline(v = df.tul$x[which(df.tul$y == max(df.tul$y))], col = 2)
+```
+
+See kood genereerib normaaljaotuse tihedusfunktsiooni graafiku, kus x-teljel on andmete väärtused ja y-teljel tihedusfunktsiooni väärtused. Graafik peaks näitama tüüpilist kausitaolist kõverust normaaljaotuse puhul. Vajadusel saab koodi muuta, et kohandada graafiku väljanägemist ja andmete genereerimise parameetreid vastavalt vajadusele.
+
+## Normaaljaotus
+Normaaljaotus ehk Gaussi jaotus on tõenäosusjaotus, mida iseloomustab sümmeetriline kellakujuline tõenäosustiheduse graafik ning parameetrid keskväärtus (mean) ja standardhälve (standard deviation). 
+
+Normaaljaotuse tõenäosustiheduse funktsioon on defineeritud järgmiselt:
+\[ f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}, \]
+kus:
+- \( f(x) \) on tõenäosustiheduse funktsioon;
+- \( \sigma \) on standardhälve, mis näitab, kui hajus on andmete hulk;
+- \( \mu \) on keskväärtus, mis näitab andmete keskmist väärtust;
+- \( e \) on Euleri arv, kus \( e \approx 2.71828 \).
+
+Normaaljaotuse oluline omadus on see, et suure hulga juhuslike sündmuste kogum tulemusena on nende keskmine jaotunud normaalselt. Samuti on oluline märkida, et normaaljaotus on sümmeetriline ning selle standardiseeritud kuju \( N(0,1) \) on standardnormaaljaotus, mille keskväärtus on 0 ja standardhälve on 1. 
+
+Normaaljaotus on laialdaselt kasutatav statistikas erinevate nähtuste kirjeldamisel ning analüüsimisel, sh metsanduses, kus seda võib kasutada näiteks puude kõrguse või läbimõõdu jaotuste modelleerimisel ning hindamisel.
+
+Normaaljaotust kasutatakse paljudes erinevates valdkondades, sealhulgas statistikas, majanduses ja teaduses. Metsanduses võib normaaljaotust kasutada näiteks metsa populatsiooni omaduste hindamiseks või metsanduslike nähtuste, nagu puude kõrgus või läbimõõt, jaotuse kirjeldamiseks.
+
+Siin on mõned põhjused, miks normaaljaotust kasutatakse:
+
+- Andmete kirjeldamine: Normaaljaotust kasutatakse tihti andmete kirjeldamiseks, kuna paljud looduslikud ja inimtegevuse tulemusena tekkinud nähtused järgivad sarnast jaotusmustrit. Normaaljaotus võimaldab kompaktselt kirjeldada, kuidas andmed on keskmise ümber hajunud.
+
+- Statistiliste meetodite rakendamine: Paljud statistilised meetodid eeldavad, et andmed järgivad normaaljaotust. Näiteks on t-test ja ANOVA analüüsid välja töötatud eeldusel, et andmed on normaalselt jaotunud. Seega aitab normaaljaotuse eeldamine tagada statistiliste meetodite usaldusväärsuse.
+
+- Prognoosimine ja ennustamine: Normaljaotuse kasutamine võimaldab prognoosida tulevasi väärtusi ja sündmusi, eeldusel, et andmed järgivad seda jaotust. See võib aidata metsanduses näiteks prognoosida metsaressursi kasvu või hindamist.
+
+Kokkuvõtvalt võib öelda, et normaaljaotuse kasutamine aitab andmeid paremini mõista, analüüsida ja tõlgendada, ning tagada, et nende tehtud järeldused oleksid usaldusväärsed ja põhineksid adekvaatsetel statistilistel mudelitel.
+
+R-is on järgnevad normaaljaotuse funktsioonid:
+
+- `r print_func('pnorm')`:
+  - Kirjeldus: funktsioon `r print_func('pnorm')` arvutab normaaljaotuse kumulatiivse tõenäosuse.
+  - Kasutamine: `pnorm(x, mean, sd)` kus x on punkt, mille tõenäosust soovite arvutada, mean on normaaljaotuse keskmine ja sd on standardhälve.
+  - Näide: `pnorm(1.96, 0, 1)` annab tõenäosuse, et normaaljaotuse väärtus on väiksem või võrdne 1,96.
+
+- `r print_func('dnorm')`:
+  - Kirjeldus: funktsioon `r print_func('dnorm')` arvutab normaaljaotuse tõenäosustiheduse funktsiooni.
+  - Kasutamine: `dnorm(x, mean, sd)` kus x on punkt, mille tõenäosustihedust soovite arvutada, mean on normaaljaotuse keskmine ja sd on standardhälve.
+  - Näide: `dnorm(1.96, 0, 1)` annab normaaljaotuse tõenäosustihedust väärtuses 1,96.
+
+- `r print_func('qnorm')`:
+  - Kirjeldus: `r print_func('qnorm')` funktsioon arvutab normaaljaotuse kvantiili väärtuse.
+  - Kasutamine: `qnorm(p, mean, sd)` kus p on soovitud kvantiil, mean on normaaljaotuse keskmine ja sd on standardhälve.
+  - Näide: `qnorm(0.975, 0, 1)` annab normaaljaotuse ülemise kvantiili 0,975 väärtuse.
+
+MS Exceli keskkonnas normaaljaotusega seotud arvutuste tegemiseks saab kasutada järgmisi funktsioone:
+
+- `r print_func('NORM.DIST')`:
+  - Kirjeldus: `r print_func('NORM.DIST')` funktsioon arvutab normaaljaotuse tõenäosustiheduse või kumulatiivse tõenäosuse.
+  - Kasutamine: NORM.DIST(x, keskmine, standardhälve, kumulatiiv) kus x on punkt, mille tõenäosustihedust või kumulatiivset tõenäosust soovite arvutada, keskmine on jaotuse keskmine, standardhälve on jaotuse standardhälve, ja kumulatiiv on loogiline väärtus, mis määrab, kas funktsioon tagastab tiheduse (FALSE) või kumulatiivse tõenäosuse (TRUE).
+  - Näide: NORM.DIST(1,96; 0; 1; TRUE) annab tõenäosuse, et normaaljaotuse väärtus on väiksem või võrdne 1.96.
+
+- `r print_func('NORM.S.DIST')`:
+  - Kirjeldus: `r print_func('NORM.S.DIST')` funktsioon arvutab standardnormaaljaotuse tõenäosustiheduse või kumulatiivse tõenäosuse.
+  - Kasutamine: NORM.S.DIST(z; kumulatiiv) kus z on punkt standardnormaaljaotuses, mille tõenäosustihedust või kumulatiivset tõenäosust soovite arvutada, ja kumulatiiv on loogiline väärtus, mis määrab, kas funktsioon tagastab tiheduse (FALSE) või kumulatiivse tõenäosuse (TRUE).
+  - Näide: NORM.S.DIST(1,96; TRUE) annab tõenäosuse, et standardnormaaljaotuse väärtus on väiksem või võrdne 1.96.
+
+- `r print_func('NORM.INV')`:
+  - Kirjeldus: `r print_func('NORM.INV')` funktsioon arvutab normaaljaotuse kvantiili antud tõenäosuse jaoks.
+  - Kasutamine: NORM.INV(tõenäosus, keskmine, standardhälve) kus tõenäosus on kvantiili vastav tõenäosus, keskmine on jaotuse keskmine, ja standardhälve on jaotuse standardhälve.
+  - Näide: NORM.INV(0,975; 0; 1) annab normaaljaotuse kvantiili, mis vastab 0.975 tõenäosusele.
+
+- `r print_func('NORM.S.INV')`:
+  - Kirjeldus: `r print_func('NORM.S.INV')` funktsioon arvutab standardnormaaljaotuse kvantiili antud tõenäosuse jaoks.
+  - Kasutamine: `NORM.S.INV(tõenäosus)` kus tõenäosus on kvantiili vastav tõenäosus standardnormaaljaotuses.
+  - Näide: `NORM.S.INV(0,975)` annab standardnormaaljaotuse kvantiili, mis vastab 0.975 tõenäosusele.
+
+
+
+
+## T-jaotus
+T-jaotus ehk Studenti t-jaotus on statistiline jaotus, mis on nimetatud selle looja William Sealy Gosseti (Studendi) järgi. T-jaotust kasutatakse hinnangute tegemiseks populatsiooni keskmise või vahe tegeliku väärtuse kohta, kui meil on vaid valimi keskmine ja standardhälve ning väike valimi suurus.
+
+T-jaotuse tihedusfunktsioon sõltub vabadusastmetest, mida tähistatakse tähisega n-1, kus n on valimi suurus. Mida suurem on vabadusastmete arv, seda lähemale liigub t-jaotuse kumerus standardnormaaljaotusele. T-jaotust kasutatakse sageli siis, kui populatsiooni standardhälve on teadmata ja valimi suurus on alla 30.
+
+T-jaotus on oluline tööriist hüpoteeside testimisel ja usaldusintervallide arvutamisel. Selle abil saame teha järeldusi populatsiooni keskmise kohta isegi siis, kui populatsiooni kohta on vähe teavet. T-jaotust kasutatakse laialdaselt erinevates valdkondades, sealhulgas meditsiinis, majanduses ja loodusteadustes, sealhulgas metsanduses.
+
+
+t-jaotus on statistikas oluline jaotus, mida kasutatakse tõenäosusteoorias ja hüpoteeside testimisel. T-jaotus sarnaneb normaaljaotusega, kuid erinevalt normaaljaotusest on t-jaotus paindlikum ning sellel on erinev arv vabadusastmeid. T-jaotust kasutatakse peamiselt siis, kui uuritav valim on väike ning populatsiooni standardhälve on teadmata.
+
+Peamised t-jaotuse kasutamise eesmärgid on:
+
+1. Võrdlused: T-jaotust kasutatakse kahe või enama rühma vaheliste erinevuste või keskmiste võrdlemiseks. Näiteks võib t-jaotust kasutada selleks, et teha kindlaks, kas kahe erineva metsa keskmine juurdekasv on statistiliselt oluliselt erinev.
+
+2. Hüpoteeside testimine: T-jaotust kasutatakse hüpoteeside testimisel, et teha kindlaks, kas uuritava andmestiku tulemused on juhuslikud või kas seal on tõepoolest mingisugune seos või erinevus. Näiteks võib t-jaotust kasutada selleks, et testida, kas metsa uuendamine teatud viisil mõjutab metsa biomassi kasvu.
+
+3. Usaldusintervallid: T-jaotust kasutatakse usaldusintervallide arvutamiseks. Usaldusintervall aitab hinnata, kui usaldusväärne on uuritava keskmise või erinevuse hinnang ning kui suured võivad olla võimalikud vead hinnangus.
+
+Kokkuvõttes on t-jaotus oluline tööriist statistilistes analüüsides, eriti kui tegemist on väikese valimi suuruse ja/või teadmata standardhälbe või suurema vabadusastmega. Metsandustudengite jaoks on t-jaotuse mõistmine ja oskuslik kasutamine oluline, kuna see aitab neil teha täpsemaid järeldusi ja otsuseid metsandusega seotud probleemide lahendamisel.
+
+1. **pt**:
+ - **Kirjeldus**: pt funktsioon arvutab t-jaotuse kumulatiivse tõenäosuse.
+ - **Kasutamine**: pt(x, df) kus x on punkt, mille tõenäosust soovite arvutada, ja df on vabadusastmete arv.
+ - **Näide**: pt(2.26, 10) annab tõenäosuse, et t-jaotuse väärtus on väiksem või võrdne 2.26, kui vabadusastmete arv on 10.
+
+2. **dt**:
+ - **Kirjeldus**: dt funktsioon arvutab t-jaotuse tõenäosustiheduse funktsiooni.
+ - **Kasutamine**: dt(x, df) kus x on punkt, mille tõenäosustihedust soovite arvutada, ja df on vabadusastmete arv.
+ - **Näide**: dt(2.26, 10) annab t-jaotuse tõenäosustihedust väärtuses 2.26, kui vabadusastmete arv on 10.
+
+3. **qt**:
+ - **Kirjeldus**: qt funktsioon arvutab t-jaotuse kvantileid.
+ - **Kasutamine**: qt(p, df) kus p on soovitud kvantiil, ja df on vabadusastmete arv.
+ - **Näide**: qt(0.975, 10) annab t-jaotuse ülemise kvantiili 0.975 väärtuse, kui vabadusastmete arv on 10.
+ 
+
+Exceli keskkonnas t-jaotusega seotud arvutuste tegemiseks on olemas järgmised funktsioonid:
+
+1. **T.DIST**:
+ - **Kirjeldus**: T.DIST funktsioon arvutab Studenti t-jaotuse kumulatiivse tõenäosuse.
+ - **Kasutamine**: T.DIST(x; vabadusastmed; kumulatiiv) kus x on t-jaotuse väärtus, mille kumulatiivset tõenäosust soovite arvutada, vabadusastmed tähistavad t-jaotuse vabadusastmete arvu, ja kumulatiiv on loogiline väärtus, mis määrab, kas funktsioon tagastab tõenäosuse (TRUE) või tiheduse (FALSE).
+ - **Näide**: T.DIST(2,26; 10; TRUE) annab tõenäosuse, et t-jaotuse väärtus on väiksem või võrdne 2,26, kui vabadusastmete arv on 10.
+
+2. **T.DIST.RT**:
+ - **Kirjeldus**: T.DIST.RT funktsioon arvutab ühepoolse tõenäosuse paremast sabast Studenti t-jaotuses.
+ - **Kasutamine**: T.DIST.RT(x; vabadusastmed) kus x on t-jaotuse väärtus, mille ühepoolset tõenäosust paremast sabast soovite arvutada, ja vabadusastmed on t-jaotuse vabadusastmete arv.
+ - **Näide**: T.DIST.RT(2,26; 10) annab tõenäosuse, et t-jaotuse väärtus on suurem kui 2,26, kui vabadusastmete arv on 10.
+
+3. **T.DIST.2T**:
+ - **Kirjeldus**: T.DIST.2T funktsioon arvutab kahepoolse tõenäosuse Studenti t-jaotuses.
+ - **Kasutamine**: T.DIST.2T(x; vabadusastmed) kus x on t-jaotuse väärtus, mille kahepoolset tõenäosust soovite arvutada, ja vabadusastmed on t-jaotuse vabadusastmete arv.
+ - **Näide**: T.DIST.2T(2,26; 10) annab tõenäosuse, et t-jaotuse absoluutne väärtus on suurem kui 2,26, kui vabadusastmete arv on 10.
+
+4. **T.INV**:
+ - **Kirjeldus**: T.INV funktsioon arvutab Studenti t-jaotuse kvantiili antud kumulatiivse tõenäosuse jaoks.
+ - **Kasutamine**: T.INV(tõenäosus; vabadusastmed) kus tõenäosus on soovitud kumulatiivne tõenäosus, ja vabadusastmed tähistavad t-jaotuse vabadusastmete arvu.
+ - **Näide**: T.INV(0,975; 10) annab t-jaotuse kvantiili, mis vastab 0,975 kumulatiivsele tõenäosusele, kui vabadusastmete arv on 10.
+
+5. **T.INV.2T**:
+ - **Kirjeldus**: T.INV.2T funktsioon arvutab kahepoolse testi kriitilise väärtuse Studenti t-jaotuses.
+ - **Kasutamine**: T.INV.2T(tõenäosus; vabadusastmed) kus tõenäosus on soovitud kahepoolse testi tõenäosus, ja vabadusastmed on t-jaotuse vabadusastmete arv.
+ - **Näide**: T.INV.2T(0,05; 10) annab kahepoolse test
+
+
+
+## F-jaotus
+
+F-jaotus on statistiline jaotus, mis on tuletatud kahe sõltumatult ja normaalselt jaotunud muutuja jagamise tulemusena. F-jaotuse puhul hinnatakse kahe variatsiooni suhet, olles seega kasulik tööriist hüpoteeside testimisel statistilistes uuringutes.
+
+F-jaotust kasutatakse eelkõige anova (Analüüs Variatsioon) testides, et hinnata, kas erinevate rühmade keskmised on statistiliselt oluliselt erinevad. Näiteks metsanduse valdkonnas võib F-jaotust kasutada näiteks erinevate metsamajandamise meetodite või puuliikide kasvukiiruse või mahu võrdlemisel.
+
+F-jaotuse puhul on oluline teada kahte vabadusastet: nimetaja vabadusastet (DFn) ja jääkvabadusastet (DFd). DFn tähistab rühmade arvu miinus 1 ja DFd tähendab rühmade sees olevate üksikute vaatluste arvu miinus kõigi rühmade arv.
+
+F-jaotuse kriitiline väärtus määratakse kindla usaldusväärsuse taseme juures ning kui arvutatud F-väärtus on suurem kui kriitiline väärtus, siis võib järeldada, et rühmade keskmised on tõepoolest erinevad.
+
+Kokkuvõttes on F-jaotus oluline statistiline tööriist, mis võimaldab hinnata muutujate vahelisi suhteid ning teha järeldusi hüpoteeside kohta erinevate gruppide vahel.
+
+F-jaotus on statistilise jaotus, mis on tuletatud kahe iseseisva kiirguse jaotuse ruutkorvamise jaotusena ning seda kasutatakse tihti hüpoteeside testimisel. F-jaotusel on kaks parameetrit - vabadusastmed (degrees of freedom) ja nende arv, ning seda kirjeldatakse F(p, q) jaotusena, kus p ja q tähistavad vastavalt kahe erineva muutuja vabadusastmeid.
+
+F-jaotuse eeldusteks on järgmised:
+1. Andmed peavad olema normaalselt jaotunud. Kuigi F-jaotus ei eelda iseenesest normaaljaotust, on oluline, et sõltumatuid andmeid esindaksid normaalsed kõrvalekalde jaotused.
+2. Andmete alusel koostatud rühmad peaksid olema sõltumatud üksteisest.
+3. Andmete varieeruvused peavad olema sarnased ehk andmehulgad peaksid olema homoskedeastsed.
+
+Need eeldused on olulised, et tagada F-testi usaldusväärsus ning õige tulemuse saamine hüpoteeside testimisel.
+
+Andmete analüüsimisel kasutatakse sageli erinevaid statistilisi funktsioone, nagu df (degrees of freedom), pf (probability function), qf (quantile function) ja rf (random number generation function). Kõik need funktsioonid on saadaval programmeerimiskeeles R, mis on laialdaselt kasutatav statistilise analüüsi ja andmetöötluse tarkvara.
+
+1. **pf**:
+ - **Kirjeldus**: pf funktsioon arvutab F-jaotuse kumulatiivse tõenäosuse.
+ - **Kasutamine**: pf(x, df1, df2) kus x on punkt, mille tõenäosust soovite arvutada, df1 on esimese andmestiku vabadusastmete arv ja df2 on teise andmestiku vabadusastmete arv.
+ - **Näide**: pf(3.84, 1, 30) annab tõenäosuse, et F-jaotuse väärtus on väiksem või võrdne 3.84, kui esimese andmestiku vabadusastmete arv on 1 ja teise andmestiku vabadusastmete arv on 30.
+
+2. **df**:
+ - **Kirjeldus**: df funktsioon arvutab F-jaotuse tõenäosustiheduse funktsiooni.
+ - **Kasutamine**: df(x, df1, df2) kus x on punkt, mille tõenäosustihedust soovite arvutada, df1 on esimese andmestiku vabadusastmete arv ja df2 on teise andmestiku vabadusastmete arv.
+ - **Näide**: df(3.84, 1, 30) annab F-jaotuse tõenäosustihedust väärtuses 3.84, kui esimese andmestiku vabadusastmete arv on 1 ja teise andmestiku vabadusastmete arv on 30.
+
+3. **qf**:
+ - **Kirjeldus**: qf funktsioon arvutab F-jaotuse kvantileid.
+ - **Kasutamine**: qf(p, df1, df2) kus p on soovitud kvantiil, df1 on esimese andmestiku vabadusastmete arv ja df2 on teise andmestiku vabadusastmete arv.
+ - **Näide**: qf(0.95, 1, 30) annab F-jaotuse ülemise kvantiili 0.95 väärtuse, kui esimese andmestiku vabadusastmete arv on 1 ja teise andmestiku vabadusastmete arv on 30.
+
+Excelis F-jaotusega seotud arvutuste tegemiseks Euroopa piirkondades, kus kümnendkoha eraldajaks on koma ja argumentide eraldajaks on semikoolon, saate kasutada järgmisi funktsioone:
+
+1. **F.DIST**:
+ - **Kirjeldus**: F.DIST funktsioon arvutab F-jaotuse kumulatiivse tõenäosuse.
+ - **Kasutamine**: F.DIST(x; vabadusastmed1; vabadusastmed2; kumulatiiv) kus x on F-jaotuse väärtus, mille kumulatiivset tõenäosust soovite arvutada, vabadusastmed1 on esimese valimi vabadusastmete arv, vabadusastmed2 on teise valimi vabadusastmete arv, ja kumulatiiv on loogiline väärtus, mis määrab, kas funktsioon tagastab tõenäosuse (TRUE) või tiheduse (FALSE).
+ - **Näide**: F.DIST(3;10;5;TRUE) annab tõenäosuse, et F-jaotuse väärtus on väiksem või võrdne 3, kui esimese valimi vabadusastmete arv on 10 ja teise valimi oma on 5.
+
+2. **F.DIST.RT**:
+ - **Kirjeldus**: F.DIST.RT funktsioon arvutab F-jaotuse ühepoolse tõenäosuse paremast sabast.
+ - **Kasutamine**: F.DIST.RT(x; vabadusastmed1; vabadusastmed2) kus x on F-jaotuse väärtus, mille ühepoolset tõenäosust paremast sabast soovite arvutada, vabadusastmed1 on esimese valimi vabadusastmete arv, ja vabadusastmed2 on teise valimi vabadusastmete arv.
+ - **Näide**: F.DIST.RT(3;10;5) annab tõenäosuse, et F-jaotuse väärtus on suurem kui 3, kui esimese valimi vabadusastmete arv on 10 ja teise valimi oma on 5.
+
+3. **F.INV**:
+ - **Kirjeldus**: F.INV funktsioon arvutab F-jaotuse kvantiili antud kumulatiivse tõenäosuse jaoks.
+ - **Kasutamine**: F.INV(tõenäosus; vabadusastmed1; vabadusastmed2) kus tõenäosus on soovitud kumulatiivne tõenäosus, vabadusastmed1 on esimese valimi vabadusastmete arv, ja vabadusastmed2 on teise valimi vabadusastmete arv.
+ - **Näide**: F.INV(0,975;10;5) annab F-jaotuse kvantiili, mis vastab 0,975 kumulatiivsele tõenäosusele, kui esimese valimi vabadusastmete arv on 10 ja teise valimi oma on 5.
+
+4. **F.INV.RT**:
+ - **Kirjeldus**: F.INV.RT funktsioon arvutab F-jaotuse kvantiili, arvestades ühepoolset tõenäosust paremast sabast.
+ - **Kasutamine**: F.INV.RT(tõenäosus; vabadusastmed1; vabadusastmed2) kus tõenäosus on ühepoolse testi tõenäosus paremast sabast, vabadusastmed1 on esimese valimi vabadusastmete arv, ja vabadusastmed2 on teise valimi vabadusastmete arv.
+ - **Näide**: F.INV.RT(0,025;10;5) annab F-jaotuse kvantiili, mis vastab 0,025 tõenäosusele paremast sabast
+
+
+##  Hii-ruut-jaotus
+
+Hii-ruut-jaotus ($\chi^2$-jaotus) on pidev tõenäosusjaotus, mida kasutatakse statistikas laialdaselt. Juhuslik suurus X järgib hii-ruut-jaotust vabadusastmete arvuga k, kui seda saab esitada k sõltumatu standard normaaljaotusega (keskväärtus 0 ja standardhälve 1) juhusliku suuruse ruutude summana.
+
+Omadused:
+
+- Vabadusastmete arv (k): see on jaotuse oluline parameeter, mis määrab selle kuju. Mida suurem on vabadusastmete arv, seda lamedam ja sümmeetrilisem on jaotus.
+- Keskväärtus: hii-ruut-jaotuse keskväärtuseks on vabadusastmete arv (k).
+- Dispersioon: hii-ruut-jaotuse dispersiooniks on 2k.
+- Kuju: hii-ruut-jaotus on asümmeetriline ja kaldub paremale. Väikeste vabadusastmete arvu korral on see tugevalt kaldu, aga suuremate vabadusastmete arvu korral muutub see järk-järgult sümmeetrilisemaks.
+
+Hii-ruut-jaotust kasutatakse paljudes statistilistes rakendustes, näiteks:
+
+- Hii-ruut-test: seda testi kasutatakse kahe kategoorilise muutuja vahelise seose tugevuse hindamiseks.
+- Sobivustestid: nende testidega hinnatakse, kas vaadeldav andmestik vastab eeldatavale jaotusele.
+- Usaldusintervallide konstrueerimine: hii-ruut-jaotust saab kasutada populatsiooni dispersiooni usaldusintervallide leidmiseks.
+
