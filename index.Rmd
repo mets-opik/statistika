@@ -1,7 +1,7 @@
 --- 
 title: "Metsanduslik statistika R ja MS Excel keskkonnas"
 author: "Allan Sims"
-date: "`r Sys.Date()`"
+date: "`r Sys.time()`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -13,3 +13,4 @@ link-citations: yes
 github-repo: xyzallan/met-stat-opik
 ---
 
+Sissejuhatus 
