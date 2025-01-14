@@ -1,29 +1,29 @@
 
 ## Statistikaprogramm R
 
-R on programmeerimiskeel ja tarkvara keskkond, mis on loodud spetsiaalselt statistiliseks arvutamiseks ja graafiliseks andmete esitamiseks. See on avatud lähtekoodiga projekt, mida toetab suur kogukond ning mida eelistavad andmeteadlased, statistikud ja teadlased üle kogu maailma oma andmeanalüüsi vajadusteks. R pakub laia valikut tööriistu andmete importimiseks, töötlemiseks, modelleerimiseks, analüüsiks ja visualiseerimiseks. Järgnevalt on ülevaade R-i peamistest kasutusvõimalustest statistilise analüüsi tegemiseks.
+R on tarkvarakeskkond keskkond, mis on loodud spetsiaalselt statistiliseks arvutamiseks ja graafiliseks andmete esitamiseks. See on avatud lähtekoodiga projekt, mida toetab suur kogukond ning mida eelistavad andmeteadlased, statistikud ja teadlased üle kogu maailma oma andmeanalüüsi vajadusteks. R pakub laia valikut tööriistu andmete importimiseks, töötlemiseks, modelleerimiseks, analüüsiks ja visualiseerimiseks. Järgnevalt on ülevaade R-i peamistest kasutusvõimalustest statistilise analüüsi tegemiseks.
 
-### Andmete importimine ja töötlemine
+**Andmete importimine ja töötlemine**
 
-- **Andmete importimine.** R toetab andmete importimist paljudest allikatest, sealhulgas tekstifailidest, CSV-failidest, Exceli failidest, andmebaasidest ja isegi veebist.
+- **Andmete importimine.** R toetab andmete importimist paljudest allikatest, sealhulgas teksti-, CSV- ja Exceli failidest ning andmebaasidest ja isegi veebist.
 - **Andmete puhastamine.** Andmete ettevalmistamiseks analüüsiks pakub R funktsioone andmete sortimiseks, filtreerimiseks, puuduvate väärtuste käsitlemiseks ja duplikaatide eemaldamiseks.
 
-### Andmete analüüs
+**Andmete analüüs**
 
 - **Statistilised funktsioonid.** R sisaldab ulatuslikku valikut sisseehitatud statistilisi funktsioone, nagu keskmine, mediaan, standardhälve, kvantiilid ja palju muud, mis võimaldavad kiiresti arvutada olulisi statistilisi näitajaid.
 - **Andmete manipuleerimine.** R pakub võimsaid pakette andmete manipuleerimiseks, näiteks dplyr, mis võimaldab efektiivset andmete filtreerimist, valimist, rühmitamist ja kokkuvõtete tegemist.
 
-### Statistilised mudelid ja analüüsimeetodid
+**Statistilised mudelid ja analüüsimeetodid**
 
 - **Hüpoteeside testimine.** R võimaldab kasutajatel teostada erinevaid statistilisi teste, nagu t-testid, hi-ruut-testid, ANOVA ja palju muud, et uurida andmete omavahelisi seoseid ja testida hüpoteese.
 - **Regressioon ja korrelatsioon.** R toetab mitmesuguseid regressioonianalüüse, sealhulgas lineaarset, logistilist, polünoomset regressiooni, võimaldades seeläbi uurida muutujate vahelisi seoseid.
 
-### Andmete visualiseerimine
+**Andmete visualiseerimine**
 
 - **Graafikud ja diagrammid.** R pakub mitmeid pakette andmete visualiseerimiseks, sealhulgas ggplot2, mis on üks võimsamaid visualiseerimisvahendeid, võimaldades luua keerukaid ja esteetiliselt meeldivaid graafikuid.
 - **Interaktiivsed visualisatsioonid.** Lisaks staatilistele graafikutele võimaldab R luua interaktiivseid visualisatsioone, kasutades pakette nagu Shiny, mis toob andmeanalüüsi tulemused elavalt esile.
 
-### Laiendatavus ja kogukond
+**Laiendatavus ja kogukond**
 - **Pakettide ökosüsteem.** R toetab laialdast pakettide ökosüsteemi, mis katab spetsiifilisi statistilisi meetodeid, andmete visualiseerimise tehnikaid, masinõpet ja palju muud, võimaldades kasutajatel laiendada R-i funktsionaalsust vastavalt vajadusele.
 - **Tugev kogukond.** R-i kasutajate ja arendajate kogukond on väga aktiivne, pakkudes tuge, juhendeid ja ressursse, mis aitavad lahendada keerulisi analüütilisi väljakutseid. 
 - **Õpikud ja juhendid.** R-i kasutamiseks on koostatud erinevaid õpikud, mis on mõeldud nii algajatele kui ka edasijõudnutele. Veebilehel [https://bookdown.org/](https://bookdown.org/) on mitmed sellised õpikud.
@@ -31,7 +31,7 @@ R on programmeerimiskeel ja tarkvara keskkond, mis on loodud spetsiaalselt stati
 
 ### R-i paketid
 
-R-i paketid on tööriistade, funktsioonide ja andmete kogumikud, mis laiendavad R-i põhifunktsionaalsust ning võimaldavad lahendada erinevaid andmetöötluse, statistilise analüüsi ja visualiseerimise ülesandeid. Enamik pakette on loodud R-i kogukonna liikmete poolt. CRAN (Comprehensive R Archive Network) on ametlik hoidla, kuhu arendajad saavad pakette üles laadida.
+R-i paketid on tööriistade, funktsioonide ja andmete kogumikud, mis laiendavad R-i põhifunktsionaalsust ning võimaldavad lahendada erinevaid andmetöötluse, statistilise analüüsi ja visualiseerimise ülesandeid. Enamik pakette on loodud R-i kogukonna liikmete poolt. CRAN (Comprehensive R Archive Network) on ametlik hoidla, kuhu arendajad saavad pakette üles laadida ning kasutajad neid alla laadida.
 
 Pakettide paigaldamiseks kasutatakse `install.packages()` funktsiooni. Näiteks:
 ```{r, eval = F}

@@ -1,4 +1,4 @@
-# Andmestik
+# Andmestikud
 
 ## Andmestike tüübid
 
@@ -6,29 +6,16 @@ Andmeanalüüsis on oluline mõista erinevaid tunnuste tüüpe, kuna see mõjuta
 
 **Tunnuste liigitamine:**
 
-Andmeanalüüsi otstarbel jagatakse tunnuseid kahte põhitüüpi:
+Andmeanalüüsi otstarbel jagatakse tunnuseid kahte põhitüüpi: `r print_termin('arvtunnus')` ehk `r print_termin('kvantitatiivne tunnus')` ja `r print_termin('mittearvuline tunnus')` ehk `r print_termin('kvalitatiivne tunnus')`.
 
-**1. Arvulised tunnused (kvantitatiivsed tunnused):**
+Arvtunnuse puhul on väärtuseks arv. Need jagunevad omakorda:
+    * `r print_termin('Pidev arvtunnus')`. Väärtuseks kõik punktid tunnuse skaalal (nt puu kõrgus, diameeter).
+    * `r print_termin('Diskreetne arvtunnus')`. Võimalikud vaid täisarvulised loendatavad vastusevariandid (nt puude arv, aastarõngaste arv vms).
 
-* Mõõtmistulemuseks on arv.
-* Jagunevad omakorda:
-    * **Pidevad arvtunnused** Vastusevariantidena kõik punktid tunnuse skaalal (nt pikkus, kaal, sissetulek, vanus).
-    * **Diskreetsed arvtunnused** Võimalikud vaid täisarvulised loendatavad vastusevariandid (nt tubade arv korteris, laste arv peres).
-* Liigitatakse ka vastavalt mõõteskaalale:
-    * **Vahemikskaala** Skaalapunktide vahed on igas skaala osas sama pikad.
-    * **Suhteskaala** Väärtuste suhted on igas skaala osas tõlgendatavad,  on üheselt kindlaks määratud nullpunkt.
-
-**2. Mittearvulised tunnused (kvalitatiivsed tunnused):**
-
-* Mõõtmistulemuseks ei ole arv.
-* Jagunevad:
-    * **Järjestustunnused** Vastusevariandid on intensiivsuse põhjal järjestatavad, skaalapunktide vahed ei pruugi olla võrdsed (nt haridustase, meeldivuse hinnangud).
-    * **Nominaaltunnused** Vastusevariandid annavad objekti kirjelduse, aga ei ütle midagi omaduse intensiivsuse kohta (nt sugu, rahvus, perekonnaseis).
-
-Lisaks neile põhitüüpidele on veel:
-
-* **Kategoriaalne tunnus** Tunnus, mille vastuste seas on eristatavad kategooriad (tüüpiliselt mittearvulised).
-* **Binaarne ehk kaheväärtuseline tunnus** Tunnus, millel on vaid kaks võimalikku väärtust.
+Mittearvulise tunnuse puhul väärtuseks ei ole arv. Need jagunevad omakorda:
+    * `r print_termin('Järjestustunnus')` Väärtused on intensiivsuse põhjal järjestatavad, skaalapunktide vahed ei pruugi olla võrdsed (nt haridustase, meeldivuse hinnangud).
+    * `r print_termin('Nominaaltunnus')` Väärtuseks on objekti kirjelduse, aga see ei ütle midagi omaduse intensiivsuse kohta (nt sugu, rahvus, perekonnaseis).
+    * `r print_termin('Binaarne tunnus')` ehk kaheväärtuseline tunnus on tunnus, millel on vaid kaks võimalikku väärtust.
 
 ## Andmestiku struktuur
 
@@ -76,8 +63,6 @@ minu_array <- array(runif(12), dim = c(2,2,3))
 ```
 
 Maatriksit saab kasutada erinevate arvutusoperatsioonide tegemiseks, nagu maatriksite korrutamine, liitmine, lahutamine jne. Samuti on võimalik maatriksit indekseerida ja välja printida konkreetseid ridu ja veerge.
-
-Kokkuvõttes on maatriks R-i programmeerimiskeele andmetüüp, mis võimaldab mugavalt töötada tabelikujuliste andmetega, nagu need võivad esineda näiteks statistilistes analüüsides.
 
 ### data.frame
 R-i andmetüüp data.frame on üks olulisemaid andmestruktuure andmete haldamiseks ja analüüsimiseks R-keskkonnas. Data.frame on tabelilaadne struktuur, kus andmed on korraldatud ridade (vaatluste) ja veergude (tunnuste) kaupa.
