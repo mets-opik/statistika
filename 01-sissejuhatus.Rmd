@@ -1,54 +1,25 @@
-# Sissejuhatus
-
-**Statistika olemus**
-
-Statistika on teadusharu ja meetodite kogum, mis tegeleb andmete kogumise, analüüsimise, tõlgendamise ja esitamisega. Selle peamine eesmärk on teha järeldusi laiemate populatsioonide kohta, kasutades piiratud andmekogumeid. Statistika võimaldab meil mõista ja tõlgendada keerulisi andmestikke ning teha informeeritud otsuseid ebakindluse tingimustes. See on hädavajalik tööriist erinevates valdkondades, alates sotsiaalteadustest ja meditsiinist kuni inseneriteaduse ja ärijuhtimiseni, võimaldades uurijatel, analüütikutel ja poliitikakujundajatel tuvastada mustreid, suundumusi ja seoseid.
-
-**Statistiline analüüs**
-
-Statistiline analüüs hõlmab andmete kogumist, töötlemist, analüüsimist ja interpreteerimist, eesmärgiga avastada mustreid, seoseid ja teha järeldusi, mis ei ole otseselt andmetest nähtavad. See hõlmab kahte peamist suunda:
-
-*   **Kirjeldav statistika.** Kokkuvõtlikult kirjeldab andmekogumi peamisi omadusi, nagu keskmine, mediaan ja hajuvus.
-*   **Järeldav statistika.** Võimaldab teha otsustusi kogu populatsiooni kohta, lähtudes uuritava andmekogumi analüüsist, kasutades selleks tõenäosusteooriat.
-
-Statistilise analüüsi protsessis kasutatakse sageli erinevaid matemaatilisi mudeleid ja hüpoteeside testimise tehnikaid, et hinnata erinevate muutujate vahelisi seoseid ja nende tugevust.
-
-**Statistika tähtsus**
-
-Statistika tähtsust ei saa alahinnata, sest see võimaldab teadlastel ja otsustajatel langetada põhjendatud otsuseid andmetele tuginedes. Olgu tegemist uue ravimi efektiivsuse hindamisega meditsiinis, kliimamuutuste mõjude uurimisega keskkonnateadustes või tarbijate eelistuste analüüsimisega turunduses, statistiline analüüs on võtmetähtsusega tööriist, mis aitab tõlgendada keerukaid andmeid ja toetab teaduspõhist otsustusprotsessi.
-
-**Matemaatiline statistika**
-
-Matemaatiline statistika on matemaatika rakenduslik haru, mis tugineb tõenäosusteoorias väljatöötatud mõistetele ja meetoditele. Matemaatilises statistikas arendatakse meetodeid, kuidas katsete ja mõõtmiste tulemuste põhjal iseloomustada uurimisobjekti ja teha tema kohta võimalikult objektiivseid ja usaldatavaid järeldusi. See on aluseks paljudele statistilistele meetoditele ja mudelitele.
-
-**Statistiliste vigade vältimine**
-
-Statistika ja selle reeglite tundmine on hädavajalik, et tagada andmete ja tulemuste usaldusväärne ning täpne tõlgendamine. See oskusteave võimaldab uurijatel ja analüütikutel andmeid õigesti analüüsida, tehes kindlaks, millised tulemused on statistiliselt olulised ja millised mitte. Statistika mõistmine aitab vältida eksitavaid järeldusi, mis võivad tekkida juhuslikkuse, valimi suuruse või andmete kogumise meetodi tõlgendamisel. Näiteks:
-
-*   **Andmete esitusviis:** Valesti valitud graafikud või kokkuvõtlikud statistilised meetodid võivad moonutada andmete tõelist olemust, juhtides valedele järeldustele.
-*   **Valede statistiliste testide kasutamine:** Statistiliste testide ebaõige valik võib viia ekslike järeldusteni seoste kohta andmetes. Näiteks mittelineaarsete seoste analüüsimine lineaarsete mudelite abil võib jätta olulised suhted märkamata.
-*   **Juhuslikkuse ja mustrite eristamine:** Statistika aitab eristada juhuslikke variatsioone tõelistest mustritest. Ilma korraliku statistilise analüüsita võivad uurijad tõlgendada juhuslikke variatsioone ekslikult kui olulisi suundumusi.
-*   **Valimite ja populatsioonide vaheliste järelduste tegemine:** Statistika võimaldab teha järeldusi kogu populatsiooni kohta, lähtudes piiratud valimist. Valesti hinnatud valimi esinduslikkus või suurus võib viia ebatäpsete üldistusteni.
-
-Vale statistiline käsitlus võib viia mitte ainult teaduslikele vigadele, vaid ka poliitika ja otsustusprotsesside eksitamisele, mis võib omada laialdasi sotsiaalseid, majanduslikke ja keskkonnaalaseid tagajärgi. Seega on statistiliste meetodite ja nende piirangute mõistmine oluline, et tagada järelduste usaldusväärsus ja õigsus, aidates sellega kaasa teaduspõhisele otsustamisele ja teadmiste edendamisele.
 
 ## Statistikaprogramm R
 
 R on programmeerimiskeel ja tarkvara keskkond, mis on loodud spetsiaalselt statistiliseks arvutamiseks ja graafiliseks andmete esitamiseks. See on avatud lähtekoodiga projekt, mida toetab suur kogukond ning mida eelistavad andmeteadlased, statistikud ja teadlased üle kogu maailma oma andmeanalüüsi vajadusteks. R pakub laia valikut tööriistu andmete importimiseks, töötlemiseks, modelleerimiseks, analüüsiks ja visualiseerimiseks. Järgnevalt on ülevaade R-i peamistest kasutusvõimalustest statistilise analüüsi tegemiseks.
 
 ### Andmete importimine ja töötlemine
+
 - **Andmete importimine.** R toetab andmete importimist paljudest allikatest, sealhulgas tekstifailidest, CSV-failidest, Exceli failidest, andmebaasidest ja isegi veebist.
 - **Andmete puhastamine.** Andmete ettevalmistamiseks analüüsiks pakub R funktsioone andmete sortimiseks, filtreerimiseks, puuduvate väärtuste käsitlemiseks ja duplikaatide eemaldamiseks.
 
 ### Andmete analüüs
+
 - **Statistilised funktsioonid.** R sisaldab ulatuslikku valikut sisseehitatud statistilisi funktsioone, nagu keskmine, mediaan, standardhälve, kvantiilid ja palju muud, mis võimaldavad kiiresti arvutada olulisi statistilisi näitajaid.
 - **Andmete manipuleerimine.** R pakub võimsaid pakette andmete manipuleerimiseks, näiteks dplyr, mis võimaldab efektiivset andmete filtreerimist, valimist, rühmitamist ja kokkuvõtete tegemist.
 
 ### Statistilised mudelid ja analüüsimeetodid
+
 - **Hüpoteeside testimine.** R võimaldab kasutajatel teostada erinevaid statistilisi teste, nagu t-testid, hi-ruut-testid, ANOVA ja palju muud, et uurida andmete omavahelisi seoseid ja testida hüpoteese.
 - **Regressioon ja korrelatsioon.** R toetab mitmesuguseid regressioonianalüüse, sealhulgas lineaarset, logistilist, polünoomset regressiooni, võimaldades seeläbi uurida muutujate vahelisi seoseid.
 
 ### Andmete visualiseerimine
+
 - **Graafikud ja diagrammid.** R pakub mitmeid pakette andmete visualiseerimiseks, sealhulgas ggplot2, mis on üks võimsamaid visualiseerimisvahendeid, võimaldades luua keerukaid ja esteetiliselt meeldivaid graafikuid.
 - **Interaktiivsed visualisatsioonid.** Lisaks staatilistele graafikutele võimaldab R luua interaktiivseid visualisatsioone, kasutades pakette nagu Shiny, mis toob andmeanalüüsi tulemused elavalt esile.
 
