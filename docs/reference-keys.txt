@@ -11,6 +11,7 @@ fig:unnamed-chunk-82
 fig:unnamed-chunk-83
 fig:unnamed-chunk-84
 sissejuhatus
+sissejuhatus-1
 statistikaprogramm-r
 andmete-importimine-ja-töötlemine
 andmete-analüüs
