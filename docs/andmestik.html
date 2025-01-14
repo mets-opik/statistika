@@ -298,7 +298,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.2</span> Andmestiku struktuur<a href="andmestik.html#andmestiku-struktuur" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="vektor" class="section level3 hasAnchor" number="2.2.1">
 <h3><span class="header-section-number">2.2.1</span> Vektor<a href="andmestik.html#vektor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>R programmeerimiskeeles vektor on andmetüüp, mis võimaldab talletada mitut ühesugust andmetüüpi elementi ühes andmestruktuuris. Vektoris saab hoida näiteks numbreid, teksti või loogilisi väärtusi. Vektorit loetakse ühemõõtmeliseks andmestruktuuriks, kuna kõik selles sisalduvad elemendid asuvad ühes reas.</p>
+<p><a href="https://sonaveeb.ee/search/unif/dlall/aso/vektor/1/est" target="_blank">Vektor</a> on andmetüüp, mis võimaldab talletada mitut ühesugust andmetüüpi elementi ühes andmestruktuuris. Vektoris saab hoida näiteks numbreid, teksti või loogilisi väärtusi. Vektorit loetakse ühemõõtmeliseks andmestruktuuriks, kuna kõik selles sisalduvad elemendid asuvad ühes reas.</p>
 <p>Vektorit saab luua kasutades funktsiooni <code>c()</code>, kuhu tuleb sisestada eraldatud komadega elemendid. Näiteks:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="andmestik.html#cb10-1" tabindex="-1"></a>num_vektor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code></pre></div>
 <p>Vektori elementidele saab viidata indeksite abil, alustades indeksist 1. Näiteks:</p>
@@ -320,10 +320,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="andmestik.html#cb15-1" tabindex="-1"></a><span class="co"># Loome kahemõõtmelise maatriksi juhuslikest arvudest</span></span>
 <span id="cb15-2"><a href="andmestik.html#cb15-2" tabindex="-1"></a>minu_maatriks <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">runif</span>(<span class="dv">12</span>), <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">4</span>)</span>
 <span id="cb15-3"><a href="andmestik.html#cb15-3" tabindex="-1"></a><span class="fu">print</span>(minu_maatriks)</span></code></pre></div>
-<pre><code>##           [,1]       [,2]      [,3]      [,4]
-## [1,] 0,1440525 0,05958662 0,8571109 0,6621871
-## [2,] 0,5487942 0,79670105 0,5094531 0,8503656
-## [3,] 0,9504592 0,64703136 0,7277596 0,7467877</code></pre>
+<pre><code>##           [,1]      [,2]      [,3]      [,4]
+## [1,] 0,4691261 0,4228234 0,2207127 0,7989087
+## [2,] 0,3614101 0,8160343 0,6487927 0,8581392
+## [3,] 0,2117298 0,7483023 0,7649538 0,8145697</code></pre>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="andmestik.html#cb17-1" tabindex="-1"></a><span class="co"># Loome kolmemõõtmelise maatriksi juhuslikest arvudest</span></span>
 <span id="cb17-2"><a href="andmestik.html#cb17-2" tabindex="-1"></a>minu_array <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="fu">runif</span>(<span class="dv">12</span>), <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code></pre></div>
 <p>Maatriksit saab kasutada erinevate arvutusoperatsioonide tegemiseks, nagu maatriksite korrutamine, liitmine, lahutamine jne. Samuti on võimalik maatriksit indekseerida ja välja printida konkreetseid ridu ja veerge.</p>
