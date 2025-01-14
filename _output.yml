@@ -1,6 +1,9 @@
 bookdown::gitbook:
   css: style.css
   config:
+    caption:
+      figure_num_sep: "."
+      table_num_sep: "."  
     toc:
       #before: |
       #  <li><a href="./">Metsanduslik statistika R ja MS Excel keskkonnas</a></li>
@@ -14,4 +17,4 @@ bookdown::pdf_book:
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes
-bookdown::epub_book: default
+#bookdown::epub_book: default

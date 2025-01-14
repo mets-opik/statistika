@@ -320,10 +320,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="andmestik.html#cb15-1" tabindex="-1"></a><span class="co"># Loome kahemõõtmelise maatriksi juhuslikest arvudest</span></span>
 <span id="cb15-2"><a href="andmestik.html#cb15-2" tabindex="-1"></a>minu_maatriks <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">runif</span>(<span class="dv">12</span>), <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">4</span>)</span>
 <span id="cb15-3"><a href="andmestik.html#cb15-3" tabindex="-1"></a><span class="fu">print</span>(minu_maatriks)</span></code></pre></div>
-<pre><code>##           [,1]      [,2]      [,3]      [,4]
-## [1,] 0,4970222 0,7802362 0,1395539 0,9349502
-## [2,] 0,9153883 0,3178500 0,4588790 0,6882466
-## [3,] 0,3092289 0,5063185 0,5525389 0,2252549</code></pre>
+<pre><code>##           [,1]       [,2]      [,3]      [,4]
+## [1,] 0,1440525 0,05958662 0,8571109 0,6621871
+## [2,] 0,5487942 0,79670105 0,5094531 0,8503656
+## [3,] 0,9504592 0,64703136 0,7277596 0,7467877</code></pre>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="andmestik.html#cb17-1" tabindex="-1"></a><span class="co"># Loome kolmemõõtmelise maatriksi juhuslikest arvudest</span></span>
 <span id="cb17-2"><a href="andmestik.html#cb17-2" tabindex="-1"></a>minu_array <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="fu">runif</span>(<span class="dv">12</span>), <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code></pre></div>
 <p>Maatriksit saab kasutada erinevate arvutusoperatsioonide tegemiseks, nagu maatriksite korrutamine, liitmine, lahutamine jne. Samuti on võimalik maatriksit indekseerida ja välja printida konkreetseid ridu ja veerge.</p>
@@ -468,6 +468,10 @@ gitbook.start({
 "search": {
 "engine": "fuse",
 "options": null
+},
+"caption": {
+"figure_num_sep": ".",
+"table_num_sep": "."
 }
 });
 });
