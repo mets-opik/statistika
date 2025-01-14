@@ -208,13 +208,13 @@
 \urlstyle{same}
 \hypersetup{
   pdftitle={Metsanduslik statistika R ja MS Excel keskkonnas},
-  pdfauthor={Allan Sims; Andres Kiviste; Diana Laarmann},
+  pdfauthor={Allan Sims, Andres Kiviste, Diana Laarmann},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
 \title{Metsanduslik statistika R ja MS Excel keskkonnas}
-\author{Allan Sims \and Andres Kiviste \and Diana Laarmann}
-\date{2025-01-14}
+\author{Allan Sims, Andres Kiviste, Diana Laarmann}
+\date{31.01.2025}
 
 \begin{document}
 \maketitle
@@ -614,10 +614,10 @@ Maatriksi loomiseks kasutatakse funktsioone \texttt{matrix()} või \texttt{array
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]      [,2]       [,3]      [,4]
-## [1,] 0,8629081 0,1114047 0,02471297 0,3698312
-## [2,] 0,1875566 0,5715269 0,05753286 0,2230761
-## [3,] 0,7879788 0,8134759 0,05707341 0,1750897
+##            [,1]      [,2]       [,3]       [,4]
+## [1,] 0,49630640 0,3410231 0,04908513 0,85431016
+## [2,] 0,23521342 0,5069587 0,91907385 0,10382017
+## [3,] 0,04935147 0,9477564 0,61256697 0,04598604
 \end{verbatim}
 
 \begin{Shaded}
@@ -860,7 +860,7 @@ Empiirilise jaotuse kasutamine on oluline, et saada parem arusaam uuritavast pop
 
 \section{Histogramm}\label{histogramm}
 
-Histogramm ehk sagedusjaotuse tulpdiagramm on graafiline esitusviis andmehulga sageduste jaotumise näitamiseks. Histogramm koosneb üksteise kõrvale paigutatud tulpadest, kus iga tulp esindab teatud vahemikku või klassi, ning selle kõrgus näitab antud klassi sagedust. Horisontaaltelg esitab klasside vahemikke või kategooriaid ning vertikaaltelg näitab vastavate klasside sagedusi või sageduste suhtarvu. Histogrammi abil saab hinnata andmehulga jaotust ning tuvastada erinevaid tendentse ja mustreid andmetes. Histogrammi loomise eesmärgiks on anda visuaalne ülevaade andmete koondumisest ja levikust ning seeläbi paremini mõista andmete struktuuri. Histogrammi loomisel on oluline valida sobiv klassilaius, mis võimaldab õigesti tõlgendada ja analüüsida andmeid. Histogramm on oluline tööriist statistilise info esitamiseks ja mõistmiseks nii akadeemilistes kui ka praktilistes seadetes, sealhulgas metsanduses.
+\href{https://sonaveeb.ee/search/unif/dlall/aso/histogramm/1/est}{Histogramm} ehk sagedusjaotuse tulpdiagramm on graafiline esitusviis andmehulga sageduste jaotumise näitamiseks. Histogramm koosneb üksteise kõrvale paigutatud tulpadest, kus iga tulp esindab teatud vahemikku või klassi, ning selle kõrgus näitab antud klassi sagedust. Horisontaaltelg esitab klasside vahemikke või kategooriaid ning vertikaaltelg näitab vastavate klasside sagedusi või sageduste suhtarvu. Histogrammi abil saab hinnata andmehulga jaotust ning tuvastada erinevaid tendentse ja mustreid andmetes. Histogrammi loomise eesmärgiks on anda visuaalne ülevaade andmete koondumisest ja levikust ning seeläbi paremini mõista andmete struktuuri. Histogrammi loomisel on oluline valida sobiv klassilaius, mis võimaldab õigesti tõlgendada ja analüüsida andmeid. Histogramm on oluline tööriist statistilise info esitamiseks ja mõistmiseks nii akadeemilistes kui ka praktilistes seadetes, sealhulgas metsanduses.
 
 \subsection{R keskkonnas:}\label{r-keskkonnas}
 
@@ -931,9 +931,9 @@ Histogrammi loomiseks Excelis peab andmed esmalt sisestama tabelisse ja seejäre
 
 \subsubsection{Sageduste arvutamine}\label{sageduste-arvutamine-1}
 
-MS Exceli funktsioon \texttt{FREQUENCY} võimaldab kasutajatel määrata, kui sageli väärtused esinevad teatud väärtusvahemikes. See funktsioon sobib hästi suurte andmekogumite analüüsimiseks, et mõista andmete jaotust ilma iga üksiku väärtuse manuaalse üle vaatamiseta.
+MS Exceli funktsioon \texttt{FREQUENCY()} võimaldab kasutajatel määrata, kui sageli väärtused esinevad teatud väärtusvahemikes. See funktsioon sobib hästi suurte andmekogumite analüüsimiseks, et mõista andmete jaotust ilma iga üksiku väärtuse manuaalse üle vaatamiseta.
 
-Enne \texttt{FREQUENCY} funktsiooni kasutamist peate määrama rühmade vahemike piirid, millesse soovite oma andmed jaotada. Need piirid tuleks sisestada eraldi veergu Exceli töölehel. Näiteks, kui soovite analüüsida testitulemusi vahemikus 0-100, võite määrata piirid 0, 20, 40, 60, 80, 100.
+Enne \texttt{FREQUENCY()} funktsiooni kasutamist peate määrama rühmade vahemike piirid, millesse soovite oma andmed jaotada. Need piirid tuleks sisestada eraldi veergu Exceli töölehel. Näiteks, kui soovite analüüsida testitulemusi vahemikus 0-100, võite määrata piirid 0, 20, 40, 60, 80, 100.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
