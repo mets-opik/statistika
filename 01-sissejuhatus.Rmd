@@ -42,6 +42,8 @@ Kui pakett on paigaldatud, tuleb see töösessioonis laadida, kasutades `library
 library(ggplot2)
 ```
 
+Nende puhul tuleb jälgida, et installimisel peab paketi nimetus olema jutumärkide vahel, aga paketi sisse laadimisel võib see olla ka jutumärkideta.
+
 Lisaks on ka funktsioon `require()`, mis võimaldab testida paketi olemasolu. Näiteks, kontrollime, kas antud pakett on olemas ning kui see puudub, siis installime:
 
 ```{r, eval = F}
@@ -49,7 +51,6 @@ if(!require(ggplot2)){
     install.packages("ggplot2")    
 }
 ```
-
 
 
 Igal paketil on põhjalik dokumentatsioon, millele pääseb ligi, kasutades `help()` või `?` süntaksit. Paljud paketid pakuvad ka sissejuhatavaid õpetusi ja veebipõhiseid juhendeid.
@@ -67,7 +68,7 @@ R-is saab teha mitmesuguseid arvutusi, alates lihtsatest aritmeetilistest operat
 
 **Näide R-is arvutamisest:**
 
-```r
+```{r}
 # Loome vektori
 x <- c(1, 2, 3, 4, 5)
 
@@ -90,25 +91,27 @@ print(maatriks)
 Microsoft Excel on laialdaselt kasutatav tabelarvutusprogramm, mis pakub mitmekülgseid tööriistu andmete analüüsimiseks, visualiseerimiseks ja esitlemiseks. Exceli kasutusvõimalused statistilise analüüsi tegemiseks hõlmavad mitmesuguseid funktsioone ja lisavahendeid, mis võimaldavad kasutajatel teostada põhjalikke analüüse erinevate andmekogumite põhjal. Järgnevalt on toodud ülevaade peamistest Exceli kasutusvõimalustest statistiliseks analüüsiks:
 
 ### Andmete importimine ja korraldamine
-- **Andmete importimine:** Excel võimaldab importida andmeid erinevatest allikatest, sealhulgas tekstifailidest, CSV-failidest, andmebaasidest ja veebiteenustest.
-- **Andmete puhastamine ja ettevalmistamine:** Kasutajad saavad kasutada tööriistu, nagu sortimine, filtreerimine ja eemaldamine, et korrastada andmeid analüüsi jaoks. Samuti on võimalik kasutada tingimusvormingut, et esile tõsta olulisi andmepunkte või mustreid.
+
+- **Andmete importimine.** Excel võimaldab importida andmeid erinevatest allikatest, sealhulgas tekstifailidest, CSV-failidest, andmebaasidest ja veebiteenustest.
+- **Andmete puhastamine ja ettevalmistamine.** Kasutajad saavad kasutada tööriistu, nagu sortimine, filtreerimine ja eemaldamine, et korrastada andmeid analüüsi jaoks. Samuti on võimalik kasutada tingimusvormingut, et esile tõsta olulisi andmepunkte või mustreid.
 
 ### Andmete analüüsimine
-- **Põhilised statistilised funktsioonid:** Excel sisaldab mitmesuguseid statistilisi funktsioone, nagu keskmine (AVERAGE), mediaan (MEDIAN), standardhälve (STDEV), minimaalne (MIN) ja maksimaalne (MAX) väärtus.
-- **Pivot-tabelid:** Pivot-tabelid võimaldavad kiiresti kokku võtta, analüüsida, uurida ja esitada andmeid. Kasutajad saavad hõlpsasti grupeerida ja segmenteerida andmeid, et tuvastada mustreid või suundumusi.
+
+- **Põhilised statistilised funktsioonid.** Excel sisaldab mitmesuguseid statistilisi funktsioone, nagu keskmine (AVERAGE), mediaan (MEDIAN), standardhälve (STDEV), minimaalne (MIN) ja maksimaalne (MAX) väärtus.
+- **Liigendtabelid.** Liigendtabelid võimaldavad kiiresti kokku võtta, analüüsida, uurida ja esitada andmeid. Kasutajad saavad hõlpsasti grupeerida ja segmenteerida andmeid, et tuvastada mustreid või suundumusi.
 
 ### Statistilised testid ja analüüsimeetodid
-- **Hüpoteeside testimine:** Excelis saab teostada t-Testi ja ANOVA (Analysis of Variance) teste, et võrrelda andmekogumeid või analüüsida erinevusi rühmade vahel.
-- **Regressioonianalüüs:** Kasutajad saavad kasutada regressioonianalüüsi, et uurida muutujate vahelisi seoseid ja ennustada tulemusi.
+- **Hüpoteeside testimine.** Excelis saab teostada t-Testi ja ANOVA (Analysis of Variance) teste, et võrrelda andmekogumeid või analüüsida erinevusi rühmade vahel.
+- **Regressioonianalüüs.** Kasutajad saavad kasutada regressioonianalüüsi, et uurida muutujate vahelisi seoseid ja ennustada tulemusi.
 
 ### Andmete visualiseerimine
-- **Diagrammid ja graafikud:** Excel pakub erinevaid viise andmete visualiseerimiseks, sealhulgas tulp-, joon-, piirkonna-, ring-, hajuvus- ja mullidiagramme.
-- **Konditsionaalne vormindamine:** See võimaldab andmeid visuaalselt esile tõsta, kasutades värve, ikoone ja andmeribasid, et lihtsustada andmestiku mustrite ja trendide tuvastamist.
+- **Diagrammid ja graafikud.** Excel pakub erinevaid viise andmete visualiseerimiseks, sealhulgas tulp-, joon-, piirkonna-, ring-, hajuvus- ja mullidiagramme.
+- **Tingimuslik vormindamine:** See võimaldab andmeid visuaalselt esile tõsta, kasutades värve, ikoone ja andmeribasid, et lihtsustada andmestiku mustrite ja trendide tuvastamist.
 
 ### Makrod ja VBA skriptimine
-- **Automatiseerimine ja kohandamine:** Kasutajad saavad luua makrosid ja kasutada Visual Basic for Applications (VBA) skriptimist, et automatiseerida korduvaid ülesandeid ja kohandada analüütilisi protseduure, mis ületavad Exceli standardfunktsioonide piire.
+- **Automatiseerimine ja kohandamine.** Kasutajad saavad luua makrosid ja kasutada Visual Basic for Applications (VBA) skriptimist, et automatiseerida korduvaid ülesandeid ja kohandada analüütilisi protseduure, mis ületavad Exceli standardfunktsioonide piire.
 
 ### Lisandmoodulid ja tööriistad
-- **Analysis ToolPak:** See on Exceli lisandmoodul, mis pakub täiendavaid statistilisi funktsioone, sealhulgas keerulisemaid analüütilisi tööriistu ja statistilisi meetodeid.
+- **Analysis ToolPak.** See on Exceli lisandmoodul, mis pakub täiendavaid statistilisi funktsioone, sealhulgas keerulisemaid analüütilisi tööriistu ja statistilisi meetodeid.
 
-Microsoft Exceli paindlikkus ja lai funktsionaalsus muudavad selle võimsaks tööriistaks statistiliseks analüüsiks, sobides erinevate tööstusharude ja akadeemiliste valdkondade vajadustele. Siiski on oluline märkida, et keerukamate statistiliste analüüside ja suurte andmekogumite korral võivad spetsialiseeritud statistikatarkvarad pakkuda täiendavaid võimalusi ja efektiivsust.
+MS Exceli paindlikkus ja lai funktsionaalsus muudavad selle heaks tööriistaks statistiliseks analüüsiks, sobides erinevate tööstusharude ja akadeemiliste valdkondade vajadustele. Siiski on oluline märkida, et keerukamate statistiliste analüüside ja suurte andmekogumite korral pakuvad spetsialiseeritud statistikatarkvarad rohkem võimalusi.

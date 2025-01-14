@@ -20,7 +20,9 @@
   <meta name="twitter:description" content="Metsandusliku statistika õpik" />
   
 
-<meta name="author" content="Allan Sims, Andres Kiviste, Diana Laarmann" />
+<meta name="author" content="Allan Sims" />
+<meta name="author" content="Andres Kiviste" />
+<meta name="author" content="Diana Laarmann" />
 
 
 <meta name="date" content="2025-01-14" />
@@ -138,9 +140,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Metsanduslik statistika R ja MS Excel keskkonnas</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#statistikaprogramm-r"><i class="fa fa-check"></i><b>1.1</b> Statistikaprogramm R</a>
@@ -165,11 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="andmestik.html"><a href="andmestik.html"><i class="fa fa-check"></i><b>2</b> Andmestik</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="02-andmestikud.html"><a href="#andmestike-t%C3%BC%C3%BCbid"><i class="fa fa-check"></i><b>2.1</b> Andmestike tüübid</a>
-<ul>
-<li class="chapter" data-level="2.1.1" data-path="andmestik.html"><a href="andmestik.html#arvulised-tunnused"><i class="fa fa-check"></i><b>2.1.1</b> Arvulised tunnused</a></li>
-<li class="chapter" data-level="2.1.2" data-path="andmestik.html"><a href="andmestik.html#mittearvulised-tunnused"><i class="fa fa-check"></i><b>2.1.2</b> Mittearvulised tunnused</a></li>
-</ul></li>
+<li class="chapter" data-level="2.1" data-path="02-andmestikud.html"><a href="#andmestike-t%C3%BC%C3%BCbid"><i class="fa fa-check"></i><b>2.1</b> Andmestike tüübid</a></li>
 <li class="chapter" data-level="2.2" data-path="andmestik.html"><a href="andmestik.html#andmestiku-struktuur"><i class="fa fa-check"></i><b>2.2</b> Andmestiku struktuur</a>
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="andmestik.html"><a href="andmestik.html#vektor"><i class="fa fa-check"></i><b>2.2.1</b> Vektor</a></li>
@@ -246,9 +241,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="9.1" data-path="02-andmestikud.html"><a href="#%C3%BCldistatud-aditiivne-mudel"><i class="fa fa-check"></i><b>9.1</b> Üldistatud aditiivne mudel</a></li>
 </ul></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Publitseeritud bookdown paketiga</a></li>
-
 </ul>
 
       </nav>
@@ -270,55 +262,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Peatükk 2</span> Andmestik<a href="andmestik.html#andmestik" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="andmestike-tüübid" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Andmestike tüübid<a href="#andmestike-t%C3%BC%C3%BCbid" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="arvulised-tunnused" class="section level3 hasAnchor" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Arvulised tunnused<a href="andmestik.html#arvulised-tunnused" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Arvuline tunnus</strong> on statistika valdkonnas kasutatav termin, mis viitab omadustele või muutujatele, mida on võimalik numbriliselt mõõta või kvantifitseerida. See tunnus võimaldab saada objektiivset ja kvantitatiivset infot uuritava nähtuse kohta ning seda on võimalik matemaatiliselt analüüsida ja töödelda statistiliste meetodite abil. Arvuline tunnus võib olla kasvõi pikkus, kaal, temperatuur, protsent, rahaline väärtus vms. See tunnus on kvantitatiivne ja seda saab esitada numbriliselt. Näiteks, kui uuritakse puude vanust metsas, siis vanus on arvuline tunnus ning seda saab väljendada aastates.</p>
-<p><strong>Pidev tunnus</strong> on statistikas termin, mis tähistab tunnust või muutujat, mille väärtused võivad võtta ükskõik millise reaalarvu väärtuse mingil kindlal vahemikul. Pidev tunnus erineb kategoorilisest tunnusest, kus väärtused on diskreetsed ja kuuluvad kindlatesse kategooriatesse või gruppidesse. Pidev tunnus võib olla näiteks puu kõrgus, puu diameeter vms.</p>
-<p><strong>Diskreetne tunnus</strong> on tunnus, mille väärtusi saab loendada või liigitada teatud kategooriatesse. Diskreetne tunnus võtab enda alla kindlad ja eraldiseisvad väärtused, mis ei ole järjestikused või pidevad. Näiteks võib diskreetne tunnus olla metsaaluse puuliikide arv, kus võimalikud väärtused võivad olla 0, 1, 2, 3 jne. Diskreetse tunnuse väärtusi esitatakse tavaliselt loendina või kategooriatena, mitte järjestikuste arvudena. Diskreetse tunnuse analüüsimisel kasutatakse sobivaid statistilisi meetodeid ja tehnikaid, mis arvestavad konkreetse tunnuse iseloomu ja omadusi.</p>
-<p><strong>Intervalltunnus</strong> on statistiline muutuja, mida iseloomustab kindlas vahemikus olevad data punktid. See tähendab, et intervalltunnusel on mõõdetav suurus või väärtus, mis võib olla järjestikuline (nt temperatuur, aeg) ja mida saab mõõta kindlas arvvahemikus. Intervalltunnuse puhul on oluline teada, et selle erinevate väärtuste vahed on võrdsed ja defineeritud skaala järgi. Näiteks temperatuuri intervalltunnus on mõõdetav kümnendik-kraadi täpsusega ning 10-kraadise vahemiku võrdne ja mõõdetav.</p>
-<p>Metsanduses võib intervalltunnusteks olla näiteks metsamaa pindala, puistu vanus või puistu jämedusklass. Need tunnused on mõõdetavad kindlas arvvahemikus ja neil on võrdsed intervallid, mis võimaldavad neid kvantitatiivselt analüüsida ja võrrelda.</p>
-<p>Mittearvuline tunnus või kvalitatiivne tunnus on tunnus, mida ei saa kvantitatiivselt mõõta ega arvuliselt väljendada. See viitab omadustele või asjaoludele, mis on iseloomustatud mitte arvulise väärtusega, vaid kvalitatiivsete omaduste või kategooriatena. Näiteks võib öelda, et puu tüüp (näiteks kuusk või mänd) on mittearvuline tunnus, kuna seda ei saa väljendada numbriliselt, vaid see kuulub kindlasse kvalitatiivsesse kategooriasse.</p>
-</div>
-<div id="mittearvulised-tunnused" class="section level3 hasAnchor" number="2.1.2">
-<h3><span class="header-section-number">2.1.2</span> Mittearvulised tunnused<a href="andmestik.html#mittearvulised-tunnused" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Mittearvuline tunnus</strong> võib olla erinevaid vorme, nagu näiteks järjestuslikud (näiteks kõrgus kategooriates “madal”, “keskmine” ja “kõrge”), nominaalsed (näiteks puu liikide nimetused) või ordinaalsed (näiteks kasvuala klassifikatsioon). Nende tunnuste tundmine ja mõistmine on oluline statistiliste analüüside tegemisel, kuna need võivad mõjutada tulemuste interpreteerimist ja järelduste tegemist.
-Järjestustunnus mõõdab muutuja kohta käiva informatsiooni järjestust. See on kvantitatiivne muutuja, mida saab kategoriseerida vastavalt sellele, kuidas see on paigutatud. Järjestustunnusel on järjekorranumber või tunnus, mis näitab selle asukohta suhtelises järjestuses. Näiteks võib järjestustunnuks olla õppeaasta (näiteks esimene aasta, teine aasta, kolmas aasta), mõõtmiste järjekorranumber või mingi protsessi etapid (näiteks seemnete külvamine, taimede kasvamine, saagi koristamine).</p>
-<p><strong>Järjestustunnus</strong> on oluline mõiste statistikas, kuna see võimaldab andmete korraldamist ja analüüsi vastavalt nende järjestusele. See aitab mõista, kuidas muutuja väärtused muutuvad järjestuse järgi ning kuidas need on seotud teiste muutujatega. Järjestustunnu omadused võivad olla kasvav (nt külvatud seemnete arv) või kahanev (nt taimede kasvuperiood). Järjestustunnuseid saab visualiseerida graafiliselt, näiteks joon- või tulpdiagrammide abil.
-Nominaalne tunnus on statistikas kategooriline muutuja, mis kirjeldab objektide või üksuste liigitust kindlatesse kategooriatesse. Näiteks võib nominaalne tunnus olla inimeste sugu (naised, mehed), rahvus (eestlased, venelased, soomlased jne) või haridustase (põhiharidus, keskharidus, kõrgharidus jne). Nominaalsed tunnused ei sisalda endas järjestikust või mõõdetavat suurust ning neid saab tavaliselt esitada tabelina või diagrammina. Nominaalseid tunnuseid kasutatakse sageli statistilistes analüüsides selleks, et saaksime võrrelda erinevate kategooriate esinemissagedust või seoseid nende vahel.</p>
-<p><strong>Binaarne tunnus</strong> on statistikas kasutatav tunnus, mis võib võtta ainult kahte erinevat väärtust. Need kaks väärtust tähistatakse tavaliselt numbriliselt, näiteks 0 ja 1 või “jah” ja “ei”. Binaarne tunnus võib olla näiteks sugu (mees/naine), suitsetaja (jah/ei) või koduloom olemasolu (jah/ei). Binaarset tunnust kasutatakse sageli populatsioonide võrdlemisel ja analüüsimisel ning see võib anda olulist teavet erinevate rühmade omaduste või käitumise kohta.</p>
-</div>
+<p>Andmeanalüüsis on oluline mõista erinevaid tunnuste tüüpe, kuna see mõjutab andmete töötlemise ja analüüsimise viise. Tunnus on näitaja, mida saab mõõta kõigil uurimisalustel objektidel.</p>
+<p><strong>Tunnuste liigitamine:</strong></p>
+<p>Andmeanalüüsi otstarbel jagatakse tunnuseid kahte põhitüüpi:</p>
+<p><strong>1. Arvulised tunnused (kvantitatiivsed tunnused):</strong></p>
+<ul>
+<li>Mõõtmistulemuseks on arv.</li>
+<li>Jagunevad omakorda:
+<ul>
+<li><strong>Pidevad arvtunnused</strong> Vastusevariantidena kõik punktid tunnuse skaalal (nt pikkus, kaal, sissetulek, vanus).</li>
+<li><strong>Diskreetsed arvtunnused</strong> Võimalikud vaid täisarvulised loendatavad vastusevariandid (nt tubade arv korteris, laste arv peres).</li>
+</ul></li>
+<li>Liigitatakse ka vastavalt mõõteskaalale:
+<ul>
+<li><strong>Vahemikskaala</strong> Skaalapunktide vahed on igas skaala osas sama pikad.</li>
+<li><strong>Suhteskaala</strong> Väärtuste suhted on igas skaala osas tõlgendatavad, on üheselt kindlaks määratud nullpunkt.</li>
+</ul></li>
+</ul>
+<p><strong>2. Mittearvulised tunnused (kvalitatiivsed tunnused):</strong></p>
+<ul>
+<li>Mõõtmistulemuseks ei ole arv.</li>
+<li>Jagunevad:
+<ul>
+<li><strong>Järjestustunnused</strong> Vastusevariandid on intensiivsuse põhjal järjestatavad, skaalapunktide vahed ei pruugi olla võrdsed (nt haridustase, meeldivuse hinnangud).</li>
+<li><strong>Nominaaltunnused</strong> Vastusevariandid annavad objekti kirjelduse, aga ei ütle midagi omaduse intensiivsuse kohta (nt sugu, rahvus, perekonnaseis).</li>
+</ul></li>
+</ul>
+<p>Lisaks neile põhitüüpidele on veel:</p>
+<ul>
+<li><strong>Kategoriaalne tunnus</strong> Tunnus, mille vastuste seas on eristatavad kategooriad (tüüpiliselt mittearvulised).</li>
+<li><strong>Binaarne ehk kaheväärtuseline tunnus</strong> Tunnus, millel on vaid kaks võimalikku väärtust.</li>
+</ul>
 </div>
 <div id="andmestiku-struktuur" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Andmestiku struktuur<a href="andmestik.html#andmestiku-struktuur" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="vektor" class="section level3 hasAnchor" number="2.2.1">
 <h3><span class="header-section-number">2.2.1</span> Vektor<a href="andmestik.html#vektor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>R programmeerimiskeele vector ehk vektor on andmetüüp, mis võimaldab talletada mitut sarnast tüüpi elementi ühes andmestruktuuris. Vektoris saab hoida näiteks numbreid, teksti või loogilisi väärtusi. Vektorit loetakse ühemõõtmeliseks andmestruktuuriks, kuna kõik selles sisalduvad elemendid asuvad ühes reas.</p>
+<p>R programmeerimiskeeles vektor on andmetüüp, mis võimaldab talletada mitut ühesugust andmetüüpi elementi ühes andmestruktuuris. Vektoris saab hoida näiteks numbreid, teksti või loogilisi väärtusi. Vektorit loetakse ühemõõtmeliseks andmestruktuuriks, kuna kõik selles sisalduvad elemendid asuvad ühes reas.</p>
 <p>Vektorit saab luua kasutades funktsiooni <code>c()</code>, kuhu tuleb sisestada eraldatud komadega elemendid. Näiteks:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="andmestik.html#cb5-1" tabindex="-1"></a>num_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="andmestik.html#cb10-1" tabindex="-1"></a>num_vektor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code></pre></div>
 <p>Vektori elementidele saab viidata indeksite abil, alustades indeksist 1. Näiteks:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="andmestik.html#cb6-1" tabindex="-1"></a><span class="co"># väljastab vektori num_vector kolmanda elemendi väärtuse</span></span>
-<span id="cb6-2"><a href="andmestik.html#cb6-2" tabindex="-1"></a>num_vector[<span class="dv">3</span>] </span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="andmestik.html#cb11-1" tabindex="-1"></a><span class="co"># väljastab vektori num_vektor kolmanda elemendi väärtuse</span></span>
+<span id="cb11-2"><a href="andmestik.html#cb11-2" tabindex="-1"></a>num_vektor[<span class="dv">3</span>] </span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
 <p>Vektori pikkus ehk elementide arv on võimalik saada funktsiooniga <code>length()</code>. Vektorit saab ühendada teise vektoriga funktsiooniga <code>c()</code>. Näiteks:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="andmestik.html#cb7-1" tabindex="-1"></a>num_vector_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>)</span>
-<span id="cb7-2"><a href="andmestik.html#cb7-2" tabindex="-1"></a>combined_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(num_vector, num_vector_2)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="andmestik.html#cb13-1" tabindex="-1"></a>num_vektor_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>)</span>
+<span id="cb13-2"><a href="andmestik.html#cb13-2" tabindex="-1"></a>kombineeritud_vektor <span class="ot">&lt;-</span> <span class="fu">c</span>(num_vektor, num_vektor_2)</span></code></pre></div>
 <p>Võimalik on ka vektorit luua jada genereerimise abil, kasutades funktsiooni <code>seq()</code>. Näiteks:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="andmestik.html#cb8-1" tabindex="-1"></a><span class="co"># loob vektori, mis sisaldab arve vahemikus 1 kuni 10 sammuga 2</span></span>
-<span id="cb8-2"><a href="andmestik.html#cb8-2" tabindex="-1"></a>seq_vector <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">2</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="andmestik.html#cb14-1" tabindex="-1"></a><span class="co"># loob vektori, mis sisaldab arve vahemikus 1 kuni 10 sammuga 2</span></span>
+<span id="cb14-2"><a href="andmestik.html#cb14-2" tabindex="-1"></a>jarg_vector <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">2</span>) </span></code></pre></div>
 <p>Vektoritega on võimalik teostada erinevaid arvutusi, teisendusi ning andmete filtreerimist. Vektorid on olulised R programmeerimises, kuna nende abil on mugav töödelda andmeid ja teostada statistilisi analüüse.</p>
 </div>
 <div id="maatriks-array" class="section level3 hasAnchor" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> Maatriks, array<a href="andmestik.html#maatriks-array" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>R-i andmetüüp matrix ehk maatriks on kahe- või rohkema dimensiooniline andmete struktuur, kus andmed on paigutatud mitme rea ja veeruna, moodustades seeläbi tabeli. Maatriksis olevad andmed peavad olema kõik samatüübilised, näiteks kõik arvud või kõik tekstid.</p>
-<p>Maatriksi loomiseks R-keeles kasutatakse funktsioone <code>matrix()</code> või <code>array()</code>, milles esimene on kahemõõtmeline ning teine võimaldab juba rohkemaid mõõtmeid. Nendele funktsioonidele saab määrata erinevaid parameetreid, näiteks andmete sisu, ridade ja veergude arvu ning rea- ja veerunimed. Maatriksit saab luua nii nimekirjast kui ka vektorist, andes funktsioonile vastavad parameetrid.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="andmestik.html#cb9-1" tabindex="-1"></a><span class="co"># Loome kahemõõtmelise maatriksi juhuslikest arvudest</span></span>
-<span id="cb9-2"><a href="andmestik.html#cb9-2" tabindex="-1"></a>minu_maatriks <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">runif</span>(<span class="dv">12</span>), <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">4</span>)</span>
-<span id="cb9-3"><a href="andmestik.html#cb9-3" tabindex="-1"></a><span class="fu">print</span>(minu_maatriks)</span></code></pre></div>
+<p>Andmetüüp maatriks on kahe- või mitmemõõtmeline andmete struktuur, kus andmed on paigutatud mitme rea ja veeruna, moodustades seeläbi tabeli. Maatriksis olevad andmed peavad olema kõik samatüübilised, näiteks kõik arvud või kõik tekstid.</p>
+<p>Maatriksi loomiseks kasutatakse funktsioone <code>matrix()</code> või <code>array()</code>, milles esimene võimaldab luua kahemõõtmelist ning teine juba mitmemõõtmelisi maatrikseid. Nendele funktsioonidele saab määrata erinevaid parameetreid, näiteks andmete sisu, ridade ja veergude arvu ning rea- ja veerunimed. Maatriksit saab luua nii nimekirjast kui ka vektorist, andes funktsioonile vastavad parameetrid.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="andmestik.html#cb15-1" tabindex="-1"></a><span class="co"># Loome kahemõõtmelise maatriksi juhuslikest arvudest</span></span>
+<span id="cb15-2"><a href="andmestik.html#cb15-2" tabindex="-1"></a>minu_maatriks <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">runif</span>(<span class="dv">12</span>), <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">4</span>)</span>
+<span id="cb15-3"><a href="andmestik.html#cb15-3" tabindex="-1"></a><span class="fu">print</span>(minu_maatriks)</span></code></pre></div>
 <pre><code>##           [,1]      [,2]      [,3]      [,4]
-## [1,] 0,3753394 0,7020625 0,4956121 0,1550682
-## [2,] 0,6038587 0,8408283 0,3191798 0,4097877
-## [3,] 0,6388669 0,9587615 0,5736335 0,5747899</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="andmestik.html#cb11-1" tabindex="-1"></a><span class="co"># Loome kolmemõõtmelise maatriksi juhuslikest arvudest</span></span>
-<span id="cb11-2"><a href="andmestik.html#cb11-2" tabindex="-1"></a>minu_array <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="fu">runif</span>(<span class="dv">12</span>), <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code></pre></div>
+## [1,] 0,4970222 0,7802362 0,1395539 0,9349502
+## [2,] 0,9153883 0,3178500 0,4588790 0,6882466
+## [3,] 0,3092289 0,5063185 0,5525389 0,2252549</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="andmestik.html#cb17-1" tabindex="-1"></a><span class="co"># Loome kolmemõõtmelise maatriksi juhuslikest arvudest</span></span>
+<span id="cb17-2"><a href="andmestik.html#cb17-2" tabindex="-1"></a>minu_array <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="fu">runif</span>(<span class="dv">12</span>), <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code></pre></div>
 <p>Maatriksit saab kasutada erinevate arvutusoperatsioonide tegemiseks, nagu maatriksite korrutamine, liitmine, lahutamine jne. Samuti on võimalik maatriksit indekseerida ja välja printida konkreetseid ridu ja veerge.</p>
 <p>Kokkuvõttes on maatriks R-i programmeerimiskeele andmetüüp, mis võimaldab mugavalt töötada tabelikujuliste andmetega, nagu need võivad esineda näiteks statistilistes analüüsides.</p>
 </div>
@@ -327,16 +334,16 @@ Nominaalne tunnus on statistikas kategooriline muutuja, mis kirjeldab objektide 
 <p>R-i andmetüüp data.frame on üks olulisemaid andmestruktuure andmete haldamiseks ja analüüsimiseks R-keskkonnas. Data.frame on tabelilaadne struktuur, kus andmed on korraldatud ridade (vaatluste) ja veergude (tunnuste) kaupa.</p>
 <p>Iga veerg data.frame’is vastab ühele muutujale, mis võib olla numbriline, tekstiline või faktor. Iga rida esindab ühte andmepunkti, mis sisaldab väärtusi vastavatele muutujatele.</p>
 <p>Data.frame’i loomiseks saab kasutada funktsiooni <code>data.frame()</code>. Andmed saab data.frame’i importida erinevatest andmeallikatest (nt CSV-failid, andmebaasid) või genereerida otse R-s.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="andmestik.html#cb12-1" tabindex="-1"></a><span class="co"># Loome data.frame andmestiku</span></span>
-<span id="cb12-2"><a href="andmestik.html#cb12-2" tabindex="-1"></a>minu_data_frame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">runif</span>(<span class="dv">5</span>), <span class="at">y =</span> <span class="fu">runif</span>(<span class="dv">5</span>), <span class="at">z =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="andmestik.html#cb18-1" tabindex="-1"></a><span class="co"># Loome data.frame andmestiku</span></span>
+<span id="cb18-2"><a href="andmestik.html#cb18-2" tabindex="-1"></a>minu_data_frame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">runif</span>(<span class="dv">5</span>), <span class="at">y =</span> <span class="fu">runif</span>(<span class="dv">5</span>), <span class="at">z =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p>Data.frame’i puhul on võimalik teha erinevaid andmehalduse ja analüüsi operatsioone nagu veergude ja ridade lisamine, kustutamine, filtreerimine, rühmitamine, sorteerimine ja statistiliste analüüside tegemine.</p>
 <p>Data.frame’i on oluline oskuslikult hallata ja kasutada, kuna see on väga levinud andmestruktuur R-keskkonnas ning võimaldab mugavalt töötada suurte andmekogumitega.</p>
 </div>
 <div id="list" class="section level3 hasAnchor" number="2.2.4">
 <h3><span class="header-section-number">2.2.4</span> list<a href="andmestik.html#list" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R-i andmetüüp list ehk ‘list’ on objektide kogu, mis võimaldab ühte muutujasse salvestada mitmesuguseid elemente nagu arve, sõnesid, loogilisi väärtuseid jne. Listi loomisel määratakse elemendid nurksulgudega <code>[]</code> ning elemendid eraldatakse komadega. Näiteks võib listis olla nii arve <code>[1, 2, 3]</code> kui ka sõnesid <code>["Mänd", "Kuusk"]</code>. Listis olevaid elemente saab muuta, lisada, eemaldada ja teisaldada vastavalt vajadusele. List on üks paindlikumaid R programmeerimiskeele andmetüüpe ning seda kasutatakse sageli andmete töötlemisel ja analüüsil.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="andmestik.html#cb13-1" tabindex="-1"></a><span class="co"># Loome list andmestiku</span></span>
-<span id="cb13-2"><a href="andmestik.html#cb13-2" tabindex="-1"></a>minu_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="fu">runif</span>(<span class="dv">5</span>), <span class="at">y =</span> <span class="fu">runif</span>(<span class="dv">5</span>), <span class="at">z =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="andmestik.html#cb19-1" tabindex="-1"></a><span class="co"># Loome list andmestiku</span></span>
+<span id="cb19-2"><a href="andmestik.html#cb19-2" tabindex="-1"></a>minu_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="fu">runif</span>(<span class="dv">5</span>), <span class="at">y =</span> <span class="fu">runif</span>(<span class="dv">5</span>), <span class="at">z =</span> <span class="dv">1</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="andmestike-sisse-toomine" class="section level2 hasAnchor" number="2.3">
@@ -346,16 +353,16 @@ Nominaalne tunnus on statistikas kategooriline muutuja, mis kirjeldab objektide 
 <li>Andmete importimine CSV failist:</li>
 </ol>
 <p>Enne koodi käivitamist veendu, et CSV fail on salvestatud samas kaustas, kus Sa töötad R-is või et oled määranud õige tee failini.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="andmestik.html#cb14-1" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;failinimi.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="andmestik.html#cb20-1" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;failinimi.csv&quot;</span>)</span></code></pre></div>
 <p>Kui CSV failil on teistsugune eraldusmärk (nt semikoolon), siis saab selle täpsustada lisades argumenti <code>sep=";"</code>.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="andmestik.html#cb15-1" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;failinimi.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="andmestik.html#cb21-1" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;failinimi.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;;&quot;</span>)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Andmete importimine MS Exceli failist:</li>
 </ol>
 <p>Esmalt tuleb installida ja laadida sisse <code>openxlsx</code> pakett, mis võimaldab Exceli failidest andmete lugemist.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="andmestik.html#cb16-1" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="andmestik.html#cb22-1" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code></pre></div>
 <p>Seejärel kasutada funktsiooni <code>read.xlsx()</code>, et importida andmed Exceli failist.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="andmestik.html#cb17-1" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">&quot;failinimi.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="andmestik.html#cb23-1" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">&quot;failinimi.xlsx&quot;</span>)</span></code></pre></div>
 </div>
 <div id="arvutamine-r-i-keskkonnas" class="section level2 hasAnchor" number="2.4">
 <h2><span class="header-section-number">2.4</span> Arvutamine R-i keskkonnas<a href="andmestik.html#arvutamine-r-i-keskkonnas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -363,47 +370,47 @@ Nominaalne tunnus on statistikas kategooriline muutuja, mis kirjeldab objektide 
 <ol style="list-style-type: decimal">
 <li>Liitmine:</li>
 </ol>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="andmestik.html#cb18-1" tabindex="-1"></a><span class="co"># Liidame kaks arvu</span></span>
-<span id="cb18-2"><a href="andmestik.html#cb18-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb18-3"><a href="andmestik.html#cb18-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb18-4"><a href="andmestik.html#cb18-4" tabindex="-1"></a>sum <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
-<span id="cb18-5"><a href="andmestik.html#cb18-5" tabindex="-1"></a><span class="fu">print</span>(sum) <span class="co"># Väljastab tulemuse</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="andmestik.html#cb24-1" tabindex="-1"></a><span class="co"># Liidame kaks arvu</span></span>
+<span id="cb24-2"><a href="andmestik.html#cb24-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb24-3"><a href="andmestik.html#cb24-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb24-4"><a href="andmestik.html#cb24-4" tabindex="-1"></a>sum <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
+<span id="cb24-5"><a href="andmestik.html#cb24-5" tabindex="-1"></a><span class="fu">print</span>(sum) <span class="co"># Väljastab tulemuse</span></span></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Lahutamine:</li>
 </ol>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="andmestik.html#cb20-1" tabindex="-1"></a><span class="co"># Lahutame kaks arvu</span></span>
-<span id="cb20-2"><a href="andmestik.html#cb20-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb20-3"><a href="andmestik.html#cb20-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb20-4"><a href="andmestik.html#cb20-4" tabindex="-1"></a>difference <span class="ot">&lt;-</span> x <span class="sc">-</span> y</span>
-<span id="cb20-5"><a href="andmestik.html#cb20-5" tabindex="-1"></a><span class="fu">print</span>(difference) <span class="co"># Väljastab tulemuse</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="andmestik.html#cb26-1" tabindex="-1"></a><span class="co"># Lahutame kaks arvu</span></span>
+<span id="cb26-2"><a href="andmestik.html#cb26-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb26-3"><a href="andmestik.html#cb26-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb26-4"><a href="andmestik.html#cb26-4" tabindex="-1"></a>difference <span class="ot">&lt;-</span> x <span class="sc">-</span> y</span>
+<span id="cb26-5"><a href="andmestik.html#cb26-5" tabindex="-1"></a><span class="fu">print</span>(difference) <span class="co"># Väljastab tulemuse</span></span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Korrutamine:</li>
 </ol>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="andmestik.html#cb22-1" tabindex="-1"></a><span class="co"># Korrutame kaks arvu</span></span>
-<span id="cb22-2"><a href="andmestik.html#cb22-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">6</span></span>
-<span id="cb22-3"><a href="andmestik.html#cb22-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">7</span></span>
-<span id="cb22-4"><a href="andmestik.html#cb22-4" tabindex="-1"></a>product <span class="ot">&lt;-</span> x <span class="sc">*</span> y</span>
-<span id="cb22-5"><a href="andmestik.html#cb22-5" tabindex="-1"></a><span class="fu">print</span>(product) <span class="co"># Väljastab tulemuse</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="andmestik.html#cb28-1" tabindex="-1"></a><span class="co"># Korrutame kaks arvu</span></span>
+<span id="cb28-2"><a href="andmestik.html#cb28-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb28-3"><a href="andmestik.html#cb28-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">7</span></span>
+<span id="cb28-4"><a href="andmestik.html#cb28-4" tabindex="-1"></a>product <span class="ot">&lt;-</span> x <span class="sc">*</span> y</span>
+<span id="cb28-5"><a href="andmestik.html#cb28-5" tabindex="-1"></a><span class="fu">print</span>(product) <span class="co"># Väljastab tulemuse</span></span></code></pre></div>
 <pre><code>## [1] 42</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Jagamine:</li>
 </ol>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="andmestik.html#cb24-1" tabindex="-1"></a><span class="co"># Jagame kaks arvu</span></span>
-<span id="cb24-2"><a href="andmestik.html#cb24-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb24-3"><a href="andmestik.html#cb24-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb24-4"><a href="andmestik.html#cb24-4" tabindex="-1"></a>quotient <span class="ot">&lt;-</span> x <span class="sc">/</span> y</span>
-<span id="cb24-5"><a href="andmestik.html#cb24-5" tabindex="-1"></a><span class="fu">print</span>(quotient) <span class="co"># Väljastab tulemuse</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="andmestik.html#cb30-1" tabindex="-1"></a><span class="co"># Jagame kaks arvu</span></span>
+<span id="cb30-2"><a href="andmestik.html#cb30-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb30-3"><a href="andmestik.html#cb30-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb30-4"><a href="andmestik.html#cb30-4" tabindex="-1"></a>quotient <span class="ot">&lt;-</span> x <span class="sc">/</span> y</span>
+<span id="cb30-5"><a href="andmestik.html#cb30-5" tabindex="-1"></a><span class="fu">print</span>(quotient) <span class="co"># Väljastab tulemuse</span></span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>Astendamine:</li>
 </ol>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="andmestik.html#cb26-1" tabindex="-1"></a><span class="co"># Astendame arvu</span></span>
-<span id="cb26-2"><a href="andmestik.html#cb26-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb26-3"><a href="andmestik.html#cb26-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb26-4"><a href="andmestik.html#cb26-4" tabindex="-1"></a>exponentiation <span class="ot">&lt;-</span> x<span class="sc">^</span>y</span>
-<span id="cb26-5"><a href="andmestik.html#cb26-5" tabindex="-1"></a><span class="fu">print</span>(exponentiation) <span class="co"># Väljastab tulemuse</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="andmestik.html#cb32-1" tabindex="-1"></a><span class="co"># Astendame arvu</span></span>
+<span id="cb32-2"><a href="andmestik.html#cb32-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb32-3"><a href="andmestik.html#cb32-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb32-4"><a href="andmestik.html#cb32-4" tabindex="-1"></a>exponentiation <span class="ot">&lt;-</span> x<span class="sc">^</span>y</span>
+<span id="cb32-5"><a href="andmestik.html#cb32-5" tabindex="-1"></a><span class="fu">print</span>(exponentiation) <span class="co"># Väljastab tulemuse</span></span></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 <p>Need näited näitavad lihtsaid arvutusi R-i kasutades. Ole valmis proovima erinevaid arve ja operatsioone, et harjutada ja paremini mõista R-i võimalusi arvutamisel.</p>
 
@@ -461,9 +468,6 @@ gitbook.start({
 "search": {
 "engine": "fuse",
 "options": null
-},
-"toc": {
-"collapse": "subsection"
 }
 });
 });

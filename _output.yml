@@ -2,10 +2,10 @@ bookdown::gitbook:
   css: style.css
   config:
     toc:
-      before: |
-        <li><a href="./">Metsanduslik statistika R ja MS Excel keskkonnas</a></li>
-      after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Publitseeritud bookdown paketiga</a></li>
+      #before: |
+      #  <li><a href="./">Metsanduslik statistika R ja MS Excel keskkonnas</a></li>
+      #after: |
+      #  <li><a href="https://github.com/rstudio/bookdown" target="blank">Publitseeritud bookdown paketiga</a></li>
     #edit: https://github.com/USERNAME/REPO/edit/BRANCH/%s
     download: ["pdf"]
 bookdown::pdf_book:

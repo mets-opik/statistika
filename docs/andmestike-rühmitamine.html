@@ -20,7 +20,9 @@
   <meta name="twitter:description" content="Metsandusliku statistika õpik" />
   
 
-<meta name="author" content="Allan Sims, Andres Kiviste, Diana Laarmann" />
+<meta name="author" content="Allan Sims" />
+<meta name="author" content="Andres Kiviste" />
+<meta name="author" content="Diana Laarmann" />
 
 
 <meta name="date" content="2025-01-14" />
@@ -138,9 +140,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Metsanduslik statistika R ja MS Excel keskkonnas</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#statistikaprogramm-r"><i class="fa fa-check"></i><b>1.1</b> Statistikaprogramm R</a>
@@ -165,11 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="andmestik.html"><a href="andmestik.html"><i class="fa fa-check"></i><b>2</b> Andmestik</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="03-ruhmitamine.html"><a href="#andmestike-t%C3%BC%C3%BCbid"><i class="fa fa-check"></i><b>2.1</b> Andmestike tüübid</a>
-<ul>
-<li class="chapter" data-level="2.1.1" data-path="andmestik.html"><a href="andmestik.html#arvulised-tunnused"><i class="fa fa-check"></i><b>2.1.1</b> Arvulised tunnused</a></li>
-<li class="chapter" data-level="2.1.2" data-path="andmestik.html"><a href="andmestik.html#mittearvulised-tunnused"><i class="fa fa-check"></i><b>2.1.2</b> Mittearvulised tunnused</a></li>
-</ul></li>
+<li class="chapter" data-level="2.1" data-path="03-ruhmitamine.html"><a href="#andmestike-t%C3%BC%C3%BCbid"><i class="fa fa-check"></i><b>2.1</b> Andmestike tüübid</a></li>
 <li class="chapter" data-level="2.2" data-path="andmestik.html"><a href="andmestik.html#andmestiku-struktuur"><i class="fa fa-check"></i><b>2.2</b> Andmestiku struktuur</a>
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="andmestik.html"><a href="andmestik.html#vektor"><i class="fa fa-check"></i><b>2.2.1</b> Vektor</a></li>
@@ -246,9 +241,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="9.1" data-path="03-ruhmitamine.html"><a href="#%C3%BCldistatud-aditiivne-mudel"><i class="fa fa-check"></i><b>9.1</b> Üldistatud aditiivne mudel</a></li>
 </ul></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Publitseeritud bookdown paketiga</a></li>
-
 </ul>
 
       </nav>
@@ -268,12 +260,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="andmestike-rühmitamine" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number">Peatükk 3</span> Andmestike rühmitamine<a href="#andmestike-r%C3%BChmitamine" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Pideva tunnuse rühmitamine tähendab andmete jaotamist gruppidesse või kategooriatesse vastavalt nende väärtustele. See on oluline statistilise analüüsi meetod, kui soovime analüüsida suure hulga andmeid ning leida seoseid või mustreid nende vahel.</p>
-<p>Pidevate tunnuste rühmitamine võib olla vajalik mitmel põhjusel:</p>
+<p>Pideva tunnuse rühmitamine tähendab andmete jaotamist gruppidesse või kategooriatesse vastavalt nende väärtustele. See on oluline statistilise analüüsi meetod, kui soovime analüüsida suurt hulka andmeid ning leida seoseid või mustreid nende vahel.</p>
+<p>Pideva tunnuse rühmitamine võib olla vajalik mitmel põhjusel:</p>
 <ul>
-<li><p>Andmete lihtsustamine: pidevate tunnuste rühmitamine võib muuta andmed hõlpsamini tõlgendatavaks ja analüüsitavaks, eriti juhul, kui on suur hulk erinevaid väärtusi.</p></li>
-<li><p>Seoste või trendide avastamine: rühmitades pidevaid tunnuseid, võime avastada seoseid või mustreid erinevate gruppide vahel. See võib aidata mõista näiteks, kuidas üks muutuja mõjutab teist või millised tegurid on omavahel seotud.</p></li>
-<li><p>Statistilise analüüsi täpsus: pidevate tunnuste rühmitamine võib parandada statistiliste analüüside täpsust ja usaldusväärsust, kuna see võib aidata vähendada andmete varieeruvust ning korrigeerida võimalikke moonutusi.</p></li>
+<li><p>Andmete lihtsustamine. Pidevate tunnuste rühmitamine võib muuta andmed hõlpsamini tõlgendatavaks ja analüüsitavaks, eriti juhul, kui on suur hulk erinevaid väärtusi.</p></li>
+<li><p>Seoste või trendide avastamine. Rühmitades pidevaid tunnuseid, võime avastada seoseid või mustreid erinevate gruppide vahel. See võib aidata mõista näiteks, kuidas üks muutuja mõjutab teist või millised tegurid on omavahel seotud.</p></li>
+<li><p>Statistilise analüüsi täpsus. Pidevate tunnuste rühmitamine võib parandada statistiliste analüüside täpsust ja usaldusväärsust, kuna see võib aidata vähendada andmete varieeruvust ning korrigeerida võimalikke moonutusi.</p></li>
 </ul>
 <p>Seega on pideva tunnuse rühmitamine oluline statistilise analüüsi tööriist, mis aitab andmeid paremini mõista ja interpreteerida ning seeläbi teha järeldusi ja otsuseid põhinevalt faktidel ja statistilistel seostel.</p>
 <div id="jaotused" class="section level2 hasAnchor" number="3.1">
@@ -298,32 +290,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="histogramm-1" class="section level4 hasAnchor" number="3.2.1.1">
 <h4><span class="header-section-number">3.2.1.1</span> Histogramm<a href="andmestike-rühmitamine.html#histogramm-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>R-is saab selleks kasutada funktsiooni <code>hist()</code>, millele saab ette anda rühmade piirid või vaikimisi arvutab ise andmestikule sobivad.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="andmestike-rühmitamine.html#cb28-1" tabindex="-1"></a><span class="co"># Genereerime juhuslikud andmed</span></span>
-<span id="cb28-2"><a href="andmestike-rühmitamine.html#cb28-2" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
-<span id="cb28-3"><a href="andmestike-rühmitamine.html#cb28-3" tabindex="-1"></a></span>
-<span id="cb28-4"><a href="andmestike-rühmitamine.html#cb28-4" tabindex="-1"></a><span class="co"># Kuvame histogrammi</span></span>
-<span id="cb28-5"><a href="andmestike-rühmitamine.html#cb28-5" tabindex="-1"></a>piirid <span class="ot">&lt;-</span> <span class="fu">hist</span>(andmed, <span class="at">main =</span> <span class="st">&quot;&quot;</span>, </span>
-<span id="cb28-6"><a href="andmestike-rühmitamine.html#cb28-6" tabindex="-1"></a> <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Sagedus&quot;</span></span>
-<span id="cb28-7"><a href="andmestike-rühmitamine.html#cb28-7" tabindex="-1"></a>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-24"></span>
-<img src="_main_files/figure-html/unnamed-chunk-24-1.png" alt="Histogramm" width="672" />
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="andmestike-rühmitamine.html#cb34-1" tabindex="-1"></a><span class="co"># Genereerime juhuslikud andmed</span></span>
+<span id="cb34-2"><a href="andmestike-rühmitamine.html#cb34-2" tabindex="-1"></a>andmed <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
+<span id="cb34-3"><a href="andmestike-rühmitamine.html#cb34-3" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="andmestike-rühmitamine.html#cb34-4" tabindex="-1"></a><span class="co"># Kuvame histogrammi</span></span>
+<span id="cb34-5"><a href="andmestike-rühmitamine.html#cb34-5" tabindex="-1"></a>piirid <span class="ot">&lt;-</span> <span class="fu">hist</span>(andmed, <span class="at">main =</span> <span class="st">&quot;&quot;</span>, </span>
+<span id="cb34-6"><a href="andmestike-rühmitamine.html#cb34-6" tabindex="-1"></a> <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Sagedus&quot;</span></span>
+<span id="cb34-7"><a href="andmestike-rühmitamine.html#cb34-7" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-26"></span>
+<img src="_main_files/figure-html/unnamed-chunk-26-1.png" alt="Histogramm" width="672" />
 <p class="caption">
-Figure 3.1: Histogramm
+Joonis 3.1: Histogramm
 </p>
 </div>
 </div>
 <div id="sageduste-arvutamine" class="section level4 hasAnchor" number="3.2.1.2">
 <h4><span class="header-section-number">3.2.1.2</span> Sageduste arvutamine<a href="andmestike-rühmitamine.html#sageduste-arvutamine" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Tulpdiagrammile võib eelnevalt välja arvutada antud sagedused. Selleks saab kasutada funktsiooni <code>cut()</code>, mis vajab rühmade piire sisendiks ning seejärel saab juba funktsiooniga <code>table()</code> loendada kokku iga rühma liikmete arvu.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="andmestike-rühmitamine.html#cb29-1" tabindex="-1"></a><span class="co"># Samasuguse tulemuse saab ka, kui jaotada rühmadesse funktsioonidega cut ja table</span></span>
-<span id="cb29-2"><a href="andmestike-rühmitamine.html#cb29-2" tabindex="-1"></a><span class="fu">barplot</span>(tmp <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="fu">cut</span>(andmed, piirid<span class="sc">$</span>breaks)), </span>
-<span id="cb29-3"><a href="andmestike-rühmitamine.html#cb29-3" tabindex="-1"></a> <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(tmp) <span class="sc">+</span> <span class="dv">5</span>), <span class="at">ylab=</span><span class="st">&quot;Sagedus&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>,</span>
-<span id="cb29-4"><a href="andmestike-rühmitamine.html#cb29-4" tabindex="-1"></a> <span class="at">space =</span> <span class="dv">0</span></span>
-<span id="cb29-5"><a href="andmestike-rühmitamine.html#cb29-5" tabindex="-1"></a>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-25"></span>
-<img src="_main_files/figure-html/unnamed-chunk-25-1.png" alt="Tulpdiagramm" width="672" />
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="andmestike-rühmitamine.html#cb35-1" tabindex="-1"></a><span class="co"># Samasuguse tulemuse saab ka, kui jaotada rühmadesse funktsioonidega cut ja table</span></span>
+<span id="cb35-2"><a href="andmestike-rühmitamine.html#cb35-2" tabindex="-1"></a><span class="fu">barplot</span>(tmp <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="fu">cut</span>(andmed, piirid<span class="sc">$</span>breaks)), </span>
+<span id="cb35-3"><a href="andmestike-rühmitamine.html#cb35-3" tabindex="-1"></a> <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(tmp) <span class="sc">+</span> <span class="dv">5</span>), <span class="at">ylab=</span><span class="st">&quot;Sagedus&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>,</span>
+<span id="cb35-4"><a href="andmestike-rühmitamine.html#cb35-4" tabindex="-1"></a> <span class="at">space =</span> <span class="dv">0</span></span>
+<span id="cb35-5"><a href="andmestike-rühmitamine.html#cb35-5" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-27"></span>
+<img src="_main_files/figure-html/unnamed-chunk-27-1.png" alt="Tulpdiagramm" width="672" />
 <p class="caption">
-Figure 3.2: Tulpdiagramm
+Joonis 3.2: Tulpdiagramm
 </p>
 </div>
 </div>
@@ -418,9 +410,6 @@ gitbook.start({
 "search": {
 "engine": "fuse",
 "options": null
-},
-"toc": {
-"collapse": "subsection"
 }
 });
 });

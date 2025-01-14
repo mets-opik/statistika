@@ -20,7 +20,9 @@
   <meta name="twitter:description" content="Metsandusliku statistika õpik" />
   
 
-<meta name="author" content="Allan Sims, Andres Kiviste, Diana Laarmann" />
+<meta name="author" content="Allan Sims" />
+<meta name="author" content="Andres Kiviste" />
+<meta name="author" content="Diana Laarmann" />
 
 
 <meta name="date" content="2025-01-14" />
@@ -138,9 +140,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Metsanduslik statistika R ja MS Excel keskkonnas</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#statistikaprogramm-r"><i class="fa fa-check"></i><b>1.1</b> Statistikaprogramm R</a>
@@ -165,11 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="andmestik.html"><a href="andmestik.html"><i class="fa fa-check"></i><b>2</b> Andmestik</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="09-mitteparameetriline.html"><a href="#andmestike-t%C3%BC%C3%BCbid"><i class="fa fa-check"></i><b>2.1</b> Andmestike tüübid</a>
-<ul>
-<li class="chapter" data-level="2.1.1" data-path="andmestik.html"><a href="andmestik.html#arvulised-tunnused"><i class="fa fa-check"></i><b>2.1.1</b> Arvulised tunnused</a></li>
-<li class="chapter" data-level="2.1.2" data-path="andmestik.html"><a href="andmestik.html#mittearvulised-tunnused"><i class="fa fa-check"></i><b>2.1.2</b> Mittearvulised tunnused</a></li>
-</ul></li>
+<li class="chapter" data-level="2.1" data-path="09-mitteparameetriline.html"><a href="#andmestike-t%C3%BC%C3%BCbid"><i class="fa fa-check"></i><b>2.1</b> Andmestike tüübid</a></li>
 <li class="chapter" data-level="2.2" data-path="andmestik.html"><a href="andmestik.html#andmestiku-struktuur"><i class="fa fa-check"></i><b>2.2</b> Andmestiku struktuur</a>
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="andmestik.html"><a href="andmestik.html#vektor"><i class="fa fa-check"></i><b>2.2.1</b> Vektor</a></li>
@@ -246,9 +241,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="9.1" data-path="09-mitteparameetriline.html"><a href="#%C3%BCldistatud-aditiivne-mudel"><i class="fa fa-check"></i><b>9.1</b> Üldistatud aditiivne mudel</a></li>
 </ul></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Publitseeritud bookdown paketiga</a></li>
-
 </ul>
 
       </nav>
@@ -270,13 +262,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Peatükk 9</span> Mitteparameetriline analüüs<a href="#mitteparameetriline-anal%C3%BC%C3%BCs" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="üldistatud-aditiivne-mudel" class="section level2 hasAnchor" number="9.1">
 <h2><span class="header-section-number">9.1</span> Üldistatud aditiivne mudel<a href="#%C3%BCldistatud-aditiivne-mudel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Üldistatud aditiivne mudel (GAM) on statistiline mudel, mis laieneb lineaarregressiooni R-keele abil. See võimaldab modelleerida mitte-lineaarset sõltuvussuhet eesmärgi muutuja ja sellega seotud tunnuste vahel, lisades mudelisse siledaid funktsioone.</p>
+<p>Üldistatud aditiivne mudel (GAM) on statistiline mudel, mis võimaldab üldistatud lineaarsel mudelil rakendada aditiivse mudeli sujuva ülemineku omadusi. See võimaldab modelleerida mitte-lineaarset sõltuvussuhet eesmärgi muutuja ja sellega seotud tunnuste vahel, lisades mudelisse siledaid funktsioone.</p>
 <p>GAM mudelit saab R-keskkonnas rakendada package’iga “mgcv” (Multidimensional Generalized Cross-Validation) ning see võimaldab kasutajal määrata siledad funktsioonid (nt splines, loess), mis kajastavad eesmärgi muutuja ja sellega seotud tunnuste vahelist mitte-lineaarset seost.</p>
 <p>GAM mudeli loomisel tuleb määrata eesmärgi muutuja ning sellega seotud tunnused, mida soovitakse mudelis arvesse võtta. Samuti tuleb valida siledad funktsioonid ja kontrollida, kas mudel on piisavalt hea eesmärgi või nähtuse seletamiseks. Mudeli sobivuse hindamiseks saab kasutada erinevaid meetodeid, nagu näiteks R-ruut (R-squared) või ristvaliatsioon.</p>
 <p>Kokkuvõttes võimaldab GAM mudel R-keskkonnas paindlikult modelleerida mitte-lineaarseid seoseid andmete vahel ning anda sügavamat arusaamist analüüsitava nähtuse kohta.</p>
 <p>GAM mudel on statistiline meetod, mis võimaldab mittemeetriliste muutujate mitte-lineaarset mõju modelleerimist. Allpool on näide GAM mudeli kasutamisest R-i tarkvaras:</p>
 <p>Järgnevalt demonstreerime, kuidas kasutada üldistatud aditiivset mudelit (GAM) sõltuva muutuja <span class="math inline">\(H\)</span> ja sõltumatu muutuja <span class="math inline">\(D1\)</span> suhte modelleerimiseks, kasutades andmestikku <code>andmed</code>. Seejärel visualiseeritakse andmed ja mudeli ennustused.</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="mitteparameetriline-analüüs.html#cb108-1" tabindex="-1"></a><span class="fu">require</span>(mgcv)</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="mitteparameetriline-analüüs.html#cb114-1" tabindex="-1"></a><span class="fu">require</span>(mgcv)</span></code></pre></div>
 <pre><code>## Loading required package: mgcv</code></pre>
 <pre><code>## Loading required package: nlme</code></pre>
 <pre><code>## This is mgcv 1.9-1. For overview type &#39;help(&quot;mgcv-package&quot;)&#39;.</code></pre>
@@ -285,8 +277,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>gam_model &lt;- gam(H ~ s(D1), data=andmed)</code></li>
 <li>See rida loob generaliseeritud aditiivse mudeli, määrates sõltuvaks muutujaks <span class="math inline">\(H\)</span> ja sõltumatuks muutujaks <span class="math inline">\(D1\)</span>, kasutades sujuvusfunktsiooni <code>s()</code>. Sujuvusfunktsioon võimaldab modelleerida keerukamaid, mittelineaarseid suhteid <span class="math inline">\(H\)</span> ja <span class="math inline">\(D1\)</span> vahel. Mudeli loomiseks kasutatakse andmestikku <code>andmed</code>.</li>
 </ul>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="mitteparameetriline-analüüs.html#cb112-1" tabindex="-1"></a><span class="co"># loome GAM mudeli</span></span>
-<span id="cb112-2"><a href="mitteparameetriline-analüüs.html#cb112-2" tabindex="-1"></a>(gam_model <span class="ot">&lt;-</span> <span class="fu">gam</span>(H <span class="sc">~</span> <span class="fu">s</span>(D1), <span class="at">data=</span>andmed))</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="mitteparameetriline-analüüs.html#cb118-1" tabindex="-1"></a><span class="co"># loome GAM mudeli</span></span>
+<span id="cb118-2"><a href="mitteparameetriline-analüüs.html#cb118-2" tabindex="-1"></a>(gam_model <span class="ot">&lt;-</span> <span class="fu">gam</span>(H <span class="sc">~</span> <span class="fu">s</span>(D1), <span class="at">data=</span>andmed))</span></code></pre></div>
 <pre><code>## 
 ## Family: gaussian 
 ## Link function: identity 
@@ -305,12 +297,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>curve(predict(gam_model, data.frame(D1 = x)), 10, 40, add=T, col = 2)</code></li>
 <li>See rida lisab esialgsele graafikule mudeli ennustused. <code>predict</code> funktsioon arvutab ennustatud <span class="math inline">\(H\)</span> väärtused uute <span class="math inline">\(D1\)</span> väärtuste jaoks, kasutades <code>gam_model</code> mudelit. <code>curve</code> funktsioon joonistab need ennustused graafikule vahemikus 10 kuni 40, kasutades <code>x</code> kui sõltumatut muutujat, mis esindab <span class="math inline">\(D1\)</span> väärtusi. <code>add=T</code> argument tähistab, et ennustuskõver lisatakse olemasolevale graafikule, ja <code>col = 2</code> määrab ennustuskõvera värvi (tavaliselt punane).</li>
 </ul>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="mitteparameetriline-analüüs.html#cb114-1" tabindex="-1"></a><span class="fu">plot</span>(H<span class="sc">~</span>D1, andmed, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">35</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">40</span>))</span>
-<span id="cb114-2"><a href="mitteparameetriline-analüüs.html#cb114-2" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">predict</span>(gam_model, <span class="fu">data.frame</span>(<span class="at">D1 =</span> x)), <span class="dv">10</span>, <span class="dv">40</span>, <span class="at">add=</span>T, <span class="at">col =</span> <span class="dv">2</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-82"></span>
-<img src="_main_files/figure-html/unnamed-chunk-82-1.png" alt="Üldistatud aditiivse mudel" width="672" />
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="mitteparameetriline-analüüs.html#cb120-1" tabindex="-1"></a><span class="fu">plot</span>(H<span class="sc">~</span>D1, andmed, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">35</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">40</span>))</span>
+<span id="cb120-2"><a href="mitteparameetriline-analüüs.html#cb120-2" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">predict</span>(gam_model, <span class="fu">data.frame</span>(<span class="at">D1 =</span> x)), <span class="dv">10</span>, <span class="dv">40</span>, <span class="at">add=</span>T, <span class="at">col =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-84"></span>
+<img src="_main_files/figure-html/unnamed-chunk-84-1.png" alt="Üldistatud aditiivse mudel" width="672" />
 <p class="caption">
-Figure 9.1: Üldistatud aditiivse mudel
+Joonis 9.1: Üldistatud aditiivse mudel
 </p>
 </div>
 <ul>
@@ -318,11 +310,11 @@ Figure 9.1: Üldistatud aditiivse mudel
 <li><code>plot(gam_model)</code>.</li>
 <li>Kui mudel sisaldab sujuvusfunktsiooni <code>s()</code> kasutades määratletud sõltumatu muutuja <span class="math inline">\(D1\)</span>, genereeritakse sujuvusgraafik, mis näitab, kuidas sõltuv muutuja <span class="math inline">\(H\)</span> muutub sõltumatu muutuja <span class="math inline">\(D1\)</span> suhtes. Graafikud illustreerivad sujuva komponendi mõju, koos usaldusvahemikega, mis aitavad hinnata mudeli kindlust ja varieeruvust.</li>
 </ul>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="mitteparameetriline-analüüs.html#cb115-1" tabindex="-1"></a><span class="fu">plot</span>(gam_model)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-83"></span>
-<img src="_main_files/figure-html/unnamed-chunk-83-1.png" alt="Üldistatud aditiivse mudeli mõju" width="672" />
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="mitteparameetriline-analüüs.html#cb121-1" tabindex="-1"></a><span class="fu">plot</span>(gam_model)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-85"></span>
+<img src="_main_files/figure-html/unnamed-chunk-85-1.png" alt="Üldistatud aditiivse mudeli mõju" width="672" />
 <p class="caption">
-Figure 9.2: Üldistatud aditiivse mudeli mõju
+Joonis 9.2: Üldistatud aditiivse mudeli mõju
 </p>
 </div>
 <ul>
@@ -334,11 +326,11 @@ Figure 9.2: Üldistatud aditiivse mudeli mõju
 <li><p><code>plot()</code></p></li>
 <li><p>Lõpuks joonistab <code>plot</code> funktsioon tihedusfunktsiooni graafiku. Parameeter <code>main = ""</code> määrab, et graafikul ei ole pealkirja, jättes graafiku ülaosa tühjaks.</p></li>
 </ul>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="mitteparameetriline-analüüs.html#cb116-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(<span class="fu">resid</span>(gam_model)), <span class="at">main =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-84"></span>
-<img src="_main_files/figure-html/unnamed-chunk-84-1.png" alt="Jääkide tihedusfunktsioon" width="672" />
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="mitteparameetriline-analüüs.html#cb122-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(<span class="fu">resid</span>(gam_model)), <span class="at">main =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-86"></span>
+<img src="_main_files/figure-html/unnamed-chunk-86-1.png" alt="Jääkide tihedusfunktsioon" width="672" />
 <p class="caption">
-Figure 9.3: Jääkide tihedusfunktsioon
+Joonis 9.3: Jääkide tihedusfunktsioon
 </p>
 </div>
 
@@ -396,9 +388,6 @@ gitbook.start({
 "search": {
 "engine": "fuse",
 "options": null
-},
-"toc": {
-"collapse": "subsection"
 }
 });
 });

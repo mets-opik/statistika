@@ -2,65 +2,69 @@
 
 ## Andmestike tüübid
 
-### Arvulised tunnused
+Andmeanalüüsis on oluline mõista erinevaid tunnuste tüüpe, kuna see mõjutab andmete töötlemise ja analüüsimise viise. Tunnus on näitaja, mida saab mõõta kõigil uurimisalustel objektidel. 
 
-`r print_termin('Arvuline tunnus')` on statistika valdkonnas kasutatav termin, mis viitab omadustele või muutujatele, mida on võimalik numbriliselt mõõta või kvantifitseerida. See tunnus võimaldab saada objektiivset ja kvantitatiivset infot uuritava nähtuse kohta ning seda on võimalik matemaatiliselt analüüsida ja töödelda statistiliste meetodite abil. Arvuline tunnus võib olla kasvõi pikkus, kaal, temperatuur, protsent, rahaline väärtus vms. See tunnus on kvantitatiivne ja seda saab esitada numbriliselt. Näiteks, kui uuritakse puude vanust metsas, siis vanus on arvuline tunnus ning seda saab väljendada aastates. 
+**Tunnuste liigitamine:**
 
-`r print_termin('Pidev tunnus')` on statistikas termin, mis tähistab tunnust või muutujat, mille väärtused võivad võtta ükskõik millise reaalarvu väärtuse mingil kindlal vahemikul. Pidev tunnus erineb kategoorilisest tunnusest, kus väärtused on diskreetsed ja kuuluvad kindlatesse kategooriatesse või gruppidesse. Pidev tunnus võib olla näiteks puu kõrgus, puu diameeter vms. 
+Andmeanalüüsi otstarbel jagatakse tunnuseid kahte põhitüüpi:
 
-`r print_termin('Diskreetne tunnus')` on tunnus, mille väärtusi saab loendada või liigitada teatud kategooriatesse. Diskreetne tunnus võtab enda alla kindlad ja eraldiseisvad väärtused, mis ei ole järjestikused või pidevad. Näiteks võib diskreetne tunnus olla metsaaluse puuliikide arv, kus võimalikud väärtused võivad olla 0, 1, 2, 3 jne. Diskreetse tunnuse väärtusi esitatakse tavaliselt loendina või kategooriatena, mitte järjestikuste arvudena. Diskreetse tunnuse analüüsimisel kasutatakse sobivaid statistilisi meetodeid ja tehnikaid, mis arvestavad konkreetse tunnuse iseloomu ja omadusi.
+**1. Arvulised tunnused (kvantitatiivsed tunnused):**
 
-`r print_termin('Intervalltunnus')` on statistiline muutuja, mida iseloomustab kindlas vahemikus olevad data punktid. See tähendab, et intervalltunnusel on mõõdetav suurus või väärtus, mis võib olla järjestikuline (nt temperatuur, aeg) ja mida saab mõõta kindlas arvvahemikus. Intervalltunnuse puhul on oluline teada, et selle erinevate väärtuste vahed on võrdsed ja defineeritud skaala järgi. Näiteks temperatuuri intervalltunnus on mõõdetav kümnendik-kraadi täpsusega ning 10-kraadise vahemiku võrdne ja mõõdetav.
+* Mõõtmistulemuseks on arv.
+* Jagunevad omakorda:
+    * **Pidevad arvtunnused** Vastusevariantidena kõik punktid tunnuse skaalal (nt pikkus, kaal, sissetulek, vanus).
+    * **Diskreetsed arvtunnused** Võimalikud vaid täisarvulised loendatavad vastusevariandid (nt tubade arv korteris, laste arv peres).
+* Liigitatakse ka vastavalt mõõteskaalale:
+    * **Vahemikskaala** Skaalapunktide vahed on igas skaala osas sama pikad.
+    * **Suhteskaala** Väärtuste suhted on igas skaala osas tõlgendatavad,  on üheselt kindlaks määratud nullpunkt.
 
-Metsanduses võib intervalltunnusteks olla näiteks metsamaa pindala, puistu vanus või puistu jämedusklass. Need tunnused on mõõdetavad kindlas arvvahemikus ja neil on võrdsed intervallid, mis võimaldavad neid kvantitatiivselt analüüsida ja võrrelda.
+**2. Mittearvulised tunnused (kvalitatiivsed tunnused):**
 
-Mittearvuline tunnus või kvalitatiivne tunnus on tunnus, mida ei saa kvantitatiivselt mõõta ega arvuliselt väljendada. See viitab omadustele või asjaoludele, mis on iseloomustatud mitte arvulise väärtusega, vaid kvalitatiivsete omaduste või kategooriatena. Näiteks võib öelda, et puu tüüp (näiteks kuusk või mänd) on mittearvuline tunnus, kuna seda ei saa väljendada numbriliselt, vaid see kuulub kindlasse kvalitatiivsesse kategooriasse.
+* Mõõtmistulemuseks ei ole arv.
+* Jagunevad:
+    * **Järjestustunnused** Vastusevariandid on intensiivsuse põhjal järjestatavad, skaalapunktide vahed ei pruugi olla võrdsed (nt haridustase, meeldivuse hinnangud).
+    * **Nominaaltunnused** Vastusevariandid annavad objekti kirjelduse, aga ei ütle midagi omaduse intensiivsuse kohta (nt sugu, rahvus, perekonnaseis).
 
-### Mittearvulised tunnused
+Lisaks neile põhitüüpidele on veel:
 
-`r print_termin('Mittearvuline tunnus')` võib olla erinevaid vorme, nagu näiteks järjestuslikud (näiteks kõrgus kategooriates "madal", "keskmine" ja "kõrge"), nominaalsed (näiteks puu liikide nimetused) või ordinaalsed (näiteks kasvuala klassifikatsioon). Nende tunnuste tundmine ja mõistmine on oluline statistiliste analüüside tegemisel, kuna need võivad mõjutada tulemuste interpreteerimist ja järelduste tegemist.
-Järjestustunnus mõõdab muutuja kohta käiva informatsiooni järjestust. See on kvantitatiivne muutuja, mida saab kategoriseerida vastavalt sellele, kuidas see on paigutatud. Järjestustunnusel on järjekorranumber või tunnus, mis näitab selle asukohta suhtelises järjestuses. Näiteks võib järjestustunnuks olla õppeaasta (näiteks esimene aasta, teine aasta, kolmas aasta), mõõtmiste järjekorranumber või mingi protsessi etapid (näiteks seemnete külvamine, taimede kasvamine, saagi koristamine).
-
-`r print_termin('Järjestustunnus')` on oluline mõiste statistikas, kuna see võimaldab andmete korraldamist ja analüüsi vastavalt nende järjestusele. See aitab mõista, kuidas muutuja väärtused muutuvad järjestuse järgi ning kuidas need on seotud teiste muutujatega. Järjestustunnu omadused võivad olla kasvav (nt külvatud seemnete arv) või kahanev (nt taimede kasvuperiood). Järjestustunnuseid saab visualiseerida graafiliselt, näiteks joon- või tulpdiagrammide abil.
-Nominaalne tunnus on statistikas kategooriline muutuja, mis kirjeldab objektide või üksuste liigitust kindlatesse kategooriatesse. Näiteks võib nominaalne tunnus olla inimeste sugu (naised, mehed), rahvus (eestlased, venelased, soomlased jne) või haridustase (põhiharidus, keskharidus, kõrgharidus jne). Nominaalsed tunnused ei sisalda endas järjestikust või mõõdetavat suurust ning neid saab tavaliselt esitada tabelina või diagrammina. Nominaalseid tunnuseid kasutatakse sageli statistilistes analüüsides selleks, et saaksime võrrelda erinevate kategooriate esinemissagedust või seoseid nende vahel.
-
-`r print_termin('Binaarne tunnus')` on statistikas kasutatav tunnus, mis võib võtta ainult kahte erinevat väärtust. Need kaks väärtust tähistatakse tavaliselt numbriliselt, näiteks 0 ja 1 või "jah" ja "ei". Binaarne tunnus võib olla näiteks sugu (mees/naine), suitsetaja (jah/ei) või koduloom olemasolu (jah/ei). Binaarset tunnust kasutatakse sageli populatsioonide võrdlemisel ja analüüsimisel ning see võib anda olulist teavet erinevate rühmade omaduste või käitumise kohta.
+* **Kategoriaalne tunnus** Tunnus, mille vastuste seas on eristatavad kategooriad (tüüpiliselt mittearvulised).
+* **Binaarne ehk kaheväärtuseline tunnus** Tunnus, millel on vaid kaks võimalikku väärtust.
 
 ## Andmestiku struktuur
 
 ### Vektor
-R programmeerimiskeele vector ehk vektor on andmetüüp, mis võimaldab talletada mitut sarnast tüüpi elementi ühes andmestruktuuris. Vektoris saab hoida näiteks numbreid, teksti või loogilisi väärtusi. Vektorit loetakse ühemõõtmeliseks andmestruktuuriks, kuna kõik selles sisalduvad elemendid asuvad ühes reas.
+R programmeerimiskeeles vektor on andmetüüp, mis võimaldab talletada mitut ühesugust andmetüüpi elementi ühes andmestruktuuris. Vektoris saab hoida näiteks numbreid, teksti või loogilisi väärtusi. Vektorit loetakse ühemõõtmeliseks andmestruktuuriks, kuna kõik selles sisalduvad elemendid asuvad ühes reas.
 
 Vektorit saab luua kasutades funktsiooni `c()`, kuhu tuleb sisestada eraldatud komadega elemendid. Näiteks:
 ```{r}
-num_vector <- c(1, 2, 3, 4, 5)
+num_vektor <- c(1, 2, 3, 4, 5)
 ```
 
 Vektori elementidele saab viidata indeksite abil, alustades indeksist 1. Näiteks:
-```R
-# väljastab vektori num_vector kolmanda elemendi väärtuse
-num_vector[3] 
+```{r}
+# väljastab vektori num_vektor kolmanda elemendi väärtuse
+num_vektor[3] 
 ```
 
 Vektori pikkus ehk elementide arv on võimalik saada funktsiooniga `length()`. Vektorit saab ühendada teise vektoriga funktsiooniga `c()`. Näiteks:
 ```{r}
-num_vector_2 <- c(6, 7, 8)
-combined_vector <- c(num_vector, num_vector_2)
+num_vektor_2 <- c(6, 7, 8)
+kombineeritud_vektor <- c(num_vektor, num_vektor_2)
 ```
 
 Võimalik on ka vektorit luua jada genereerimise abil, kasutades funktsiooni `seq()`. Näiteks:
 ```{r}
 # loob vektori, mis sisaldab arve vahemikus 1 kuni 10 sammuga 2
-seq_vector <- seq(1, 10, by = 2) 
+jarg_vector <- seq(1, 10, by = 2) 
 ```
 
 Vektoritega on võimalik teostada erinevaid arvutusi, teisendusi ning andmete filtreerimist. Vektorid on olulised R programmeerimises, kuna nende abil on mugav töödelda andmeid ja teostada statistilisi analüüse.
 
 ### Maatriks, array
 
-R-i andmetüüp matrix ehk maatriks on kahe- või rohkema dimensiooniline andmete struktuur, kus andmed on paigutatud mitme rea ja veeruna, moodustades seeläbi tabeli. Maatriksis olevad andmed peavad olema kõik samatüübilised, näiteks kõik arvud või kõik tekstid.
+Andmetüüp maatriks on kahe- või mitmemõõtmeline andmete struktuur, kus andmed on paigutatud mitme rea ja veeruna, moodustades seeläbi tabeli. Maatriksis olevad andmed peavad olema kõik samatüübilised, näiteks kõik arvud või kõik tekstid.
 
-Maatriksi loomiseks R-keeles kasutatakse funktsioone `matrix()` või `array()`, milles esimene on kahemõõtmeline ning teine võimaldab juba rohkemaid mõõtmeid. Nendele funktsioonidele saab määrata erinevaid parameetreid, näiteks andmete sisu, ridade ja veergude arvu ning rea- ja veerunimed. Maatriksit saab luua nii nimekirjast kui ka vektorist, andes funktsioonile vastavad parameetrid.
+Maatriksi loomiseks kasutatakse funktsioone `matrix()` või `array()`, milles esimene võimaldab luua kahemõõtmelist ning teine juba mitmemõõtmelisi maatrikseid. Nendele funktsioonidele saab määrata erinevaid parameetreid, näiteks andmete sisu, ridade ja veergude arvu ning rea- ja veerunimed. Maatriksit saab luua nii nimekirjast kui ka vektorist, andes funktsioonile vastavad parameetrid.
 
 ```{r}
 # Loome kahemõõtmelise maatriksi juhuslikest arvudest

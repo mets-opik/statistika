@@ -20,7 +20,9 @@
   <meta name="twitter:description" content="Metsandusliku statistika õpik" />
   
 
-<meta name="author" content="Allan Sims, Andres Kiviste, Diana Laarmann" />
+<meta name="author" content="Allan Sims" />
+<meta name="author" content="Andres Kiviste" />
+<meta name="author" content="Diana Laarmann" />
 
 
 <meta name="date" content="2025-01-14" />
@@ -138,9 +140,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Metsanduslik statistika R ja MS Excel keskkonnas</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#statistikaprogramm-r"><i class="fa fa-check"></i><b>1.1</b> Statistikaprogramm R</a>
@@ -165,11 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="andmestik.html"><a href="andmestik.html"><i class="fa fa-check"></i><b>2</b> Andmestik</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="index.html"><a href="#andmestike-t%C3%BC%C3%BCbid"><i class="fa fa-check"></i><b>2.1</b> Andmestike tüübid</a>
-<ul>
-<li class="chapter" data-level="2.1.1" data-path="andmestik.html"><a href="andmestik.html#arvulised-tunnused"><i class="fa fa-check"></i><b>2.1.1</b> Arvulised tunnused</a></li>
-<li class="chapter" data-level="2.1.2" data-path="andmestik.html"><a href="andmestik.html#mittearvulised-tunnused"><i class="fa fa-check"></i><b>2.1.2</b> Mittearvulised tunnused</a></li>
-</ul></li>
+<li class="chapter" data-level="2.1" data-path="index.html"><a href="#andmestike-t%C3%BC%C3%BCbid"><i class="fa fa-check"></i><b>2.1</b> Andmestike tüübid</a></li>
 <li class="chapter" data-level="2.2" data-path="andmestik.html"><a href="andmestik.html#andmestiku-struktuur"><i class="fa fa-check"></i><b>2.2</b> Andmestiku struktuur</a>
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="andmestik.html"><a href="andmestik.html#vektor"><i class="fa fa-check"></i><b>2.2.1</b> Vektor</a></li>
@@ -246,9 +241,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="9.1" data-path="index.html"><a href="#%C3%BCldistatud-aditiivne-mudel"><i class="fa fa-check"></i><b>9.1</b> Üldistatud aditiivne mudel</a></li>
 </ul></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Publitseeritud bookdown paketiga</a></li>
-
 </ul>
 
       </nav>
@@ -268,7 +260,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="header">
 <h1 class="title">Metsanduslik statistika R ja MS Excel keskkonnas</h1>
-<p class="author"><em>Allan Sims, Andres Kiviste, Diana Laarmann</em></p>
+<p class="author"><em>Allan Sims</em></p>
+<p class="author"><em>Andres Kiviste</em></p>
+<p class="author"><em>Diana Laarmann</em></p>
 <p class="date"><em>2025-01-14</em></p>
 </div>
 <div id="sissejuhatus" class="section level1 hasAnchor" number="1">
@@ -289,10 +283,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Statistiliste vigade vältimine</strong></p>
 <p>Statistika ja selle reeglite tundmine on hädavajalik, et tagada andmete ja tulemuste usaldusväärne ning täpne tõlgendamine. See oskusteave võimaldab uurijatel ja analüütikutel andmeid õigesti analüüsida, tehes kindlaks, millised tulemused on statistiliselt olulised ja millised mitte. Statistika mõistmine aitab vältida eksitavaid järeldusi, mis võivad tekkida juhuslikkuse, valimi suuruse või andmete kogumise meetodi tõlgendamisel. Näiteks:</p>
 <ul>
-<li><strong>Andmete esitusviis:</strong> Valesti valitud graafikud või kokkuvõtlikud statistilised meetodid võivad moonutada andmete tõelist olemust, juhtides valedele järeldustele.</li>
-<li><strong>Valede statistiliste testide kasutamine:</strong> Statistiliste testide ebaõige valik võib viia ekslike järeldusteni seoste kohta andmetes. Näiteks mittelineaarsete seoste analüüsimine lineaarsete mudelite abil võib jätta olulised suhted märkamata.</li>
-<li><strong>Juhuslikkuse ja mustrite eristamine:</strong> Statistika aitab eristada juhuslikke variatsioone tõelistest mustritest. Ilma korraliku statistilise analüüsita võivad uurijad tõlgendada juhuslikke variatsioone ekslikult kui olulisi suundumusi.</li>
-<li><strong>Valimite ja populatsioonide vaheliste järelduste tegemine:</strong> Statistika võimaldab teha järeldusi kogu populatsiooni kohta, lähtudes piiratud valimist. Valesti hinnatud valimi esinduslikkus või suurus võib viia ebatäpsete üldistusteni.</li>
+<li><strong>Andmete esitusviis.</strong> Valesti valitud graafikud või kokkuvõtlikud statistilised meetodid võivad moonutada andmete tõelist olemust, juhtides valedele järeldustele.</li>
+<li><strong>Valede statistiliste testide kasutamine.</strong> Statistiliste testide ebaõige valik võib viia ekslike järeldusteni seoste kohta andmetes. Näiteks mittelineaarsete seoste analüüsimine lineaarsete mudelite abil võib jätta olulised suhted märkamata.</li>
+<li><strong>Juhuslikkuse ja mustrite eristamine.</strong> Statistika aitab eristada juhuslikke variatsioone tõelistest mustritest. Ilma korraliku statistilise analüüsita võivad uurijad tõlgendada juhuslikke variatsioone ekslikult kui olulisi suundumusi.</li>
+<li><strong>Valimite ja populatsioonide vaheliste järelduste tegemine.</strong> Statistika võimaldab teha järeldusi kogu populatsiooni kohta, lähtudes piiratud valimist. Valesti hinnatud valimi esinduslikkus või suurus võib viia ebatäpsete üldistusteni.</li>
 </ul>
 <p>Vale statistiline käsitlus võib viia mitte ainult teaduslikele vigadele, vaid ka poliitika ja otsustusprotsesside eksitamisele, mis võib omada laialdasi sotsiaalseid, majanduslikke ja keskkonnaalaseid tagajärgi. Seega on statistiliste meetodite ja nende piirangute mõistmine oluline, et tagada järelduste usaldusväärsus ja õigsus, aidates sellega kaasa teaduspõhisele otsustamisele ja teadmiste edendamisele.</p>
 
@@ -342,6 +336,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
 <p>Kui pakett on paigaldatud, tuleb see töösessioonis laadida, kasutades <code>library()</code>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<p>Nende puhul tuleb jälgida, et installimisel peab paketi nimetus olema jutumärkide vahel, aga paketi sisse laadimisel võib see olla ka jutumärkideta.</p>
 <p>Lisaks on ka funktsioon <code>require()</code>, mis võimaldab testida paketi olemasolu. Näiteks, kontrollime, kas antud pakett on olemas ning kui see puudub, siis installime:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(ggplot2)){</span>
 <span id="cb3-2"><a href="index.html#cb3-2" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)    </span>
@@ -367,14 +362,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-5"><a href="index.html#cb4-5" tabindex="-1"></a>keskmine <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
 <span id="cb4-6"><a href="index.html#cb4-6" tabindex="-1"></a></span>
 <span id="cb4-7"><a href="index.html#cb4-7" tabindex="-1"></a><span class="co"># Prindime tulemuse</span></span>
-<span id="cb4-8"><a href="index.html#cb4-8" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Vektori keskmine on:&quot;</span>, keskmine))</span>
-<span id="cb4-9"><a href="index.html#cb4-9" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="index.html#cb4-10" tabindex="-1"></a><span class="co"># Loome maatriksi</span></span>
-<span id="cb4-11"><a href="index.html#cb4-11" tabindex="-1"></a>maatriks <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
-<span id="cb4-12"><a href="index.html#cb4-12" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="index.html#cb4-13" tabindex="-1"></a><span class="co"># Prindime maatriksi</span></span>
-<span id="cb4-14"><a href="index.html#cb4-14" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Maatriks:&quot;</span>)</span>
-<span id="cb4-15"><a href="index.html#cb4-15" tabindex="-1"></a><span class="fu">print</span>(maatriks)</span></code></pre></div>
+<span id="cb4-8"><a href="index.html#cb4-8" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Vektori keskmine on:&quot;</span>, keskmine))</span></code></pre></div>
+<pre><code>## [1] &quot;Vektori keskmine on: 3&quot;</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="index.html#cb6-1" tabindex="-1"></a><span class="co"># Loome maatriksi</span></span>
+<span id="cb6-2"><a href="index.html#cb6-2" tabindex="-1"></a>maatriks <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb6-3"><a href="index.html#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="index.html#cb6-4" tabindex="-1"></a><span class="co"># Prindime maatriksi</span></span>
+<span id="cb6-5"><a href="index.html#cb6-5" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Maatriks:&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Maatriks:&quot;</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="index.html#cb8-1" tabindex="-1"></a><span class="fu">print</span>(maatriks)</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4</code></pre>
 </div>
 </div>
 <div id="ms-excel" class="section level2 hasAnchor" number="1.2">
@@ -383,43 +382,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="andmete-importimine-ja-korraldamine" class="section level3 hasAnchor" number="1.2.1">
 <h3><span class="header-section-number">1.2.1</span> Andmete importimine ja korraldamine<a href="index.html#andmete-importimine-ja-korraldamine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><strong>Andmete importimine:</strong> Excel võimaldab importida andmeid erinevatest allikatest, sealhulgas tekstifailidest, CSV-failidest, andmebaasidest ja veebiteenustest.</li>
-<li><strong>Andmete puhastamine ja ettevalmistamine:</strong> Kasutajad saavad kasutada tööriistu, nagu sortimine, filtreerimine ja eemaldamine, et korrastada andmeid analüüsi jaoks. Samuti on võimalik kasutada tingimusvormingut, et esile tõsta olulisi andmepunkte või mustreid.</li>
+<li><strong>Andmete importimine.</strong> Excel võimaldab importida andmeid erinevatest allikatest, sealhulgas tekstifailidest, CSV-failidest, andmebaasidest ja veebiteenustest.</li>
+<li><strong>Andmete puhastamine ja ettevalmistamine.</strong> Kasutajad saavad kasutada tööriistu, nagu sortimine, filtreerimine ja eemaldamine, et korrastada andmeid analüüsi jaoks. Samuti on võimalik kasutada tingimusvormingut, et esile tõsta olulisi andmepunkte või mustreid.</li>
 </ul>
 </div>
 <div id="andmete-analüüsimine" class="section level3 hasAnchor" number="1.2.2">
 <h3><span class="header-section-number">1.2.2</span> Andmete analüüsimine<a href="#andmete-anal%C3%BC%C3%BCsimine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><strong>Põhilised statistilised funktsioonid:</strong> Excel sisaldab mitmesuguseid statistilisi funktsioone, nagu keskmine (AVERAGE), mediaan (MEDIAN), standardhälve (STDEV), minimaalne (MIN) ja maksimaalne (MAX) väärtus.</li>
-<li><strong>Pivot-tabelid:</strong> Pivot-tabelid võimaldavad kiiresti kokku võtta, analüüsida, uurida ja esitada andmeid. Kasutajad saavad hõlpsasti grupeerida ja segmenteerida andmeid, et tuvastada mustreid või suundumusi.</li>
+<li><strong>Põhilised statistilised funktsioonid.</strong> Excel sisaldab mitmesuguseid statistilisi funktsioone, nagu keskmine (AVERAGE), mediaan (MEDIAN), standardhälve (STDEV), minimaalne (MIN) ja maksimaalne (MAX) väärtus.</li>
+<li><strong>Liigendtabelid.</strong> Liigendtabelid võimaldavad kiiresti kokku võtta, analüüsida, uurida ja esitada andmeid. Kasutajad saavad hõlpsasti grupeerida ja segmenteerida andmeid, et tuvastada mustreid või suundumusi.</li>
 </ul>
 </div>
 <div id="statistilised-testid-ja-analüüsimeetodid" class="section level3 hasAnchor" number="1.2.3">
 <h3><span class="header-section-number">1.2.3</span> Statistilised testid ja analüüsimeetodid<a href="#statistilised-testid-ja-anal%C3%BC%C3%BCsimeetodid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><strong>Hüpoteeside testimine:</strong> Excelis saab teostada t-Testi ja ANOVA (Analysis of Variance) teste, et võrrelda andmekogumeid või analüüsida erinevusi rühmade vahel.</li>
-<li><strong>Regressioonianalüüs:</strong> Kasutajad saavad kasutada regressioonianalüüsi, et uurida muutujate vahelisi seoseid ja ennustada tulemusi.</li>
+<li><strong>Hüpoteeside testimine.</strong> Excelis saab teostada t-Testi ja ANOVA (Analysis of Variance) teste, et võrrelda andmekogumeid või analüüsida erinevusi rühmade vahel.</li>
+<li><strong>Regressioonianalüüs.</strong> Kasutajad saavad kasutada regressioonianalüüsi, et uurida muutujate vahelisi seoseid ja ennustada tulemusi.</li>
 </ul>
 </div>
 <div id="andmete-visualiseerimine-1" class="section level3 hasAnchor" number="1.2.4">
 <h3><span class="header-section-number">1.2.4</span> Andmete visualiseerimine<a href="index.html#andmete-visualiseerimine-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><strong>Diagrammid ja graafikud:</strong> Excel pakub erinevaid viise andmete visualiseerimiseks, sealhulgas tulp-, joon-, piirkonna-, ring-, hajuvus- ja mullidiagramme.</li>
-<li><strong>Konditsionaalne vormindamine:</strong> See võimaldab andmeid visuaalselt esile tõsta, kasutades värve, ikoone ja andmeribasid, et lihtsustada andmestiku mustrite ja trendide tuvastamist.</li>
+<li><strong>Diagrammid ja graafikud.</strong> Excel pakub erinevaid viise andmete visualiseerimiseks, sealhulgas tulp-, joon-, piirkonna-, ring-, hajuvus- ja mullidiagramme.</li>
+<li><strong>Tingimuslik vormindamine:</strong> See võimaldab andmeid visuaalselt esile tõsta, kasutades värve, ikoone ja andmeribasid, et lihtsustada andmestiku mustrite ja trendide tuvastamist.</li>
 </ul>
 </div>
 <div id="makrod-ja-vba-skriptimine" class="section level3 hasAnchor" number="1.2.5">
 <h3><span class="header-section-number">1.2.5</span> Makrod ja VBA skriptimine<a href="index.html#makrod-ja-vba-skriptimine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><strong>Automatiseerimine ja kohandamine:</strong> Kasutajad saavad luua makrosid ja kasutada Visual Basic for Applications (VBA) skriptimist, et automatiseerida korduvaid ülesandeid ja kohandada analüütilisi protseduure, mis ületavad Exceli standardfunktsioonide piire.</li>
+<li><strong>Automatiseerimine ja kohandamine.</strong> Kasutajad saavad luua makrosid ja kasutada Visual Basic for Applications (VBA) skriptimist, et automatiseerida korduvaid ülesandeid ja kohandada analüütilisi protseduure, mis ületavad Exceli standardfunktsioonide piire.</li>
 </ul>
 </div>
 <div id="lisandmoodulid-ja-tööriistad" class="section level3 hasAnchor" number="1.2.6">
 <h3><span class="header-section-number">1.2.6</span> Lisandmoodulid ja tööriistad<a href="#lisandmoodulid-ja-t%C3%B6%C3%B6riistad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><strong>Analysis ToolPak:</strong> See on Exceli lisandmoodul, mis pakub täiendavaid statistilisi funktsioone, sealhulgas keerulisemaid analüütilisi tööriistu ja statistilisi meetodeid.</li>
+<li><strong>Analysis ToolPak.</strong> See on Exceli lisandmoodul, mis pakub täiendavaid statistilisi funktsioone, sealhulgas keerulisemaid analüütilisi tööriistu ja statistilisi meetodeid.</li>
 </ul>
-<p>Microsoft Exceli paindlikkus ja lai funktsionaalsus muudavad selle võimsaks tööriistaks statistiliseks analüüsiks, sobides erinevate tööstusharude ja akadeemiliste valdkondade vajadustele. Siiski on oluline märkida, et keerukamate statistiliste analüüside ja suurte andmekogumite korral võivad spetsialiseeritud statistikatarkvarad pakkuda täiendavaid võimalusi ja efektiivsust.</p>
+<p>MS Exceli paindlikkus ja lai funktsionaalsus muudavad selle heaks tööriistaks statistiliseks analüüsiks, sobides erinevate tööstusharude ja akadeemiliste valdkondade vajadustele. Siiski on oluline märkida, et keerukamate statistiliste analüüside ja suurte andmekogumite korral pakuvad spetsialiseeritud statistikatarkvarad rohkem võimalusi.</p>
 
 </div>
 </div>
@@ -476,9 +475,6 @@ gitbook.start({
 "search": {
 "engine": "fuse",
 "options": null
-},
-"toc": {
-"collapse": "subsection"
 }
 });
 });

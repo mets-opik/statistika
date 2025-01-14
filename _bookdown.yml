@@ -2,6 +2,10 @@ delete_merged_file: true
 language:
   ui:
     chapter_name: "Peatükk "
+  label:
+    fig: 'Joonis '
+    tab: 'Tabel '
 
 before_chapter_script: ["proc_funcs.R"]
 output_dir: docs
+bookdown::bookdown_site: function(...) format(..., fig_caption = TRUE, sep = ". ")

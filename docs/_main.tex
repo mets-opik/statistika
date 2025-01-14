@@ -201,19 +201,19 @@
 }
 
 % Kaane lehe lisamine dokumenti enne sisu algust
-\AtBeginDocument{\kaanekaas}
+%\AtBeginDocument{\kaanekaas}
    
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
   pdftitle={Metsanduslik statistika R ja MS Excel keskkonnas},
-  pdfauthor={Allan Sims, Andres Kiviste, Diana Laarmann},
+  pdfauthor={Allan Sims; Andres Kiviste; Diana Laarmann},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
 \title{Metsanduslik statistika R ja MS Excel keskkonnas}
-\author{Allan Sims, Andres Kiviste, Diana Laarmann}
+\author{Allan Sims \and Andres Kiviste \and Diana Laarmann}
 \date{2025-01-14}
 
 \begin{document}
@@ -258,13 +258,13 @@ Statistika ja selle reeglite tundmine on hädavajalik, et tagada andmete ja tule
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Andmete esitusviis:} Valesti valitud graafikud või kokkuvõtlikud statistilised meetodid võivad moonutada andmete tõelist olemust, juhtides valedele järeldustele.
+  \textbf{Andmete esitusviis.} Valesti valitud graafikud või kokkuvõtlikud statistilised meetodid võivad moonutada andmete tõelist olemust, juhtides valedele järeldustele.
 \item
-  \textbf{Valede statistiliste testide kasutamine:} Statistiliste testide ebaõige valik võib viia ekslike järeldusteni seoste kohta andmetes. Näiteks mittelineaarsete seoste analüüsimine lineaarsete mudelite abil võib jätta olulised suhted märkamata.
+  \textbf{Valede statistiliste testide kasutamine.} Statistiliste testide ebaõige valik võib viia ekslike järeldusteni seoste kohta andmetes. Näiteks mittelineaarsete seoste analüüsimine lineaarsete mudelite abil võib jätta olulised suhted märkamata.
 \item
-  \textbf{Juhuslikkuse ja mustrite eristamine:} Statistika aitab eristada juhuslikke variatsioone tõelistest mustritest. Ilma korraliku statistilise analüüsita võivad uurijad tõlgendada juhuslikke variatsioone ekslikult kui olulisi suundumusi.
+  \textbf{Juhuslikkuse ja mustrite eristamine.} Statistika aitab eristada juhuslikke variatsioone tõelistest mustritest. Ilma korraliku statistilise analüüsita võivad uurijad tõlgendada juhuslikke variatsioone ekslikult kui olulisi suundumusi.
 \item
-  \textbf{Valimite ja populatsioonide vaheliste järelduste tegemine:} Statistika võimaldab teha järeldusi kogu populatsiooni kohta, lähtudes piiratud valimist. Valesti hinnatud valimi esinduslikkus või suurus võib viia ebatäpsete üldistusteni.
+  \textbf{Valimite ja populatsioonide vaheliste järelduste tegemine.} Statistika võimaldab teha järeldusi kogu populatsiooni kohta, lähtudes piiratud valimist. Valesti hinnatud valimi esinduslikkus või suurus võib viia ebatäpsete üldistusteni.
 \end{itemize}
 
 Vale statistiline käsitlus võib viia mitte ainult teaduslikele vigadele, vaid ka poliitika ja otsustusprotsesside eksitamisele, mis võib omada laialdasi sotsiaalseid, majanduslikke ja keskkonnaalaseid tagajärgi. Seega on statistiliste meetodite ja nende piirangute mõistmine oluline, et tagada järelduste usaldusväärsus ja õigsus, aidates sellega kaasa teaduspõhisele otsustamisele ja teadmiste edendamisele.
@@ -345,6 +345,8 @@ Kui pakett on paigaldatud, tuleb see töösessioonis laadida, kasutades \texttt{
 \end{Highlighting}
 \end{Shaded}
 
+Nende puhul tuleb jälgida, et installimisel peab paketi nimetus olema jutumärkide vahel, aga paketi sisse laadimisel võib see olla ka jutumärkideta.
+
 Lisaks on ka funktsioon \texttt{require()}, mis võimaldab testida paketi olemasolu. Näiteks, kontrollime, kas antud pakett on olemas ning kui see puudub, siis installime:
 
 \begin{Shaded}
@@ -389,15 +391,38 @@ R-is saab teha mitmesuguseid arvutusi, alates lihtsatest aritmeetilistest operat
 
 \CommentTok{\# Prindime tulemuse}
 \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Vektori keskmine on:"}\NormalTok{, keskmine))}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## [1] "Vektori keskmine on: 3"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{\# Loome maatriksi}
 \NormalTok{maatriks }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{2}\NormalTok{, }\AttributeTok{ncol =} \DecValTok{2}\NormalTok{)}
 
 \CommentTok{\# Prindime maatriksi}
 \FunctionTok{print}\NormalTok{(}\StringTok{"Maatriks:"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Maatriks:"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \FunctionTok{print}\NormalTok{(maatriks)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4
+\end{verbatim}
 
 \section{MS Excel}\label{ms-excel}
 
@@ -408,9 +433,9 @@ Microsoft Excel on laialdaselt kasutatav tabelarvutusprogramm, mis pakub mitmek�
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Andmete importimine:} Excel võimaldab importida andmeid erinevatest allikatest, sealhulgas tekstifailidest, CSV-failidest, andmebaasidest ja veebiteenustest.
+  \textbf{Andmete importimine.} Excel võimaldab importida andmeid erinevatest allikatest, sealhulgas tekstifailidest, CSV-failidest, andmebaasidest ja veebiteenustest.
 \item
-  \textbf{Andmete puhastamine ja ettevalmistamine:} Kasutajad saavad kasutada tööriistu, nagu sortimine, filtreerimine ja eemaldamine, et korrastada andmeid analüüsi jaoks. Samuti on võimalik kasutada tingimusvormingut, et esile tõsta olulisi andmepunkte või mustreid.
+  \textbf{Andmete puhastamine ja ettevalmistamine.} Kasutajad saavad kasutada tööriistu, nagu sortimine, filtreerimine ja eemaldamine, et korrastada andmeid analüüsi jaoks. Samuti on võimalik kasutada tingimusvormingut, et esile tõsta olulisi andmepunkte või mustreid.
 \end{itemize}
 
 \subsection{Andmete analüüsimine}\label{andmete-analuxfcuxfcsimine}
@@ -418,9 +443,9 @@ Microsoft Excel on laialdaselt kasutatav tabelarvutusprogramm, mis pakub mitmek�
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Põhilised statistilised funktsioonid:} Excel sisaldab mitmesuguseid statistilisi funktsioone, nagu keskmine (AVERAGE), mediaan (MEDIAN), standardhälve (STDEV), minimaalne (MIN) ja maksimaalne (MAX) väärtus.
+  \textbf{Põhilised statistilised funktsioonid.} Excel sisaldab mitmesuguseid statistilisi funktsioone, nagu keskmine (AVERAGE), mediaan (MEDIAN), standardhälve (STDEV), minimaalne (MIN) ja maksimaalne (MAX) väärtus.
 \item
-  \textbf{Pivot-tabelid:} Pivot-tabelid võimaldavad kiiresti kokku võtta, analüüsida, uurida ja esitada andmeid. Kasutajad saavad hõlpsasti grupeerida ja segmenteerida andmeid, et tuvastada mustreid või suundumusi.
+  \textbf{Liigendtabelid.} Liigendtabelid võimaldavad kiiresti kokku võtta, analüüsida, uurida ja esitada andmeid. Kasutajad saavad hõlpsasti grupeerida ja segmenteerida andmeid, et tuvastada mustreid või suundumusi.
 \end{itemize}
 
 \subsection{Statistilised testid ja analüüsimeetodid}\label{statistilised-testid-ja-analuxfcuxfcsimeetodid}
@@ -428,9 +453,9 @@ Microsoft Excel on laialdaselt kasutatav tabelarvutusprogramm, mis pakub mitmek�
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Hüpoteeside testimine:} Excelis saab teostada t-Testi ja ANOVA (Analysis of Variance) teste, et võrrelda andmekogumeid või analüüsida erinevusi rühmade vahel.
+  \textbf{Hüpoteeside testimine.} Excelis saab teostada t-Testi ja ANOVA (Analysis of Variance) teste, et võrrelda andmekogumeid või analüüsida erinevusi rühmade vahel.
 \item
-  \textbf{Regressioonianalüüs:} Kasutajad saavad kasutada regressioonianalüüsi, et uurida muutujate vahelisi seoseid ja ennustada tulemusi.
+  \textbf{Regressioonianalüüs.} Kasutajad saavad kasutada regressioonianalüüsi, et uurida muutujate vahelisi seoseid ja ennustada tulemusi.
 \end{itemize}
 
 \subsection{Andmete visualiseerimine}\label{andmete-visualiseerimine-1}
@@ -438,9 +463,9 @@ Microsoft Excel on laialdaselt kasutatav tabelarvutusprogramm, mis pakub mitmek�
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Diagrammid ja graafikud:} Excel pakub erinevaid viise andmete visualiseerimiseks, sealhulgas tulp-, joon-, piirkonna-, ring-, hajuvus- ja mullidiagramme.
+  \textbf{Diagrammid ja graafikud.} Excel pakub erinevaid viise andmete visualiseerimiseks, sealhulgas tulp-, joon-, piirkonna-, ring-, hajuvus- ja mullidiagramme.
 \item
-  \textbf{Konditsionaalne vormindamine:} See võimaldab andmeid visuaalselt esile tõsta, kasutades värve, ikoone ja andmeribasid, et lihtsustada andmestiku mustrite ja trendide tuvastamist.
+  \textbf{Tingimuslik vormindamine:} See võimaldab andmeid visuaalselt esile tõsta, kasutades värve, ikoone ja andmeribasid, et lihtsustada andmestiku mustrite ja trendide tuvastamist.
 \end{itemize}
 
 \subsection{Makrod ja VBA skriptimine}\label{makrod-ja-vba-skriptimine}
@@ -448,7 +473,7 @@ Microsoft Excel on laialdaselt kasutatav tabelarvutusprogramm, mis pakub mitmek�
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Automatiseerimine ja kohandamine:} Kasutajad saavad luua makrosid ja kasutada Visual Basic for Applications (VBA) skriptimist, et automatiseerida korduvaid ülesandeid ja kohandada analüütilisi protseduure, mis ületavad Exceli standardfunktsioonide piire.
+  \textbf{Automatiseerimine ja kohandamine.} Kasutajad saavad luua makrosid ja kasutada Visual Basic for Applications (VBA) skriptimist, et automatiseerida korduvaid ülesandeid ja kohandada analüütilisi protseduure, mis ületavad Exceli standardfunktsioonide piire.
 \end{itemize}
 
 \subsection{Lisandmoodulid ja tööriistad}\label{lisandmoodulid-ja-tuxf6uxf6riistad}
@@ -456,50 +481,88 @@ Microsoft Excel on laialdaselt kasutatav tabelarvutusprogramm, mis pakub mitmek�
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Analysis ToolPak:} See on Exceli lisandmoodul, mis pakub täiendavaid statistilisi funktsioone, sealhulgas keerulisemaid analüütilisi tööriistu ja statistilisi meetodeid.
+  \textbf{Analysis ToolPak.} See on Exceli lisandmoodul, mis pakub täiendavaid statistilisi funktsioone, sealhulgas keerulisemaid analüütilisi tööriistu ja statistilisi meetodeid.
 \end{itemize}
 
-Microsoft Exceli paindlikkus ja lai funktsionaalsus muudavad selle võimsaks tööriistaks statistiliseks analüüsiks, sobides erinevate tööstusharude ja akadeemiliste valdkondade vajadustele. Siiski on oluline märkida, et keerukamate statistiliste analüüside ja suurte andmekogumite korral võivad spetsialiseeritud statistikatarkvarad pakkuda täiendavaid võimalusi ja efektiivsust.
+MS Exceli paindlikkus ja lai funktsionaalsus muudavad selle heaks tööriistaks statistiliseks analüüsiks, sobides erinevate tööstusharude ja akadeemiliste valdkondade vajadustele. Siiski on oluline märkida, et keerukamate statistiliste analüüside ja suurte andmekogumite korral pakuvad spetsialiseeritud statistikatarkvarad rohkem võimalusi.
 
 \chapter{Andmestik}\label{andmestik}
 
 \section{Andmestike tüübid}\label{andmestike-tuxfcuxfcbid}
 
-\subsection{Arvulised tunnused}\label{arvulised-tunnused}
+Andmeanalüüsis on oluline mõista erinevaid tunnuste tüüpe, kuna see mõjutab andmete töötlemise ja analüüsimise viise. Tunnus on näitaja, mida saab mõõta kõigil uurimisalustel objektidel.
 
-\index{Arvuline tunnus}\textbf{Arvuline tunnus} on statistika valdkonnas kasutatav termin, mis viitab omadustele või muutujatele, mida on võimalik numbriliselt mõõta või kvantifitseerida. See tunnus võimaldab saada objektiivset ja kvantitatiivset infot uuritava nähtuse kohta ning seda on võimalik matemaatiliselt analüüsida ja töödelda statistiliste meetodite abil. Arvuline tunnus võib olla kasvõi pikkus, kaal, temperatuur, protsent, rahaline väärtus vms. See tunnus on kvantitatiivne ja seda saab esitada numbriliselt. Näiteks, kui uuritakse puude vanust metsas, siis vanus on arvuline tunnus ning seda saab väljendada aastates.
+\textbf{Tunnuste liigitamine:}
 
-\index{Pidev tunnus}\textbf{Pidev tunnus} on statistikas termin, mis tähistab tunnust või muutujat, mille väärtused võivad võtta ükskõik millise reaalarvu väärtuse mingil kindlal vahemikul. Pidev tunnus erineb kategoorilisest tunnusest, kus väärtused on diskreetsed ja kuuluvad kindlatesse kategooriatesse või gruppidesse. Pidev tunnus võib olla näiteks puu kõrgus, puu diameeter vms.
+Andmeanalüüsi otstarbel jagatakse tunnuseid kahte põhitüüpi:
 
-\index{Diskreetne tunnus}\textbf{Diskreetne tunnus} on tunnus, mille väärtusi saab loendada või liigitada teatud kategooriatesse. Diskreetne tunnus võtab enda alla kindlad ja eraldiseisvad väärtused, mis ei ole järjestikused või pidevad. Näiteks võib diskreetne tunnus olla metsaaluse puuliikide arv, kus võimalikud väärtused võivad olla 0, 1, 2, 3 jne. Diskreetse tunnuse väärtusi esitatakse tavaliselt loendina või kategooriatena, mitte järjestikuste arvudena. Diskreetse tunnuse analüüsimisel kasutatakse sobivaid statistilisi meetodeid ja tehnikaid, mis arvestavad konkreetse tunnuse iseloomu ja omadusi.
+\textbf{1. Arvulised tunnused (kvantitatiivsed tunnused):}
 
-\index{Intervalltunnus}\textbf{Intervalltunnus} on statistiline muutuja, mida iseloomustab kindlas vahemikus olevad data punktid. See tähendab, et intervalltunnusel on mõõdetav suurus või väärtus, mis võib olla järjestikuline (nt temperatuur, aeg) ja mida saab mõõta kindlas arvvahemikus. Intervalltunnuse puhul on oluline teada, et selle erinevate väärtuste vahed on võrdsed ja defineeritud skaala järgi. Näiteks temperatuuri intervalltunnus on mõõdetav kümnendik-kraadi täpsusega ning 10-kraadise vahemiku võrdne ja mõõdetav.
+\begin{itemize}
+\tightlist
+\item
+  Mõõtmistulemuseks on arv.
+\item
+  Jagunevad omakorda:
 
-Metsanduses võib intervalltunnusteks olla näiteks metsamaa pindala, puistu vanus või puistu jämedusklass. Need tunnused on mõõdetavad kindlas arvvahemikus ja neil on võrdsed intervallid, mis võimaldavad neid kvantitatiivselt analüüsida ja võrrelda.
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Pidevad arvtunnused} Vastusevariantidena kõik punktid tunnuse skaalal (nt pikkus, kaal, sissetulek, vanus).
+  \item
+    \textbf{Diskreetsed arvtunnused} Võimalikud vaid täisarvulised loendatavad vastusevariandid (nt tubade arv korteris, laste arv peres).
+  \end{itemize}
+\item
+  Liigitatakse ka vastavalt mõõteskaalale:
 
-Mittearvuline tunnus või kvalitatiivne tunnus on tunnus, mida ei saa kvantitatiivselt mõõta ega arvuliselt väljendada. See viitab omadustele või asjaoludele, mis on iseloomustatud mitte arvulise väärtusega, vaid kvalitatiivsete omaduste või kategooriatena. Näiteks võib öelda, et puu tüüp (näiteks kuusk või mänd) on mittearvuline tunnus, kuna seda ei saa väljendada numbriliselt, vaid see kuulub kindlasse kvalitatiivsesse kategooriasse.
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Vahemikskaala} Skaalapunktide vahed on igas skaala osas sama pikad.
+  \item
+    \textbf{Suhteskaala} Väärtuste suhted on igas skaala osas tõlgendatavad, on üheselt kindlaks määratud nullpunkt.
+  \end{itemize}
+\end{itemize}
 
-\subsection{Mittearvulised tunnused}\label{mittearvulised-tunnused}
+\textbf{2. Mittearvulised tunnused (kvalitatiivsed tunnused):}
 
-\index{Mittearvuline tunnus}\textbf{Mittearvuline tunnus} võib olla erinevaid vorme, nagu näiteks järjestuslikud (näiteks kõrgus kategooriates ``madal'', ``keskmine'' ja ``kõrge''), nominaalsed (näiteks puu liikide nimetused) või ordinaalsed (näiteks kasvuala klassifikatsioon). Nende tunnuste tundmine ja mõistmine on oluline statistiliste analüüside tegemisel, kuna need võivad mõjutada tulemuste interpreteerimist ja järelduste tegemist.
-Järjestustunnus mõõdab muutuja kohta käiva informatsiooni järjestust. See on kvantitatiivne muutuja, mida saab kategoriseerida vastavalt sellele, kuidas see on paigutatud. Järjestustunnusel on järjekorranumber või tunnus, mis näitab selle asukohta suhtelises järjestuses. Näiteks võib järjestustunnuks olla õppeaasta (näiteks esimene aasta, teine aasta, kolmas aasta), mõõtmiste järjekorranumber või mingi protsessi etapid (näiteks seemnete külvamine, taimede kasvamine, saagi koristamine).
+\begin{itemize}
+\tightlist
+\item
+  Mõõtmistulemuseks ei ole arv.
+\item
+  Jagunevad:
 
-\index{Järjestustunnus}\textbf{Järjestustunnus} on oluline mõiste statistikas, kuna see võimaldab andmete korraldamist ja analüüsi vastavalt nende järjestusele. See aitab mõista, kuidas muutuja väärtused muutuvad järjestuse järgi ning kuidas need on seotud teiste muutujatega. Järjestustunnu omadused võivad olla kasvav (nt külvatud seemnete arv) või kahanev (nt taimede kasvuperiood). Järjestustunnuseid saab visualiseerida graafiliselt, näiteks joon- või tulpdiagrammide abil.
-Nominaalne tunnus on statistikas kategooriline muutuja, mis kirjeldab objektide või üksuste liigitust kindlatesse kategooriatesse. Näiteks võib nominaalne tunnus olla inimeste sugu (naised, mehed), rahvus (eestlased, venelased, soomlased jne) või haridustase (põhiharidus, keskharidus, kõrgharidus jne). Nominaalsed tunnused ei sisalda endas järjestikust või mõõdetavat suurust ning neid saab tavaliselt esitada tabelina või diagrammina. Nominaalseid tunnuseid kasutatakse sageli statistilistes analüüsides selleks, et saaksime võrrelda erinevate kategooriate esinemissagedust või seoseid nende vahel.
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Järjestustunnused} Vastusevariandid on intensiivsuse põhjal järjestatavad, skaalapunktide vahed ei pruugi olla võrdsed (nt haridustase, meeldivuse hinnangud).
+  \item
+    \textbf{Nominaaltunnused} Vastusevariandid annavad objekti kirjelduse, aga ei ütle midagi omaduse intensiivsuse kohta (nt sugu, rahvus, perekonnaseis).
+  \end{itemize}
+\end{itemize}
 
-\index{Binaarne tunnus}\textbf{Binaarne tunnus} on statistikas kasutatav tunnus, mis võib võtta ainult kahte erinevat väärtust. Need kaks väärtust tähistatakse tavaliselt numbriliselt, näiteks 0 ja 1 või ``jah'' ja ``ei''. Binaarne tunnus võib olla näiteks sugu (mees/naine), suitsetaja (jah/ei) või koduloom olemasolu (jah/ei). Binaarset tunnust kasutatakse sageli populatsioonide võrdlemisel ja analüüsimisel ning see võib anda olulist teavet erinevate rühmade omaduste või käitumise kohta.
+Lisaks neile põhitüüpidele on veel:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Kategoriaalne tunnus} Tunnus, mille vastuste seas on eristatavad kategooriad (tüüpiliselt mittearvulised).
+\item
+  \textbf{Binaarne ehk kaheväärtuseline tunnus} Tunnus, millel on vaid kaks võimalikku väärtust.
+\end{itemize}
 
 \section{Andmestiku struktuur}\label{andmestiku-struktuur}
 
 \subsection{Vektor}\label{vektor}
 
-R programmeerimiskeele vector ehk vektor on andmetüüp, mis võimaldab talletada mitut sarnast tüüpi elementi ühes andmestruktuuris. Vektoris saab hoida näiteks numbreid, teksti või loogilisi väärtusi. Vektorit loetakse ühemõõtmeliseks andmestruktuuriks, kuna kõik selles sisalduvad elemendid asuvad ühes reas.
+R programmeerimiskeeles vektor on andmetüüp, mis võimaldab talletada mitut ühesugust andmetüüpi elementi ühes andmestruktuuris. Vektoris saab hoida näiteks numbreid, teksti või loogilisi väärtusi. Vektorit loetakse ühemõõtmeliseks andmestruktuuriks, kuna kõik selles sisalduvad elemendid asuvad ühes reas.
 
 Vektorit saab luua kasutades funktsiooni \texttt{c()}, kuhu tuleb sisestada eraldatud komadega elemendid. Näiteks:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{num\_vector }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\NormalTok{num\_vektor }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -507,17 +570,21 @@ Vektori elementidele saab viidata indeksite abil, alustades indeksist 1. Näitek
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# väljastab vektori num\_vector kolmanda elemendi väärtuse}
-\NormalTok{num\_vector[}\DecValTok{3}\NormalTok{] }
+\CommentTok{\# väljastab vektori num\_vektor kolmanda elemendi väärtuse}
+\NormalTok{num\_vektor[}\DecValTok{3}\NormalTok{] }
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## [1] 3
+\end{verbatim}
 
 Vektori pikkus ehk elementide arv on võimalik saada funktsiooniga \texttt{length()}. Vektorit saab ühendada teise vektoriga funktsiooniga \texttt{c()}. Näiteks:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{num\_vector\_2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{6}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{8}\NormalTok{)}
-\NormalTok{combined\_vector }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(num\_vector, num\_vector\_2)}
+\NormalTok{num\_vektor\_2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{6}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{8}\NormalTok{)}
+\NormalTok{kombineeritud\_vektor }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(num\_vektor, num\_vektor\_2)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -526,7 +593,7 @@ Võimalik on ka vektorit luua jada genereerimise abil, kasutades funktsiooni \te
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# loob vektori, mis sisaldab arve vahemikus 1 kuni 10 sammuga 2}
-\NormalTok{seq\_vector }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{, }\AttributeTok{by =} \DecValTok{2}\NormalTok{) }
+\NormalTok{jarg\_vector }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{, }\AttributeTok{by =} \DecValTok{2}\NormalTok{) }
 \end{Highlighting}
 \end{Shaded}
 
@@ -534,9 +601,9 @@ Vektoritega on võimalik teostada erinevaid arvutusi, teisendusi ning andmete fi
 
 \subsection{Maatriks, array}\label{maatriks-array}
 
-R-i andmetüüp matrix ehk maatriks on kahe- või rohkema dimensiooniline andmete struktuur, kus andmed on paigutatud mitme rea ja veeruna, moodustades seeläbi tabeli. Maatriksis olevad andmed peavad olema kõik samatüübilised, näiteks kõik arvud või kõik tekstid.
+Andmetüüp maatriks on kahe- või mitmemõõtmeline andmete struktuur, kus andmed on paigutatud mitme rea ja veeruna, moodustades seeläbi tabeli. Maatriksis olevad andmed peavad olema kõik samatüübilised, näiteks kõik arvud või kõik tekstid.
 
-Maatriksi loomiseks R-keeles kasutatakse funktsioone \texttt{matrix()} või \texttt{array()}, milles esimene on kahemõõtmeline ning teine võimaldab juba rohkemaid mõõtmeid. Nendele funktsioonidele saab määrata erinevaid parameetreid, näiteks andmete sisu, ridade ja veergude arvu ning rea- ja veerunimed. Maatriksit saab luua nii nimekirjast kui ka vektorist, andes funktsioonile vastavad parameetrid.
+Maatriksi loomiseks kasutatakse funktsioone \texttt{matrix()} või \texttt{array()}, milles esimene võimaldab luua kahemõõtmelist ning teine juba mitmemõõtmelisi maatrikseid. Nendele funktsioonidele saab määrata erinevaid parameetreid, näiteks andmete sisu, ridade ja veergude arvu ning rea- ja veerunimed. Maatriksit saab luua nii nimekirjast kui ka vektorist, andes funktsioonile vastavad parameetrid.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -547,10 +614,10 @@ Maatriksi loomiseks R-keeles kasutatakse funktsioone \texttt{matrix()} või \tex
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]      [,2]       [,3]      [,4]
-## [1,] 0,0138827 0,6090554 0,03841983 0,5647147
-## [2,] 0,9455298 0,9520232 0,79517119 0,7235980
-## [3,] 0,3724305 0,1752839 0,81195065 0,8163485
+##           [,1]      [,2]       [,3]       [,4]
+## [1,] 0,1341601 0,8573561 0,05898912 0,21198951
+## [2,] 0,5067167 0,2700250 0,65936383 0,03628616
+## [3,] 0,4633860 0,9282326 0,91661870 0,16871029
 \end{verbatim}
 
 \begin{Shaded}
@@ -762,17 +829,17 @@ Need näited näitavad lihtsaid arvutusi R-i kasutades. Ole valmis proovima erin
 
 \chapter{Andmestike rühmitamine}\label{andmestike-ruxfchmitamine}
 
-Pideva tunnuse rühmitamine tähendab andmete jaotamist gruppidesse või kategooriatesse vastavalt nende väärtustele. See on oluline statistilise analüüsi meetod, kui soovime analüüsida suure hulga andmeid ning leida seoseid või mustreid nende vahel.
+Pideva tunnuse rühmitamine tähendab andmete jaotamist gruppidesse või kategooriatesse vastavalt nende väärtustele. See on oluline statistilise analüüsi meetod, kui soovime analüüsida suurt hulka andmeid ning leida seoseid või mustreid nende vahel.
 
-Pidevate tunnuste rühmitamine võib olla vajalik mitmel põhjusel:
+Pideva tunnuse rühmitamine võib olla vajalik mitmel põhjusel:
 
 \begin{itemize}
 \item
-  Andmete lihtsustamine: pidevate tunnuste rühmitamine võib muuta andmed hõlpsamini tõlgendatavaks ja analüüsitavaks, eriti juhul, kui on suur hulk erinevaid väärtusi.
+  Andmete lihtsustamine. Pidevate tunnuste rühmitamine võib muuta andmed hõlpsamini tõlgendatavaks ja analüüsitavaks, eriti juhul, kui on suur hulk erinevaid väärtusi.
 \item
-  Seoste või trendide avastamine: rühmitades pidevaid tunnuseid, võime avastada seoseid või mustreid erinevate gruppide vahel. See võib aidata mõista näiteks, kuidas üks muutuja mõjutab teist või millised tegurid on omavahel seotud.
+  Seoste või trendide avastamine. Rühmitades pidevaid tunnuseid, võime avastada seoseid või mustreid erinevate gruppide vahel. See võib aidata mõista näiteks, kuidas üks muutuja mõjutab teist või millised tegurid on omavahel seotud.
 \item
-  Statistilise analüüsi täpsus: pidevate tunnuste rühmitamine võib parandada statistiliste analüüside täpsust ja usaldusväärsust, kuna see võib aidata vähendada andmete varieeruvust ning korrigeerida võimalikke moonutusi.
+  Statistilise analüüsi täpsus. Pidevate tunnuste rühmitamine võib parandada statistiliste analüüside täpsust ja usaldusväärsust, kuna see võib aidata vähendada andmete varieeruvust ning korrigeerida võimalikke moonutusi.
 \end{itemize}
 
 Seega on pideva tunnuse rühmitamine oluline statistilise analüüsi tööriist, mis aitab andmeid paremini mõista ja interpreteerida ning seeläbi teha järeldusi ja otsuseid põhinevalt faktidel ja statistilistel seostel.
@@ -817,8 +884,8 @@ R-is saab selleks kasutada funktsiooni \texttt{hist()}, millele saab ette anda r
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-24-1.pdf}}
-\caption{\label{fig:unnamed-chunk-24}Histogramm}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-26-1.pdf}}
+\caption{\label{fig:unnamed-chunk-26}Histogramm}
 \end{figure}
 
 \subsubsection{Sageduste arvutamine}\label{sageduste-arvutamine}
@@ -837,8 +904,8 @@ Tulpdiagrammile võib eelnevalt välja arvutada antud sagedused. Selleks saab ka
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-25-1.pdf}}
-\caption{\label{fig:unnamed-chunk-25}Tulpdiagramm}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-27-1.pdf}}
+\caption{\label{fig:unnamed-chunk-27}Tulpdiagramm}
 \end{figure}
 
 \subsection{Exceli keskkonnas:}\label{exceli-keskkonnas}
@@ -1233,8 +1300,8 @@ ECDF graafik on väärtuslik tööriist andmete uurimisel, võimaldades kiiresti
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-41-1.pdf}}
-\caption{\label{fig:unnamed-chunk-41}Empiiriline jaotusfunktsioon erinevate meetoditega}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-43-1.pdf}}
+\caption{\label{fig:unnamed-chunk-43}Empiiriline jaotusfunktsioon erinevate meetoditega}
 \end{figure}
 
 Selgitus:
@@ -1292,8 +1359,8 @@ Näide R-i koodist, mis genereerib normaaljaotuse tihedusfunktsiooni graafiku:
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-42-1.pdf}}
-\caption{\label{fig:unnamed-chunk-42}Empiiriline tihedusfunktsioon.}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-44-1.pdf}}
+\caption{\label{fig:unnamed-chunk-44}Empiiriline tihedusfunktsioon.}
 \end{figure}
 
 See kood genereerib normaaljaotuse tihedusfunktsiooni graafiku, kus x-teljel on andmete väärtused ja y-teljel tihedusfunktsiooni väärtused. Graafik peaks näitama tüüpilist kausitaolist kõverust normaaljaotuse puhul. Vajadusel saab koodi muuta, et kohandada graafiku väljanägemist ja andmete genereerimise parameetreid vastavalt vajadusele.
@@ -2226,7 +2293,7 @@ Teeme lineaarse regressiooni muutujate D ja H vahel:
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-61-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-63-1.pdf}}
 
 Vaatame väljundit:
 
@@ -2324,8 +2391,8 @@ Homoskedastilisuse ehk veakvoodi püsimise kontrollimine on oluline samm lineaar
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-63-1.pdf}}
-\caption{\label{fig:unnamed-chunk-63}Jäägid vs ennustatud}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-65-1.pdf}}
+\caption{\label{fig:unnamed-chunk-65}Jäägid vs ennustatud}
 \end{figure}
 
 Lineaarse mudeli homoskedastilisuse testida, võid kasutada ka Breush-Pagan testi või White'i testi. Need testid hindavad, kas residuaalide varieeruvus on seotud sõltumatute muutujatega ning kas see varieeruvus on ühtlane.
@@ -2387,7 +2454,7 @@ Järgmiseks loo qqplot, kasutades arvutatud residuaale:
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-66-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-68-1.pdf}}
 
 Samuti saab vaadata jääkide jagunemist tihedusfunktsiooni abil koostatud graafikul.
 
@@ -2400,8 +2467,8 @@ Samuti saab vaadata jääkide jagunemist tihedusfunktsiooni abil koostatud graaf
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-67-1.pdf}}
-\caption{\label{fig:unnamed-chunk-67}Jääkide tihedusfunktsioon}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-69-1.pdf}}
+\caption{\label{fig:unnamed-chunk-69}Jääkide tihedusfunktsioon}
 \end{figure}
 
 Kui kõik on korrektselt tehtud, siis peaksid residuaalidest koostatud qq-ploti punktid paiknema peaaegu ideaalselt joone lähedal, mis näitab, et residuaalide jaotus on normaalne.
@@ -2713,8 +2780,8 @@ Esitame selle kohta ka graafiku, millele lisame mudeli joone funktsioonidega \te
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-76-1.pdf}}
-\caption{\label{fig:unnamed-chunk-76}Mittelineaarne regressioon}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-78-1.pdf}}
+\caption{\label{fig:unnamed-chunk-78}Mittelineaarne regressioon}
 \end{figure}
 
 Kontrollime
@@ -2731,8 +2798,8 @@ Kontrollime
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-77-1.pdf}}
-\caption{\label{fig:unnamed-chunk-77}Jäägid vs ennustatud}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-79-1.pdf}}
+\caption{\label{fig:unnamed-chunk-79}Jäägid vs ennustatud}
 \end{figure}
 
 \begin{Shaded}
@@ -2744,8 +2811,8 @@ Kontrollime
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-78-1.pdf}}
-\caption{\label{fig:unnamed-chunk-78}Jääkide normaaljaotuse test}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-80-1.pdf}}
+\caption{\label{fig:unnamed-chunk-80}Jääkide normaaljaotuse test}
 \end{figure}
 
 MS Exceli keskkonnas saab mittelineaarse funktsiooni parameetrite hindamiseks kasutada optimeerimisprotseduuri Solver. Selleks tuleks MS Exceli töölehele salvestada argumenttunnuse väärtused, funktsioontunnuse väärtused, prognoosifunktsiooni arvutusvalemid ja prognoosijääkide ruutude summa arvutuseeskiri. Samuti peavad töölehel olema lahtrid funktsiooni parameetrite jaoks, mida prognoosifunktsiooni arvutusvalemid kasutavad.
@@ -2754,7 +2821,7 @@ MS Exceli keskkonnas saab mittelineaarse funktsiooni parameetrite hindamiseks ka
 
 \section{Üldistatud aditiivne mudel}\label{uxfcldistatud-aditiivne-mudel}
 
-Üldistatud aditiivne mudel (GAM) on statistiline mudel, mis laieneb lineaarregressiooni R-keele abil. See võimaldab modelleerida mitte-lineaarset sõltuvussuhet eesmärgi muutuja ja sellega seotud tunnuste vahel, lisades mudelisse siledaid funktsioone.
+Üldistatud aditiivne mudel (GAM) on statistiline mudel, mis võimaldab üldistatud lineaarsel mudelil rakendada aditiivse mudeli sujuva ülemineku omadusi. See võimaldab modelleerida mitte-lineaarset sõltuvussuhet eesmärgi muutuja ja sellega seotud tunnuste vahel, lisades mudelisse siledaid funktsioone.
 
 GAM mudelit saab R-keskkonnas rakendada package'iga ``mgcv'' (Multidimensional Generalized Cross-Validation) ning see võimaldab kasutajal määrata siledad funktsioonid (nt splines, loess), mis kajastavad eesmärgi muutuja ja sellega seotud tunnuste vahelist mitte-lineaarset seost.
 
@@ -2838,8 +2905,8 @@ Järgnevalt demonstreerime, kuidas kasutada üldistatud aditiivset mudelit (GAM)
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-82-1.pdf}}
-\caption{\label{fig:unnamed-chunk-82}Üldistatud aditiivse mudel}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-84-1.pdf}}
+\caption{\label{fig:unnamed-chunk-84}Üldistatud aditiivse mudel}
 \end{figure}
 
 \begin{itemize}
@@ -2860,8 +2927,8 @@ Järgnevalt demonstreerime, kuidas kasutada üldistatud aditiivset mudelit (GAM)
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-83-1.pdf}}
-\caption{\label{fig:unnamed-chunk-83}Üldistatud aditiivse mudeli mõju}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-85-1.pdf}}
+\caption{\label{fig:unnamed-chunk-85}Üldistatud aditiivse mudeli mõju}
 \end{figure}
 
 \begin{itemize}
@@ -2889,8 +2956,8 @@ Järgnevalt demonstreerime, kuidas kasutada üldistatud aditiivset mudelit (GAM)
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-84-1.pdf}}
-\caption{\label{fig:unnamed-chunk-84}Jääkide tihedusfunktsioon}
+\pandocbounded{\includegraphics[keepaspectratio]{_main_files/figure-latex/unnamed-chunk-86-1.pdf}}
+\caption{\label{fig:unnamed-chunk-86}Jääkide tihedusfunktsioon}
 \end{figure}
 
 \bibliography{book.bib,packages.bib}
