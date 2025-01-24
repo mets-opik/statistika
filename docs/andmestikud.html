@@ -291,14 +291,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="andmestikud.html#cb15-1" tabindex="-1"></a><span class="co"># Loome kahemõõtmelise maatriksi juhuslikest arvudest</span></span>
 <span id="cb15-2"><a href="andmestikud.html#cb15-2" tabindex="-1"></a>minu_maatriks <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">runif</span>(<span class="dv">12</span>), <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">4</span>)</span>
 <span id="cb15-3"><a href="andmestikud.html#cb15-3" tabindex="-1"></a><span class="fu">print</span>(minu_maatriks)</span></code></pre></div>
-<pre><code>##           [,1]      [,2]       [,3]      [,4]
-## [1,] 0,8739230 0,6982661 0,65419023 0,6348680
-## [2,] 0,1216065 0,4922813 0,41524247 0,5134627
-## [3,] 0,5955400 0,2950835 0,07845948 0,6404679</code></pre>
+<pre><code>##            [,1]      [,2]      [,3]      [,4]
+## [1,] 0,59737735 0,2450287 0,8925374 0,1782951
+## [2,] 0,32900198 0,8337540 0,8097200 0,7530535
+## [3,] 0,09091222 0,6859741 0,1742876 0,1259815</code></pre>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="andmestikud.html#cb17-1" tabindex="-1"></a><span class="co"># Loome kolmemõõtmelise maatriksi juhuslikest arvudest</span></span>
 <span id="cb17-2"><a href="andmestikud.html#cb17-2" tabindex="-1"></a>minu_array <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="fu">runif</span>(<span class="dv">12</span>), <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code></pre></div>
 <p>Maatriksit saab kasutada erinevate arvutusoperatsioonide tegemiseks, nagu maatriksite korrutamine, liitmine, lahutamine jne. Samuti on võimalik maatriksit indekseerida ja välja printida konkreetseid ridu ja veerge.</p>
-<p>Kokkuvõttes on maatriks R-i programmeerimiskeele andmetüüp, mis võimaldab mugavalt töötada tabelikujuliste andmetega, nagu need võivad esineda näiteks statistilistes analüüsides.</p>
 </div>
 <div id="data.frame" class="section level3 hasAnchor" number="2.2.3">
 <h3><span class="header-section-number">2.2.3</span> data.frame<a href="andmestikud.html#data.frame" class="anchor-section" aria-label="Anchor link to header"></a></h3>
