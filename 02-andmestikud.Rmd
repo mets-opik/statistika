@@ -1,59 +1,73 @@
-# Andmestikud
+# Andmestik
 
-## Andmestike tüübid
+Metsanduses kogutakse pidevalt mitmesuguseid andmeid, mis võivad erineda nii oma tüübilt kui ka struktuurilt. Andmekogumise protsessi üldnimetus on **takseerimine**, mis hõlmab mitmesuguseid meetodeid nagu mõõtmine, loendamine, määramine ja muud sarnased tegevused. Iga takseerimisviis määrab ühtlasi ka kogutavate andmete tüübi. 
 
-Andmeanalüüsis on oluline mõista erinevaid tunnuste tüüpe, kuna see mõjutab andmete töötlemise ja analüüsimise viise. Tunnus on näitaja, mida saab mõõta kõigil uurimisalustel objektidel. 
+* **Mõõtmisel** saadakse enamasti **pidev tunnus**. See on tunnus, mille väärtused võivad olla mistahes arvud teatud vahemikus. See tähendab, et pideva tunnuse puhul ei ole väärtused piiratud kindlate, eraldiseisvate arvudega, vaid võivad muutuda sujuvalt ja pidevalt. Näiteks mõõdetud puu kõrgus või diameeter. 
+* **Loendamisel** saadakse **diskreetne tunnus**. See on tunnus, mille väärtused saavad olla ainult teatud kindlad, eraldiseisvad arvud, tavaliselt täisarvud. See tähendab, et diskreetsete tunnuste puhul ei saa väärtused olla sujuvad või pidevad, vaid peavad olema selgelt eristuvad. Näiteks puude ja aastarõngaste loendamine. Diskreetne on ka rinnaspindala mõõtmisel relaskoobiga loendamine, kus loendatakse puid, kuid teatud juhtudel kasutatakse ka konstanti 0,5.
+* **Määramisel** saadakse üldjuhul **nominaalne tunnus**. See on selline tunnus, mis väljendab kvalitatiivseid ehk mittearvulisi andmeid, mida ei saa järjestada. Näiteks puuliik, kasvukohatüüp vms. Selle alla liigitub ka **ordinaalne tunnus** ehk järjestustunnus on tunnus, mille väärtustel on loogiline järjestus, kuid väärtuste vahed ei ole tingimata võrdsed. Näiteks on metsanduses selleks boniteediklass.
 
-**Tunnuste liigitamine:**
 
-Andmeanalüüsi otstarbel jagatakse tunnuseid kahte põhitüüpi: `r print_termin('arvtunnus')` ehk `r print_termin('kvantitatiivne tunnus')` ja `r print_termin('mittearvuline tunnus')` ehk `r print_termin('kvalitatiivne tunnus')`.
 
-Arvtunnuse puhul on väärtuseks arv. Need jagunevad omakorda:
-    * `r print_termin('Pidev arvtunnus')`. Väärtuseks kõik punktid tunnuse skaalal (nt puu kõrgus, diameeter).
-    * `r print_termin('Diskreetne arvtunnus')`. Võimalikud vaid täisarvulised loendatavad vastusevariandid (nt puude arv, aastarõngaste arv vms).
+Statistikas tähendab **andmestik** vaatlusandmete kogumit, mis on kogutud mingi uuringu või eksperimendi käigus. See on toorandmete hulk, mida analüüsitakse, et avastada mustreid, seoseid ja teha järeldusi. Andmete tüüp mängib olulist rolli statistilises analüüsis, kuna see määrab, milliseid meetodeid ja visualiseerimisviise saab kasutada. Õige andmetüübi tuvastamine on seega esimene samm edukaks andmetöötluseks ja tulemuste tõlgendamiseks.
 
-Mittearvulise tunnuse puhul väärtuseks ei ole arv. Need jagunevad omakorda:
-    * `r print_termin('Järjestustunnus')` Väärtused on intensiivsuse põhjal järjestatavad, skaalapunktide vahed ei pruugi olla võrdsed (nt haridustase, meeldivuse hinnangud).
-    * `r print_termin('Nominaaltunnus')` Väärtuseks on objekti kirjelduse, aga see ei ütle midagi omaduse intensiivsuse kohta (nt sugu, rahvus, perekonnaseis).
-    * `r print_termin('Binaarne tunnus')` ehk kaheväärtuseline tunnus on tunnus, millel on vaid kaks võimalikku väärtust.
 
-## Andmestiku struktuur
+Andmestik on organiseeritud andmete kogum, mis on tavaliselt salvestatud tabelitesse, andmebaasidesse või muudesse struktuuridesse.
+
+* **Tüübid:**
+    * **Vektor:** Sama tüüpi väärtuste jada (nt arvude vektor, tekstiväärtuste vektor).
+    * **Maatriks:** Sama tüüpi väärtuste kogum, kuid mis on mitmemõõtmeline.
+    * **Andmetabel:** Struktureeritud andmete kogum, kus iga rida esindab ühte objekti ja iga veerg esindab objekti atribuuti.
+
+
+
+
+## Andmestiku struktuur R keskkonnas
 
 ### Vektor
-`r print_termin('Vektor')` on andmetüüp, mis võimaldab talletada mitut ühesugust andmetüüpi elementi ühes andmestruktuuris. Vektoris saab hoida näiteks numbreid, teksti või loogilisi väärtusi. Vektorit loetakse ühemõõtmeliseks andmestruktuuriks, kuna kõik selles sisalduvad elemendid asuvad ühes reas.
+Vektor on andmetüüp, mis võimaldab talletada mitut ühesugust andmetüüpi elementi ühes andmestruktuuris. Vektoris saab hoida näiteks numbreid, teksti või loogilisi väärtusi. Vektorit loetakse ühemõõtmeliseks andmestruktuuriks, kuna kõik selles sisalduvad elemendid asuvad ühes reas.
 
 Vektorit saab luua kasutades funktsiooni `c()`, kuhu tuleb sisestada eraldatud komadega elemendid. Näiteks:
 ```{r}
+# Näide R keskkonnas
+
 num_vektor <- c(1, 2, 3, 4, 5)
 ```
 
 Vektori elementidele saab viidata indeksite abil, alustades indeksist 1. Näiteks:
 ```{r}
+# Näide R keskkonnas
+
 # väljastab vektori num_vektor kolmanda elemendi väärtuse
 num_vektor[3] 
 ```
 
 Vektori pikkus ehk elementide arv on võimalik saada funktsiooniga `length()`. Vektorit saab ühendada teise vektoriga funktsiooniga `c()`. Näiteks:
 ```{r}
+# Näide R keskkonnas
+
 num_vektor_2 <- c(6, 7, 8)
 kombineeritud_vektor <- c(num_vektor, num_vektor_2)
 ```
 
 Võimalik on ka vektorit luua jada genereerimise abil, kasutades funktsiooni `seq()`. Näiteks:
 ```{r}
+# Näide R keskkonnas
+
 # loob vektori, mis sisaldab arve vahemikus 1 kuni 10 sammuga 2
 jarg_vector <- seq(1, 10, by = 2) 
 ```
 
 Vektoritega on võimalik teostada erinevaid arvutusi, teisendusi ning andmete filtreerimist. Vektorid on olulised R programmeerimises, kuna nende abil on mugav töödelda andmeid ja teostada statistilisi analüüse.
 
-### Maatriks, array
+### Maatriks
 
-Andmetüüp maatriks on kahe- või mitmemõõtmeline andmete struktuur, kus andmed on paigutatud mitme rea ja veeruna, moodustades seeläbi tabeli. Maatriksis olevad andmed peavad olema kõik samatüübilised, näiteks kõik arvud või kõik tekstid.
+Andmetüüp maatriks on kahe- või mitmemõõtmeline andmete struktuur, kus andmed on paigutatud mitme rea ja veeruna, moodustades seeläbi mitmemõõtmelise andmestiku. Maatriksis olevad andmed peavad olema kõik samatüübilised, näiteks kõik arvud või kõik tekstid.
 
-Maatriksi loomiseks kasutatakse funktsioone `matrix()` või `array()`, milles esimene võimaldab luua kahemõõtmelist ning teine juba mitmemõõtmelisi maatrikseid. Nendele funktsioonidele saab määrata erinevaid parameetreid, näiteks andmete sisu, ridade ja veergude arvu ning rea- ja veerunimed. Maatriksit saab luua nii nimekirjast kui ka vektorist, andes funktsioonile vastavad parameetrid.
+Maatriksi loomiseks kasutatakse funktsioone `matrix()` või `array()`, millest esimene võimaldab luua kahemõõtmelist ning teine juba mitmemõõtmelisi maatrikseid. Nendele funktsioonidele saab määrata erinevaid parameetreid, näiteks andmete sisu, ridade ja veergude arvu ning rea- ja veerunimed. 
 
 ```{r}
+# Näide R keskkonnas
+# funktsioon runif() loob juhuslike andmete vektori
 # Loome kahemõõtmelise maatriksi juhuslikest arvudest
 minu_maatriks <- matrix(runif(12), nrow=3, ncol=4)
 print(minu_maatriks)
@@ -64,116 +78,102 @@ minu_array <- array(runif(12), dim = c(2,2,3))
 
 Maatriksit saab kasutada erinevate arvutusoperatsioonide tegemiseks, nagu maatriksite korrutamine, liitmine, lahutamine jne. Samuti on võimalik maatriksit indekseerida ja välja printida konkreetseid ridu ja veerge.
 
-### data.frame
-R-i andmetüüp data.frame on üks olulisemaid andmestruktuure andmete haldamiseks ja analüüsimiseks R-keskkonnas. Data.frame on tabelilaadne struktuur, kus andmed on korraldatud ridade (vaatluste) ja veergude (tunnuste) kaupa.
+### Andmetabel
+R-i andmetüüp andmetabel (data.frame) on üks olulisemaid andmestruktuure andmete haldamiseks ja analüüsimiseks R-keskkonnas. Tabelis on andmed korraldatud ridade (vaatluste) ja veergude (tunnuste) kaupa. Iga veerg andmetabelis vastab ühele muutujale, mis võib olla numbriline, tekstiline või faktor. Iga rida esindab ühte andmepunkti, mis sisaldab väärtusi vastavatele muutujatele.
 
-Iga veerg data.frame'is vastab ühele muutujale, mis võib olla numbriline, tekstiline või faktor. Iga rida esindab ühte andmepunkti, mis sisaldab väärtusi vastavatele muutujatele.
-
-Data.frame'i loomiseks saab kasutada funktsiooni `data.frame()`. Andmed saab data.frame'i importida erinevatest andmeallikatest (nt CSV-failid, andmebaasid) või genereerida otse R-s.
+Andmetabeli loomiseks saab kasutada funktsiooni `data.frame()`. Andmed saab andmetabelisse importida erinevatest andmeallikatest (nt CSV-failid, andmebaasid) või genereerida otse R-s.
 ```{r}
+# Näide R keskkonnas
+
 # Loome data.frame andmestiku
 minu_data_frame <- data.frame(x = runif(5), y = runif(5), z = 1)
 ```
 
-Data.frame'i puhul on võimalik teha erinevaid andmehalduse ja analüüsi operatsioone nagu veergude ja ridade lisamine, kustutamine, filtreerimine, rühmitamine, sorteerimine ja statistiliste analüüside tegemine.
+Andmetabeli puhul on võimalik teha erinevaid andmehalduse ja analüüsi operatsioone nagu veergude ja ridade lisamine, kustutamine, filtreerimine, rühmitamine, sorteerimine ja statistiliste analüüside tegemine. Andmetabelil on oluline oskuslikult hallata ja kasutada, kuna see on väga levinud andmestruktuur R-keskkonnas ning võimaldab mugavalt töötada suurte andmekogumitega.
 
-Data.frame'i on oluline oskuslikult hallata ja kasutada, kuna see on väga levinud andmestruktuur R-keskkonnas ning võimaldab mugavalt töötada suurte andmekogumitega.
-
-### list
-R-i andmetüüp list ehk 'list' on objektide kogu, mis võimaldab ühte muutujasse salvestada mitmesuguseid elemente nagu arve, sõnesid, loogilisi väärtuseid jne. Listi loomisel määratakse elemendid nurksulgudega `[]` ning elemendid eraldatakse komadega. Näiteks võib listis olla nii arve `[1, 2, 3]` kui ka sõnesid `["Mänd", "Kuusk"]`. Listis olevaid elemente saab muuta, lisada, eemaldada ja teisaldada vastavalt vajadusele. List on üks paindlikumaid R programmeerimiskeele andmetüüpe ning seda kasutatakse sageli andmete töötlemisel ja analüüsil.
+### List
+R-i andmetüüp list on objektide kogu, mis võimaldab ühte muutujasse salvestada erineva pikkuse ja tüübiga andmeid. Üks list võib koosneda erinevatest vektoritest, maatriksitest või tabelitest.
 
 ```{r}
+# Näide R keskkonnas
+
 # Loome list andmestiku
-minu_list <- list(x = runif(5), y = runif(5), z = 1)
+minu_list <- list(
+  x = runif(5), 
+  y = array(runif(16), dim = c(2,2,2)), 
+  z = c("MA","KU"))
 ```
 
-## Andmestike sisse toomine
+## Andmestike importimine R keskkonda
 
 Andmete importimine CSV või Exceli failist R-i keskkonda on väga lihtne. Siin on näited mõlemast.
 
-1. Andmete importimine CSV failist:
+**Andmete importimine CSV failist**
 
 Enne koodi käivitamist veendu, et CSV fail on salvestatud samas kaustas, kus Sa töötad R-is või et oled määranud õige tee failini.
 
 ```{r, eval = F}
+# Näide R keskkonnas
+
 andmed <- read.csv("failinimi.csv")
 ```
 
 Kui CSV failil on teistsugune eraldusmärk (nt semikoolon), siis saab selle täpsustada lisades argumenti `sep=";"`.
 
 ```{r, eval = F}
+# Näide R keskkonnas
+
 andmed <- read.csv("failinimi.csv", sep=";")
 ```
 
-2. Andmete importimine MS Exceli failist:
+**Andmete importimine MS Exceli failist**
 
 Esmalt tuleb installida ja laadida sisse `openxlsx` pakett, mis võimaldab Exceli failidest andmete lugemist.
 
+```{r, warning=FALSE, message=FALSE}
+# Laadime peatükis kasutatavad paketid
+library(dplyr)
+library(readxl)
+```
+
+Seejärel kasutada funktsiooni `read_excel()`, et importida andmed Exceli failist.
+
 ```{r, eval = F}
-library(openxlsx)
+# Näide R keskkonnas
+
+andmed <- read_excel("failinimi.xlsx")
 ```
 
-Seejärel kasutada funktsiooni `read.xlsx()`, et importida andmed Exceli failist.
-
-```{r, eval = F}
-andmed <- read.xlsx("failinimi.xlsx")
-```
-
-
-
-
-## Arvutamine R-i keskkonnas
-
-Järgnevalt on näited R-i koodidest, mis näitavad, kuidas teha liitmist, lahutamist ja muid arvutusi:
-
-1. Liitmine:
+**Arvutamine R-i keskkonnas**
 
 ```{r}
-# Liidame kaks arvu
-x <- 5
-y <- 3
-sum <- x + y
-print(sum) # Väljastab tulemuse
+# Liitmine
+1 + 1
+
+# Lahutamine
+5 - 3
+
+# Korrutamine
+2 * 4
+
+# Jagamine
+10 / 2
+
+# Astendamine
+2 ^ 3
+
+# Jäägi leidmine
+10 %% 3
 ```
 
-2. Lahutamine:
-
+R keskkonnas on võimalik teha arvutusi tsüklina
 ```{r}
-# Lahutame kaks arvu
-x <- 10
-y <- 4
-difference <- x - y
-print(difference) # Väljastab tulemuse
+# Loome vektori 1st 10ni
+
+for(x in 1:10)
+{
+  y <- x + 1
+}
 ```
 
-3. Korrutamine:
 
-```{r}
-# Korrutame kaks arvu
-x <- 6
-y <- 7
-product <- x * y
-print(product) # Väljastab tulemuse
-```
-
-4. Jagamine:
-
-```{r}
-# Jagame kaks arvu
-x <- 20
-y <- 5
-quotient <- x / y
-print(quotient) # Väljastab tulemuse
-```
-
-5. Astendamine:
-
-```{r}
-# Astendame arvu
-x <- 2
-y <- 3
-exponentiation <- x^y
-print(exponentiation) # Väljastab tulemuse
-```
-
-Need näited näitavad lihtsaid arvutusi R-i kasutades. Ole valmis proovima erinevaid arve ja operatsioone, et harjutada ja paremini mõista R-i võimalusi arvutamisel.

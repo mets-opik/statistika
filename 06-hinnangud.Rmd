@@ -31,6 +31,7 @@ Keskväärtuse leidmiseks tuleb kõik andmed kokku liita ja seejärel jagada and
 
 Näide R-is:
 ```{r}
+andmed <- rnorm(1000, 10, 2)
 # Arvutame keskmise
 mean(andmed)
 ```

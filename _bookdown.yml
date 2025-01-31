@@ -9,3 +9,5 @@ language:
 
 before_chapter_script: ["proc_funcs.R"]
 output_dir: docs
+
+#rmd_files: ["index.Rmd", "01-sissejuhatus.Rmd"]

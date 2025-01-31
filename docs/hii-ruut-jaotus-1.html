@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Peatükk 6 Hii-ruut jaotus | Metsanduslik statistika R ja MS Excel keskkonnas</title>
+  <meta name="description" content="Metsandusliku statistika õpik" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Peatükk 6 Hii-ruut jaotus | Metsanduslik statistika R ja MS Excel keskkonnas" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Metsandusliku statistika õpik" />
+  <meta name="github-repo" content="xyzallan/met-stat-opik" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Peatükk 6 Hii-ruut jaotus | Metsanduslik statistika R ja MS Excel keskkonnas" />
+  
+  <meta name="twitter:description" content="Metsandusliku statistika õpik" />
+  
+
+<meta name="author" content="Allan Sims, Andres Kiviste, Diana Laarmann" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="jaotusfunktsioonid.html"/>
+<link rel="next" href="statistilised-hinnangud.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="sissejuhatus.html"><a href="sissejuhatus.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="sissejuhatus.html"><a href="sissejuhatus.html#statistikaprogramm-r"><i class="fa fa-check"></i><b>1.1</b> Statistikaprogramm R</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="sissejuhatus.html"><a href="sissejuhatus.html#r-i-paketid"><i class="fa fa-check"></i><b>1.1.1</b> R-i paketid</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="sissejuhatus.html"><a href="sissejuhatus.html#ms-excel"><i class="fa fa-check"></i><b>1.2</b> MS Excel</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="andmestik.html"><a href="andmestik.html"><i class="fa fa-check"></i><b>2</b> Andmestik</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="andmestik.html"><a href="andmestik.html#andmestiku-struktuur-r-keskkonnas"><i class="fa fa-check"></i><b>2.1</b> Andmestiku struktuur R keskkonnas</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="andmestik.html"><a href="andmestik.html#vektor"><i class="fa fa-check"></i><b>2.1.1</b> Vektor</a></li>
+<li class="chapter" data-level="2.1.2" data-path="andmestik.html"><a href="andmestik.html#maatriks"><i class="fa fa-check"></i><b>2.1.2</b> Maatriks</a></li>
+<li class="chapter" data-level="2.1.3" data-path="andmestik.html"><a href="andmestik.html#andmetabel"><i class="fa fa-check"></i><b>2.1.3</b> Andmetabel</a></li>
+<li class="chapter" data-level="2.1.4" data-path="andmestik.html"><a href="andmestik.html#list"><i class="fa fa-check"></i><b>2.1.4</b> List</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="andmestik.html"><a href="andmestik.html#andmestike-importimine-r-keskkonda"><i class="fa fa-check"></i><b>2.2</b> Andmestike importimine R keskkonda</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="05-jaotusfunktsioonid.html"><a href="#andmestike-r%C3%BChmitamine"><i class="fa fa-check"></i><b>3</b> Andmestike rühmitamine</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html"><i class="fa fa-check"></i><b>3.1</b> Jaotused</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#empiiriline-jaotus"><i class="fa fa-check"></i><b>3.1.1</b> Empiiriline jaotus</a></li>
+<li class="chapter" data-level="3.1.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#teoreetiline-jaotus"><i class="fa fa-check"></i><b>3.1.2</b> Teoreetiline jaotus</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#histogramm"><i class="fa fa-check"></i><b>3.2</b> Histogramm</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#r-keskkonnas"><i class="fa fa-check"></i><b>3.2.1</b> R keskkonnas:</a></li>
+<li class="chapter" data-level="3.2.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#exceli-keskkonnas"><i class="fa fa-check"></i><b>3.2.2</b> Exceli keskkonnas:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="karakteristikud.html"><a href="karakteristikud.html"><i class="fa fa-check"></i><b>4</b> Karakteristikud</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="karakteristikud.html"><a href="karakteristikud.html#keskmised"><i class="fa fa-check"></i><b>4.1</b> Keskmised</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="karakteristikud.html"><a href="karakteristikud.html#aritmeetiline-keskmine"><i class="fa fa-check"></i><b>4.1.1</b> Aritmeetiline keskmine</a></li>
+<li class="chapter" data-level="4.1.2" data-path="karakteristikud.html"><a href="karakteristikud.html#ruutkeskmine"><i class="fa fa-check"></i><b>4.1.2</b> Ruutkeskmine</a></li>
+<li class="chapter" data-level="4.1.3" data-path="karakteristikud.html"><a href="karakteristikud.html#geomeetriline-keskmine"><i class="fa fa-check"></i><b>4.1.3</b> Geomeetriline keskmine</a></li>
+<li class="chapter" data-level="4.1.4" data-path="karakteristikud.html"><a href="karakteristikud.html#harmooniline-keskmine"><i class="fa fa-check"></i><b>4.1.4</b> Harmooniline keskmine</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="karakteristikud.html"><a href="karakteristikud.html#kvantiilid"><i class="fa fa-check"></i><b>4.2</b> Kvantiilid</a></li>
+<li class="chapter" data-level="4.3" data-path="karakteristikud.html"><a href="karakteristikud.html#mediaan"><i class="fa fa-check"></i><b>4.3</b> Mediaan</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="jaotusfunktsioonid.html"><a href="jaotusfunktsioonid.html"><i class="fa fa-check"></i><b>5</b> Jaotusfunktsioonid</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="05-jaotusfunktsioonid.html"><a href="#h%C3%BCpotees"><i class="fa fa-check"></i><b>5.1</b> Hüpotees</a></li>
+<li class="chapter" data-level="5.2" data-path="jaotusfunktsioonid.html"><a href="jaotusfunktsioonid.html#jaotusfunktsioon"><i class="fa fa-check"></i><b>5.2</b> Jaotusfunktsioon</a></li>
+<li class="chapter" data-level="5.3" data-path="jaotusfunktsioonid.html"><a href="jaotusfunktsioonid.html#tihedusfunktsioon"><i class="fa fa-check"></i><b>5.3</b> Tihedusfunktsioon</a></li>
+<li class="chapter" data-level="5.4" data-path="jaotusfunktsioonid.html"><a href="jaotusfunktsioonid.html#normaaljaotus"><i class="fa fa-check"></i><b>5.4</b> Normaaljaotus</a></li>
+<li class="chapter" data-level="5.5" data-path="jaotusfunktsioonid.html"><a href="jaotusfunktsioonid.html#t-jaotus"><i class="fa fa-check"></i><b>5.5</b> T-jaotus</a></li>
+<li class="chapter" data-level="5.6" data-path="jaotusfunktsioonid.html"><a href="jaotusfunktsioonid.html#f-jaotus"><i class="fa fa-check"></i><b>5.6</b> F-jaotus</a></li>
+<li class="chapter" data-level="5.7" data-path="jaotusfunktsioonid.html"><a href="jaotusfunktsioonid.html#hii-ruut-jaotus"><i class="fa fa-check"></i><b>5.7</b> Hii-ruut-jaotus</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="hii-ruut-jaotus-1.html"><a href="hii-ruut-jaotus-1.html"><i class="fa fa-check"></i><b>6</b> Hii-ruut jaotus</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="hii-ruut-jaotus-1.html"><a href="hii-ruut-jaotus-1.html#hii-ruut-jaotuse-omadused"><i class="fa fa-check"></i><b>6.1</b> Hii-ruut-jaotuse omadused</a></li>
+<li class="chapter" data-level="6.2" data-path="hii-ruut-jaotus-1.html"><a href="hii-ruut-jaotus-1.html#hii-ruut-jaotuse-kasutusvaldkonnad"><i class="fa fa-check"></i><b>6.2</b> Hii-ruut-jaotuse kasutusvaldkonnad</a></li>
+<li class="chapter" data-level="6.3" data-path="hii-ruut-jaotus-1.html"><a href="hii-ruut-jaotus-1.html#hii-ruut-statistiku-arvutamine"><i class="fa fa-check"></i><b>6.3</b> Hii-ruut-statistiku arvutamine</a></li>
+<li class="chapter" data-level="6.4" data-path="05-jaotusfunktsioonid.html"><a href="#hii-ruut-jaotuse-kriitilised-v%C3%A4%C3%A4rtused"><i class="fa fa-check"></i><b>6.4</b> Hii-ruut-jaotuse kriitilised väärtused</a></li>
+<li class="chapter" data-level="6.5" data-path="hii-ruut-jaotus-1.html"><a href="hii-ruut-jaotus-1.html#hii-ruut-jaotuse-ja-teiste-jaotuste-seosed"><i class="fa fa-check"></i><b>6.5</b> Hii-ruut-jaotuse ja teiste jaotuste seosed</a></li>
+<li class="chapter" data-level="6.6" data-path="hii-ruut-jaotus-1.html"><a href="hii-ruut-jaotus-1.html#hii-ruut-jaotuse-rakendamine-praktikas"><i class="fa fa-check"></i><b>6.6</b> Hii-ruut-jaotuse rakendamine praktikas</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="statistilised-hinnangud.html"><a href="statistilised-hinnangud.html"><i class="fa fa-check"></i><b>7</b> Statistilised hinnangud</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="statistilised-hinnangud.html"><a href="statistilised-hinnangud.html#hinnangud"><i class="fa fa-check"></i><b>7.1</b> Hinnangud</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="statistilised-hinnangud.html"><a href="statistilised-hinnangud.html#punkthinnang"><i class="fa fa-check"></i><b>7.1.1</b> Punkthinnang</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="statistilised-hinnangud.html"><a href="statistilised-hinnangud.html#vahemikhinnangud"><i class="fa fa-check"></i><b>7.2</b> Vahemikhinnangud</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="05-jaotusfunktsioonid.html"><a href="#keskv%C3%A4%C3%A4rtuse-usalduspiirid"><i class="fa fa-check"></i><b>7.2.1</b> Keskväärtuse usalduspiirid</a></li>
+<li class="chapter" data-level="7.2.2" data-path="statistilised-hinnangud.html"><a href="statistilised-hinnangud.html#dispersiooni-usalduspiirid"><i class="fa fa-check"></i><b>7.2.2</b> Dispersiooni usalduspiirid</a></li>
+<li class="chapter" data-level="7.2.3" data-path="statistilised-hinnangud.html"><a href="statistilised-hinnangud.html#binoomjaotuse-usalduspiirid"><i class="fa fa-check"></i><b>7.2.3</b> Binoomjaotuse usalduspiirid</a></li>
+<li class="chapter" data-level="7.2.4" data-path="05-jaotusfunktsioonid.html"><a href="#standardh%C3%A4lbe-usalduspiirid"><i class="fa fa-check"></i><b>7.2.4</b> Standardhälbe usalduspiirid</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="05-jaotusfunktsioonid.html"><a href="#mitme-tunnuse-koosanal%C3%BC%C3%BCs"><i class="fa fa-check"></i><b>8</b> Mitme tunnuse koosanalüüs</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="mitme-tunnuse-koosanalüüs.html"><a href="mitme-tunnuse-koosanalüüs.html"><i class="fa fa-check"></i><b>8.1</b> Lineaarne regressioon</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="mitme-tunnuse-koosanalüüs.html"><a href="mitme-tunnuse-koosanalüüs.html#lineaarne-regressioon-r-keskkonnas"><i class="fa fa-check"></i><b>8.1.1</b> Lineaarne regressioon R keskkonnas</a></li>
+<li class="chapter" data-level="8.1.2" data-path="mitme-tunnuse-koosanalüüs.html"><a href="mitme-tunnuse-koosanalüüs.html#lineaarne-regressioon-ms-exceli-keskkonnas"><i class="fa fa-check"></i><b>8.1.2</b> Lineaarne regressioon MS Exceli keskkonnas</a></li>
+<li class="chapter" data-level="8.1.3" data-path="05-jaotusfunktsioonid.html"><a href="#regressioonanal%C3%BC%C3%BCsi-tulemuste-t%C3%B5lgendamine"><i class="fa fa-check"></i><b>8.1.3</b> Regressioonanalüüsi tulemuste tõlgendamine</a></li>
+<li class="chapter" data-level="8.1.4" data-path="mitme-tunnuse-koosanalüüs.html"><a href="mitme-tunnuse-koosanalüüs.html#homoskedastilisuse-testimine"><i class="fa fa-check"></i><b>8.1.4</b> Homoskedastilisuse testimine</a></li>
+<li class="chapter" data-level="8.1.5" data-path="05-jaotusfunktsioonid.html"><a href="#j%C3%A4%C3%A4kide-normaalsuse-test"><i class="fa fa-check"></i><b>8.1.5</b> Jääkide normaalsuse test</a></li>
+<li class="chapter" data-level="8.1.6" data-path="mitme-tunnuse-koosanalüüs.html"><a href="mitme-tunnuse-koosanalüüs.html#multikollineaarsus"><i class="fa fa-check"></i><b>8.1.6</b> Multikollineaarsus</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="05-jaotusfunktsioonid.html"><a href="#dispersioonanal%C3%BC%C3%BCs"><i class="fa fa-check"></i><b>8.2</b> Dispersioonanalüüs</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="mittelineaarne-regressioon.html"><a href="mittelineaarne-regressioon.html"><i class="fa fa-check"></i><b>9</b> Mittelineaarne regressioon</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="mittelineaarne-regressioon.html"><a href="mittelineaarne-regressioon.html#r"><i class="fa fa-check"></i><b>9.1</b> R</a></li>
+<li class="chapter" data-level="9.2" data-path="mittelineaarne-regressioon.html"><a href="mittelineaarne-regressioon.html#ms-excel-1"><i class="fa fa-check"></i><b>9.2</b> MS Excel</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="05-jaotusfunktsioonid.html"><a href="#mitteparameetriline-anal%C3%BC%C3%BCs"><i class="fa fa-check"></i><b>10</b> Mitteparameetriline analüüs</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="05-jaotusfunktsioonid.html"><a href="#%C3%BCldistatud-aditiivne-mudel"><i class="fa fa-check"></i><b>10.1</b> Üldistatud aditiivne mudel</a></li>
+<li class="chapter" data-level="10.2" data-path="mitteparameetriline-analüüs.html"><a href="mitteparameetriline-analüüs.html"><i class="fa fa-check"></i><b>10.2</b> Visualiseerimine paketiga <code>ggplot2</code></a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Metsanduslik statistika R ja MS Excel keskkonnas</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="hii-ruut-jaotus-1" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Peatükk 6</span> Hii-ruut jaotus<a href="hii-ruut-jaotus-1.html#hii-ruut-jaotus-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Hii-ruut-jaotus (χ²-jaotus) on pidev tõenäosusjaotus, mida kasutatakse statistikas peamiselt kategooriliste andmete analüüsimiseks ja hüpoteeside testimiseks. See on eriti kasulik, kui soovitakse uurida, kas empiirilised andmed vastavad teoreetilisele jaotusele või kas kahe või enama kategoorilise muutuja vahel esineb seos. Hii-ruut-jaotus on mitte-negatiivne ja asümmeetriline jaotus, mille kuju sõltub ühest parameetrist – vabadusastmete arvust.</p>
+<div id="hii-ruut-jaotuse-omadused" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Hii-ruut-jaotuse omadused<a href="hii-ruut-jaotus-1.html#hii-ruut-jaotuse-omadused" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><strong>Pidevus:</strong> Hii-ruut-jaotus on pidev jaotus, mis tähendab, et muutuja võib omandada suvalisi väärtusi teatud vahemikus.</li>
+<li><strong>Mitte-negatiivsus:</strong> Hii-ruut-jaotuse väärtused on alati positiivsed või null. See tuleneb sellest, et hii-ruut-statistik arvutatakse ruutude summana, mis on alati mitte-negatiivsed.</li>
+<li><strong>Asümmeetria:</strong> Hii-ruut-jaotus on parempoolse asümmeetriaga, mis tähendab, et selle pikem saba asub suuremate väärtuste pool. Mida väiksem on vabadusastmete arv, seda suurem on asümmeetria. Suuremate vabadusastmete arvu korral läheneb hii-ruut-jaotus normaaljaotusele.</li>
+<li><strong>Kuju:</strong> Hii-ruut-jaotuse kuju sõltub vabadusastmete arvust (ν). Vabadusastmed määravad jaotuse kuju ja varieeruvuse.</li>
+<li><strong>Vabadusastmed:</strong> Vabadusastmed on seotud andmete struktuuriga. Näiteks, kui testitakse hüpoteesi, kas empiirilised sagedused vastavad oodatavatele sagedustele, siis on vabadusastmete arv võrdne kategooriate arvuga, millest on lahutatud üks (või mitu, sõltuvalt piirangute arvust).</li>
+<li><strong>Keskmine ja dispersioon:</strong> Hii-ruut-jaotuse keskmine võrdub vabadusastmete arvuga (µ = ν) ja dispersioon on kaks korda vabadusastmete arv (σ² = 2ν).</li>
+</ol>
+</div>
+<div id="hii-ruut-jaotuse-kasutusvaldkonnad" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Hii-ruut-jaotuse kasutusvaldkonnad<a href="hii-ruut-jaotus-1.html#hii-ruut-jaotuse-kasutusvaldkonnad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Hii-ruut-jaotust kasutatakse peamiselt järgmistes statistilistes meetodites:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Sobivustest (Goodness-of-fit test):</strong>
+<ul>
+<li>Kasutatakse selleks, et testida, kas empiirilised sagedused (vaadeldud andmed) vastavad teatud teoreetilisele jaotusele (näiteks normaaljaotus, ühtlane jaotus).</li>
+<li>Hii-ruut-statistik arvutatakse võrreldes vaadeldud ja oodatavaid sagedusi.</li>
+<li>Kui hii-ruut-statistik on suur, siis tähendab see, et vaadeldud andmed erinevad oluliselt oodatavast jaotusest.</li>
+<li>Näiteks saab kontrollida, kas mündiviske tulemused (kull või kiri) vastavad oodatavale 50/50 jaotusele.</li>
+</ul></li>
+<li><strong>Sõltumatuse test (Test of independence):</strong>
+<ul>
+<li>Kasutatakse selleks, et testida, kas kaks kategoorilist muutujat on üksteisest sõltumatud või mitte.</li>
+<li>Hii-ruut-statistik arvutatakse võrreldes vaadeldud ja oodatavaid sagedusi risttabelis.</li>
+<li>Kui hii-ruut-statistik on suur, siis tähendab see, et muutujad ei ole sõltumatud, vaid esineb seos.</li>
+<li>Näiteks saab kontrollida, kas sugu ja erakondlik kuuluvus on omavahel seotud.</li>
+</ul></li>
+<li><strong>Homogeensuse test (Test of homogeneity):</strong>
+<ul>
+<li>Kasutatakse selleks, et testida, kas mitmest erinevast populatsioonist saadud valimite jaotused on sarnased.</li>
+<li>Hii-ruut-statistik arvutatakse sarnaselt sõltumatuse testile, võrreldes vaadeldud ja oodatavaid sagedusi.</li>
+<li>Kui hii-ruut-statistik on suur, siis tähendab see, et populatsioonide jaotused on erinevad.</li>
+<li>Näiteks saab kontrollida, kas erinevates haiglates on patsientide jaotus sarnane erinevate haiguste järgi.</li>
+</ul></li>
+<li><strong>Variatsiooni testimine:</strong>
+<ul>
+<li>Hii-ruut-jaotust saab kasutada ka dispersioonide võrdlemiseks, kuigi F-jaotus on selleks otstarbeks tavaliselt eelistatud. Hii-ruut-testi dispersioonide võrdlemiseks on vähem efektiivne, aga võib olla kasulik, kui eeldused F-testi jaoks ei ole täidetud.</li>
+<li>Hii-ruut-jaotust saab kasutada, et testida kas valimi dispersioon erineb oluliselt etteantud populatsiooni dispersioonist.</li>
+</ul></li>
+<li><strong>Informatsiooni kriteeriumid:</strong>
+<ul>
+<li>Hii-ruut-jaotust kasutatakse ka infokriteeriumite (nt AIC ja BIC) arvutamisel, mis aitavad valida sobivaimat mudelit antud andmete jaoks.</li>
+</ul></li>
+</ol>
+</div>
+<div id="hii-ruut-statistiku-arvutamine" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Hii-ruut-statistiku arvutamine<a href="hii-ruut-jaotus-1.html#hii-ruut-statistiku-arvutamine" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Hii-ruut statistiku valem</strong></p>
+<p>Hii-ruut statistiku valem on järgmine:</p>
+<p><span class="math inline">\(chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}\)</span></p>
+<p>Kus:</p>
+<ul>
+<li><span class="math inline">\(chi^2\)</span> on hii-ruut statistika</li>
+<li><span class="math inline">\(\sum\)</span> on summa</li>
+<li><span class="math inline">\(O_i\)</span> on vaadeldud sagedus</li>
+<li><span class="math inline">\(E_i\)</span> on oodatav sagedus</li>
+</ul>
+</div>
+<div id="hii-ruut-jaotuse-kriitilised-väärtused" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Hii-ruut-jaotuse kriitilised väärtused<a href="#hii-ruut-jaotuse-kriitilised-v%C3%A4%C3%A4rtused" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Hüpoteeside testimisel kasutatakse hii-ruut-jaotuse kriitilisi väärtusi, et määrata, kas teststatistiku väärtus on statistiliselt oluline.</li>
+<li>Kriitilised väärtused leitakse hii-ruut-jaotuse tabelitest või statistikatarkvara abil, võttes arvesse vabadusastmete arvu ja valitud olulisuse nivoo (α).</li>
+<li>Olulisuse nivoo (α) on tõenäosus, et nullhüpotees lükatakse tagasi, kui see tegelikult on õige.</li>
+<li>Kui teststatistiku väärtus ületab kriitilise väärtuse, siis nullhüpotees lükatakse tagasi.</li>
+</ul>
+</div>
+<div id="hii-ruut-jaotuse-ja-teiste-jaotuste-seosed" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Hii-ruut-jaotuse ja teiste jaotuste seosed<a href="hii-ruut-jaotus-1.html#hii-ruut-jaotuse-ja-teiste-jaotuste-seosed" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><strong>Seos normaaljaotusega:</strong> Suure vabadusastmete arvu korral läheneb hii-ruut-jaotus normaalsusele.</li>
+<li><strong>Seos F-jaotusega:</strong> Hii-ruut-jaotus on seotud F-jaotusega. Hii-ruut-statistik jagatud vastava vabadusastmete arvuga on ligikaudselt F-jaotusega juhul kui on täidetud F-jaotuse tingimused.</li>
+<li><strong>Seos gammajaotusega:</strong> Hii-ruut-jaotus on gammajaotuse erijuht.</li>
+</ul>
+</div>
+<div id="hii-ruut-jaotuse-rakendamine-praktikas" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> Hii-ruut-jaotuse rakendamine praktikas<a href="hii-ruut-jaotus-1.html#hii-ruut-jaotuse-rakendamine-praktikas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><strong>Turundus:</strong> Hii-ruut-testi saab kasutada, et analüüsida, kas erinevate reklaamikampaaniate tulemused on oluliselt erinevad.</li>
+<li><strong>Meditsiin:</strong> Hii-ruut-testi saab kasutada, et hinnata, kas erinevad ravimeetodid on võrdselt efektiivsed.</li>
+<li><strong>Sotsiaalteadused:</strong> Hii-ruut-testi saab kasutada, et uurida, kas erinevad sotsiaalsed rühmad erinevad teatud tunnuste poolest.</li>
+<li><strong>Geneetika:</strong> Hii-ruut-testi saab kasutada, et kontrollida, kas pärilikkuse muster vastab teatud teoreetilistele ootustele.</li>
+<li><strong>Kvaliteedikontroll:</strong> Hii-ruut-testi saab kasutada,</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="jaotusfunktsioonid.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="statistilised-hinnangud.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"caption": {
+"figure_num_sep": ".",
+"table_num_sep": "."
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

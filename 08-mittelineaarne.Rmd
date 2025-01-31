@@ -1,34 +1,78 @@
+
+```{r, include=F}
+knitr::opts_chunk$set(
+  comment = '', fig.width = 8, fig.height = 6, out.width = "80%", fig.pos = "!ht"
+)
+
+```
+
 # Mittelineaarne regressioon
 
-Mõnikord on vaja funktsioontunnuse sõltuvust argumenttunnusest lähendada funkt-siooniga, mida ei ole võimalik teisendada parameetrite suhtes lineaarsele kujule. Tavaliselt kasutatakse mitte¬lineaarseid funktsioone suhteliselt keeruliste tugevalt kõver-jooneliste sõltuvuste modelleerimiseks. Mudelina rakendatavad funktsioonid on mitte-lineaarsed seetõttu, et nad on tuletatud modelleeritava protsessi olemust kajas¬tavatest eeldustest. 
-Mittelineaarse regressioonivalemi parameetrite hindamine katseandmete põhjal on üsna problemaatiline ülesanne. Selleks peab funktsiooni parameetrite kohta teadma nende ligikaudseid alghinnanguid. Mittelineaarsete parameetrite hindamiseks tuleb kasutada mingit optimeerimis¬algoritmi, mille arvutamine on tunduvalt aeganõudvam, kui lineaarse regressioonanalüüsi tegemine. Lisaks sellele ei õnnestugi alati optimaalset lahendit saada. 
+**Mittelineaarne regressioon** on statistiline meetod, mida kasutatakse sõltuva muutuja ja ühe või mitme sõltumatu muutuja vahelise mittelineaarse seose modelleerimiseks. Erinevalt lineaarsest regressioonist, mis eeldab sirgjoonelist seost, võimaldab mittelineaarne regressioon paindlikumaid seoseid, näiteks kõverjoonelisi, eksponentsiaalseid või logistilisi seoseid.
+
+Metsanduses esineb sageli mittelineaarseid seoseid. Mittelineaarne regressioon võimaldab neid keerukaid seoseid täpsemalt modelleerida ja paremini mõista.
+
+Mittelineaarne regressioonimudel kirjutatakse üldjuhul kujul:
+  
+
+\[Y = f(X, \beta) + \epsilon\]
+
+kus:
+  
+*   **Y** on sõltuv muutuja.
+*   **X** on sõltumatu(te) muutuja(te) vektor.
+*   **\(f(X, \beta)\)** on mittelineaarne funktsioon, mis kirjeldab seost X ja Y vahel.
+*   **\(\beta\)** on mudeli parameetrite vektor, mida tuleb hinnata.
+*   **\(\epsilon\)** on vealiige, mis esindab juhuslikku varieeruvust.
+
+
+Mittelineaarse regressiooni parameetreid hinnatakse tavaliselt **vähimruutude meetodil**, kus otsitakse parameetrite väärtusi, mis minimeerivad mudeli ennustatud väärtuste ja tegelike väärtuste vaheliste ruutude summat. See on iteratiivne protsess, mis nõuab arvutitarkvara kasutamist.
+
+## R
 
 Näiteks, kui soovime R-is kasutada `nls()` mudelit, mis kirjeldab puu kõrgust sõltuvalt puu diameetrist, võime kasutada järgmist näidiskoodi. 
 
-```{r}
-# Loe andmed sisse failist "puud.xlsx"
-andmed <- subset(openxlsx::read.xlsx("data/puud.xlsx"), H > 0)
+```{r, warning=FALSE, message=FALSE}
+# Laadime peatükis kasutatavad paketid
+library(dplyr)
+library(readxl)
+```
 
-# Määratle mudeli funktsioon
+```{r}
+# Laadime andmed sisse failist ning
+# filtreerime välja puud, mille h > 0
+andmed <- read_excel("data/naited.xlsx","prt_andmed") %>% filter(h > 0)
+```
+
+```{r}
+# Määratleme mudeli funktsioon
 puu_mudel <- function(D, a, b, c) {
  1.3 + a * (D / (D + b))^c
 }
+```
 
+```{r}
 # Omista algväärtused parameetritele
-algväärtused <- list(a = 1, c = 0.5)
+alg_param <- list(a = 1, c = 0.5)
+```
 
+```{r}
 # Sobita mudel andmetele
-mudel <- nls(H ~ puu_mudel(D1, a, 5, c), data = andmed, start = algväärtused)
+mudel <- nls(h ~ puu_mudel(d, a, 5, c), data = andmed, start = alg_param)
 
+```
+
+```{r}
 # Vaata mudeli kokkuvõtet
 summary(mudel)
+
 ```
 
 Esitame selle kohta ka graafiku, millele lisame mudeli joone funktsioonidega `curve()` ja `predict()`, milles kasutame loodud mudeli objekti.
 
 ```{r, fig.cap = "Mittelineaarne regressioon"}
-plot(H~D1, andmed, ylim=c(10, 35), xlim = c(10, 40))
-curve(predict(mudel, data.frame(D1 = x)), 10, 40, add=T, col = 2)
+plot(h~d, andmed, ylim=c(10, 35), xlim = c(10, 40))
+curve(predict(mudel, data.frame(d = x)), 10, 40, add=T, col = 2)
 ```
 
 Kontrollime 
@@ -46,6 +90,35 @@ qqnorm(resid(mudel), main = "")
 qqline(resid(mudel), col = "red")
 ```
 
+\clearpage
+## MS Excel
 
-MS Exceli keskkonnas saab mittelineaarse funktsiooni parameetrite hindamiseks kasutada optimeerimisprotseduuri Solver. Selleks tuleks MS Exceli töölehele salvestada argumenttunnuse väärtused, funktsioontunnuse väärtused, prognoosifunktsiooni arvutusvalemid ja prognoosijääkide ruutude summa arvutuseeskiri. Samuti peavad töölehel olema lahtrid funktsiooni parameetrite jaoks, mida prognoosifunktsiooni arvutusvalemid kasutavad. 
+
+**Andmete sisestamine.** Avage fail, kus on puude diameetrid ja kõrgused.
+
+**Algparameetrite väärtuste sisestamine:** Valige kolm vaba lahtrit ja sisestage neisse algparameetrite väärtused a, b ja c jaoks. Need väärtused võivad olla suvalised, aga parema tulemuse saamiseks peaksid need olema lähedased oodatud väärtustele. Näiteks võite alustada a = 20, b = 10 ja c = 3. Nimetage need lahtrid vastavalt "a", "b" ja "c".
+
+**Arvutatud kõrguse veeru loomine:** Looge uus veerg nimega "Arvutatud H". Esimesse lahtrisse sisestage valem: `=1.3 + $a * ($D2 / ($D2 + $b))^$c`. Asendage `$a`, `$b` ja `$c` vastavate algparameetrite lahtritega (nt `$F$1, `$F$2, `$F$3`). `$D2` on esimese diameetri väärtus. See valem arvutab kõrguse vastavalt sisestatud diameetrile ja algparameetrite väärtustele.
+
+**Valemi kopeerimine:** Lohistage esimese "Arvutatud H" lahtri paremas alumises nurgas olevat ruudukest alla, et kopeerida valem kõikidele diameetri väärtustele.
+
+**Ruutkeskmise vea arvutamine:** Valige vaba lahter ja sisestage valem `=SUMXMY2(H2:Hn, E2:En)/COUNT(H2:Hn)`. See valem arvutab ruutkeskmise vea (RMSE) mõõdetud kõrguse (H) ja arvutatud kõrguse (Arvutatud H) vahel. `H2:Hn` on mõõdetud kõrguste vahemik ja `E2:En` on arvutatud kõrguste vahemik.
+
+**Solveri käivitamine:** Avage menüüst "Andmed" -> "Solver". Kui Solverit menüüs ei ole, peate selle lisandmoodulitest aktiveerima (Fail -> Suvandid -> Lisandmoodulid -> Exceli lisandmoodulid -> Mine... -> Märkige ruut "Solver Add-in" ja vajutage "OK").
+
+**Solveri seadistamine:**
+    * Määrake "Seadista eesmärk" lahtriks RMSE lahter.
+    * Valige "Min", et minimeerida RMSE.
+    * "Muutuvate lahtrite kaupa" lahtritesse sisestage algparameetrite a, b ja c lahtrid.
+    * Vajutage "Lahenda".
+
+**Tulemuste analüüs:** Solver kohandab parameetrite a, b ja c väärtusi, et minimeerida RMSE. Kui Solver on lahenduse leidnud, kuvatakse leitud parameetrite väärtused ja minimaalne RMSE. Nüüd on teil mittelineaarne regressioonimudel, mis kirjeldab puude kõrguse ja diameetri seost teie andmete põhjal.
+
+**Lisamärkused:**
+
+* Solver ei pruugi alati leida optimaalset lahendust. Proovige erinevaid algparameetrite väärtusi ja käivitage Solver uuesti.
+* Saate visualiseerida oma andmeid ja leitud regressioonikõverat, luues hajuvusdiagrammi, kus x-teljel on diameeter ja y-teljel kõrgus. Lisage diagrammile trendijoon, valides "Kohandatud" ja sisestades regressioonivõrrandi.
+* Hinnake mudeli sobivust, arvestades RMSE väärtust ja visuaalset vastavust andmetele.
+
+
 

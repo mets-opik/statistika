@@ -2,60 +2,129 @@
 
 ## Üldistatud aditiivne mudel
 
-Üldistatud aditiivne mudel (GAM) on statistiline mudel, mis võimaldab üldistatud lineaarsel mudelil rakendada aditiivse mudeli sujuva ülemineku omadusi. See võimaldab modelleerida mitte-lineaarset sõltuvussuhet eesmärgi muutuja ja sellega seotud tunnuste vahel, lisades mudelisse siledaid funktsioone.
+Üldistatud aditiivne mudel (GAM) on statistiline mudel, mis ühendab lineaarse mudeli omadused aditiivsete funktsioonide abil. Lihtsamalt öeldes on GAM mudel, mis modelleerib funktsioontunnust ühe või mitme argumenttunnuse summa abil, kus iga argumenttunnuse mõju funktsioontunnusele modelleeritakse splainfunktsiooni abil.
 
-GAM mudelit saab R-keskkonnas rakendada package'iga "mgcv" (Multidimensional Generalized Cross-Validation) ning see võimaldab kasutajal määrata siledad funktsioonid (nt splines, loess), mis kajastavad eesmärgi muutuja ja sellega seotud tunnuste vahelist mitte-lineaarset seost.
+Splainfunktsioon on matemaatiline funktsioon, mida kasutatakse andmete interpoleerimiseks ja sujuvaks lähendamiseks. See on ühesuguse struktuuriga tükiti polünomiaalne funktsioon, mis on konstrueeritud nii, et see oleks sujuv ja pidev andmepunktide vahel. See tähendab, et spline funktsioonil ei ole järske hüppeid ega nurki, mis teeb selle ideaalseks tööriistaks sujuvate kõverate ja pindade modelleerimiseks.
 
-GAM mudeli loomisel tuleb määrata eesmärgi muutuja ning sellega seotud tunnused, mida soovitakse mudelis arvesse võtta. Samuti tuleb valida siledad funktsioonid ja kontrollida, kas mudel on piisavalt hea eesmärgi või nähtuse seletamiseks. Mudeli sobivuse hindamiseks saab kasutada erinevaid meetodeid, nagu näiteks R-ruut (R-squared) või ristvaliatsioon.
+Selles näites kasutame R-i paketti `mgcv` GAM mudeli sobitamiseks. Eesmärk on modelleerida puu kõrguse ja diameetri vahelist seost, eeldades, et see seos ei pruugi olla lineaarne.
 
-Kokkuvõttes võimaldab GAM mudel R-keskkonnas paindlikult modelleerida mitte-lineaarseid seoseid andmete vahel ning anda sügavamat arusaamist analüüsitava nähtuse kohta.
+Kõigepealt laadime andmestiku, mis sisaldab puude kõrguse ja diameetri mõõtmiste andmeid. 
 
-GAM mudel on statistiline meetod, mis võimaldab mittemeetriliste muutujate mitte-lineaarset mõju modelleerimist. Allpool on näide GAM mudeli kasutamisest R-i tarkvaras:
-
-Järgnevalt demonstreerime, kuidas kasutada üldistatud aditiivset mudelit (GAM) sõltuva muutuja \(H\) ja sõltumatu muutuja \(D1\) suhte modelleerimiseks, kasutades andmestikku `andmed`. Seejärel visualiseeritakse andmed ja mudeli ennustused.
-```{r}
-require(mgcv)
+```{r, warning=FALSE, message=FALSE}
+# Laadime peatükis kasutatavad paketid
+library(dplyr)
+library(readxl)
+library(mgcv)
 ```
 
-
-- **Mudeli loomine kasutades `gam` funktsiooni:**
- - `gam_model <- gam(H ~ s(D1), data=andmed)`
- - See rida loob generaliseeritud aditiivse mudeli, määrates sõltuvaks muutujaks \(H\) ja sõltumatuks muutujaks \(D1\), kasutades sujuvusfunktsiooni `s()`. Sujuvusfunktsioon võimaldab modelleerida keerukamaid, mittelineaarseid suhteid \(H\) ja \(D1\) vahel. Mudeli loomiseks kasutatakse andmestikku `andmed`.
 
 ```{r}
-# loome GAM mudeli
-(gam_model <- gam(H ~ s(D1), data=andmed))
-```
-- **Andmete visualiseerimine:**
- - `plot(H~D1, andmed, ylim=c(10, 35), xlim = c(10, 40))`
- - See rida visualiseerib andmed, joonistades \(H\) väärtused sõltuvalt \(D1\) väärtustest, kasutades andmestikku `andmed`. `ylim` ja `xlim` argumendid määravad vastavalt y- ja x-telje piirid, et parandada graafiku loetavust, seades y-telje piirid vahemikku 10 kuni 35 ja x-telje piirid vahemikku 10 kuni 40.
- - `curve(predict(gam_model, data.frame(D1 = x)), 10, 40, add=T, col = 2)`
- - See rida lisab esialgsele graafikule mudeli ennustused. `predict` funktsioon arvutab ennustatud \(H\) väärtused uute \(D1\) väärtuste jaoks, kasutades `gam_model` mudelit. `curve` funktsioon joonistab need ennustused graafikule vahemikus 10 kuni 40, kasutades `x` kui sõltumatut muutujat, mis esindab \(D1\) väärtusi. `add=T` argument tähistab, et ennustuskõver lisatakse olemasolevale graafikule, ja `col = 2` määrab ennustuskõvera värvi (tavaliselt punane).
-
-```{r, fig.cap = "Üldistatud aditiivse mudel"}
-plot(H~D1, andmed, ylim=c(10, 35), xlim = c(10, 40))
-curve(predict(gam_model, data.frame(D1 = x)), 10, 40, add=T, col = 2)
+# Andmete laadimine
+andmed <- read_excel("data/naited.xlsx","prt_andmed") %>% filter(h > 0)
 ```
 
-- **Komponendi sujuvusgraafikud:**
- - `plot(gam_model)`. 
- - Kui mudel sisaldab sujuvusfunktsiooni `s()` kasutades määratletud sõltumatu muutuja \(D1\), genereeritakse sujuvusgraafik, mis näitab, kuidas sõltuv muutuja \(H\) muutub sõltumatu muutuja \(D1\) suhtes. Graafikud illustreerivad sujuva komponendi mõju, koos usaldusvahemikega, mis aitavad hinnata mudeli kindlust ja varieeruvust.
+GAM mudeli lähendamiseks kasutame funktsiooni `gam()` paketist `mgcv`. Kasutame splainfunktsiooni diameetri muutuja jaoks, et modelleerida mittelineaarset seost.
 
-```{r, fig.cap = "Üldistatud aditiivse mudeli mõju"}
-plot(gam_model)
+```{r}
+# GAM mudeli sobitamine
+mudel <- gam(h ~ s(d), data = andmed)
 ```
 
-- **jääkide tihedusjaotust**
- - `resid(gam_model)`
- - See funktsioon arvutab ja tagastab mudeli `gam_model` jäägid, mis on vahe tegelike ja ennustatud väärtuste vahel. Jäägid on olulised mudeli sobivuse ja eelduste kontrollimiseks.
+Selles koodis:
 
- - `density()`
- - Funktsioon arvutab jääkide tihedusfunktsiooni, mis on sujuv hinnang jääkide jaotusele. Tihedusfunktsioon näitab, kui tõenäoline on iga jääkide väärtus, andes visuaalse esituse jääkide jaotusest.
+* `H ~ s(D)` määrab mudeli valemi. `H` on funktsioontunnus ja `s(D)` määrab, et diameetri (D) mõju kõrgusele modelleeritakse sujuva funktsiooni `s()` abil.
+* `data = andmed` määrab andmestiku, mida kasutada.
 
- - `plot()`
- - Lõpuks joonistab `plot` funktsioon tihedusfunktsiooni graafiku. Parameeter `main = ""` määrab, et graafikul ei ole pealkirja, jättes graafiku ülaosa tühjaks.
+**3. Mudeli kokkuvõtte vaatamine:**
 
+Saame mudeli kohta detailse kokkuvõtte funktsiooni `summary()` abil:
 
-```{r, fig.cap = "Jääkide tihedusfunktsioon"}
-plot(density(resid(gam_model)), main = "")
+```{r}
+# Mudeli kokkuvõte
+summary(mudel)
 ```
+
+Kokkuvõte annab meile informatsiooni mudeli sobivuse kohta, sh:
+
+* **Parametric coefficients:** Kui mudelis on ka lineaarseid komponente, näidatakse siin nende koefitsiendid. Kuna mudelis ühtegi lineaarset tunnust ei ole kasutatud, siis on siin ainult vabaliige `(Intercept)`.
+* **Approximate significance of smooth terms:** Siin näeme p-väärtuse hinnangut splainfunktsiooni olulisuse kohta. Madal p-väärtus (<0.05) viitab statistiliselt olulisele mittelineaarsele seosele diameetri ja kõrguse vahel.
+* **R-sq.(adj):** Korrigeeritud determinatsioonikordaja näitab, kui suure osa kõrguse varieeruvusest mudel seletab.
+* **Deviance explained:** Sarnane determinatsioonikordajale, näitab mudeli poolt seletatud hälbimuse osakaalu.
+
+
+Kasutades funktsiooni `coef()`, näeme splainfunktsiooni polünoomi parameetrite väärtusi. 
+```{r}
+coef(mudel)
+```
+
+Saame visualiseerida diameetri ja kõrguse vahelist seost funktsiooni `plot()` abil:
+
+```{r, fig.cap="Kõrguse sõltuvus diameetrist"}
+# Mudeli visualiseerimine
+par(mar=c(4,4,1,1), mgp=c(2, 0.7, 0))
+plot(mudel)
+```
+
+See kuvab graafiku, mis näitab diameetri mõju puu kõrgusele. Pidevjoon näitab modelleeritud seost ja kriipsjooned näitavad usaldusvahemikku. See graafik aitab visuaalselt hinnata seose kuju ja mittelineaarsust.
+
+Saame kasutada mudelit uute puude kõrguse ennustamiseks, andes ette diameetri väärtused funktsiooni `predict()` abil:
+
+```{r}
+# Uute diameetrite väärtused
+uued_diameetrid <- data.frame(d = c(12, 22, 32))
+
+# Ennustuste tegemine
+ennustused <- predict(mudel, newdata = uued_diameetrid)
+
+# Ennustuste kuvamine
+print(ennustused)
+```
+
+## Visualiseerimine paketiga `ggplot2`
+
+Oletame, et meil on samad andmed puude kõrguse (h) ja diameetri (d) kohta nagu eelmistes näidetes, aga me tahame luua hajuvusdiagrammi ja lisada sellele sujuva joone otse `ggplot2` abil, ilma et peaks eraldi `gam()` funktsiooni kasutama.
+
+```{r}
+# Laadi pakett
+library(ggplot2)
+```
+
+
+Kasutame `ggplot()` funktsiooni koos `geom_point()` ja `geom_smooth()` funktsioonidega:
+
+```{r, fig.cap="Kõrguse sõltuvus diameetrist"}
+ggplot(andmed, aes(x = d, y = h)) +
+  geom_point() +  # Joonistab hajuvusdiagrammi
+  geom_smooth(method = "gam", formula = y ~ s(x)) +  # Lisab sujuva joone GAM mudeli abil
+  labs(x = "Diameeter (cm)", y = "Kõrgus (m)") +
+  theme_bw()
+```
+
+Selgitus:
+
+* `ggplot(puud, aes(x = d, y = h))`: See rida loob `ggplot` objekti ja määrab andmestiku (`andmed`) ning x-telje (diameeter - `D`) ja y-telje (kõrgus - `H`) muutujad.
+* `geom_point()`: See funktsioon lisab graafikule punktid, luues hajuvusdiagrammi. Iga punkt esindab ühte puud.
+* `geom_smooth(method = "gam", formula = y ~ s(x))`: See funktsioon lisab graafikule sujuva joone.
+    * `method = "gam"`: Määrab, et sujuva joone sobitamiseks kasutatakse GAM mudelit.
+    * `formula = y ~ s(x)`: Määrab mudeli valemi. `y ~ s(x)` tähendab, et `y` (meie puhul kõrgus `H`) modelleeritakse `x` (meie puhul diameeter `D`) sujuva funktsiooni `s()` abil. See on sama valem, mida kasutasime eelmistes näidetes `gam()` funktsiooni sees.
+* `labs(...)`: Määrab telgede sildid ja graafiku pealkirja.
+* `theme_bw()`: Muudab graafiku teema must-valgeks.
+
+
+Sarnaselt eelmisele näitele saate `ggplot2` abil graafikut vastavalt oma soovile kohandada. Näiteks:
+
+```{r, fig.cap="Kõrguse sõltuvus diameetrist"}
+ggplot(andmed, aes(x = d, y = h, color = pl)) +
+  # Muudab punktide värvi, kuju ja suurust
+  geom_point() +  
+  # Eemaldab usaldusvahemiku ja muudab joone värvi
+  geom_smooth(method = "gam", formula = y ~ s(x)) +  
+  labs(x = "Diameeter (D)", y = "Kõrgus (H)") +
+  theme_bw()
+```
+
+Selles näites:
+
+* `aes(x = D, y = H, color = PL)` on lisatud, et värv sõltub puuliigist.
+
+See näide demonstreerib, kuidas luua hajuvusdiagramm ja lisada sellele sujuv joon, mis on sobitatud GAM mudeli abil, kasutades ainult `ggplot2` funktsioone. See on mugav viis kiiresti visualiseerida mittelineaarseid seoseid andmetes ilma eraldi GAM mudelit sobitamata. `ggplot2` pakub laialdasi võimalusi graafikute kohandamiseks, võimaldades luua informatiivseid ja visuaalselt meeldivaid visualiseeringuid.
