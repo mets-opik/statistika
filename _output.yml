@@ -14,4 +14,5 @@ bookdown::gitbook:
     toc:
       #before: |
       #  <li><a href="./">Metsanduslik statistika R ja MS Excel keskkonnas</a></li>
-    download: ["pdf"]
+    #download: ["pdf"]
+

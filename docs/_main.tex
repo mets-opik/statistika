@@ -111,18 +111,11 @@
 \AtBeginEnvironment{verbatim}{\small}
 \AtEndEnvironment{verbatim}{}
 
-%\usepackage{fontsize}
-%\newcommand{\codefont}{\fontsize{8pt}{10pt}\selectfont}
-%\renewcommand{\VerbatimFont}[1]{\fontsize{8pt}{10pt}\selectfont}
-
-%\usepackage{titlesec}
-%\newcommand{\sectionbreak}{\clearpage}
-%, provide=*
 \usepackage[estonian, provide=*]{babel}
 \usepackage{float}
 
 \usepackage{CormorantGaramond}
-\usepackage{ebgaramond-maths}
+%\usepackage{ebgaramond-maths}
 %\usepackage{times}
 
 \usepackage{makeidx}
@@ -155,6 +148,25 @@
 \usepackage[absolute,overlay]{textpos} % Teksti paigutamiseks pildi peale
 \usepackage{xcolor} % Värvi kasutamiseks
 
+\newcommand{\naitefont}{\usefont{T1}{cmbr}{m}{n}\fontsize{8}{14}\selectfont}
+
+\newcounter{naidis}[chapter]
+
+\newenvironment{naidis}
+{%
+\definecolor{shadecolor}{rgb}{200, 200, 0}
+\par\parindent 0pt
+\begin{framed}
+\begin{naitefont}
+\refstepcounter{naidis}\textbf{Näide \thenaidis.}
+}
+{%
+\end{naitefont}%
+\end{framed}
+}%
+
+\counterwithin{naidis}{chapter}
+
 \DefineVerbatimEnvironment{naideExcel}{Verbatim}{
 	xleftmargin=.5cm,
 	fontsize=\small,
@@ -165,7 +177,6 @@
 
 
 \renewcommand{\normalsize}{\fontsize{12}{18}\selectfont}
-
 
 %\RecustomVerbatimEnvironment{Highlighting}{Verbatim}{fontsize=\small}
 \renewenvironment{Shaded} {\begin{snugshade}\footnotesize} {\end{snugshade}}
@@ -190,14 +201,7 @@
         \vspace{0.5cm}
         {\Large\textit{Diana Laarmann}}\\
         \vspace{1cm}
-        
-        % Kaanepilt
-        %\includegraphics[width=\textwidth]{kaanepilt.jpg}\\
-        %\vspace{2cm}
-        
-        % Avaldamise kuupäev või muu tekst
-        %{\Large 2024}
-        
+
         \vfill
         
         % Kirjastuse või muu asjakohase info lisamine
@@ -209,7 +213,6 @@
 
 % Kaane lehe lisamine dokumenti enne sisu algust
 %\AtBeginDocument{\kaanekaas}
-   
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
@@ -223,6 +226,23 @@
 \author{Allan Sims, Andres Kiviste, Diana Laarmann}
 \date{31.01.2025}
 
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{conjecture}{Conjecture}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
+\theoremstyle{definition}
+\newtheorem{hypothesis}{Hypothesis}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
 \begin{document}
 \maketitle
 
@@ -232,7 +252,7 @@
 }
 \chapter{Sissejuhatus}\label{sissejuhatus}
 
-Käesolev õpik on mõeldud metsandusüliõpilastele, kes soovivad omandada matemaatilise statistika põhitõdesid praktilises kontekstis. Materjali koostamisel on lähtutud eeldusest, et lugejatel ei pruugi olla sügavamat matemaatilist ettevalmistust. Terminoloogia on kooskõlas ``Andmeanalüüsi ja statistika oskussõnastikuga'' (\url{https://sonaveeb.ee/ds/aso}), kuid mõisted on lahtiseletatud metsandusvaldkonnast lähtuvalt.
+Käesolev õpik on mõeldud metsandusüliõpilastele, kes soovivad omandada matemaatilise statistika põhitõdesid praktilises kontekstis. Materjali koostamisel on lähtutud eeldusest, et lugejatel ei pruugi olla sügavamat matemaatilist ettevalmistust. Terminoloogia on kooskõlas \emph{\href{https://sonaveeb.ee/ds/aso}{andmeanalüüsi ja statistika oskussõnastikuga}}, kuid mõisted on lahtiseletatud metsandusvaldkonnast lähtuvalt.
 
 Metsanduses toimub pidev andmete kogumine ja nende töötlemine. Kõiki soovitud andmeid ei ole võimalik alati mõõta ning seetõttu tuletatakse need erinevate mudelite abil. Sellised mudelid on saadud statistilise andmetöötluse ja modelleerimise abil. Seetõttu on andmete töötlemisel oluline tunda ka statistika põhitõdesid, et mõista paremini andmetest järelduste ja otsuste tegemisel. Õpiku näited keskenduvad metsanduslikele andmetele. Tarkvarana on kasutatud statistikatarkvara \textbf{R} ja \textbf{MS Excel}, kuid nende valikul on oluline märkida nende erinevaid võimekusi:
 
@@ -495,10 +515,10 @@ Maatriksi loomiseks kasutatakse funktsioone \texttt{matrix()} või \texttt{array
 \end{Shaded}
 
 \begin{verbatim}
-      [,1]  [,2]  [,3]  [,4]
-[1,] 0,185 0,325 0,701 0,122
-[2,] 0,141 0,476 0,770 0,459
-[3,] 0,711 0,948 0,182 0,854
+      [,1]  [,2]    [,3]  [,4]
+[1,] 0,216 0,564 0,90029 0,274
+[2,] 0,719 0,144 0,52641 0,741
+[3,] 0,479 0,992 0,00741 0,427
 \end{verbatim}
 
 \begin{Shaded}
@@ -707,6 +727,13 @@ Teoreetiline jaotus on statistikas abstraktne kontseptsioon, mis kirjeldab tõen
 
 Histogramm ehk sagedusjaotuse tulpdiagramm on graafiline esitusviis andmehulga sageduste jaotumise näitamiseks. Histogramm koosneb üksteise kõrvale paigutatud tulpadest, kus iga tulp esindab teatud vahemikku või klassi, ning selle kõrgus näitab antud klassi sagedust. Horisontaaltelg esitab klasside vahemikke või kategooriaid ning vertikaaltelg näitab vastavate klasside sagedusi või sageduste suhtarvu. Histogrammi abil saab hinnata andmehulga jaotust ning tuvastada erinevaid tendentse ja mustreid andmetes. Histogrammi loomise eesmärgiks on anda visuaalne ülevaade andmete koondumisest ja levikust ning seeläbi paremini mõista andmete struktuuri. Histogrammi loomisel on oluline valida sobiv klassilaius, mis võimaldab õigesti tõlgendada ja analüüsida andmeid. Histogramm on oluline tööriist statistilise info esitamiseks ja mõistmiseks nii akadeemilistes kui ka praktilistes seadetes, sealhulgas metsanduses.
 
+\begin{example}
+Olgu juhuslikuks suuruseks puu diameeter. Antud näites on esitatud
+Järvseljal kvartalis 252 kasvanud 75 aasta vanuse naadisaariku
+saarepuude diameetri empiiriline jaotus proovitüki kluppimisandmete
+järgi.
+\end{example}
+
 \subsection{R keskkonnas:}\label{r-keskkonnas}
 
 \begin{Shaded}
@@ -740,7 +767,7 @@ Esmalt loome pidevast tunnusest mõned juhuslikud andmed ning seejärel kuvame n
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}
+\begin{figure}[H]
 \includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-23-1} \caption{Histogramm}\label{fig:unnamed-chunk-23}
 \end{figure}
 
@@ -884,11 +911,10 @@ Kus \(x_{i}\) on iga andmehulga liige ning \(n\) on andmehulga suurus.
 
 \textbf{Exceli keskkonnas:}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{=MEAN(andme\_vektor)}
-\end{Highlighting}
-\end{Shaded}
+\begin{naideExcel}
+=MEAN(andme_vektor)
+
+\end{naideExcel}
 
 \subsection{Ruutkeskmine}\label{ruutkeskmine}
 
@@ -915,11 +941,10 @@ Metsanduses on ruutkeskmine kasutusel keskmise diameetri arvutamisel.
 
 \textbf{Exceli keskkonnas:}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{=SQRT(MEAN(andmeplokk\^{}2))}
-\end{Highlighting}
-\end{Shaded}
+\begin{naideExcel}
+=SQRT(MEAN(andmeplokk^2))
+
+\end{naideExcel}
 
 \subsection{Geomeetriline keskmine}\label{geomeetriline-keskmine}
 
@@ -952,11 +977,10 @@ kus:
 
 \textbf{Exceli keskkonnas:}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{=GEOMEAN(andmeplokk)}
-\end{Highlighting}
-\end{Shaded}
+\begin{naideExcel}
+=GEOMEAN(andmeplokk)
+
+\end{naideExcel}
 
 \subsection{Harmooniline keskmine}\label{harmooniline-keskmine}
 
@@ -983,11 +1007,10 @@ kus \(x_{1}, x_{2}, \ldots, x_{n}\) on arvude hulk, mille harmoonilist keskmist 
 
 \textbf{Exceli keskkonnas:}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{=HARMEAN(andmeplokk)}
-\end{Highlighting}
-\end{Shaded}
+\begin{naideExcel}
+=HARMEAN(andmeplokk)
+
+\end{naideExcel}
 
 \section{Kvantiilid}\label{kvantiilid}
 
@@ -1036,1849 +1059,1274 @@ Mediaani arvutamine:
 
 Exceli keskkonnas:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{=MEDIAN(andmeplokk)}
-\end{Highlighting}
-\end{Shaded}
+\begin{naideExcel}
+=MEDIAN(andmeplokk)
+
+\end{naideExcel}
 
 \chapter{Jaotusfunktsioonid}\label{jaotusfunktsioonid}
 
-Statistikas nimetatakse \textbf{jaotusfunktsiooniks} funktsiooni, mis kirjeldab juhusliku suuruse \(X\) tõenäosusjaotust. See määrab iga reaalarvu \(x\) korral tõenäosuse, et juhusliku suuruse \(X\) väärtus on väiksem või võrdne \(x\)-ga. Formaalselt väljendub jaotusfunktsioon kui \(F(x) = P(X \leq x)\), seostes iga \(x\)-i väärtuse vastavusse tõenäosuse \(P(X \leq x)\).
-
-Jaotusfunktsiooni saab kasutada nii pidevate kui ka diskreetsete juhuslike suuruste puhul. Pideva juhusliku suuruse korral on jaotusfunktsioon integraal tema tihedusfunktsioonist. Diskreetse juhusliku suuruse korral on jaotusfunktsioon kumulatiivne tõenäosuste summa.
-
-Jaotusfunktsioonil on järgmised omadused:
-
-\begin{itemize}
-\tightlist
-\item
-  See on \emph{monotoonselt kasvav}, st \(F(x) \le F(y)\) kui \(x \le y\).
-\item
-  See on \emph{paremalt pidev}, st \(\lim_{x \to y^+} F(x) = F(y)\) iga \(y\) korral.
-\item
-  See läheneb 0-le kui \(x\) läheneb \(-\infty\)-le, ja 1-le kui \(x\) läheneb \(+\infty\)-le.
-\end{itemize}
-
-Jaotusfunktsiooni saab kasutada juhusliku suuruse tõenäosusjaotuse visualiseerimiseks. Selle abil saab arvutada ka tõenäosusi, et juhuslik suurus langeb teatud vahemikku. Näiteks tõenäosus, et X langeb vahemikku {[}a, b{]}, on F(b) - F(a).
-
-Jaotusfunktsioon on statistikas väga oluline tööriist. See aitab mõista juhuslike suuruste käitumist ja teha järeldusi andmete kohta.
-
-Lisaks ülaltoodule on jaotusfunktsioonil veel teisi olulisi omadusi ja kasutusvõimalusi. Näiteks:
-
-\begin{itemize}
-\tightlist
-\item
-  Jaotusfunktsiooni abil saab leida juhusliku suuruse kvantiile. Kvantiil on väärtus, millest väiksemaks või võrdseks jääb juhusliku suuruse väärtus teatud tõenäosusega.
-\item
-  Jaotusfunktsiooni abil saab arvutada juhusliku suuruse keskväärtust, dispersiooni ja teisi momente.
-\item
-  Jaotusfunktsiooni abil saab genereerida juhuslikke arve, mis järgivad teatud jaotust.
-\end{itemize}
-
-Jaotusfunktsioon on statistikas fundamentaalne mõiste ja sellel on lai valik rakendusi.
-
-Teoreetilisi jaotusi kasutatakse hüpoteeside testimisel statistilistes analüüsides selleks, et teha kindlaks, kas vaatlusandmete hajuvus on juhuslik või on olemas mingi muster või seos. Oluline on märkida, et enamik statistilisi teste eeldab teatud jaotuse tundmist, mille põhjal tehakse järeldusi populatsiooni kohta.
-
-Kõige tuntum teoreetiline jaotus on normaaljaotus, mis on sümmeetriline kõver ning annab tihti paljudele looduslikele nähtustele lähedase jaotuse. Normaaljaotus on oluline paljudes statistilistes testimistes, näiteks t-testis või ANOVA analüüsis. Kui andmed järgivad normaaljaotust, saab kasutada erinevaid statistilisi meetodeid.
-
-Lisaks normaaljaotusele on olulised ka teised jaotused, nagu näiteks binoomjaotus (kasutatakse binomiaalsete katsete puhul), eksponentsiaaljaotus (kasutatakse elupikkuste analüüsimisel) ja Poissoni jaotus (kasutatakse haruldaste sündmuste analüüsimisel).
-
-Hüpoteeside testimisel võrreldakse empiirilisi andmeid teoreetiliste jaotustega, et teha järeldusi populatsiooni kohta. Näiteks võib uurida, kas kahe rühma keskmiste vahel on oluline erinevus või kas mingi seos on juhuslik või mitte. Sellisel juhul kasutatakse statistilisi teste, et hinnata, kas tulemus võib olla juhuslik või on tõenäoliselt tingitud tegelikust mõjust või seosest.
-
 \section{Hüpotees}\label{huxfcpotees}
 
-Hüpotees on statistikas väide või eeldus, millele toetudes teostatakse uuringuid, analüüsi või katseid. Hüpotees võib olla kas uurija poolt esitatud eeldus, mida on vaja tõestada või ümber lükata või juba olemasolev teooria, mida soovitakse kontrollida.
+Hüpotees on statistikas ja teadusuuringutes oluline mõiste, mis kujutab endast oletust või väidet üldkogumi kohta, mida soovitakse testida. Hüpoteesid on aluseks statistilisele analüüsile, võimaldades teha järeldusi valimi põhjal üldkogumi kohta. Hüpoteeside kontrollimise eesmärk on otsustada, kas andmed toetavad teatud väidet või mitte.
+
+\textbf{Hüpoteeside liigid:}
+
+\textbf{Nullhüpotees (\(H_0\)):} Nullhüpotees on väide, mille kohaselt oletatav seos või erinevus puudub, uuritav faktor ei mõjuta tunnuse jaotust või üldkogumi parameeter on võrdne teatud väärtusega. See on hüpotees, mida soovitakse ümber lükata või mille kehtivust testitakse. Nullhüpotees on seisukoht, mis kehtib vaikimisi, kuni on olemas piisavalt tõendeid selle ümberlükkamiseks. Näiteks võidakse püstitada nullhüpotees, et kahe grupi keskmised väärtused on võrdsed või et mingi muutuja jaotust ei mõjuta teine muutuja. Nullhüpoteesi püstitamine peab võimaldama selle ümberlükkamist.
+
+\textbf{Sisukas hüpotees (\(H_1\)):} Sisukas hüpotees, mida nimetatakse ka alternatiivseks hüpoteesiks, on väide, mis on nullhüpoteesile vastand. See väljendab uurija ootust või arvamust, et mingi seos või erinevus on olemas või et uuritav faktor mõjutab tunnuse jaotust. Sisukas hüpotees on see, mida uurija soovib tõestada, seega on uurimise eesmärk leida piisavalt tõendeid, mis toetaksid sisuka hüpoteesi vastuvõtmist ja nullhüpoteesi ümberlükkamist. Näiteks, et kahe grupi keskmised väärtused erinevad või et mingi muutuja jaotus on mõjutatud teisest muutujast.
+
+\textbf{Hüpoteeside püstitamine:}
+Hüpoteese püstitatakse üldkogumi, mitte valimi kohta. Hüpoteeside kontrollimise loogika algab eeldusest, et nullhüpotees kehtib ning uuritakse, kui tõenäoline on antud andmete saamine nullhüpoteesi kehtimise korral. Hüpoteese on alati kaks, sest need peavad teineteist välistama. Üldjuhul on nii, et ühte hüpoteesi ümber lükates, võetakse vastu teine hüpotees.
+
+\textbf{Hüpoteeside testimine:}
+Hüpoteeside testimisel arvutatakse valimi andmete põhjal teststatistik. Teststatistiku väärtust võrreldakse teoreetilise jaotusega, mis on teada nullhüpoteesi kehtivuse korral. Kui valimi põhjal arvutatud teststatistiku väärtus on ebatõenäoline, loetakse nullhüpotees ümber lükatuks ja sisukas hüpotees tõestatuks. Oluline on mõista, et hüpoteese ei saa tõestada, vaid saab leida tõendeid nende toetuseks või vastuoluks. Kui andmed ei anna piisavalt tõendeid sisuka hüpoteesi kasuks, jäädakse nullhüpoteesi juurde. See ei tähenda, et nullhüpotees on tõestatud, vaid seda, et ei leitud piisavalt tõendeid selle ümberlükkamiseks.
+
+\textbf{Vead hüpoteeside kontrollimisel:}
+Hüpoteeside kontrollimisel on võimalik teha kaht liiki vigu:
+
+\textbf{I liiki viga (\(\alpha\)):} I liiki viga tekib siis, kui otsustatakse sisukas hüpotees vastu võtta, kuigi tegelikult on õige nullhüpotees. See on vale positiivne järeldus, mis tähendab, et leitakse seos või erinevus, mida tegelikult ei ole. I liiki vea tegemise tõenäosust nimetatakse olulisuse nivooks ja tähistatakse sümboliga \(\alpha\). Üldiselt on I liiki vea tõenäosus seatud tasemele 0,05, mis tähendab, et on 5\% tõenäosus teha viga, kui nullhüpotees on õige. I liiki viga on enamasti raskemate tagajärgedega. I liiki vea tõenäosuse vähendamiseks tuleb vähendada olulisuse nivood.
+\textbf{II liiki viga (\(\beta\)):} II liiki viga tekib siis, kui jäädakse nullhüpoteesi juurde, kuigi tegelikult on õige sisukas hüpotees. See on vale negatiivne järeldus, mis tähendab, et jäetakse leidmata seos või erinevus, mis tegelikult eksisteerib. II liiki viga on kergem viga, sest see tavaliselt tähendab, et soovitud tulemuste saamiseks on vaja rohkem andmeid koguda. Olulisuse nivoo vähendamine suurendab II liiki vea tõenäosust.
+
+\textbf{Hüpoteeside liigid vastavalt suunale:}
+
+\textbf{Kahepoolne hüpotees:} Kahepoolse hüpoteesi puhul testitakse, kas üldkogumi parameeter erineb teatud väärtusest, ilma et oleks määratud erinevuse suund. Näiteks, kas kahe grupi keskmised väärtused on erinevad (\(H_1: \mu_1 \neq \mu_2\)). Kahepoolse hüpoteesi korral on kriitiline piirkond mõlemal pool jaotuse keskmist.
+
+\textbf{Ühepoolne hüpotees:} Ühepoolse hüpoteesi puhul testitakse, kas üldkogumi parameeter on suurem või väiksem teatud väärtusest. Ühepoolse hüpoteesi korral on kriitiline piirkond ühel pool jaotuse keskmist. Näiteks, kas ühe grupi keskmine on suurem kui teise grupi keskmine (\(H_1: \mu_1 > \mu_2\)) või vastupidi (\(H_1: \mu_1 < \mu_2\)).
+
+Järgnevalt nimekiri täiendavatest statistika mõistetest, mida on oluline tunda hüpoteesi testimisel:
+
+\textbf{Testimise protsess:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{Nullhüpotees (H0)}: See on väide, mida püütakse ümber lükata. Nullhüpotees eeldab, et uuritavas populatsioonis puudub mingi mõju, seos või erinevus. Näiteks võib nullhüpotees väita, et kahe rühma keskmised väärtused on võrdsed või et tunnus ei mõjuta teise tunnuse jaotust. Nullhüpotees on alati konkreetne väide, mille kohta on võimalik arvutada tõenäosust.
+  \textbf{Valim.} Populatsioonist võetud vaatluste kogum, mida kasutatakse hüpoteesi testimiseks.
 \item
-  \textbf{Sisukas ehk alternatiivne hüpotees (H1)}: See on väide, mida uurija soovib tõestada. See hüpotees esitab oletuse mingi mõju, seose või erinevuse olemasolu kohta populatsioonis. Näiteks võib alternatiivne hüpotees väita, et kahe rühma keskmised väärtused on erinevad või et tunnus mõjutab teise tunnuse jaotust. Sisukaid hüpoteese võib olla ka rohkem kui üks.
+  \textbf{Valimstatistik.} Valimist arvutatud väärtus, mis iseloomustab valimit (nt keskmine, standardhälve).
 \item
-  Hüpoteesipaar püstitatakse üldkogumi jaoks.
+  \textbf{Teststatistik.} Arvutatud väärtus, mis võrdleb valimi statistikat nullhüpoteesis oletatud väärtusega.
 \item
-  Hüpoteeside püstitus sõltub uurimisküsimusest ja sellest, kas oodatakse kindlasuunalist kõrvalekallet või mitte.
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \textbf{Kahepoolne hüpotees:} Kontrollitakse, kas parameeter (nt keskväärtus) erineb mingist väärtusest. Näiteks H0: \(\mu\) = \(\mu_0\) ja H1: \(\mu\) \(\neq\) \(\mu_0\).
-  \item
-    \textbf{Ühepoolne hüpotees:} Kontrollitakse, kas parameeter on suurem või väiksem mingist väärtusest. Näiteks H0: \(\mu\) \(\le\) \(\mu_0\) ja H1: \(\mu\) \textgreater{} \(\mu_0\) (parempoolne) või H0: \(\mu\) \(\ge\) \(\mu_0\) ja H1: \(\mu\) \textless{} \(\mu_0\) (vasakpoolne).
-  \end{itemize}
+  \textbf{P-väärtus.} Tõenäosus saada valimi statistika, mis on sama ekstreemne või ekstreemsem kui tegelikult saadud statistika, eeldades, et nullhüpotees on tõene.
 \item
-  \textbf{Olulisuse nivoo (\(\alpha\))}: See on tõenäosus, millega ollakse nõus tegema I liiki viga ehk lükkama tagasi kehtiva nullhüpoteesi. Tavaliselt kasutatakse olulisuse nivood 0,05 (5\%) või 0,01 (1\%), kuid see sõltub uurimisvaldkonnast. Mida väiksem on olulisuse nivoo, seda väiksem on tõenäosus teha I liiki viga. Olulisuse nivoo on maksimaalne lubatud p-väärtus väärtus.
+  \textbf{Olulisuse nivoo (\(\alpha\)).} Ettenähtud tõenäosuse piir, mille alusel otsustatakse nullhüpotees ümber lükata. Tavaliselt on see 0,05 või 0,01.
 \item
-  \textbf{Kriitilised väärtused:} Need on teststatistiku väärtused, mis määratlevad kriitilise piirkonna. Kriitilised väärtused leitakse teststatistiku jaotusest vastavalt valitud olulisuse nivool.
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Kahepoolse hüpoteesi korral on kaks kriitilist väärtust, mis asuvad jaotuse mõlemal pool.
-  \item
-    Ühepoolse hüpoteesi korral on üks kriitiline väärtus, mis asub kas jaotuse paremal või vasakul pool.
-  \item
-    Kriitilised väärtused on seotud ka usaldusvahemiku laiusega.
-  \end{itemize}
-\item
-  \textbf{Teststatistiku väärtuse võrdlemine kriitilise väärtusega:} Võrreldakse, kas empiiriline teststatistiku väärtus langeb kriitilisse piirkonda.
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Kui empiiriline väärtus ületab kriitilise väärtuse (langeb kriitilisse piirkonda), siis lükatakse nullhüpotees tagasi ja võetakse vastu sisukas hüpotees.
-  \item
-    Kui empiiriline väärtus ei lange kriitilisse piirkonda, siis ei ole alust nullhüpoteesi tagasi lükata. Jäädakse nullhüpoteesi juurde, aga see ei tähenda, et nullhüpotees on tõestatud.
-  \end{itemize}
-\item
-  \textbf{Olulisuse tõenäosus (p-väärtus):} See on tõenäosus saada antud või veelgi äärmuslikum valim, eeldusel, et nullhüpotees on tõene. Mida väiksem on p-väärtus, seda väiksem on tõenäosus, et nullhüpotees kehtib.
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Kui p-väärtus on väiksem kui olulisuse nivoo (p \textless{} \(\alpha\)), siis lükatakse nullhüpotees tagasi.
-  \item
-    Kui p-väärtus on suurem või võrdne olulisuse nivooga (p \(\ge\) \(\alpha\)), siis ei lükata nullhüpoteesi tagasi.
-  \item
-    Olulisuse tõenäosust saab kasutada nullhüpoteesi sobivuse hindamiseks antud valimiga.
-  \end{itemize}
-\item
-  Teststatistiku empiirilise väärtuse võrdlemine kriitilise väärtusega ja olulisuse tõenäosuse võrdlemine olulisuse nivooga on ekvivalentsed meetodid.
+  \textbf{Järeldus.} Otsus, kas lükata nullhüpotees ümber või mitte, tuginedes p-väärtuse ja olulisuse nivoo võrdlemisele.
 \end{itemize}
 
-Tuleb arvestada, et nullhüpoteesi ei saa ``tõestada'', kuna statistiliste testidega ei saa nullhüpoteesi tõestada samamoodi, nagu matemaatikas võidakse tõestada väiteid. Selle asemel saab statistiliste testide abil hinnata, kas on piisavalt tõendeid nullhüpoteesi tagasilükkamiseks. Kui testi tulemus näitab, et andmed on nullhüpoteesiga vastuolus, siis võidakse nullhüpotees tagasi lükata. Kui aga testi tulemus ei näita olulist vastuolu nullhüpoteesiga, siis ei lükata nullhüpoteesi tagasi. Siiski, see ei tähenda, et nullhüpotees oleks ``tõestatud''; pigem öeldakse, et ei leitud piisavalt tõendeid nullhüpoteesi ümberlükkamiseks. Oluline on mõista, et nullhüpoteesi mitte-tagasilükkamine ei tõesta selle paikapidavust. See viitab lihtsalt sellele, et andmed ei andnud piisavalt alust nullhüpoteesi ümber lükata. Samuti on oluline meeles pidada, et statistiliste testide tulemused annavad ainult tõenäosusliku hinnangu ning need tuleb alati panna laiemasse konteksti koos teiste tõendite ja teadmistega valdkonnast.
+\textbf{Muud olulised mõisted:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Ühepoolne test.} Hüpoteesi test, kus alternatiivne hüpotees määratleb suuna (nt keskmine on suurem kui).
+\item
+  \textbf{Kahepoolne test.} Hüpoteesi test, kus alternatiivne hüpotees ei määra suunda (nt keskmine on erinev).
+\item
+  \textbf{Usaldusnivoo.} Usaldusvahemikuga seotud kindluse tase, mis näitab usaldusvahemiku katvustõenäosust.
+\item
+  \textbf{Usaldusvahemik:} Väärtuste vahemik, mis teatud usaldusnivooga sisaldab populatsiooni parameetri tegelikku väärtust.
+\item
+  \textbf{Vabadusastmete arv:} Vaatlusandmete arv, mis on vabad varieeruma pärast statistiliste parameetrite hindamist.
+\item
+  \textbf{Jaotus:} Statistiline funktsioon, mis kirjeldab juhusliku muutuja võimalike väärtuste ja nende esinemise tõenäosusi (nt normaaljaotus, t-jaotus).
+\end{itemize}
 
 \section{Jaotusfunktsioon}\label{jaotusfunktsioon}
 
-Jaotusfunktsioon on viis näidata, kui tõenäoline on, et mingi arv (mida me nimetame muutujaks) on väiksem või võrdne kindla arvuga x. See aitab meil mõista, kuidas arvud (või muutujad) ühes grupis paiknevad või jaotuvad, näiteks kui me tahame teada, kui tõenäoline on, et metsa pindala on teatud suurusega või väiksem.
+Jaotusfunktsioon on matemaatilise statistika mõiste, mis kirjeldab juhusliku suuruse väärtuste jaotust tõenäosuste kaudu. See seob iga juhusliku muutuja võimaliku väärtusega tõenäosuse, et muutuja väärtus on sellest väärtusest väiksem või sellega võrdne. Jaotusfunktsiooni tähistatakse tavaliselt \(F(x)\) või \(F_X(a)\), kus \(x\) või \(a\) tähistab reaalarvu, mille kohta tõenäosust arvutatakse. Seega,
 
-Jaotusfunktsiooni olulised omadused on:
+\[F(x) = P(X \leq x),\]
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Vahemik: jaotusfunktsioon võtab väärtuseid 0 ja 1 vahemikus, mis tähendab, et tõenäosus on alati selles vahemikus.
-\item
-  Mittelangus: jaotusfunktsioon ei kasva kunagi tagurpidi; see liigub alati kas võrdse kõrguse juurde või kõrgemale.
-\item
-  Ühekordsus: Ükskõik millised on väärtused, jaotusfunktsiooni koguulatus on alati 1.
-\end{enumerate}
+kus \(X\) on juhuslik suurus ja \(P(X \leq x)\) on tõenäosus, et \(X\) võtab väärtuse, mis on väiksem või võrdne \(x\)-ga.
 
-Jaotusfunktsiooni abil saame lahendada paljusid statistilisi ülesandeid. See aitab meil leida näiteks keskmisi väärtusi, hajuvust (ehk kui laiali arvud on jaotunud), tõenäosusi (kui tõenäoline on mingi sündmus), ja isegi määrata arvude jaotuse erinevaid tasemeid. See tähendab, et jaotusfunktsioon on tööriist, mis aitab meil mõista, kuidas andmed käituvad, ja teha selle põhjal täpseid otsuseid või järeldusi.
+\textbf{Jaotusfunktsiooni olemus:}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Näide R keskkonnas}
-\CommentTok{\# Laadime peatükis kasutatavad paketid}
-\FunctionTok{library}\NormalTok{(dplyr)}
-\FunctionTok{library}\NormalTok{(ggplot2)}
-\FunctionTok{library}\NormalTok{(ggpmisc)}
-\end{Highlighting}
-\end{Shaded}
+\textbf{Kumulatiivne tõenäosus:} Jaotusfunktsioon esitab kumulatiivset tõenäosust, st see näitab, kui suure tõenäosusega on juhusliku suuruse väärtus mingist antud väärtusest väiksem või sellega võrdne.
+
+\textbf{Diskreetse juhusliku suuruse jaotusfunktsioon:} Diskreetse muutuja puhul, mille väärtused on eraldiseisvad (nt täisarvud), on jaotusfunktsioon treppfunktsioon, mis kasvab hüppeliselt iga võimaliku väärtuse juures. Jaotusfunktsiooni väärtus on sel juhul iga konkreetse väärtuse tõenäosuste summa. Kui \(p_i\) on tõenäosus, et \(X = x_i\), siis diskreetse muutuja jaotusfunktsiooni võib kirjutada kui
+
+\[F(a) = \sum_{x_i \leq a} p_i.\]
+
+\textbf{Pideva juhusliku suuruse jaotusfunktsioon:} Pideva muutuja puhul, mille väärtused võivad olla mistahes arvud teatud vahemikus (nt pikkus, kaal), on jaotusfunktsioon pidev. Pideva muutuja puhul on iga üksiku väärtuse tõenäosus null, seega kasutatakse tihedusfunktsiooni, mis kirjeldab muutuja väärtuste jaotumist. Jaotusfunktsioon on sel juhul tihedusfunktsiooni \(f(x)\) integraal:
+
+\[F(x) = \int_{-\infty}^{x} f(t) dt.\]
+
+Graafiliselt vastab integraalile graafikualuse ala pindala integreeritavas vahemikus, mis tähendab, et sündmuse tõenäosus kuuluda etteantud väärtusvahemikku on võrdne väärtusvahemikku jääva tihedusfunktsiooni aluse pindalaga.
+
+\textbf{Jaotusfunktsiooni omadused:} Jaotusfunktsioon on mittekahanev, mis tähendab, et see ei saa kahaneda, kui argument suureneb. Jaotusfunktsiooni piirväärtused on 0 ja 1, st \(\lim_{x \to -\infty} F(x) = 0\) ja \(\lim_{x \to \infty} F(x) = 1\), mis tähendab, et tõenäosus on vahemikus 0 ja 1. Samuti on jaotusfunktsioon paremalt pidev.
+
+\textbf{Kasutusalad:} Jaotusfunktsiooni abil saab leida tõenäosusi, et juhuslik suurus \(X\) on väiksem või võrdne mingi arvuga \(a\) (\(P(X \leq a)\)), suurem mingist arvust \(b\) (\(P(X > b) = 1 - P(X \leq b)\)), või asub mingis vahemikus \(a\) kuni \(b\) (\(P(a < X \leq b) = F(b) - F(a)\)). Jaotusfunktsioon on oluline tööriist mitmesugustes statistilistes analüüsides ja modelleerimises.
+
+\textbf{Näide:}
+
+Kui meil on juhuslik suurus \(X\), mis näitab mündiviske tulemust (0 = ``kiri'' ja 1 = ``kull''), siis jaotusfunktsioon oleks järgmine:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Andmete jaotus.} ECDF graafik annab intuitiivse ülevaate andmete jaotusest, näidates, kui suur osa andmestikust on alla või võrdne iga võimaliku väärtusega. See on eriti kasulik andmete jaotuse mõistmiseks ilma eeldamata mingit konkreetset jaotustüüpi.
+  \(F(x) = 0\), kui \(x < 0\)
+\item
+  \(F(x) = 0.5\), kui \(0 \leq x < 1\)
+\item
+  \(F(x) = 1\), kui \(x \geq 1\)
 \end{itemize}
 
-ECDF graafik on väärtuslik tööriist andmete uurimisel, võimaldades kiiresti hinnata andmete jaotuse omadusi ja tuvastada andmete levikuga seotud probleeme.
+See näide illustreerib diskreetse jaotusfunktsiooni, kus tõenäosus hüppab 0-lt 0,5-le ja sealt 1-le.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Laadime proovitükkide andmed}
-\NormalTok{df }\OtherTok{\textless{}{-}}\NormalTok{ readxl}\SpecialCharTok{::}\FunctionTok{read\_excel}\NormalTok{(}\StringTok{"data/naited.xlsx"}\NormalTok{,}\StringTok{"prt\_andmed"}\NormalTok{)}
+\textbf{Seos tihedusfunktsiooniga}
 
-\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(d)) }\SpecialCharTok{+}
-  \FunctionTok{stat\_ecdf}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
+Pideva juhusliku suuruse puhul on tihedusfunktsioon \(f(x)\) jaotusfunktsiooni tuletis, ja jaotusfunktsioon on tihedusfunktsiooni integraal. Tihedusfunktsioon kirjeldab tõenäosustihedust juhusliku suuruse väärtuse ümber, ja jaotusfunktsioon kirjeldab kumulatiivset tõenäosust kuni teatud väärtuseni. Seega:
 
-\begin{figure}
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-38-1} \caption{Empiiriline jaotusfunktsioon.}\label{fig:unnamed-chunk-38}
-\end{figure}
+\[f(x) = \frac{dF(x)}{dx}\]
 
-Selgitus:
-
-\begin{itemize}
-\item
-  \textbf{\texttt{ggplot(df,\ aes(d))}}: See algatab graafiku loomise, kasutades \texttt{ggplot2}.
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \texttt{ggplot(df,\ ...)} määrab, et graafiku andmed pärinevad \texttt{df} andmeraamist.
-  \item
-    \texttt{aes(x)} seostab andmeraami veeru \texttt{d} graafiku x-teljega. See ütleb ggplot2-le, et veeru \texttt{x} väärtused määravad punktide asukoha horisontaalteljel.
-  \end{itemize}
-\item
-  \textbf{\texttt{+\ stat\_ecdf()}}: See lisab graafikule kihi, nimelt ECDF-i.
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \texttt{stat\_ecdf()} arvutab ECDF-i. ECDF antud väärtusel \emph{x} tähistab andmepunktide osakaalu, mis on väiksemad või võrdsed \emph{x}-ga.
-  \end{itemize}
-\end{itemize}
-
-\section{Tihedusfunktsioon}\label{tihedusfunktsioon}
-
-Tihedusfunktsioon on statistikas kasutatav funktsioon, mis kirjeldab tõenäosust, et juhuslik suurus langeb mingisse kindlasse vahemikku. Tihedusfunktsiooni saab kasutada tõenäosusjaotuse (nt normaaljaotus, Bernoulli jaotus jne) karakteriseerimiseks. See näitab, kui tõenäoline on konkreetse väärtuse saamine selle jaotuse järgi.
-
-Tihedusfunktsioon on graphiline joon, mis esitab tõenäosuse jaotuse ühtlase tervikuna. Üksiku väärtuse tõenäosus on antud tihedusfunktsiooni abil vahemikuna, mida funktsioon katab selles punktis. Tavaliselt on tihedusfunktsioon positiivne ja integreerub üle vahemiku 1, mis tähendab, et kõikidele võimalikele väärtustele vastavate tõenäosuste summa on alati 1.
-
-Metsanduses võib tihedusfunktsiooni kasutada näiteks puistu tiheduse jaotuse kirjeldamisel, kus tihedusfunktsioon näitab puude arvu tõenäosust kindlas pindalas. Tihedusfunktsioonide abil saab hinnata erinevaid statistilisi parameetreid nagu keskmine, mediaan, variatsioon jt, ning teha ennustusi ja otsuseid metsaressursi haldamisel ja planeerimisel.
-
-Tihedusfunktsioon (inglise keeles probability density function, lühidalt PDF) on statistikas oluline mõiste, mida kasutatakse tõenäosusjaotuse kirjeldamiseks. Tihedusfunktsioon annab meile informatsiooni selle kohta, kuidas on tõenäosus mingi juhusliku muutuja väärtuse jaotustel. Allpool on toodud mõned olulised statistilised omadused tihedusfunktsiooni kohta:
-
-Integreeruvus: tihedusfunktsioon peab olema integreeruv kogu kandva ala suhtes, st selle integraal alates miinimum- kuni maksimumväärtuseni peab olema võrdne ühega. Teisisõnu, kogu võimaliku vaadeldava mahu (nt kogu metsaala, kus uuritakse puude tihedust) peab olema 100\%.
-
-Positiivsus: Tihedusfunktsiooni väärtused peavad olema alati positiivsed. See tähendab, et tõenäosus väärtuse sattumiseks konkreetsesse intervalli ei saa olla negatiivne.
-
-Normaliseerumine: Tihedusfunktsioon peab olema normaliseeritud, mis tähendab, et alati, kui me integreerime tihedusfunktsiooni kogu liinil või tasandil, siis tulemuseks peab olema üks. See tagab, et tihedusfunktsioon annab meile täpse tõenäosuse, et vaadeldav suurus langeb mingisse kindlasse vahemikku.
-
-Mitte-negatiivsus: Tihedusfunktsioon ei või mitte kunagi võtta negatiivseid väärtusi. See tähendab, et tõenäosus mingi suuruse väärtuse jaoks on alati null või suurem.
-
-Tipukoha lokaliseerimine: Tihedusfunktsiooni tippkoht näitab moodi ehk suurimat tõenäosust mingi väärtuse saamiseks. Mood on statistikas näitaja, mis näitab, milline väärtus esineb andmehulgas kõige sagedamini ehk mis väärtusega esineb andmehulkade hulgas enim kordi. Mood on üks keskmiste näitajate tüüpe, mis aitab anda ülevaadet andmete esinemissagedusest konkreetse väärtuse juures.
-
-Need omadused on olulised tihedusfunktsiooni mõistmisel ja kasutamisel statistilistes analüüsides, sealhulgas metsanduses, kus tihedusfunktsiooni abil saab kirjeldada erinevaid muutujaid nagu puu tihedus, metsa elujõulisus jne.
-
-Näide R-i koodist, mis genereerib normaaljaotuse tihedusfunktsiooni graafiku:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Loome andmestiku}
-\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(d)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_density}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-39-1} \caption{Empiiriline tihedusfunktsioon.}\label{fig:unnamed-chunk-39}
-\end{figure}
-
-See kood genereerib normaaljaotuse tihedusfunktsiooni graafiku, kus x-teljel on andmete väärtused ja y-teljel tihedusfunktsiooni väärtused.
+Jaotusfunktsiooni abil on võimalik arvutada tõenäosusi erinevate sündmuste toimumiseks. See on aluseks paljudele statistilistele meetoditele ja mudelitele, mis aitavad mõista ja prognoosida juhuslike suuruste käitumist.
 
 \section{Normaaljaotus}\label{normaaljaotus}
 
-Normaaljaotus on statistikas ja tõenäosusteoorias üks tähtsamaid pidevaid jaotusi. Selle tunnusmärk on kellakujuline sümmeetriline graafik, mistõttu seda nimetatakse sageli ka Gaussi jaotuseks, kuna seda uuris põhjalikult Carl Friedrich Gauss. Normaaljaotuse keskmes paikneb enamik väärtusi, harvemini esinevad väärtused jäävad aga sellest kaugemale.
+Normaaljaotus, tuntud ka kui Gaussi jaotus, on pidev sümmeetriline jaotus, mida iseloomustab kellakujuline tihedusfunktsiooni graafik. See on statistikas üks olulisemaid jaotusi, kuna paljud juhuslikud suurused on ligikaudu normaaljaotusega või on teisendatavad normaaljaotusele alluvaks.
 
-\textbf{Normaaljaotuse omadused}
+\textbf{Põhiomadused:}
+
+\textbf{Sümmeetria:} Normaaljaotus on sümmeetriline keskväärtuse (\(\mu\)) suhtes. Keskväärtus, mediaan ja mood langevad kokku.
+
+\begin{figure}[H]
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-37-1} \caption{Normaajaotuse tihedusfunktsioon}\label{fig:unnamed-chunk-37}
+\end{figure}
+
+\textbf{Tihedusfunktsioon:} Normaaljaotuse tihedusfunktsioon on defineeritud järgmiselt:
+
+\[f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]
+
+kus:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Sümmeetria:} Normaaljaotus on sümmeetriline keskväärtuse suhtes, mis tähendab, et jaotuse graafiku mõlemad pooled on üksteise peegelpildid.
+  \(\mu\) on jaotuse keskväärtus (määrab jaotuskõvera asukoha).
 \item
-  \textbf{Keskmine, mediaan ja mood:} Normaaljaotuse korral on aritmeetiline keskmine, mediaan ja mood võrdsed.
-\item
-  \textbf{Hajuvus:} Normaaljaotust iseloomustab hajuvus, mida mõõdetakse standardhälbe abil. Standardhälve näitab, kui palju väärtused keskmisest erinevad.
-\item
-  \textbf{Ekstsess (kurtosis):} Normaaljaotuse püstakus on null. Püstakus näitab, kui terav on jaotuse tipp.
-\item
-  \textbf{Asümmeetria (skewness):} Normaaljaotus on asümmeetriline, mis tähendab, et jaotus ei kaldu ei vasakule ega paremale.
-\item
-  \textbf{Väärtuste jaotus:} Normaaljaotuse puhul jääb umbes 68,3\% väärtustest ühe standardhälbe kaugusele keskmisest, umbes 95,4\% väärtustest kahe standardhälbe kaugusele keskmisest ja umbes 99,7\% väärtustest kolme standardhälbe kaugusele keskmisest.
-\item
-  \textbf{Teoreetiline ulatus:} Teoreetiliselt võib normaaljaotusega muutuja omada väärtusi vahemikus \(-$inf$\) kuni \($inf$\).
+  \(\sigma\) on standardhälve (määrab jaotuskõvera laiuse - suurem \(\sigma\) tähendab laiemat ja madalamat kõverat).
 \end{itemize}
 
-\textbf{Normaaljaotuse kasutusalad}
-
-Normaaljaotust kasutatakse laialdaselt statistikas ja erinevates teadusvaldkondades.
+\textbf{Tõenäosused ja Standardhälve:}
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Andmete kirjeldamine ja analüüs:}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Normaaljaotust kasutatakse üldkogumi keskväärtuse usaldusvahemike arvutamiseks.
-  \item
-    Normaaljaotust kasutatakse sageli hüpoteeside testimisel.
-  \item
-    Normaaljaotust kasutatakse andmete standardiseerimiseks.
-  \item
-    Normaaljaotust saab kasutada erindite tuvastamiseks.
-  \end{itemize}
+  \(P(\mu - \sigma \le X \le \mu + \sigma) \approx 0,683\) (68.3\% väärtustest jääb \(\pm 1\sigma\) vahemikku).
 \item
-  \textbf{Tsentraalne piirteoreem:}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Tsentraalse piirteoreemi kohaselt alluvad piisavalt suure valimi keskmised ligikaudu normaaljaotusele.
-  \end{itemize}
+  \(P(\mu - 2\sigma \le X \le \mu + 2\sigma) \approx 0,954\) (95.4\% väärtustest jääb \(\pm 2\sigma\) vahemikku).
 \item
-  \textbf{Statistilised mudelid:}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Normaaljaotust kasutatakse regressioonimudelite vigade jaotuse eelduseks.
-  \end{itemize}
-\item
-  \textbf{Tõenäosusteooria:}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Normaaljaotust kasutatakse tõenäosusteooria arvutustes.
-  \end{itemize}
-\item
-  \textbf{Rakendusalad:}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Normaaljaotust kasutatakse paljudes valdkondades, nagu majandus, meditsiin, inseneriteadused, psühholoogia ja keskkonnateadused.
-  \end{itemize}
+  \(P(\mu - 3\sigma \le X \le \mu + 3\sigma) \approx 0,997\) (99.7\% väärtustest jääb \(\pm 3\sigma\) vahemikku).
 \end{itemize}
 
-\textbf{Standardiseeritud normaaljaotus}
+\textbf{Standardiseeritud Normaaljaotus (Z-jaotus):} Normaaljaotusega juhuslik suurus \(X\) saab teisendada standardiseeritud normaaljaotusele \(Z\) järgmise valemiga:
 
-Standardiseeritud normaaljaotus on normaaljaotuse erijuhtum, mille keskmine on 0 ja standardhälve on 1.
+\[z = \frac{x - \mu}{\sigma}\]
 
-\textbf{Normaaljaotuse piirangud}
+Standardiseeritud normaaljaotuse puhul \(\mu = 0\) ja \(\sigma = 1\), tähistatakse \(N(0,1)\).
+
+\textbf{Jaotusfunktsioon:} Kumulatiivne jaotusfunktsioon \(F(x)\) näitab tõenäosust \(P(X \le x)\) ja on tihedusfunktsiooni integraal. Normaaljaotuse jaotusfunktsioon on S-kujuline.
+
+\textbf{Kasutusalad:}
+
+\textbf{Statistilised Järeldused:} Normaaljaotus on aluseks paljudele statistilistele meetoditele (nt t-testid, ANOVA, regressioonanalüüs), mis sageli eeldavad andmete normaaljaotust. Suurte valimite puhul (n \textgreater{} 30) on võimalik teatud piirini eirata andmete kõrvalekaldumist normaaljaotusest.
+
+\textbf{Protsesside Modelleerimine:} Paljud looduslikud ja majanduslikud nähtused on ligikaudu normaaljaotusega, olles mõjutatud mitmetest sõltumatutest juhuslikest teguritest.
+
+\textbf{Eelised ja Piirangud:}
+
+\textbf{Eelised:}
 
 \begin{itemize}
 \tightlist
 \item
-  Normaaljaotus eeldab andmete sümmeetriat ja teatud hajuvust.
+  Lihtne matemaatiline kirjeldus kahe parameetriga (\(\mu\) ja \(\sigma\)).
 \item
-  Normaaljaotus ei ole sobiv ekstremaalsete väärtuste analüüsimiseks.
+  Laialdane kasutus ja põhjalikud teoreetilised alused.
 \item
-  Normaaljaotuse omadused kehtivad suure valimi korral.
+  Aluseks paljudele statistilistele testidele.
+\item
+  Tsentraalne piirteoreem tagab rakendatavuse valimite keskmiste analüüsil.
 \end{itemize}
 
-R-is on järgnevad normaaljaotuse funktsioonid:
+\textbf{Piirangud:}
 
 \begin{itemize}
 \tightlist
 \item
-  \texttt{pnorm()} arvutab tõenäosuse, et juhuslik muutuja on väiksem või võrdne kui antud väärtus.
+  Ei sobi kõikide andmetüüpidega, eriti tugeva asümmeetria või erindite korral.
 \item
-  \texttt{dnorm()} arvutab tõenäosustihedusfunktsiooni väärtuse antud punktis.
+  Reaalsed andmed harva täielikult vastavad normaaljaotusele.
 \item
-  \texttt{qnorm()} arvutab väärtuse, millest väiksem või võrdne on antud protsent andmetest.
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{pnorm}\NormalTok{(}\FloatTok{1.96}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{) }
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 0,975
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{dnorm}\NormalTok{(}\FloatTok{1.96}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{) }
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 0,0584
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{qnorm}\NormalTok{(}\FloatTok{0.975}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 1,96
-\end{verbatim}
-
-MS Exceli keskkonnas normaaljaotusega seotud arvutuste tegemiseks saab kasutada järgmisi funktsioone:
-
-\begin{itemize}
-\tightlist
-\item
-  Näide: NORM.DIST(1,96; 0; 1; TRUE) annab tõenäosuse, et normaaljaotuse väärtus on väiksem või võrdne 1.96.
-\item
-  Näide: NORM.S.DIST(1,96; TRUE) annab tõenäosuse, et standardnormaaljaotuse väärtus on väiksem või võrdne 1.96.
-\item
-  Näide: NORM.INV(0,975; 0; 1) annab normaaljaotuse kvantiili, mis vastab 0.975 tõenäosusele.
-\item
-  Näide: \texttt{NORM.S.INV(0,975)} annab standardnormaaljaotuse kvantiili, mis vastab 0.975 tõenäosusele.
+  Ebasobivate andmete korral võib anda eksitavaid tulemusi.
 \end{itemize}
 
 \section{T-jaotus}\label{t-jaotus}
 
-T-jaotus, tuntud ka kui Studenti t-jaotus, on pidev tõenäosusjaotus, mida kasutatakse statistilises järeldamisel, eriti kui valimi suurus on väike ja populatsiooni standardhälve on teadmata. T-jaotus sarnaneb kujult normaaljaotusega, kuid on lamedama tipu ja raskemate sabadega. See tähendab, et t-jaotuses on suurem tõenäosus saada äärmuslikke väärtusi võrreldes normaaljaotusega. T-jaotus on sümmeetriline nulli suhtes.
+T-jaotus, tuntud ka kui Studenti t-jaotus, on pidev tõenäosusjaotus, mis meenutab normaaljaotust, olles lamedam ja laiema sabaga. See on eriti kasulik statistikas väikeste valimite puhul (tavaliselt alla 30) ja kui üldkogumi standardhälve pole teada. T-jaotust rakendatakse peamiselt hüpoteeside testimisel, usaldusvahemike leidmisel ja valimi keskmise võrdlemisel üldkogumi keskväärtusega. T-jaotuse kuju sõltub vabadusastmete arvust (df - \emph{degrees of freedom}), mis on seotud valimi suurusega. Mida suurem on vabadusastmete arv, seda enam sarnaneb t-jaotus normaaljaotusega.
 
-\textbf{T-jaotuse omadused}
+\textbf{T-jaotuse omadused ja tunnused:}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{Sümmeetria:} T-jaotus on sümmeetriline nulli suhtes, mis tähendab, et jaotuse graafiku mõlemad pooled on üksteise peegelpildid.
-\item
-  \textbf{Kuju:} T-jaotus on kellakujuline, sarnaselt normaaljaotusega, aga selle kuju sõltub vabadusastmetest. Mida väiksem on vabadusastmete arv, seda lamedam on jaotus ja raskemad sabad. Suuremate vabadusastmete arvu korral läheneb t-jaotus normaaljaotusele.
-\item
-  \textbf{Vabadusastmed:} T-jaotust iseloomustab parameeter, mida nimetatakse vabadusastmeteks (ν). Vabadusastmed on seotud valimi suurusega ja neid arvutatakse erinevalt olenevalt rakendusest. Näiteks ühe valimi t-testi korral on vabadusastmete arv tavaliselt n-1, kus n on valimi suurus.
-\item
-  \textbf{Keskmine, mediaan ja mood:} T-jaotuse keskväärtus, mediaan ja mood on kõik null, kui jaotuse keskmine on null.
-\item
-  \textbf{Hajuvus:} T-jaotuse hajuvus on suurem kui standardiseeritud normaaljaotuse hajuvus, eriti väikeste vabadusastmete korral. See peegeldab ebakindlust, mis tekib, kui populatsiooni standardhälve on teadmata ja seda tuleb hinnata valimi standardhälbe abil.
-\end{enumerate}
+\textbf{Sümmeetria:} T-jaotus on sümmeetriline nulli ümber, sarnaselt standardsele normaaljaotusele. See tähendab, et jaotuse mõlemad pooled on keskmisest võrdsel kaugusel.
 
-\textbf{T-jaotuse kasutusalad}
+\begin{figure}[H]
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-38-1} \caption{T-jaotuse tihedusfunktsioon}\label{fig:unnamed-chunk-38}
+\end{figure}
 
-T-jaotust kasutatakse peamiselt olukordades, kus populatsiooni standardhälve on tundmatu ja valimi suurus on väike. T-jaotus on eriti oluline järgmistes statistikameetodites:
+\textbf{Tihedusfunktsioon:} T-jaotuse tihedusfunktsioon on keerukam kui normaaljaotusel ja sõltub vabadusastmete arvust. Valem on järgmine:
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{Ühe valimi t-test:}
+\[f(t) = \frac{\Gamma\left(\frac{\nu + 1}{2}\right)}{\sqrt{\nu\pi}\Gamma\left(\frac{\nu}{2}\right)} \left(1 + \frac{t^2}{\nu}\right)^{-\frac{\nu + 1}{2}}\]
 
-  \begin{itemize}
-  \tightlist
-  \item
-    Kasutatakse hüpoteeside testimiseks ühe valimi keskmise kohta, kui populatsiooni standardhälve ei ole teada.
-  \item
-    Näiteks saab t-testi abil kontrollida, kas valimi keskmine erineb oluliselt etteantud väärtusest.
-  \end{itemize}
-\item
-  \textbf{Kahe sõltumatu valimi t-test:}
+kus \(\nu\) on vabadusastmete arv ja \(\Gamma\) on gammafunktsioon.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    Kasutatakse kahe sõltumatu valimi keskmiste võrdlemiseks, kui populatsiooni standardhälbed ei ole teada.
-  \item
-    Näiteks saab t-testi abil kontrollida, kas kahe erineva grupi keskmised väärtused erinevad oluliselt.
-  \end{itemize}
-\item
-  \textbf{Kahe sõltuva valimi t-test:}
+\textbf{Vabadusastmed (df):} T-jaotuse kuju määrab vabadusastmete arv. See arvutatakse valimi suuruse (\(n\)) põhjal. Ühe valimi t-testi korral on \(df = n - 1\), sõltumatute valimite t-testi korral \(df = n_1 + n_2 - 2\). Mida suurem on vabadusastmete arv, seda enam sarnaneb t-jaotus standardsele normaaljaotusele.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    Kasutatakse kahe sõltuva valimi (näiteks enne ja pärast mõõtmised samade isikute peal) keskmiste võrdlemiseks.
-  \item
-    Näiteks saab seda kasutada ravimi efektiivsuse hindamiseks, võrreldes patsiendi seisundit enne ja pärast ravi.
-  \end{itemize}
-\item
-  \textbf{Regressioonanalüüs:}
+\textbf{Keskväärtus ja dispersioon:} T-jaotuse keskväärtus on 0, kui vabadusastmed on suuremad kui 1 (\(\nu > 1\)). Dispersioon sõltub vabadusastmetest ja on suurem kui 1 (\(\frac{\nu}{\nu-2}\), kui \(\nu>2\)).
 
-  \begin{itemize}
-  \tightlist
-  \item
-    Kasutatakse regressioonimudeli parameetrite olulisuse testimiseks.
-  \item
-    T-jaotust kasutatakse standardiseeritud regressioonikordaja (t-väärtuse) jaotuse hindamisel.
-  \end{itemize}
-\item
-  \textbf{Usaldusvahemikud:}
+\textbf{Kasutusala:} T-jaotust kasutatakse peamiselt juhul, kui valimi suurus on väike (tavaliselt \(n < 30\)) ja üldkogumi standardhälve on teadmata. Sellisel juhul ei saa kasutada standardset normaaljaotust.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    Kasutatakse populatsiooni keskmise usaldusvahemiku leidmiseks, kui populatsiooni standardhälve ei ole teada.
-  \item
-    T-jaotust kasutatakse juhul, kui valimi suurus on väike ja/või standardhälve pole teada, et määrata usaldusvahemikku, millesse tegelik keskmine tõenäosusega jääb.
-  \end{itemize}
-\item
-  \textbf{Hüpoteeside testimine:}
+\textbf{T-jaotuse rakendamine:}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    T-jaotust kasutatakse hüpoteeside testimisel, kui valimi suurus on väike või populatsiooni standardhälve ei ole teada.
-  \item
-    T-jaotust kasutatakse kriitilise väärtuse määramiseks ja otsustamaks, kas nullhüpotees lükatakse tagasi või mitte.
-  \end{itemize}
-\item
-  \textbf{Korrelatsioonianalüüs}:
+\textbf{Hüpoteeside testimine:} T-jaotust kasutatakse hüpoteeside testimisel, kui võrreldakse valimi keskmist teatud väärtusega või kahe valimi keskmisi. Näiteks t-testi abil kontrollitakse, kas kahe grupi keskmised erinevad oluliselt. T-testid võivad olla ühepoolsed või kahepoolsed. Ühepoolset testi kasutatakse siis, kui on teada, mis suunas hüpotees peaks erinema. Kahepoolset testi rakendatakse, kui soovitakse kontrollida, kas erinevus üldse on olemas.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    Kasutatakse korrelatsioonikordaja olulisuse testimiseks..
-  \item
-    T-jaotust kasutatakse, et testida, kas leitud korrelatsioonikordaja on statistiliselt oluline ehk erineb oluliselt nullist.
-  \end{itemize}
-\end{enumerate}
+\textbf{Usaldusvahemikud:} T-jaotust rakendatakse usaldusvahemike leidmisel, kui hinnatakse, millises vahemikus paikneb üldkogumi keskväärtus antud valimi põhjal. Usaldusvahemik näitab, kui suur on tõenäosus, et tegelik keskmine väärtus jääb antud piiridesse.
 
-\textbf{T-jaotuse ja normaaljaotuse võrdlus}
+\textbf{Regressioonanalüüs:} Regressioonanalüüsis rakendatakse t-jaotust regressioonimudeli parameetrite olulisuse testimiseks. Näiteks, et teha kindlaks, kas mingi muutuja mõjutab sõltuvat muutujat statistiliselt olulisel määral. Regressioonanalüüsi käigus hinnatakse mudeli parameetreid ja iga parameetri kohta arvutatakse t-statistik, mille abil otsustatakse, kas vastav muutuja on oluline mudeli seletusjõu seisukohalt.
 
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Sarnasus:} Mõlemad on sümmeetrilised, kellakujulised ja pidevad jaotused. Suurte vabadusastmete korral läheneb t-jaotus normaaljaotusele.
-\item
-  \textbf{Erinevus:} T-jaotus on lamedama tipu ja raskemate sabadega kui normaaljaotus, eriti väikeste vabadusastmete korral. See kajastab suuremat ebakindlust, mis tekib, kui populatsiooni standardhälve on teadmata. Normaaljaotust kasutatakse juhul, kui populatsiooni standardhälve on teada.
-\end{itemize}
+\textbf{Järelduste tegemine väikeste valimitega:} T-jaotus on hädavajalik, kui valim on väike. Sellisel juhul ei saa kasutada normaaljaotust, mis eeldab suuremat valimit usaldusväärsete järelduste tegemiseks. T-jaotus võimaldab teha järeldusi ka väikeste valimite puhul, arvestades ebakindlust, mis kaasneb väikese valimi kasutamisega.
 
-\textbf{T-jaotuse kriitilised väärtused}
+\textbf{Võrdlusülesanded:} T-test on statistiline meetod, mida kasutatakse kahe valimi keskmiste võrdlemiseks, eeldades, et andmed on normaalselt jaotunud või valimi suurus on piisavalt suur.
 
-\begin{itemize}
-\tightlist
-\item
-  Hüpoteeside testimisel kasutatakse t-jaotuse kriitilisi väärtusi, et määrata, kas valimi tulemused on statistiliselt olulised.
-\item
-  Kriitilised väärtused leitakse t-jaotuse tabelitest või statistikatarkvara abil, võttes arvesse vabadusastmeid ja olulisuse nivoo (α).
-\item
-  Olulisuse nivoo (α) on tõenäosus, et nullhüpotees lükatakse tagasi, kui see on tegelikult õige.
-\item
-  Kui teststatistiku väärtus on suurem kui kriitiline väärtus, siis nullhüpotees lükatakse tagasi.
-\end{itemize}
+\textbf{T-testide liigid:}
 
-Kokkuvõttes, t-jaotus on oluline statistiline tööriist, mida kasutatakse juhul, kui populatsiooni standardhälve on teadmata ja valimi suurus on väike. See võimaldab teha statistilisi järeldusi ja testida hüpoteese usaldusväärselt.
+\textbf{Ühe valimi t-test:} Kasutatakse, kui võrreldakse valimi keskmist teadaoleva või hüpoteetilise keskväärtusega.
 
-Järgmise sammuna soovitaksin uurida, kuidas t-jaotust kasutatakse erinevates hüpoteeside testimise stsenaariumides ja kuidas arvutada usaldusvahemikke, et paremini mõista selle praktilist rakendust.
+\textbf{Sõltumatute valimite t-test:} Kasutatakse, kui võrreldakse kahe sõltumatu valimi keskmisi. See test eeldab, et andmed on mõlemas valimis ligikaudu normaalselt jaotunud ja et dispersioonid on ligikaudu võrdsed (või tehakse korrektsioon ebavõrdsete dispersioonide korral).
 
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Näide}: pt(2.26, 10) arvutab tõenäosuse, et t-jaotuse väärtus on väiksem või võrdne 2.26, kui vabadusastmete arv\\
-\item
-  \textbf{Näide}: dt(2.26, 10) arvutab t-jaotuse tõenäosustihedust väärtuses 2.26, kui vabadusastmete arv on 10.
-\item
-  \textbf{Näide}: qt(0.975, 10) arvutab t-jaotuse ülemise kvantiili 0.975 väärtuse, kui vabadusastmete arv on 10.
-\end{itemize}
+\textbf{Sõltuvate valimite t-test:} Kasutatakse, kui võrreldakse kahe sõltuva valimi keskmisi, kus iga vaatlus ühes valimis on seotud vastava vaatlusega teises valimis (näiteks mõõtmised enne ja pärast sekkumist).
 
-Exceli keskkonnas t-jaotusega seotud arvutuste tegemiseks on olemas järgmised funktsioonid:
+\textbf{T-statistiku arvutamine:}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{T.DIST}:
-\end{enumerate}
+T-statistiku arvutamise valem sõltub kasutatavast t-testist, kuid üldine idee on leida valimi keskmise hälve hüpoteetilisest keskväärtusest või kahe valimi keskmise erinevus, jagatuna standardveaga. Ühe valimi t-testi puhul on valem järgmine:
 
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Kirjeldus}: T.DIST funktsioon arvutab Studenti t-jaotuse kumulatiivse tõenäosuse.
-\item
-  \textbf{Kasutamine}: T.DIST(x; vabadusastmed; kumulatiiv) kus x on t-jaotuse väärtus, mille kumulatiivset tõenäosust soovite arvutada, vabadusastmed tähistavad t-jaotuse vabadusastmete arvu, ja kumulatiiv on loogiline väärtus, mis määrab, kas funktsioon tagastab tõenäosuse (TRUE) või tiheduse (FALSE).
-\item
-  \textbf{Näide}: T.DIST(2,26; 10; TRUE) annab tõenäosuse, et t-jaotuse väärtus on väiksem või võrdne 2,26, kui vabadusastmete arv on 10.
-\end{itemize}
+\[t = \frac{\bar{x} - \mu}{s / \sqrt{n}}\]
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  \textbf{T.DIST.RT}:
-\end{enumerate}
+kus \(\bar{x}\) on valimi keskmine, \(\mu\) on hüpoteetiline keskväärtus, \(s\) on valimi standardhälve ja \(n\) on valimi suurus.
 
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Kirjeldus}: T.DIST.RT funktsioon arvutab ühepoolse tõenäosuse paremast sabast Studenti t-jaotuses.
-\item
-  \textbf{Kasutamine}: T.DIST.RT(x; vabadusastmed) kus x on t-jaotuse väärtus, mille ühepoolset tõenäosust paremast sabast soovite arvutada, ja vabadusastmed on t-jaotuse vabadusastmete arv.
-\item
-  \textbf{Näide}: T.DIST.RT(2,26; 10) annab tõenäosuse, et t-jaotuse väärtus on suurem kui 2,26, kui vabadusastmete arv on 10.
-\end{itemize}
+\textbf{Vead t-testi rakendamisel:}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{2}
-\tightlist
-\item
-  \textbf{T.DIST.2T}:
-\end{enumerate}
+\textbf{I liiki viga (\(\alpha\)):} I liiki viga tekib siis, kui lükatakse tagasi nullhüpotees, kuigi see on tegelikult õige. See tähendab, et leitakse statistiliselt oluline erinevus, mida tegelikult ei ole. T-testi tulemustes on selle vea tõenäosus P(T\textless=t), mis tähistab tõenäosust, et t-statistik on võrdne või suurem antud väärtusest.
 
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Kirjeldus}: T.DIST.2T funktsioon arvutab kahepoolse tõenäosuse Studenti t-jaotuses.
-\item
-  \textbf{Kasutamine}: T.DIST.2T(x; vabadusastmed) kus x on t-jaotuse väärtus, mille kahepoolset tõenäosust soovite arvutada, ja vabadusastmed on t-jaotuse vabadusastmete arv.
-\item
-  \textbf{Näide}: T.DIST.2T(2,26; 10) annab tõenäosuse, et t-jaotuse absoluutne väärtus on suurem kui 2,26, kui vabadusastmete arv on 10.
-\end{itemize}
+\textbf{II liiki viga (\(\beta\)):} II liiki viga tekib siis, kui ei lükata tagasi nullhüpoteesi, kuigi see on tegelikult vale. See tähendab, et ei leita statistiliselt olulist erinevust, kuigi see tegelikult eksisteerib.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{3}
-\tightlist
-\item
-  \textbf{T.INV}:
-\end{enumerate}
+\textbf{Olulisuse nivoo:}
 
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Kirjeldus}: T.INV funktsioon arvutab Studenti t-jaotuse kvantiili antud kumulatiivse tõenäosuse jaoks.
-\item
-  \textbf{Kasutamine}: T.INV(tõenäosus; vabadusastmed) kus tõenäosus on soovitud kumulatiivne tõenäosus, ja vabadusastmed tähistavad t-jaotuse vabadusastmete arvu.
-\item
-  \textbf{Näide}: T.INV(0,975; 10) annab t-jaotuse kvantiili, mis vastab 0,975 kumulatiivsele tõenäosusele, kui vabadusastmete arv on 10.
-\end{itemize}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{4}
-\tightlist
-\item
-  \textbf{T.INV.2T}:
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Kirjeldus}: T.INV.2T funktsioon arvutab kahepoolse testi kriitilise väärtuse Studenti t-jaotuses.
-\item
-  \textbf{Kasutamine}: T.INV.2T(tõenäosus; vabadusastmed) kus tõenäosus on soovitud kahepoolse testi tõenäosus, ja vabadusastmed on t-jaotuse vabadusastmete arv.
-\item
-  \textbf{Näide}: T.INV.2T(0,05; 10) annab kahepoolse test
-\end{itemize}
+Enne testi tegemist valitakse olulisuse nivoo (\(\alpha\)), mis määrab tõenäosuse teha I liiki viga. Tavaliselt kasutatakse olulisuse nivood 0,05, mis tähendab, et on 5\% tõenäosus teha I liiki viga. Olulisuse nivoo valik sõltub ka sellest, milliseid tagajärgi toob kaasa vea tegemine.
 
 \section{F-jaotus}\label{f-jaotus}
 
-F-jaotus on statistikas oluline pidev tõenäosusjaotus, mida kasutatakse peamiselt dispersioonanalüüsis (ANOVA) ja hüpoteeside testimisel, kui on vaja võrrelda kahe või enama valimi dispersioone. See jaotus aitab kindlaks teha, kas valimite varieeruvus on oluliselt erinev. F-jaotus on asümmeetriline ja selle kuju sõltub kahest parameetrist: loendaja vabadusastmetest (ν1) ja nimetaja vabadusastmetest (ν2).
+F-jaotus on pidev tõenäosusjaotus, mida kasutatakse peamiselt dispersioonanalüüsis (ANOVA) ja hüpoteeside testimisel, eriti kahe või enama valimi dispersioonide võrdlemisel. See jaotus on statistikas oluline, kuna võimaldab hinnata, kas erinevused valimite dispersioonides on statistiliselt olulised või juhuslikud. F-jaotus on alati positiivne, sest see põhineb dispersioonide jagatisel, mis on alati positiivne.
 
-\textbf{F-jaotuse omadused}
+\textbf{F-jaotuse omadused ja tunnused:}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{Pidevus:} F-jaotus on pidev, mis tähendab, et muutuja võib omandada suvalise väärtuse teatud vahemikus.
-\item
-  \textbf{Mitte-negatiivsus:} F-jaotuse väärtused on alati positiivsed või null.
-\item
-  \textbf{Asümmeetria:} F-jaotus on parempoolse asümmeetriaga.
-\item
-  \textbf{Kuju:} F-jaotuse kuju sõltub loendaja (ν1) ja nimetaja (ν2) vabadusastmetest.
-\item
-  \textbf{Vabadusastmed:} Vabadusastmed määravad jaotuse kuju. Suurte vabadusastmete korral läheneb F-jaotus normaaljaotusele.
-\item
-  \textbf{Keskmine ja dispersioon:} F-jaotuse keskmine on ligikaudu võrdne ν2 / (ν2 - 2) (kui ν2 \textgreater{} 2) ja dispersioon sõltub vabadusastmetest.
-\end{enumerate}
+\textbf{Pidevus:} F-jaotus on pidev jaotus, mis tähendab, et see hõlmab kõiki positiivseid reaalarve.
 
-\textbf{F-jaotuse kasutusalad}
+\textbf{Asümmeetria:} F-jaotus on parempoolse kaldega, asümmeetriline jaotus. Jaotuse tihedusfunktsioon ei ole sümmeetriline, jaotuse ``saba'' ulatub paremale poole.
 
-F-jaotust kasutatakse peamiselt järgmistes statistilistes meetodites:
+\textbf{Parameetrid:} F-jaotust iseloomustavad kaks parameetrit: lugeja vabadusastmete arv (k) ja nimetaja vabadusastmete arv (h). Need vabadusastmed on seotud võrreldavate valimite suurustega.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{Dispersioonanalüüs (ANOVA):}
+\textbf{Vabadusastmed:} Vabadusastmed (degrees of freedom) tähistavad sõltumatute andmepunktide arvu, mida saab kasutada dispersiooni hindamiseks. Vabadusastmete arv mõjutab oluliselt F-jaotuse kuju.
+\textbf{Tihedusfunktsioon:} F-jaotuse tihedusfunktsioon on defineeritud järgmiselt:
 
-  \begin{itemize}
-  \tightlist
-  \item
-    Võrreldakse kahe või enama valimi keskmiste erinevusi.
-  \item
-    Testitakse, kas valimite keskmised erinevad oluliselt, analüüsides dispersiooni.
-  \item
-    F-statistik arvutatakse valimitevahelise dispersiooni ja valimisisese dispersiooni suhtena.
-  \end{itemize}
-\item
-  \textbf{Hüpoteeside testimine dispersioonide kohta:}
+\[f(x) = \frac{\Gamma\left(\frac{k + h}{2}\right)}{\Gamma\left(\frac{k}{2}\right) \Gamma\left(\frac{h}{2}\right)} \left(\frac{k}{h}\right)^{\frac{k}{2}} x^{\frac{k}{2} - 1} \left(1 + \frac{k}{h} x\right)^{-\frac{k + h}{2}}, \quad x > 0\]
+kus \(x\) on argument, \(\Gamma\) on gammafunktsioon, \(k\) on lugeja vabadusastmete arv ja \(h\) on nimetaja vabadusastmete arv. Valem näitab, kuidas F-jaotuse tihedus muutub argumendi \(x\) väärtuste korral.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    Võrreldakse kahe populatsiooni dispersioone.
-  \item
-    Testitakse, kas kahe valimi dispersioonid on võrdsed.
-  \end{itemize}
-\item
-  \textbf{Regressioonanalüüs:}
+\begin{figure}[H]
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-39-1} \caption{T-jaotuse tihedusfunktsioon}\label{fig:unnamed-chunk-39}
+\end{figure}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    Testitakse regressioonimudeli sobivust.
-  \item
-    Kontrollitakse, kas mudel on statistiliselt oluline.
-  \end{itemize}
-\item
-  \textbf{Mudeli võrdlus:}
+\textbf{Väärtuste vahemik:} F-jaotuse väärtused on alati positiivsed ja ulatuvad nullist lõpmatuseni.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    Võrreldakse statistilisi mudeleid, et testida, kas keerukam mudel sobib andmetele paremini.
-  \end{itemize}
-\item
-  \textbf{Mitme võrdluse probleemid:}
+\textbf{Kuju sõltuvus vabadusastmetest:} F-jaotuse kuju sõltub lugeja ja nimetaja vabadusastmetest. Suuremate vabadusastmete korral muutub jaotus sümmeetrilisemaks ja läheneb normaaljaotusele.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    Lahendatakse mitme võrdluse probleem, et vältida I tüübi vea suurenemist.
-  \end{itemize}
-\end{enumerate}
+\textbf{F-jaotuse rakendused:}
 
-\textbf{F-jaotuse kriitilised väärtused}
+\textbf{Dispersioonanalüüs (ANOVA):} F-jaotust kasutatakse peamiselt ANOVA-s, et testida, kas kahe või enama grupi keskmiste vahel on statistiliselt olulisi erinevusi. ANOVA-s arvutatakse F-statistik, mis on gruppidevahelise dispersiooni jagatis grupisisese dispersiooniga. Kui F-statistik on piisavalt suur, lükatakse tagasi nullhüpotees, mis väidab, et kõikide gruppide keskmised on võrdsed.
+
+\textbf{Hüpoteeside testimine:} F-jaotust rakendatakse hüpoteeside testimisel, eriti dispersioonide võrdlemisel. Näiteks Levene'i test kasutab F-jaotust, et kontrollida, kas kahe või enama valimi dispersioonid on võrdsed. Seda tehakse sageli enne t-testi või ANOVA-t, veendumaks, et eeldus dispersioonide võrdsusest on täidetud.
+
+\textbf{Regressioonanalüüs:} F-jaotust kasutatakse regressioonanalüüsis mudeli sobivuse hindamiseks. F-testi abil hinnatakse, kas regressioonimudel seletab olulisel määral sõltuva muutuja varieeruvust, võrreldes mudeliga, mis ei sisalda ühtegi seletavat muutujat.
+
+\textbf{Kahe dispersiooni võrdlemine:} Kahe valimi dispersiooni võrdlemiseks kasutatakse F-testi, mis põhineb F-jaotusel. Teststatistiku arvutamiseks jagatakse suurem dispersioon väiksemaga. Seejärel võrreldakse saadud väärtust F-jaotuse kriitilise väärtusega, et teha kindlaks statistiline olulisus.
+
+\textbf{Mudelite võrdlemine:} F-jaotust saab rakendada ka erinevate statistiliste mudelite võrdlemiseks, et selgitada välja, milline mudel sobib andmetega paremini. Näiteks mitme lineaarse regressiooni mudeli puhul saab F-testi abil võrrelda mudelite seletusjõudu ja parameetrite olulisust.
+
+\textbf{F-statistiku arvutamine:}
+
+F-statistiku arvutamise täpne valem sõltub konkreetsest testist või analüüsist, kuid üldpõhimõte on dispersioonide võrdlemine.
+
+ANOVA-s defineeritakse F-statistik järgmiselt:
+
+\[F = \frac{MST}{MSE}\]
+
+kus \(MST\) on rühmadevaheline keskmine ruut (mean square between groups) ehk seletatud hajumine ja \(MSE\) on rühmasisene keskmine ruut (mean square within groups) ehk seletamata hajumine.
+
+Kahe dispersiooni võrdlemisel arvutatakse F-statistik järgmiselt:
+
+\[F = \frac{s_1^2}{s_2^2}\]
+kus \(s_1^2\) on suurem dispersioon ja \(s_2^2\) on väiksem dispersioon.
+
+\textbf{F-jaotuse seos teiste jaotustega:}
+
+\textbf{\(\chi^2\)-jaotus:} F-jaotus on tihedalt seotud \(\chi^2\)-jaotusega. Kui kaks sõltumatut juhuslikku suurust \(X_k\) ja \(X_h\) alluvad \(\chi^2\)-jaotusele vabadusastmetega \(k\) ja \(h\), siis avaldis \(\frac{X_k/k}{X_h/h}\) allub F-jaotusele vabadusastmetega \(k\) ja \(h\).
+
+\textbf{t-jaotus:} F-jaotust saab kasutada t-jaotuse tulemuste tuletamiseks. Kui \(t\) allub t-jaotusele vabadusastmega \(v\), siis \(t^2\) allub F-jaotusele vabadusastmetega 1 ja \(v\). Seega saab F-jaotust kasutada näiteks kahe valimi t-testi tulemuste kontrollimiseks ja usaldusväärsuse hindamiseks.
+
+\textbf{Vead F-testi rakendamisel:}
+
+\textbf{I liiki viga (\(\alpha\)):} I liiki viga tekib, kui lükatakse tagasi tõene nullhüpotees. See tähendab, et leitakse statistiliselt oluline erinevus, mida tegelikult ei eksisteeri.
+
+\textbf{II liiki viga (\(\beta\)):} II liiki viga tekib, kui jäetakse tagasi lükkamata vale nullhüpotees. See tähendab, et ei leita statistiliselt olulist erinevust, mis tegelikult eksisteerib.
+
+\section{\texorpdfstring{\(\chi^2\)-jaotus (hii-ruut-jaotus)}{\textbackslash chi\^{}2-jaotus (hii-ruut-jaotus)}}\label{chi2-jaotus-hii-ruut-jaotus}
+
+\(\chi^2\)-jaotus ehk hii-ruut-jaotus on pidev tõenäosusjaotus, mida kasutatakse statistikas laialdaselt erinevate hüpoteeside testimiseks, eriti kategooriliste andmete puhul või dispersioonide hindamisel. See jaotus on asümmeetriline ja omab olulist rolli mitmetes statistilistes testides.
+
+\textbf{\(\chi^2\)-jaotuse omadused ja tunnused:}
+
+\textbf{Pidevus:} \(\chi^2\)-jaotus on pidev, mis tähendab, et see võib omandada mis tahes positiivseid väärtusi.
+
+\textbf{Asümmeetria:} Jaotus on parempoolse kaldega, st jaotuse saba ulatub paremale ja tihedusfunktsioon ei ole sümmeetriline. Mida suurem on vabadusastmete arv, seda sümmeetrilisemaks jaotus muutub, lähenedes normaaljaotusele.
+
+\textbf{Parameetrid:} \(\chi^2\)-jaotust iseloomustab üks parameeter: vabadusastmete arv (\(n\)). Vabadusastmed on seotud valimi suuruse ja analüüsis kasutatavate piirangutega.
+
+\textbf{Vabadusastmed:} Vabadusastmed (degrees of freedom) tähistavad iseseisvate andmepunktide arvu, mis on kasutatavad dispersiooni hindamiseks. Vabadusastmete arv mõjutab oluliselt \(\chi^2\)-jaotuse kuju ja positsiooni.
+
+\textbf{Tihedusfunktsioon:} \(\chi^2\)-jaotuse tihedusfunktsioon on määratud valemiga, kus parameetriks on vabadusastmete arv. Konkreetne valem on keeruline, aga oluline on teada, et see kirjeldab, kuidas \(\chi^2\)-jaotuse tihedus muutub sõltuvalt väärtusest ja vabadusastmetest.
+
+\textbf{Väärtuste vahemik:} \(\chi^2\)-jaotuse väärtused on alati positiivsed ja ulatuvad nullist lõpmatuseni, kuna \(\chi^2\)-statistikud arvutatakse ruutude summana.
+
+\textbf{Seos normaaljaotusega:} Kui sõltumatud juhuslikud suurused \(X_1, X_2, ..., X_n\) alluvad standardsele normaaljaotusele \(N(0, 1)\), siis nende ruutude summa, \(Y_n = \sum_{i=1}^n X_i^2\), allub \(\chi^2\)-jaotusele vabadusastmete arvuga \(n\). See seos on oluline, kuna see võimaldab seostada \(\chi^2\)-jaotust normaaljaotusega.
+
+\textbf{Keskväärtus ja dispersioon:} \(\chi^2\)-jaotuse keskväärtus võrdub vabadusastmete arvuga (\(n\)) ja dispersioon on \(2n\).
+
+\textbf{\(\chi^2\)-jaotuse kasutamine:}
+
+\textbf{Hüpoteeside testimine:} \(\chi^2\)-jaotust kasutatakse laialdaselt erinevate hüpoteeside testimiseks, eriti kategooriliste andmete puhul. See hõlmab järgmisi olukordi:
+
+\textbf{Sobivuse test:} \(\chi^2\)-sobivuse test (goodness-of-fit test) hindab, kas empiiriliste andmete jaotus vastab teoreetilisele jaotusele. Näiteks, kas mündiviske tulemused vastavad ootusele, et mõlemad pooled on võrdselt tõenäolised.
+
+\textbf{Sõltumatuse test:} \(\chi^2\)-sõltumatuse test (test of independence) uurib, kas kaks kategoorilist muutujat on omavahel sõltuvad. Näiteks, kas haridustase ja sotsiaalmajanduslik staatus on omavahel seotud.
+
+\textbf{Homogeensuse test:} \(\chi^2\)-homogeensuse test uurib, kas mitu valimit on pärit samast populatsioonist. Näiteks, kas erinevates piirkondades esineb samasugune osakaal erinevaid haridustasemeid.
+
+\textbf{Dispersiooni hindamine:} \(\chi^2\)-jaotust kasutatakse ka valimi dispersiooni hindamisel, kui populatsioon on normaaljaotusega. Näiteks valimi standardhälbe usalduspiiride leidmisel.
+
+\textbf{Vastavusanalüüs:} \(\chi^2\)-statistikut kasutatakse vastavusanalüüsis (correspondence analysis) kategooriliste muutujate vahelise seose hindamiseks ja visualiseerimiseks.
+
+\textbf{Teguranalüüs:} \(\chi^2\)-testi kasutatakse ka teguranalüüsis, et hinnata mudeli sobivust andmetega.
+
+\textbf{Pideva juhusliku suuruse testimine:} \(\chi^2\)-testi saab kasutada ka pidevate juhuslike suuruste korral, aga sel juhul tuleb variatsioonrida eelnevalt intervallida.
+
+\textbf{\(\chi^2\)-statistiku arvutamine:}
+
+\(\chi^2\)-statistiku arvutamise valem sõltub testitavast hüpoteesist, aga üldine idee on võrrelda vaadeldud sagedusi oodatavate sagedustega. Üldiselt arvutatakse \(\chi^2\)-statistik järgmiselt:
+
+\[\chi^2 = \sum_{i=1}^k \frac{(O_i - E_i)^2}{E_i}\]
+
+kus \(O_i\) on vaadeldud sagedus \(i\)-ndas kategoorias ja \(E_i\) on oodatav sagedus \(i\)-ndas kategoorias. Oodatav sagedus arvutatakse nullhüpoteesi kehtivuse korral.
+
+\textbf{\(\chi^2\)-testi eeldused:}
 
 \begin{itemize}
 \tightlist
 \item
-  Määratakse, kas teststatistiku väärtus on statistiliselt oluline.
+  \textbf{Sõltumatud vaatlused:} Vaatlused peavad olema üksteisest sõltumatud.
 \item
-  Leitakse F-jaotuse tabelitest või statistikatarkvara abil.
+  \textbf{Oodatavad sagedused:} Oodatavad sagedused ei tohiks olla liiga väikesed (tavaliselt vähemalt 5 igas kategoorias). Liiga väikeste oodatavate sageduste korral võib test olla ebatäpne.
+\item
+  \textbf{Kategoorilised andmed:} \(\chi^2\)-test sobib peamiselt kategooriliste andmete analüüsiks. Pidevate andmete puhul tuleb need enne testi rakendamist kategooriatesse jaotada.
 \end{itemize}
 
-\textbf{F-jaotuse ja teiste jaotuste seosed}
+\textbf{\(\chi^2\)-jaotuse seos teiste jaotustega:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{Seos t-jaotusega:} Kui võtta t-jaotusega muutuja ruut, siis see allub F-jaotusele.
+  \textbf{F-jaotus:} \(\chi^2\)-jaotus on seotud F-jaotusega. Kui kaks sõltumatut \(\chi^2\)-jaotusega juhuslikku suurust jagatakse vastavate vabadusastmetega, siis nende jagatis allub F-jaotusele.
 \item
-  \textbf{Seos χ²-jaotusega:} F-statistikut saab vaadelda kui kahe sõltumatu χ²-jaotusega suuruse suhet.
-\item
-  \textbf{Näide}: pf(3.84, 1, 30) annab tõenäosuse, et F-jaotuse väärtus on väiksem või võrdne 3.84, kui esimese
-\item
-  \textbf{Näide}: df(3.84, 1, 30) annab F-jaotuse tõenäosustihedust väärtuses 3.84, kui esimese andmestiku vabadusastmete arv on 1 ja teise andmestiku vabadusastmete arv on 30.
-\item
-  \textbf{Näide}: qf(0.95, 1, 30) annab F-jaotuse ülemise kvantiili 0.95 väärtuse, kui esimese andmestiku vabadusastmete arv on 1 ja teise andmestiku vabadusastmete arv on 30.
+  \textbf{Normaaljaotus:} Suure vabadusastmete arvu korral läheneb \(\chi^2\)-jaotus normaaljaotusele.
 \end{itemize}
 
-Excelis F-jaotusega seotud arvutuste tegemiseks Euroopa piirkondades, kus kümnendkoha eraldajaks on koma ja argumentide eraldajaks on semikoolon, saate kasutada järgmisi funktsioone:
+\textbf{Vead \(\chi^2\)-testi rakendamisel:}
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Näide}: F.DIST(3;10;5;TRUE) annab tõenäosuse, et F-jaotuse väärtus on väiksem või võrdne 3, kui esimese valimi vabadusastmete arv on 10 ja teise valimi oma on 5.
+  \textbf{I liiki viga (\(\alpha\)):} Esimest liiki viga tehakse siis, kui lükatakse tagasi nullhüpotees, kuigi see on tegelikult õige. See tähendab, et leitakse statistiliselt oluline erinevus, kuigi seda tegelikult ei ole.
 \item
-  \textbf{Näide}: F.DIST.RT(3;10;5) annab tõenäosuse, et F-jaotuse väärtus on suurem kui 3, kui esimese valimi vabadusastmete arv on 10 ja teise valimi oma on 5.
-\item
-  \textbf{Näide}: F.INV(0,975;10;5) annab F-jaotuse kvantiili, mis vastab 0,975 kumulatiivsele tõenäosusele, kui esimese valimi vabadusastmete arv on 10 ja teise valimi oma on 5.
-\item
-  \textbf{Näide}: F.INV.RT(0,025;10;5) annab F-jaotuse kvantiili, mis vastab 0,025 tõenäosusele paremast sabast
-\end{itemize}
-
-\section{Hii-ruut-jaotus}\label{hii-ruut-jaotus}
-
-Hii-ruut-jaotus (χ²-jaotus) on pidev tõenäosusjaotus, mida kasutatakse statistikas peamiselt kategooriliste andmete analüüsimiseks ja hüpoteeside testimiseks. See on eriti kasulik, kui soovitakse uurida, kas empiirilised andmed vastavad teoreetilisele jaotusele või kas kahe või enama kategoorilise muutuja vahel esineb seos. Hii-ruut-jaotus on mitte-negatiivne ja asümmeetriline jaotus, mille kuju sõltub ühest parameetrist -- vabadusastmete arvust.
-
-Hii-ruut-jaotuse omadused:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{Pidevus:} Hii-ruut-jaotus on pidev jaotus, mis tähendab, et muutuja võib omandada suvalisi väärtusi teatud vahemikus.
-\item
-  \textbf{Mitte-negatiivsus:} Hii-ruut-jaotuse väärtused on alati positiivsed või null. See tuleneb sellest, et hii-ruut-statistik arvutatakse ruutude summana, mis on alati mitte-negatiivsed.
-\item
-  \textbf{Asümmeetria:} Hii-ruut-jaotus on parempoolse asümmeetriaga, mis tähendab, et selle pikem saba asub suuremate väärtuste pool. Mida väiksem on vabadusastmete arv, seda suurem on asümmeetria. Suuremate vabadusastmete arvu korral läheneb hii-ruut-jaotus normaaljaotusele.
-\item
-  \textbf{Kuju:} Hii-ruut-jaotuse kuju sõltub vabadusastmete arvust (ν). Vabadusastmed määravad jaotuse kuju ja varieeruvuse.
-\item
-  \textbf{Vabadusastmed:} Vabadusastmed on seotud andmete struktuuriga. Näiteks, kui testitakse hüpoteesi, kas empiirilised sagedused vastavad oodatavatele sagedustele, siis on vabadusastmete arv võrdne kategooriate arvuga, millest on lahutatud üks (või mitu, sõltuvalt piirangute arvust).
-\item
-  \textbf{Keskmine ja dispersioon:} Hii-ruut-jaotuse keskmine võrdub vabadusastmete arvuga (µ = ν) ja dispersioon on kaks korda vabadusastmete arv (σ² = 2ν).
-\end{enumerate}
-
-Hii-ruut-jaotust kasutatakse peamiselt järgmistes statistilistes meetodites:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{Sobivustest (Goodness-of-fit test):}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Kasutatakse selleks, et testida, kas empiirilised sagedused (vaadeldud andmed) vastavad teatud teoreetilisele jaotusele (näiteks normaaljaotus, ühtlane jaotus).
-  \item
-    Hii-ruut-statistik arvutatakse võrreldes vaadeldud ja oodatavaid sagedusi.
-  \item
-    Kui hii-ruut-statistik on suur, siis tähendab see, et vaadeldud andmed erinevad oluliselt oodatavast jaotusest.
-  \item
-    Näiteks saab kontrollida, kas mündiviske tulemused (kull või kiri) vastavad oodatavale 50/50 jaotusele.
-  \end{itemize}
-\item
-  \textbf{Sõltumatuse test (Test of independence):}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Kasutatakse selleks, et testida, kas kaks kategoorilist muutujat on üksteisest sõltumatud või mitte.
-  \item
-    Hii-ruut-statistik arvutatakse võrreldes vaadeldud ja oodatavaid sagedusi risttabelis.
-  \item
-    Kui hii-ruut-statistik on suur, siis tähendab see, et muutujad ei ole sõltumatud, vaid esineb seos.
-  \item
-    Näiteks saab kontrollida, kas sugu ja erakondlik kuuluvus on omavahel seotud.
-  \end{itemize}
-\item
-  \textbf{Homogeensuse test (Test of homogeneity):}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Kasutatakse selleks, et testida, kas mitmest erinevast populatsioonist saadud valimite jaotused on sarnased.
-  \item
-    Hii-ruut-statistik arvutatakse sarnaselt sõltumatuse testile, võrreldes vaadeldud ja oodatavaid sagedusi.
-  \item
-    Kui hii-ruut-statistik on suur, siis tähendab see, et populatsioonide jaotused on erinevad.
-  \item
-    Näiteks saab kontrollida, kas erinevates haiglates on patsientide jaotus sarnane erinevate haiguste järgi.
-  \end{itemize}
-\item
-  \textbf{Variatsiooni testimine:}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Hii-ruut-jaotust saab kasutada ka dispersioonide võrdlemiseks, kuigi F-jaotus on selleks otstarbeks tavaliselt eelistatud. Hii-ruut-testi dispersioonide võrdlemiseks on vähem efektiivne, aga võib olla kasulik, kui eeldused F-testi jaoks ei ole täidetud.
-  \item
-    Hii-ruut-jaotust saab kasutada, et testida kas valimi dispersioon erineb oluliselt etteantud populatsiooni dispersioonist.
-  \end{itemize}
-\item
-  \textbf{Informatsiooni kriteeriumid:}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Hii-ruut-jaotust kasutatakse ka infokriteeriumite (nt AIC ja BIC) arvutamisel, mis aitavad valida sobivaimat mudelit antud andmete jaoks.
-  \end{itemize}
-\end{enumerate}
-
-Hii-ruut statistiku valem on järgmine:
-
-\(\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}\)
-
-Kus:
-
-\begin{itemize}
-\tightlist
-\item
-  \(\chi^2\) on hii-ruut-statistik
-\item
-  \(\sum\) on summa
-\item
-  \(O_i\) on vaadeldud sagedus
-\item
-  \(E_i\) on oodatav sagedus
-\end{itemize}
-
-Hii-ruut-jaotuse kriitilised väärtused:
-
-\begin{itemize}
-\tightlist
-\item
-  Hüpoteeside testimisel kasutatakse hii-ruut-jaotuse kriitilisi väärtusi, et määrata, kas teststatistiku väärtus on statistiliselt oluline.
-\item
-  Kriitilised väärtused leitakse hii-ruut-jaotuse tabelitest või statistikatarkvara abil, võttes arvesse vabadusastmete arvu ja valitud olulisuse nivoo (α).
-\item
-  Olulisuse nivoo (α) on tõenäosus, et nullhüpotees lükatakse tagasi, kui see tegelikult on õige.
-\item
-  Kui teststatistiku väärtus ületab kriitilise väärtuse, siis nullhüpotees lükatakse tagasi.
+  \textbf{II liiki viga (\(\beta\)):} Teist liiki viga tehakse siis, kui ei lükata tagasi nullhüpoteesi, kuigi see on tegelikult vale. See tähendab, et ei leita statistiliselt olulist erinevust, kuigi see tegelikult eksisteerib.
 \end{itemize}
 
 \chapter{Statistilised hinnangud}\label{statistilised-hinnangud}
 
-\section{Hinnangud}\label{hinnangud}
+\section{Punkthinnangud}\label{punkthinnangud}
 
-\subsection{Punkthinnang}\label{punkthinnang}
+Mõistmaks punktihinnanguid, on oluline eristada valimi karakteristikuid üldkogumi vastavatest parameetritest. Punktihinnang on valimi andmetel arvutatud üksik väärtus, mida kasutatakse üldkogumi parameetri hindamiseks. Alljärgnevalt on kirjeldatud küsitud punktihinnangud, tuginedes antud allikatele.
 
-Üldkogumi tunnuseid analüüsides huvitavad uurijat tavaliselt järgnevad probleemid:
+\subsection{Valimi maht}\label{valimi-maht}
 
-\begin{itemize}
-\tightlist
-\item
-  üldkogumi tunnuse jaotusseadus;
-\item
-  selle jaotuse arvkarakteristikute ehk parameetrite arvulised väärtused (hinnangud);
-\item
-  otsustused üldkogumi parameetrite kohta (hüpoteesid).
-\end{itemize}
+Valimi maht on valimisse kuuluvate elementide arv. Valimi mahu tähis on \(n\). Valimi maht on oluline, kuna see mõjutab hinnangute täpsust. Suurema valimi korral on hinnangud üldjuhul täpsemad ja usaldusväärsemad kui väikese valimi korral. Valimi suuruse määramiseks on olemas valemid, mis arvestavad soovitavat täpsust ja usaldusnivood.
 
-Statistilises analüüsis vaadatakse sageli esimesena, kas uuritavate andmete jaotus meenutab normaaljaotust, mis on teatud tüüpi jaotus, kus enamik väärtusi koondub keskmise ümber ja vähem levinud väärtused jäävad äärtesse. Mõnikord eeldatakse, et andmed järgivad normaaljaotust ilma seda eraldi kontrollimata, sest varasemad uuringud või teoreetilised põhjendused viitavad sellele. Kui aga selgub, et andmed ei järgi normaaljaotust, tuleks kasutada erilisi, niinimetatud jaotusvabu ehk mitteparameetrilisi meetodeid. Need meetodid võimaldavad teha järeldusi andmekogumi kohta ka siis, kui eeldatav jaotus ei ole normaalne, tagades seeläbi täpsemad tulemused.
+\subsection{Aritmeetiline keskmine}\label{aritmeetiline-keskmine-1}
 
-Üldkogumi parameetri punkthinnang on number, mille saame valimi andmetest, kasutades kindlat arvutusviisi. See number annab meile aimu, mis võiks olla mingi omaduse tegelik väärtus kogu rühmas, mida me uurime. Punkthinnangut näidatakse sageli sama sümboliga, mida kasutatakse selle omaduse kirjeldamiseks kogu grupis, lisades sellele väikese erimärgi nagu katuse või tärni. Kuna valim võetakse juhuslikult, sõltub punkthinnangu väärtus juhusest ja see võib iga kord erineda, kui võtame uue valimi. Seetõttu käsitleme punkthinnangut kui juhuslikku suurust, millel on oma jaotus ja parameetrid nagu keskmine väärtus või hajuvus. See tähendab, et punkthinnangu abil püüame mõista kogu grupi omadusi, lähtudes vaid osast sellest grupist.
+Aritmeetiline keskmine on valimi väärtuste summa jagatud valimi mahuga. See on mahukeskmine, mis tähendab, et selle väärtus sõltub igast üksikust valimi väärtusest. Aritmeetiline keskmine on efektiivne hinnang üldkogumi keskväärtusele, kuna see on nihketa ja väikseima hajuvusega hinnang. Aritmeetilise keskmise arvutamise valem on järgmine:
 
-Üldkogumi parameetri, näiteks keskväärtuse, hindamiseks erinevatest valimi andmetest võib kasutada mitmesuguseid arvutusreegleid. Üks lihtne viis keskväärtuse määramiseks on võtta valimi kõige väiksema ja suurima väärtuse keskmine, st. liita need kaks väärtust kokku ja jagada kahega. See meetod on eriti kasulik, kui valim on väike ja soovitakse kiiresti saada ligikaudset hinnangut keskväärtusele. Kui aga valim on suur ja sisaldab äärmuslikke väärtusi, mis võivad tulemust moonutada, on mõistlik kasutada aritmeetilist keskmist, kust on välja jäetud kõige väiksem ja suurim väärtus. Selline lähenemine aitab vähendada üksikute ebatavaliste väärtuste mõju keskmisele, andes seeläbi usaldusväärsema ülevaate üldkogumi keskväärtusest.
+\[\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i\]
 
-Punkthinnangute arvutuseeskirjade analüüsiga tegelevat matemaatilise statistika haru nimetatakse \textbf{hinnangute teooriaks}.
+kus \(x_i\) on valimi elemendid ja \(n\) on valimi maht.
 
-Nihketa hinnang tähendab, et kui me arvutame keskmise väärtuse kõikidest võimalikest hinnangutest, mida me saame valimi andmete põhjal, siis see keskmine peaks langema kokku tegeliku väärtusega, mida me üritame hinnata. See on nagu täpselt sihtpunkti tabamine. Kui hinnang on nihkega, siis see tähendab, et meie hinnangud kipuvad süstemaatiliselt olema kas liiga kõrged või liiga madalad võrreldes tegeliku väärtusega.
+\begin{tabular}{ll}
+MS Exceli funktsioon & =AVERAGE(vahemik)\\
+R funktsioon & mean(vahemik) \\
+\end{tabular}
 
-Hinnangu headust mõjutab oluliselt ka selle hajuvus, mida näitab standardhälve -- see ütleb meile, kui palju hinnangud tegelikust väärtusest keskmiselt kõiguvad. Mida väiksem on hajuvus, seda usaldusväärsem on hinnang. Hajuvus sõltub suuresti valimi suurusest: mida suurem on valim, seda väiksem on hajuvus. See tähendab, et hinnangu täpsuse suurendamiseks, näiteks kahekordistamiseks, peame valimi suurust suurendama neli korda. Teisisõnu, suurema valimi korral saame täpsemaid hinnanguid, mis aitab meil teha paremaid järeldusi üldkogumi kohta.
+\subsection{Dispersioon}\label{dispersioon}
 
-Kui kasutame sama valimit, võime saada erinevaid punkthinnanguid, olenevalt sellest, millist arvutusreeglit rakendame. Näiteks keskväärtuse hindamisel võib aritmeetiline keskmine anda kõige väiksema hajuvusega tulemuse, samas kui valimi minimaalse ja maksimaalse väärtuse keskmise kasutamine toob kaasa kõige suurema hajuvuse. Seega, kui valime hindamiseeskirja, peaksime otsima sellise, mis annab võimalikult väikese hajuvusega hinnangu.
+Dispersioon on hälvete ruutude aritmeetiline keskmine. Dispersioon mõõdab andmete hajuvust keskmise ümber. Valimi dispersiooni tähistatakse \(s_x^2\). Dispersioon on alati positiivne suurus. Valimi dispersioon arvutatakse järgmise valemi abil:
 
-\subsubsection{Keskväärtus}\label{keskvuxe4uxe4rtus}
+\[s_x^2 = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2\]
 
-Keskväärtus ehk keskmine on statistiline näitaja, mis annab aritmeetilise keskmise kõikidest väärtustest mõõtmisel. See võimaldab kokku võtta suure hulga andmeid üheks esinduslikuks näitajaks, mis näitab, kui suur on väärtuste kogusumma ja kui palju on neid väärtusi.
+kus \(x_i\) on valimi elemendid, \(\bar{x}\) on valimi aritmeetiline keskmine ja \(n\) on valimi maht. Valemist on näha, et valimi dispersiooni arvutamisel kasutatakse jagajat \(n-1\). Jagajat \(n-1\) kasutatakse, et saada nihketa hinnang üldkogumi dispersioonile, sest kui kasutada jagajat \(n\), saadaksime nihkega hinnangu. Suure valimi korral (\(n > 100\)) on erinevus tühine, aga väikeste valimite korral erinevad need oluliselt.
 
-Keskväärtuse leidmiseks tuleb kõik andmed kokku liita ja seejärel jagada andmete arvu ehk elementide arvuga. Valem keskmise leidmiseks: Keskväärtus = (x1 + x2 + \ldots{} + xn) / n, kus x1, x2, \ldots, xn on andmed ja n on andmete arv.
+\begin{tabular}{ll}
+MS Exceli funktsioon & =VAR(vahemik)\\
+R funktsioon & var(vahemik) \\
+\end{tabular}
 
-Näide R-is:
+\subsection{Standardhälve}\label{standardhuxe4lve}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{andmed }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{2}\NormalTok{)}
-\CommentTok{\# Arvutame keskmise}
-\FunctionTok{mean}\NormalTok{(andmed)}
-\end{Highlighting}
-\end{Shaded}
+Standardhälve on ruutjuur dispersioonist. Standardhälve näitab, kui palju andmed keskmisest hajuvad. Valimi standardhälvet tähistatakse \(s_e\). Standardhälvet on mugav kasutada, kuna mõõtühik on sama, mis kirjeldataval tunnusel. Standardhälve on alati positiivne. Valimi standardhälve arvutatakse valemiga
 
-\begin{verbatim}
-[1] 10
-\end{verbatim}
+\[s_x = \sqrt{s_x^2}\]
 
-\textbf{Näide Excelis:}
+kus \(s^2\) on valimi dispersioon.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{Lahtrisse B1 sisesta järgnev valem: \textasciigrave{}=AVERAGE(andmeplokk)\textasciigrave{}}
-\end{Highlighting}
-\end{Shaded}
+\begin{tabular}{ll}
+MS Exceli funktsioon & =STDEV(vahemik)\\
+R funktsioon & sd(vahemik) \\
+\end{tabular}
 
-Excel arvutab nüüd nende andmete keskmise, näidates tulemust lahtris B1.
+\subsection{Standardviga}\label{standardviga}
 
-\subsubsection{Dispersioon}\label{dispersioon}
-
-Dispersioon on statistiline mõiste, mis kirjeldab, kui palju hajuvad andmed keskmisest väärtusest. Dispersioon annab aimu sellest, kui palju erinevad üksikandmed keskmisest ning kui suur on nende vahemik. Mida suurem on dispersioon, seda ebaühtlasemalt on andmed hajunud keskmise ümber.
-
-\textbf{R näide:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Leiame andmehulga dispersiooni funktsiooni var()}
-\FunctionTok{var}\NormalTok{(andmed)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 3,93
-\end{verbatim}
-
-\textbf{Näide Excelis:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{\textasciigrave{}=VAR(andmeplokk)\textasciigrave{}}
-\end{Highlighting}
-\end{Shaded}
-
-Mida väiksem on dispersioon, seda kitsam on andmehulga hajuvus. Dispersiooni arvutamise valem võib Excelis varieeruda sõltuvalt sellest, kas soovite arvutada dispersiooni populatsiooni (VAR.P) või valimi (VAR.S) põhjal. R-is kasutatakse funktsiooni \texttt{var()} populatsiooni hinnangu jaoks ning \texttt{var(x,\ y\ =\ 1)} valimi hinnangu jaoks, kus \texttt{x} on andmehulk ja \texttt{y} on valimi põhjal arvutatava dispersiooni korrigeerimise parameetrit väljendav arv.
-
-\subsubsection{Dispersiooni viga}\label{dispersiooni-viga}
-
-Dispersiooni viga (inglise keeles dispersion error) on statistiline mõiste, mis mõõdab hajuvust või ebatäpsust andmete hulgas. See näitab, kui palju erinevad individuaalsed andmed keskmisest ning omab olulist tähtsust hinnangute usaldusväärsuse hindamisel.
-
-Dispersiooni viga arvutatakse tavaliselt järgmise valemiga:
-\[ SE = \sqrt{\frac{s^2}{n}} \]
-kus \(SE\) on dispersiooni viga, \(s^2\) on proovikogumi dispersioon (standardhälve ruudus) ja \(n\) on proovikogumi suurus.
-
-Näide R-is:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Arvutame keskmise ja standardhälbe}
-\NormalTok{keskmine }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(andmed)}
-\NormalTok{dispersioon }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(andmed)}
-
-\CommentTok{\# Arvutame dispersiooni vea}
-\FunctionTok{sqrt}\NormalTok{(dispersioon}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{/} \FunctionTok{length}\NormalTok{(andmed))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 0,0627
-\end{verbatim}
-
-\textbf{Näide Excelis:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{=SQRT(STDEV(A1:A10)\^{}2/COUNT(A1:A10)) \# dispersioonivea arvutamine}
-\end{Highlighting}
-\end{Shaded}
-
-Nii R-is kui ka Excelis arvutatud dispersiooni viga võimaldab hinnata, kui hästi keskmine esindab tervet andmestikku ning milline võiks olla keskmise usaldusväärsus.
-
-\subsubsection{Standardhälve}\label{standardhuxe4lve}
-
-Standardhälve (või standardhälve, lühendina SD) on statistiline mõõde, mis näitab, kui palju erinevad andmed üldisest keskmisest. Mida suurem on standardhälve, seda laiem on andmehulkude ja keskmise hajuvus. Standardhälve on oluline näitaja, kui soovitakse analüüsida andmete levikut ning võrrelda erinevaid andmehulki.
-
-\textbf{Näide R-is:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Arvutame standardhälbe}
-\FunctionTok{sd}\NormalTok{(andmed)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 1,98
-\end{verbatim}
-
-\textbf{Näide Excelis:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{=STDEV(A1:A10)}
-\end{Highlighting}
-\end{Shaded}
-
-Näiteks standardhälve arvutamine saab olla vajalik, kui soovitakse teada saada, kui palju erinevad metsanduses mõõdetud puude kõrgused üksteisest ning millised puud on silmatorkavalt kõrgemad või madalamad.
-
-\subsubsection{Standardhälbe viga}\label{standardhuxe4lbe-viga}
-
-Standardhälve viga on statistiline mõõde, mis näitab, kui palju keskmisest erinevad kogumandmete proovide keskmised tulemused. Standardhälbe viga arvutatakse kogu andmestiku standardhälbe ja proovide arvu ruutjuure suhtes ning seda väljendatakse tavaliselt protsentides.
-
-Standardhälbe vea valem on järgmine:
-\[ SE = \frac{s}{\sqrt{n}}\]
-Kus:
-- \(SE\) on standardhälbe viga
-- \(s\) on proovi standardhälve
-- \(n\) on proovide arv
-
-Näide R-is:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Arvuta standardhälve}
-\NormalTok{sd\_andmed }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(andmed)}
-
-\CommentTok{\# Arvuta standardhälbe viga}
-\NormalTok{sd\_andmed }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{length}\NormalTok{(andmed))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 0,0627
-\end{verbatim}
-
-\textbf{Näide Excelis:}
-
-\begin{itemize}
-\tightlist
-\item
-  Arvuta standardhälbe viga: \texttt{=STDEV.S(A1:A10)/SQRT(COUNT(A1:A10))}
-\end{itemize}
-
-Saadud tulemus annabki standardhälbe vea, mis aitab hinnata, kui täpselt proov keskmisega kogu populatsiooni keskmine kokku langeb. Mida väiksem on standardhälbe viga, seda täpsem on proovi keskmine hinnang kogu populatsiooni keskmisele.
-
-\subsubsection{Standardviga}\label{standardviga}
-
-Standardviga on statistiline mõiste, mis näitab, kui suur on keskmise arvutatud vaatlusväärtuse kõikumine tegeliku keskmise hinnangu ümber. Standardviga väljendatakse tavaliselt samades ühikutes nagu uuritav tunnus. Mida väiksem on standardviga, seda usaldusväärsemat hinnangut saab anda populatsiooni keskmisele.
-
-Näide R-is:
-Eeldame, et meil on andmestik veekogude sügavuste kohta:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{keskmine }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(andmed)}
-\FunctionTok{sd}\NormalTok{(andmed) }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{length}\NormalTok{(andmed))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 0,0627
-\end{verbatim}
-
-Antud näites arvutatakse andmestiku standardiga funktsiooniga \texttt{sd} ning seejärel jagatakse see juur arvutatud andmete arvuga, et saada standardviga.
-
-\textbf{Näide Excelis:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{=STDEV(A1:A10) / SQRT(COUNT(A1:A10))}
-\end{Highlighting}
-\end{Shaded}
-
-Seejärel saab Excelis automaatselt arvutada standardvea vastavalt antud andmestikule.
-
-\subsubsection{Katsetäpsus}\label{katsetuxe4psus}
-
-Katsetäpsus või eksperimentaaltäpsus kirjeldab seda, kui hästi korduvad mõõtmised või katsetulemused on omavahel kooskõlas. See mõiste aitab hinnata katse tulemuste usaldusväärsust ja täpsust. Kõrge katsetäpsuse puhul on korduvate katsete tulemused sarnased, samas kui madala katsetäpsuse korral võivad tulemused varieeruda suurel määral.
-
-Näide R-is:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Loome andmestiku}
-
-\CommentTok{\# Leiame keskmise ning standardhälbe}
-\NormalTok{keskmine }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(andmed)}
-\NormalTok{sd }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(andmed)}
-
-\CommentTok{\# Arvutame katsetäpsuse}
-\NormalTok{sd }\SpecialCharTok{/}\NormalTok{ keskmine}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 0,198
-\end{verbatim}
-
-\textbf{Näide Excelis:}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{\textasciigrave{}=STDEV(A1:A10)/AVERAGE(A1:A10)\textasciigrave{} (katsetäpsus)}
-\end{Highlighting}
-\end{Shaded}
-
-Sellisel juhul väljastavad R ja Excel katsetäpsuse väärtuse, mis aitab hinnata antud mõõtmiste korduvust ja usaldusväärsust.
-
-\subsubsection{Variatsioonikordaja}\label{variatsioonikordaja}
-
-Variatsioonikordaja on statistiline mõõde, mis väljendab protsendina muutuvust numbriliste andmete hulgas. See võimaldab hinnata, kui suur on andmete hajuvus keskmisest väärtusest ning võrrelda erinevate muutujate hajuvust.
-
-Variatsioonikordajat saab arvutada järgmise valemiga:
+Standardviga on valimi järgi arvutatud hinnangu standardhälve, mis kirjeldab üldkogumi keskväärtuse või muu parameetri valimist saadud hinnangu täpsust. See näitab, kui palju valimi keskmine võib tegelikust üldkogumi keskmisest erineda. Samast üldkogumist korduvalt võetud valimite keskväärtuste jaotus läheneb normaaljaotusele, mille standardhälve võrdub hinnangu standardveaga. Valimi keskmise standardviga arvutatakse valemiga
 
 \[
-CV = \left(\frac{sd}{\bar{x}}\right) \times 100\%,
+s_{\bar{x}} = \frac{s_x}{\sqrt{N}}
 \]
 
-kus:
-- \(CV\) on variatsioonikordaja,
-- \(sd\) on standardhälve ehk standardne kõrvalekalle ja
-- \(\bar{x}\) on aritmeetiline keskmine.
+kus \(s_x\) on valimi standardhälve ja \(N\) on valimi maht.
 
-Näide R-is:
+\begin{tabular}{ll}
+MS Exceli funktsioon & =STDEV(vahemik)/SQRT(COUNT(vahemik))\\
+R funktsioon & sd(vahemik)/sqrt(length(vahemik)) \\
+\end{tabular}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Arvutame keskmise ja standardhälbe}
-\NormalTok{keskmine }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(andmed)}
-\NormalTok{sd }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(andmed)}
+\subsection{Katsetäpsus}\label{katsetuxe4psus}
 
-\CommentTok{\# Arvutame variatsioonikordaja}
-\NormalTok{(sd }\SpecialCharTok{/}\NormalTok{ keskmine) }\SpecialCharTok{*} \DecValTok{100}
-\end{Highlighting}
-\end{Shaded}
+Katsetäpsus on suhteline standardviga protsentides. See näitab standardhälbe osakaalu aritmeetilisest keskmisest. Katsetäpsust arvutatakse järgmiselt:
 
-\begin{verbatim}
-[1] 19,8
-\end{verbatim}
+\[
+P_x 
+= \frac{s_{\bar{x}}}{\bar{x}} \cdot 100 
+= \frac{s_x}{\sqrt{N} \cdot \bar{x}} \cdot 100 
+= \frac{V_x}{\sqrt{N}}
+\]
 
-=STDEV(A1:A10)/AVERAGE(A1:A10) * 100
+kus \(V_x\) on variatsioonikordaja.
 
-Loodetavasti aitas see selgitus ja näited mõista variatsioonikordaja mõistet ja selle arvutamist nii R-is kui ka Excelis.
+\begin{tabular}{ll}
+MS Exceli funktsioon & =100*STDEV(H)/(AVERAGE(H)\*SQRT(COUNT(H))) \\
+R funktsioon & 100*sd(H)/(mean(H)*sqrt(length(H))) \\
+\end{tabular}
 
-\subsubsection{Variatsioonikordaja viga}\label{variatsioonikordaja-viga}
+\subsection{Standardhälbe viga}\label{standardhuxe4lbe-viga}
 
-Variatsioonikordaja viga on statistiline mõiste, mis näitab suurust, millega proov valimina võetud andmed erinevad populatsiooni üldisest muutujast. See arvutatakse suhtelise veana, võttes arvesse andmete keskmist ja standardhälvet.
+Standardhälbe vea hinnang ehk standardhälbe standardhälve näitab, kui palju võib valimi standardhälve erineda üldkogumi standardhälbest. Standardhälbe viga arvutatakse järgmiselt:
 
-Variatsioonikordaja vigade arvutusvalemit saab defineerida järgnevalt:
-\[ CV = \frac{s}{\bar{x}} \times 100\% \]
-kus
-\(CV\) - variatsioonikordaja viga,
-\(s\) - standardhälve ja
-\(\bar{x}\) - keskmine.
+\[s_{s_x} = \frac{s_x}{\sqrt{2 \cdot N}}\]
 
-Kui variatsioonikordaja viga on väike, siis võib järeldada, et andmed on stabiilsed ja usaldusväärsed. Kui see aga on suur, siis võib see tähendada, et andmed on dispersiooniga ebaühtlased.
+kus \(s_x\) on valimi standardhälve ja \(N\) on valimi maht.
 
-Näide R-keskkonnas:
+\begin{tabular}{ll}
+MS Exceli funktsioon & =STDEV(H)/SQRT(2*COUNT(H)) \\
+R funktsioon & sd(H)/sqrt(2*length(H)) \\
+\end{tabular}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Andmestik}
-\NormalTok{andmed }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{30}\NormalTok{)}
+\subsection{Dispersiooni viga}\label{dispersiooni-viga}
 
-\CommentTok{\# Keskmine ja standardhälve}
-\NormalTok{keskmine }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(andmed)}
-\NormalTok{sd }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(andmed)}
+Dispersiooni vea hinnang ehk dispersiooni standardhälve arvutatakse valemiga
 
-\CommentTok{\# Variatsioonikordaja viga}
-\NormalTok{sd }\SpecialCharTok{/}\NormalTok{ keskmine }\SpecialCharTok{*} \DecValTok{100}
-\end{Highlighting}
-\end{Shaded}
+\[s_{s_x^2} = s_x^2 \cdot \sqrt{\frac{2}{N}}\]
 
-Excelis saab variatsioonikordaja vea lihtsalt arvutada järgmise valemi abil: \texttt{=STDEV(A2:E2)/A4*100}, kus A2:E2 on andmehulk ja A4 on keskmine.
+kus \(s_x^2\) on valimi dispersioon ja \(N\) on valimi maht.
 
-Variatsioonikordaja viga aitab hinnata andmete usaldusväärsust ja stabiilsust ning on oluline tööriist statistiliste analüüside tegemisel.
+\begin{tabular}{ll}
+MS Exceli funktsioon & =VAR(H)*SQRT(2/COUNT(H)) \\
+R funktsioon & var(H)*sqrt(2/length(H))
+\end{tabular}
+
+\subsection{Variatsioonikordaja}\label{variatsioonikordaja}
+
+Variatsioonikordaja on standardhälbe ja aritmeetilise keskmise suhe. Variatsioonikordaja on ühikuvaba suurus, mis võimaldab võrrelda erinevate ühikutes mõõdetud tunnuste varieeruvust. Variatsioonikordaja arvutatakse valemiga
+
+\[V_x = 100 \cdot \frac{s_x}{\bar{x}}\]
+
+\begin{tabular}{ll}
+MS Exceli funktsioon & =100*STDEV(H)/AVERAGE(H)\\
+R funktsioon & 100*sd(H)/mean(H) \\
+\end{tabular}
+
+\subsection{Variatsioonikordaja viga}\label{variatsioonikordaja-viga}
+
+Variatsioonikordaja vea hinnang ehk variatsioonikordaja standardhälve arvutatakse valemiga
+
+\[s_{V_x} = \frac{V_x}{\sqrt{2 \cdot N}}\]
+
+\begin{tabular}{ll}
+MS Exceli funktsioon & =100*STDEV(H)/(SQRT(2*COUNT(H))*AVERAGE(H)) \\
+R funktsioon & 100*sd(H)/(sqrt(2*length(H))*mean(H)) \\
+\end{tabular}
 
 \section{Vahemikhinnangud}\label{vahemikhinnangud}
 
-Üldkogumi parameetri vahemikhinnanguks nimetatakse valimi põhjal määratud vahemikku, kuhu see üldkogumi parameeter kuulub teatud (küllalt suure) tõenäosusega. Seda uurija poolt etteantavat tõenäosust nimetatakse usaldusnivooks ja tähistatakse traditsiooniliselt 1-\(\alpha\). Usaldusnivoo väärtuseks võetakse metsanduslikes uurimustes tavaliselt 0,95, kuid vastavalt uurija kaalutlustele võib selleks olla ka 0,90; 0,99 või mingi muu suur tõenäosus. Vastavalt usaldusnivoo etteantud väärtusele arvutatakse parameetri usalduspiirid, s.o kaks arvu, mille vahel asub üldkogumi parameeter tõenäosusega 1-\(\alpha\). Teades, et parameetri hinnang on juhuslik suurus, võib alumist usalduspiiri vaadelda kui parameetri hinnangu \(\alpha\)/2-kvantiili ja ülemist usalduspiiri kui parameetri hinnangu 1-\(\alpha\)/2-kvantiili.
-
 \subsection{Keskväärtuse usalduspiirid}\label{keskvuxe4uxe4rtuse-usalduspiirid}
 
-Keskväärtuse usalduspiirid on statistiline mõiste, mis aitab hinnata keskmise väärtuse usaldusväärsust. Keskväärtus ehk tõenäosusega 1-\(\alpha\) keskmisele vastav populatsiooni parameeter paikneb usalduspiiride vahemikus keskmise ise ja sellest suurema või väiksema arvu vahel.
+\textbf{Keskväärtuse usalduspiirid} on statistilised vahendid, mis aitavad hinnata valimi põhjal tehtud järelduste täpsust üldkogumi keskväärtuse kohta. Need piirid moodustavad \textbf{usaldusvahemiku}, mis näitab, millises vahemikus võib üldkogumi tegelik keskväärtus asuda antud tõenäosusega. Usalduspiirid on seega usaldusvahemiku alumine ja ülemine piir.
 
-Usalduspiirid aitavad mõõta seda, kui kindlalt võime väita, et hinnatud keskmine väärtus on populatsiooni tegelik keskmine väärtus. Usalduspiiride arvutamiseks kasutatakse tavaliselt keskväärtuse ja standardvea suhet ning t-tabelist leitakse vastav kriitiline tõenäosus. Näiteks 95\% usaldusvahemik tähendab, et oleme 95\% kindlad, et populatsiooni keskmine jääb antud vahemiku sisse.
+Usaldusvahemik \textbf{ei ole} vahemik, mis sisaldab valimi väärtusi, vaid see on vahemik, mille sisse me usume tegeliku parameetri (üldkogumi keskväärtuse) langevat teatud tõenäosusega. See vahemik näitab, kui kindlad saame olla, et tegelik parameetri väärtus jääb antud vahemikku. Usaldusvahemikku kasutatakse, kuna valimist arvutatud hinnang on juhuslik suurus, samas kui üldkogumi parameetri tegelik väärtus ei ole juhuslik. Usaldusvahemiku leidmisel lähtutakse valimi keskmisest ja üldkogumi keskväärtus langeb antud usaldatavusega (tõenäosusega) sellesse vahemikku.
 
-Keskväärtuse usalduspiirid on olulised, kui soovime teha järeldusi populatsiooni keskmise kohta, kuid ei saa seda täpselt kindlaks teha. Need aitavad meil hinnata tulemuste usaldusväärsust ja teha otsuseid põhinedes piisavalt kindlatel andmetel.
+Usalduspiiride arvutamiseks kasutatakse valimi andmeid, valitakse teatud \textbf{usaldusnivoo} (tavaliselt 95\% või 99\%) ja arvutatakse vastav usaldusvahemik. Usaldusvahemiku arvutamiseks kasutatakse järgmist valemit:
+
+\begin{itemize}
+\tightlist
+\item
+  Alumine piir: \(\bar{x} - t_{\alpha/2, n-1} \cdot \frac{s_x}{\sqrt{n}}\)
+\item
+  Ülemine piir: \(\bar{x} + t_{\alpha/2, n-1} \cdot \frac{s_x}{\sqrt{n}}\)
+\end{itemize}
+
+kus:
+
+\begin{itemize}
+\tightlist
+\item
+  \(\bar{x}\) on valimi keskmine
+\item
+  \(t_{\alpha/2, n-1}\) on t-jaotuse \(\alpha/2\) täiendkvantiil vabadusastmete arvuga \(n-1\)
+\item
+  \(n\) on vaatluste arv ehk valimi suurus
+\item
+  \(s_x\) on valimi standardhälve
+\item
+  \(\alpha\) on olulisusnivoo (1 - usaldusnivoo)
+\end{itemize}
+
+Olulisusnivoo (\(\alpha\)) määrab tõenäosuse, et tegelik parameetri väärtus \textbf{ei jää} usaldusvahemikku. Teisisõnu, see on risk, millega oleme nõus eksima. Tavaliselt kasutatakse olulisusnivood 5\% (\(\alpha = 0,05\)) või 1\% (\(\alpha = 0,01\)). Mida väiksem on olulisusnivoo, seda laiem on usaldusvahemik (oleme kindlamad, et tegelik väärtus sinna jääb). Olulisusnivoo valik sõltub sellest, kumb viga on ohtlikum: kas kehtiva nullhüpoteesi tagasilükkamine (I liiki viga) või mittekehtiva nullhüpoteesi vastuvõtmine (II liiki viga). Praktikas peetakse I liiki vigu tavaliselt ohtlikumaks ja seetõttu eelistatakse madalamat olulisusnivood.
+
+Usaldusvahemik võib olla \textbf{ühe-} või \textbf{kahepoolne}. \textbf{Kahepoolset} usaldusvahemikku kasutatakse siis, kui me soovime hinnata, kas tegelik parameeter võib olla nii suurem kui ka väiksem kui valimi keskmine. \textbf{Ühepoolset} usaldusvahemikku kasutatakse siis, kui oleme huvitatud ainult sellest, kas parameeter on suurem või väiksem kui teatud väärtus. Ühepoolse usalduspiiriga piirdumine on põhjendatud, kui hinnangu hälve vastassuunas on välistatud (nt mingi näitaja ei saa olla negatiivne). Kahepoolse testi puhul on \(t\)-väärtus arvutatud \(\alpha/2\) jaoks, ühepoolse testi puhul \(\alpha\) jaoks.
+
+Väikese valimi korral ei pruugi eelnevalt toodud valemid olla täpsed, eriti osakaalude hindamisel. Ligikaudsest valemist leitud usaldusvahemiku alumine piir võib tulla negatiivne, mis ei ole reaalne (nt osakaal ei saa olla negatiivne). Sellisel juhul tuleks kasutada täpseid binoomjaotusel põhinevaid valemeid (nt Clopper-Pearsoni meetod). Suuremate valimite korral langevad täpse ja ligikaudse valemi tulemused kokku.
+
+Keskväärtuse usalduspiiride leidmine ja hüpoteeside testimine on omavahel tihedalt seotud. Kui meil on nullhüpotees \(H_0: \mu = \mu_0\), siis kui valimi keskmine \(\bar{x}\) langeb piirkonda, kus olulisusnivool \(\alpha\) võetakse vastu \(H_0\), siis \(\mu_0\) asub valimi põhjal usaldatavusega \(\beta = 1-\alpha\) leitud keskväärtuse usaldusvahemikus. Hüpoteesi testimisel lähtume nullhüpoteesiga püstitatud väärtusest \(\mu_0\), aktsepteerimisvahemik on sellest mõlemale poole, ja me aktsepteerime nullhüpoteesi, kui valimi keskmine \(\bar{x}\) jääb sellesse vahemikku. Keskväärtuse usaldusvahemiku leidmisel lähtume aga valimi keskmisest \(\bar{x}\) ja üldkogumi keskväärtus \(\mu\) langeb antud usaldatavusega sellesse vahemikku.
+
+\begin{naidis}
+Vaatleme näites 1.4 esitatud valimit, milles on antud sambliku kasvukohatüübis kasvava 50-aastase männiku 60 juhuslikult valitud puu kõrguste andmed. Arvutame kõrguse keskväärtuse 95%-lised usalduspiirid.
+\end{naidis}
+
+Näites on selle valimi andmete põhjal arvutatud
+
+\begin{tabular}{lr}
+kõrguse aritmeetiline keskmine & 12,082 m \\
+ja kõrguse standardhälve & 1,185 m \\
+\end{tabular}
+
+\textbf{MS Excel keskkonnas }
+
+\(\mu_{0,025}\) = - TINV(0,05 ; N-1) * sh /SQRT(N) = 12,082 - 2,001·1,185/ = 11,78 m;
+
+\(\mu_{0,975}\) = + TINV(0,05 ; N-1) * sh /SQRT(N) = 12,082 + 2,001·1,185/ = 12,39 m.
+
+\textbf{R keskkonnas}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{korgus }\OtherTok{\textless{}{-}} \FunctionTok{as.vector}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(readxl}\SpecialCharTok{::}\FunctionTok{read\_excel}\NormalTok{(}\StringTok{"data/naited.xlsx"}\NormalTok{,}\StringTok{"N14"}\NormalTok{, }\AttributeTok{col\_names =}\NormalTok{ F)))}
+\NormalTok{korgus }\OtherTok{\textless{}{-}}\NormalTok{ korgus[}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(korgus)]}
+\NormalTok{N }\OtherTok{=} \FunctionTok{length}\NormalTok{(korgus)}
+\NormalTok{H }\OtherTok{=} \FunctionTok{mean}\NormalTok{(korgus)}
+\NormalTok{se }\OtherTok{=} \FunctionTok{sd}\NormalTok{(korgus)}
+\NormalTok{H }\SpecialCharTok{+} \FunctionTok{qt}\NormalTok{(}\FloatTok{0.025}\NormalTok{,}\AttributeTok{df=}\NormalTok{N}\DecValTok{{-}1}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ se }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(N)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 11,8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{H }\SpecialCharTok{+} \FunctionTok{qt}\NormalTok{(}\FloatTok{0.975}\NormalTok{,}\AttributeTok{df=}\NormalTok{N}\DecValTok{{-}1}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ se }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(N)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 12,4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Kordame sama funktsiooniga t.test}
+\FunctionTok{t.test}\NormalTok{(korgus)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+    One Sample t-test
+
+data:  korgus
+t = 79, df = 59, p-value <2e-16
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 11,8 12,4
+sample estimates:
+mean of x 
+     12,1 
+\end{verbatim}
 
 \subsection{Dispersiooni usalduspiirid}\label{dispersiooni-usalduspiirid}
 
-Dispersiooni usalduspiirid on statistilised piirid, mis näitavad, kui palju võib populatsiooni dispersioon, standardhälve või varieerumine erineda, kui võtame arvesse valimi dispersiooni. Usalduspiirid annavad meile võimaluse teha järeldusi populatsiooni dispersiooni kohta, kui meil on vaid valimi andmed.
+Dispersiooni usalduspiirid on statistiline tööriist, mis võimaldab hinnata, kui täpselt iseloomustab valimi dispersioon üldkogumi dispersiooni. Dispersioon kirjeldab andmete hajuvust keskväärtuse ümber ning usalduspiirid annavad meile vahemiku, milles teatud kindlusega (usaldusnivooga) asub tegeliku üldkogumi dispersiooni väärtus.
 
-Dispersiooni usalduspiirid arvutatakse tavaliselt usaldusvahemikuna, mis näitab, milline on tõenäosus, et populatsiooni dispersioon jääb kindla vahemiku piiresse. Näiteks 95\% usalduspiirid tähendavad, et 95\% tõenäosusega langeb populatsiooni dispersioon selle vahemiku sisse.
+Dispersioon on statistiline mõõdik, mis näitab andmepunktide hajuvust keskmise ümber. Üldkogumi dispersiooni tähistatakse tavaliselt \(\sigma^2\) ja valimi dispersiooni \(s^2\). Valimi dispersioon on üldkogumi dispersiooni punkthinnang, kuid paratamatult esineb erinevus tegeliku väärtusega. Seega on dispersiooni usalduspiiride kasutamine oluline, et saada parem ülevaade tegeliku dispersiooni väärtusest.
 
-Usalduspiiride arvutamine toimub tavaliselt tundmatu populatsiooni dispersiooni põhjal, kasutades valimi dispersiooni ja valimi suurust. Usalduspiiride laiust mõjutavad valimi suurus, usaldusvahemik ning populatsiooni dispersiooni enda suurus.
+Usaldusvahemik on väärtuste vahemik, mis teatud tõenäosusega sisaldab otsitava üldkogumi parameetri (antud juhul dispersiooni) tegelikku väärtust. Usalduspiirid on selle vahemiku alumine ja ülemine piir. Need piirid defineerivad ala, kuhu üldkogumi dispersioon langeb etteantud tõenäosusega (usaldusnivooga).
 
-Dispersiooni usalduspiirid on olulised tööriistad statistikas, sest need aitavad meil teha järeldusi populatsiooni varieeruvuse kohta ning hinnata, kui usaldusväärsed on meie tulemused. Mõistes dispersiooni usalduspiiride kontseptsiooni, saavad metsandustudengid paremini analüüsida ja tõlgendada metsanduslike andmete varieeruvust ning teha ratsionaalseid otsuseid metsandusalastes uurimustes.
+Dispersiooni usalduspiiride arvutamine on keerukam kui keskväärtuse usalduspiiride arvutamine. Tavaliselt kasutatakse selleks \(\chi^2\)-jaotust (hii-ruut-jaotust). \(\chi^2\)-jaotus on asümmeetriline jaotus, mille kuju sõltub vabadusastmete arvust. Valimi dispersiooni usalduspiirid \((1-\alpha)\) usaldusnivoo jaoks arvutatakse järgmiselt:
 
-\subsection{Binoomjaotuse usalduspiirid}\label{binoomjaotuse-usalduspiirid}
+\begin{itemize}
+\tightlist
+\item
+  Alumine piir: \(\frac{(n-1)s^2}{\chi^2_{\alpha/2, n-1}}\)
+\item
+  Ülemine piir: \(\frac{(n-1)s^2}{\chi^2_{1-\alpha/2, n-1}}\)
+\end{itemize}
 
-Binoomjaotus on tõenäosusteoorias kasutatav jaotus, mis kirjeldab kahe võimaliku tulemusega eksperimentide tulemuste jaotust. Näiteks võib binoomjaotust kasutada olukorras, kus uuritakse mingi sündmuse (nt müntide viskamine, taimede ellujäämine) kordaminekut (edu) või ebaõnnestumist (ebaedu). Binoomjaotuse parameeter p tähistab tõenäosust, et sündmus toimub ühel katsekorral.
+kus:
 
-Usalduspiirid on hinnangulised piirid, mille sisaldamisel on kindel usaldustase, et parameetri tegelik väärtus jääb nende piiride vahele. Binoomjaotuse puhul tähendab see, et soovime leida piirid, mille vahel paikneb tõenäosus, et sündmus toimub ühel katsekorral.
+\begin{itemize}
+\tightlist
+\item
+  \(n\) on valimi suurus
+\item
+  \(s^2\) on valimi dispersioon
+\item
+  \(\chi^2_{\alpha/2, n-1}\) on \(\chi^2\)-jaotuse \(\alpha/2\) kvantiil vabadusastmete arvuga \(n-1\)
+\item
+  \(\chi^2_{1-\alpha/2, n-1}\) on \(\chi^2\)-jaotuse \(1-\alpha/2\) kvantiil vabadusastmete arvuga \(n-1\)
+\item
+  \(\alpha\) on olulisusnivoo (ehk eksimisvõimalus)
+\end{itemize}
 
-Binoomjaotuse puhul saab leida 100(1-\(\alpha\))\% usaldusvahemiku soovitud usaldustasemega \(\alpha\). Usalduspiirid leitakse tavaliselt normaaljaotuse abil, kasutades normaaljaotuse ligilähedast seost binoomjaotusega (kui n on piisavalt suur). Kui binoomjaotuse põhjal antakse 100(1-\(\alpha\))\% usaldusvahemik, siis näeb see välja järgmine:
+\textbf{Standardhälbe usalduspiiride} saamiseks võetakse ruutjuur dispersiooni usalduspiiridest.
 
-\[
-\hat{p} ± Z_{1-\frac{\alpha}{2}} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}},
-\]
+\begin{naidis}
+Vaatleme näites 1.4 esitatud valimit, milles on antud sambliku kasvukohatüübis kasvava 50-aastase männiku 60 juhuslikult valitud puu kõrguste andmed. Arvutame kõrguse dispersiooni 95%-lised usalduspiirid.
+\end{naidis}
 
-kus \(\hat{p}\) on valimi proportsioon, \(Z_{1-\frac{\alpha}{2}}\) on normaaljaotuse kvantiil vastava usaldustasemega ja n on valimi suurus.
+Näites on selle valimi andmete põhjal arvutatud
 
-Kokkuvõttes on binoomjaotuse parameetri p usalduspiirid hinnangulised piirid, mille vahel on kindel usaldustase, et parameetri tegelik väärtus paikneb. Need piirid aitavad teha järeldusi tõenäosuse kohta, et sündmus toimub ühel katsekorral.
+\begin{tabular}{lr}
+kõrguse aritmeetiline keskmine & 12,082 m \\
+kõrguse dispersioon & 1,405 m \\
+\end{tabular}
+
+MS Exceli keskkonnas:
+
+\[\sigma_{0,025}^2 = (N-1)*s_x^2/CHIINV(\alpha/2; N-1) = (60 - 1)*1,4046/82,12 = 1,01;\]
+\[\sigma_{0,975}^2 = (N-1)*s_x^2/CHIINV(1-\alpha ; N-1) = (60 - 1)*1,4046/39,66 = 2,09.\]
+
+R keskkonnas:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{N }\OtherTok{=} \FunctionTok{length}\NormalTok{(korgus)}
+\NormalTok{H }\OtherTok{=} \FunctionTok{mean}\NormalTok{(korgus)}
+\NormalTok{se2 }\OtherTok{=} \FunctionTok{var}\NormalTok{(korgus)}
+
+\NormalTok{(}\AttributeTok{vra =}\NormalTok{ (N}\DecValTok{{-}1}\NormalTok{)}\SpecialCharTok{*}\NormalTok{se2}\SpecialCharTok{/}\FunctionTok{qchisq}\NormalTok{(}\FloatTok{0.975}\NormalTok{,N}\DecValTok{{-}1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1,01
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\AttributeTok{vry =}\NormalTok{ (N}\DecValTok{{-}1}\NormalTok{)}\SpecialCharTok{*}\NormalTok{se2}\SpecialCharTok{/}\FunctionTok{qchisq}\NormalTok{(}\FloatTok{0.025}\NormalTok{,N}\DecValTok{{-}1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2,09
+\end{verbatim}
+
+Saadud tulemuste põhjal võib väita, et valimi dispersioon on \text{1,405} ning 95\% tõenäosusega on dispersioon
+vahemikus \text{1,009} m kuni \text{2,089} m Standardhälbe usalduspiiride saamiseks tuleb võtta saadud väärtustest ruutjuur -- \text{1,005} m kuni \text{1,445} m.
 
 \subsection{Standardhälbe usalduspiirid}\label{standardhuxe4lbe-usalduspiirid}
 
-Standardhälbe usalduspiirid on statistiline mõiste, mis aitab hinnata andmeid või tulemusi ning nende usaldusväärtust. Standardhälve on mõõtühik, mis näitab, kui palju erinevad keskmised tulemused koondumisest keskmise ümber.
+Standardhälbe usalduspiirid on statistilised vahendid, mis aitavad hinnata üldkogumi standardhälbe \(\sigma\) määramise täpsust valimi standardhälbe \(s\) põhjal. Need piirid moodustavad usaldusvahemiku, mis näitab, millises vahemikus asub üldkogumi tegelik standardhälve \(\sigma\) antud usaldusnivooga (tõenäosusega). Standardhälve iseloomustab andmete hajuvust keskväärtuse ümber ja usalduspiirid on usaldusvahemiku alumine ja ülemine piir.
 
-Standardhälbe usalduspiirid näitavad, kui kindlalt võib olla keskmise tulemuse usaldusväärsus teatud vahemikus. Enamasti kasutatakse 95\% usalduspiire, mis tähendab, et 95\% tõenäosusega jääb tulemus antud usalduspiiride vahemikku. Usalduspiirid arvutatakse keskmise tulemuse ja standardhälbe põhjal.
-
-Standardhälbe usalduspiiride kasutamine aitab hinnata andmete usaldusväärsust ning teha järeldusi selle kohta, kui suures määras võivad andmed hajuda. See on oluline statistiline tööriist, mis aitab metsandustudengitel analüüsida andmeid ja teha tõenduspõhiseid otsuseid metsanduse valdkonnas.
-
-\chapter{Mitme tunnuse koosanalüüs}\label{mitme-tunnuse-koosanaluxfcuxfcs}
-
-\section{Lineaarne regressioon}\label{lineaarne-regressioon}
-
-Lineaarne regressioon on üks viis, kuidas uurida, kuidas kaks või enam asja on omavahel seotud. Selle abil saame aru saada, kuidas ühe tunnuse muutumine mõjutab teist. Näiteks, kui me teame, kuidas ühe tunnuse väärtus muutub, saame ennustada, mis võib juhtuda teise tunnusega.
-
-Lineaarne regressioon lähtub eeldusest, et kahe asja vaheline suhe on sirgejooneline. See tähendab, et kui üks tunnus muutub, siis teine asi muutub kindlal viisil, mida saab joonistada sirgjoonena. Selle meetodi eesmärk on leida kõige sobivam sirgjoon, mis näitab, kuidas need kaks tunnust on omavahel seotud. Lineaarse regressioonimudeli võib esitada võrrandina:
-
-\[Y = a + bX + \epsilon \]
-
-Kus:
+Standardhälbe usalduspiire arvutatakse sarnaselt dispersiooni usalduspiiride arvutamisega, kasutades \(\chi^2\)-jaotust (hii-ruut-jaotust). \(\chi^2\)-jaotus on asümmeetriline jaotus, mille kuju sõltub vabadusastmete arvust. Standardhälbe usalduspiirid \(1-\alpha\) usaldusnivoo korral arvutatakse järgmiselt:
 
 \begin{itemize}
 \tightlist
 \item
-  Y on funktsioontunnus
+  Alumine piir: \(L = \sqrt{\frac{(n-1)s^2}{\chi^2_{\alpha/2, n-1}}}\)
 \item
-  X on argumenttunnus
-\item
-  a on lõikepunkt, mis näitab, kui suur on Y väärtus, kui X väärtus on 0
-\item
-  b on regresseerimiskordaja, mis näitab, kui palju muutub Y väärtus, kui X väärtus suureneb ühe ühiku võrra
-\item
-  \(\epsilon\) on veaväärtus, mis tähistab juhuslikke kõrvalekaldeid mudelist
+  Ülemine piir: \(U = \sqrt{\frac{(n-1)s^2}{\chi^2_{1-\alpha/2, n-1}}}\)
 \end{itemize}
-
-Lineaarse regressiooni puhul kasutatakse mitmesuguseid meetodeid, et hinnata, kui hästi meie sirgjoon mudelina toimib. Üks selline meetod on vähim ruutude meetod. See tähendab, et me otsime sirgjoont, mis käitub nii, et meie ennustuste ja tegelikkuses mõõdetud väärtuste erinevused oleksid võimalikult väikesed. Lihtsamalt öeldes, me püüame leida sirgjoont, mis sobib kõige paremini meie andmetega, minimeerides vigu ennustustes.
-
-Lineaarse regressiooni usaldusväärsed tulemused sõltuvad teatud eeldustest. Need eeldused aitavad tagada, et meie analüüs peegeldaks tegelikkust võimalikult täpselt. Siin on need eeldused lihtsustatult:
-
-\begin{itemize}
-\item
-  \textbf{Lineaarsus.} Eeldatakse, et kahe tunnuse vaheline suhe on sirgjooneline. See tähendab, et kui üks tunnus muutub, siis teise tunnus vastus on alati sellega proportsioonis, sõltumata olukorrast.
-\item
-  \textbf{Normaaljaotus.} Hälve ehk ennustuste ja tegelike tulemuste erinevused järgivad kindlat mustrit, mis vastab normaaljaotusele.
-\item
-  \textbf{Homoskedastilisus.} Sõltuva tunnuse väärtuste hajuvus on ühtlane kogu sõltumatu tunnuse ulatuses, mis tähendab, et erinevused ei suurene ega vähene sõltumatu tunnuse väärtuse kasvades.
-\item
-  \textbf{Autokorrelatsiooni puudumine.} Vaatluste vead on omavahel sõltumatud, st et ühe vaatluse viga ei mõjuta teise vaatluse viga.
-\item
-  \textbf{Multikollineaarsuse puudumine.} Analüüsitavad tunnused on sõltumatud, st ühe tunnuse väärtus ei sõltu teise tunnuse väärtusest ega ole nendega liiga tihedalt seotud.
-\end{itemize}
-
-Need eeldused aitavad tagada, et lineaarne regressioonimudel oleks usaldusväärne ja et selle abil tehtud järeldused peegeldaksid tegelikke seoseid.
-
-\subsection{Lineaarne regressioon R keskkonnas}\label{lineaarne-regressioon-r-keskkonnas}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Näide R keskkonnas}
-\CommentTok{\# Laadime peatükis kasutatavad paketid}
-\FunctionTok{library}\NormalTok{(dplyr)}
-\FunctionTok{library}\NormalTok{(ggplot2)}
-\FunctionTok{library}\NormalTok{(readxl)}
-\FunctionTok{library}\NormalTok{(car)}
-\FunctionTok{library}\NormalTok{(ggpmisc)}
-\end{Highlighting}
-\end{Shaded}
-
-Loeme andmed failist \href{data/naited.xlsx}{naited.xlsx} töölehelt ``prt\_andmed'' ja salvestame selle tabelisse:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Näide R keskkonnas}
-\NormalTok{andmed }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"data/naited.xlsx"}\NormalTok{,}\StringTok{"prt\_andmed"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(h }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-Teeme lineaarse regressiooni tunnuste D ja H vahel:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Näide R keskkonnas}
-\FunctionTok{print}\NormalTok{(lm\_model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(h }\SpecialCharTok{\textasciitilde{}}\NormalTok{ d, }\AttributeTok{data =}\NormalTok{ andmed))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-
-Call:
-lm(formula = h ~ d, data = andmed)
-
-Coefficients:
-(Intercept)            d  
-     16,295        0,332  
-\end{verbatim}
-
-Järgnevalt visualiseerime nii andmeid kui ka mudelit funktsiooni \texttt{ggplot()} abil.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Näide R keskkonnas}
-\FunctionTok{ggplot}\NormalTok{(andmed, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ d, }\AttributeTok{y =}\NormalTok{ h)) }\SpecialCharTok{+}
-  \FunctionTok{stat\_poly\_line}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{stat\_poly\_eq}\NormalTok{(}\FunctionTok{use\_label}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"eq"}\NormalTok{, }\StringTok{"R2"}\NormalTok{))) }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{xlim}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{40}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{ylim}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{40}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-60-1} \caption{Lineaarne regressioon}\label{fig:unnamed-chunk-60}
-\end{figure}
-
-Järgnevalt käsu selgitus:
-
-\begin{itemize}
-\item
-  \texttt{ggplot(andmed,\ aes(x\ =\ d,\ y\ =\ h))}: See algatab ggplot-objekti, määrates andmestiku (data) ja esteetilised vastavused. See tähendab, et andmestiku veerg \texttt{d} vastendatakse x-teljega ja veerg \texttt{h} y-teljega.
-\item
-  \texttt{stat\_poly\_line()}: See lisab graafikule polünoomilise regressioonijoone. Vaikimisi kasutab see lineaarset mudelit (astmega 1), kuid seda saab muuta, kasutades argumenti \texttt{formula}. Näiteks \texttt{stat\_poly\_line(formula\ =\ y\ \textasciitilde{}\ x\^{}2)} lisaks graafikule ruutvõrrandi.
-\item
-  \texttt{stat\_poly\_eq(use\_label(c("eq",\ "R2")))}: See lisab graafikule polünoomilise regressioonivõrrandi ja R-ruudu väärtuse. \texttt{use\_label()} funktsiooniga saab määrata, milliseid tunnuseid kuvatakse. Antud juhul kuvatakse võrrand (\texttt{eq}) ja R-ruut (\texttt{R2}).
-\item
-  \texttt{geom\_point()}: See lisab graafikule punktid, mis tähistavad andmepunkte.
-\item
-  \texttt{xlim(c(10,\ 40))}: See seab x-telje piirid vahemikku 10 kuni 40.
-\item
-  \texttt{ylim(c(10,\ 40))}: See seab y-telje piirid vahemikku 10 kuni 40.
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Näide R keskkonnas}
-\FunctionTok{ggplot}\NormalTok{(andmed, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ d, }\AttributeTok{y =}\NormalTok{ h)) }\SpecialCharTok{+}
-  \FunctionTok{stat\_poly\_line}\NormalTok{(}\AttributeTok{formula =}\NormalTok{ y }\SpecialCharTok{\textasciitilde{}} \FunctionTok{log}\NormalTok{(x)) }\SpecialCharTok{+}
-  \FunctionTok{stat\_poly\_eq}\NormalTok{(}\AttributeTok{formula =}\NormalTok{ y }\SpecialCharTok{\textasciitilde{}} \FunctionTok{log}\NormalTok{(x), }\FunctionTok{use\_label}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"eq"}\NormalTok{, }\StringTok{"R2"}\NormalTok{))) }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{xlim}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{40}\NormalTok{)) }\SpecialCharTok{+} \FunctionTok{ylim}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{40}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-61-1} \caption{Lineaarne regressioon argumenttunnuse logistilise teisendusega}\label{fig:unnamed-chunk-61}
-\end{figure}
-
-R-is on võimalik lihtalt lisada mudelisse täiendavad tunnuseid, mis arvutakse otse mudeli arvutamise käigus ning seetõttu ei ole vajalik eraldi eelnevalt täiendavat tunnust välja arvutada. Funktsiooniga \texttt{I()} saab luua uusi tunnuseid olemasolevate tunnuste põhjal. Uus tunnus arvutatakse iga andmerea jaoks mudeli arvutamise käigus.
-
-Järgnevas näites on muudetud mudelit: \texttt{lm(h\ \textasciitilde{}\ log(d)+I(pl\ ==\ "MA"),\ data\ =\ andmed)}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{\texttt{log(d)}}: Funktsioon \texttt{log()} arvutab \texttt{d} naturaallogaritmi, mis aitab lineariseerida seost diameetri ja kõrguse vahel.
-\item
-  \textbf{\texttt{I(pl\ ==\ "MA")}}: See on teine sõltumatu tunnus, mis luuakse jooksvalt funktsiooni \texttt{I()} abil. See on loogiline tunnus, mis on \texttt{TRUE}, kui tunnus \texttt{pl} väärtus on ``MA'' , ja \texttt{FALSE} vastasel juhul. Sisuliselt lisab see mudelisse teavet selle kohta, kas puu on mänd. Arvutustes kasutatakse antud tunnust vastavalt 1 või 0 väärtusena.
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Näide R keskkonnas}
-\CommentTok{\# täiendatud argumenttunnustega regressioon}
-\FunctionTok{summary}\NormalTok{(lm\_model\_pl }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(h }\SpecialCharTok{\textasciitilde{}} \FunctionTok{log}\NormalTok{(d)}\SpecialCharTok{+}\FunctionTok{I}\NormalTok{(pl }\SpecialCharTok{==} \StringTok{"MA"}\NormalTok{), }\AttributeTok{data =}\NormalTok{ andmed))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-
-Call:
-lm(formula = h ~ log(d) + I(pl == "MA"), data = andmed)
-
-Residuals:
-   Min     1Q Median     3Q    Max 
--2,169 -0,857  0,048  0,665  3,421 
-
-Coefficients:
-                  Estimate Std. Error t value Pr(>|t|)    
-(Intercept)         -3,583      2,725   -1,31    0,195    
-log(d)               8,924      0,872   10,24  3,2e-13 ***
-I(pl == "MA")TRUE   -0,978      0,430   -2,27    0,028 *  
----
-Signif. codes:  0 '***' 0,001 '**' 0,01 '*' 0,05 '.' 0,1 ' ' 1
-
-Residual standard error: 1,27 on 44 degrees of freedom
-Multiple R-squared:  0,707, Adjusted R-squared:  0,694 
-F-statistic: 53,2 on 2 and 44 DF,  p-value: 1,81e-12
-\end{verbatim}
-
-Antud juhul on näha, et mänd on teistest statistiliselt oluliselt erinev.
-
-\subsection{Lineaarne regressioon MS Exceli keskkonnas}\label{lineaarne-regressioon-ms-exceli-keskkonnas}
-
-MS Exceli keskkonnas saab lineaarse regressiooni parameetreid arvutada mitmel viisil.
-
-\begin{itemize}
-\tightlist
-\item
-  Kui argumenttunnuseid on vaid üks, siis saab kasutada funktsioone \texttt{intercept()} ja \texttt{slope()}.
-\item
-  Kui argumenttunnuseid on mitu (või ka ainult üks), siis saab kasutada funktsiooni \texttt{linest()}, mis annab tulemuseks juba ka täpsemad mudeli parameetrite hinnangud.
-\item
-  Ühe ja mitme argumenttunnuse puhul saab kasutada \emph{Analysis Toolpak} protseduuri \emph{Regression}.
-\end{itemize}
-
-Avame faili \href{data/naited.xlsx}{naited.xlsx} töölehel ``linreg'', kus on samad andmed nagu ``prt\_andmed'', aga sellel on juba välja filtreeritud ainult mudelpuude andmed. MS Exceli keskkonnas on üldiselt vajalik filtreeritud andmed viia eraldi tabelisse, et regressiooni käigus muid andmeid ei kasutataks.
-
-\emph{Analysis Toolpak} abil regressioonanalüüsi tegemiseks tuleb menüüs ``Andmed'' valida ``Data Analysis'', mis järel avaneb analüüsivahendite aken.
-
-\begin{figure}
-\centering
-\pandocbounded{\includegraphics[keepaspectratio]{pildid/ms_excel_regression_step_1.png}}
-\caption{Data Analysis aken MS Excelis.}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{pildid/ms_excel_regression_step_2.png}
-\caption{Regressioonanalüüsi aken MS Excelis.}
-\end{figure}
-
-Kordame samasugust analüüsi ka MS Exceli keskkonnas nagu R-is, arvutame diameetrist naturaallogaritmi funktsiooniga \texttt{ln()} ning kasutame \texttt{OnMänd} tunnust.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{pildid/ms_excel_regression_step_3.png}
-\caption{Regressioonanalüüs kahe tunnuse alusel.}
-\end{figure}
-
-\clearpage
-
-Table: Lineaarse regressiooni tulemus MS Excelis.
-
-\textbf{SUMMARY OUTPUT}
-
-\begin{longtable}[]{@{}lr@{}}
-\toprule\noalign{}
-\textbf{Regression Statistics} & \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Multiple R & 0,841 \\
-R Square & 0,707 \\
-Adjusted R Square & 0,694 \\
-Standard Error & 1,268 \\
-Observations & 47 \\
-\end{longtable}
-
-\textbf{ANOVA}
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1852}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1111}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1296}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1111}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1296}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.3333}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-\textbf{df}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-\textbf{SS}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-\textbf{MS}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-\textbf{F}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-\textbf{Significance F}
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Regression & 2 & 171,139 & 85,570 & 53,191 & 0,000 \\
-Residual & 44 & 70,783 & 1,609 & & \\
-Total & 46 & 241,922 & & & \\
-\end{longtable}
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1667}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2424}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2727}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1515}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1667}}@{}}
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-\textbf{Coefficients}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-\textbf{Standard Error}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-\textbf{t Stat}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-\textbf{P-value}
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Intercept & -3,5829 & 2,7247 & -1,3150 & 0,1953 \\
-log\_d & 8,9235 & 0,8718 & 10,2358 & 0,0000 \\
-OnMänd & -0,9776 & 0,4300 & -2,2737 & 0,0279 \\
-\end{longtable}
-
-\subsection{Regressioonanalüüsi tulemuste tõlgendamine}\label{regressioonanaluxfcuxfcsi-tulemuste-tuxf5lgendamine}
-
-Lineaarse regressioonimudeli kokkuvõte sisaldab mitmeid olulisi statistilisi näitajaid, mis aitavad hinnata mudeli sobivust andmetele.
-
-Determinatsioonikordaja, tuntud ka kui \(R^2\) (R-ruut), on statistiline mõõdik, mida kasutatakse lineaarse regressiooni kontekstis, et hinnata, kui suures ulatuses argumenttunnuse variatsioon on seletatav sõltumatute tunnuste abil mudelis. \(R^2\) väärtus varieerub vahemikus 0 kuni 1, kus 0 tähendab, et mudel ei seleta argumenttunnuse variatsiooni üldse, samas kui 1 tähendab, et mudel seletab argumenttunnuse variatsiooni täielikult.
-
-\(R^2\) arvutamiseks kasutatakse järgmist valemit:
-
-\[ R^2 = 1 - \frac{\text{SS}_\text{res}}{\text{SS}_\text{tot}} \]
 
 kus:
 
 \begin{itemize}
 \tightlist
 \item
-  \(\text{SS}_\text{res}\) on jääkide ruutude summa (residual sum of squares), mis mõõdab mudeli poolt seletamata variatsiooni.
+  \(n\) on valimi suurus
 \item
-  \(\text{SS}_\text{tot}\) on kogu variatsiooni ruutude summa (total sum of squares), mis mõõdab argumenttunnuse variatsiooni võrreldes tema keskmisega.
+  \(s^2\) on valimi dispersioon (valimi standardhälbe ruut)
+\item
+  \(\chi^2_{\alpha/2, n-1}\) on \(\chi^2\)-jaotuse \(\alpha/2\) kvantiil vabadusastmete arvuga \(n-1\)
+\item
+  \(\chi^2_{1-\alpha/2, n-1}\) on \(\chi^2\)-jaotuse \(1-\alpha/2\) kvantiil vabadusastmete arvuga \(n-1\)
+\item
+  \(\alpha\) on olulisusnivoo (eksimise tõenäosus)
 \end{itemize}
 
-\textbf{Kõrge \(R^2\) väärtus} (lähedane 1-le) näitab, et mudeli poolt seletatav variatsioon on suur, mis tähendab, et mudel sobib andmetele hästi. See viitab sellele, et suur osa argumenttunnuse variatsioonist on seletatav mudeli sõltumatute tunnustega.
+\subsection{Binoomjaotuse parameetri p usalduspiirid}\label{binoomjaotuse-parameetri-p-usalduspiirid}
 
-\textbf{Madal \(R^2\) väärtus} (lähedane 0-le) näitab, et mudel seletab argumenttunnuse variatsioonist väikese osa, mis tähendab, et mudeli sobivus andmetele on kehv. See võib viidata sellele, et mudelis kasutatavad sõltumatud tunnused ei ole sõltuva tunnuse variatsiooni seletamisel tõhusad.
+Binoomjaotuse parameetri \emph{p} usalduspiirid annavad vahemiku, milles tõenäoliselt asub sündmuse tegelik toimumise tõenäosus \emph{p}, arvestades binoomjaotusega kirjeldatud katsete seeriat. Binoomjaotus on diskreetne tõenäosusjaotus, mis kirjeldab sõltumatute katsete seerias õnnestumiste arvu, kus igal katsel on kaks võimalikku tulemust: õnnestumine või ebaõnnestumine. Parameeter \emph{p} tähistab õnnestumise tõenäosust ühes katses.
 
-Oluline on mõista, et kuigi \(R^2\) on kasulik mõõdik mudeli sobivuse hindamisel, ei tähenda kõrge \(R^2\) automaatselt, et mudel on õige või et sõltumatud tunnusd põhjustavad argumenttunnuse käitumist. Samuti ei pruugi madal \(R^2\) alati tähendada mudeli ebatõhusust, eriti keerukamate või mittelineaarsete suhete puhul. Lisaks tuleks mudeli hindamisel arvesse võtta ka muid tegureid, nagu mudeli tõlgendatavus, sõltumatute tunnuste olulisus ja korrigeeritud \(R^2\).
+Binoomjaotus on määratud kahe parameetriga: \emph{n} (katsete arv) ja \emph{p} (õnnestumise tõenäosus ühes katses). Binoomjaotust tähistatakse sageli B(\emph{n}, \emph{p}). Kui sooritame \emph{n} sõltumatut katset ja iga katse õnnestumise tõenäosus on \emph{p}, siis binoomjaotusega juhusliku suuruse X (õnnestumiste arv) tõenäosus on antud valemiga:
 
-Lineaarse regressioonimudeli \textbf{nihutamata hinnang}, tuntud ka kui korrigeeritud \(R^2\) (inglise keeles ``adjusted \(R^2\)''), on statistiline mõõdik, mida kasutatakse mudeli seletusvõime hindamiseks, võttes arvesse mudeli sõltumatute tunnuste arvu. Erinevalt lihtsast \(R^2\)-st, mis mõõdab, kui suur osa argumenttunnuse variatsioonist on seletatav mudeli abil, arvestab korrigeeritud \(R^2\) mudeli keerukust, arvestab mudeli liigsete sõltumatute tunnuste lisamise eest. See on oluline, kuna mudelisse liiga palju tunnusid lisades võib \(R^2\) väärtus eksitavalt tõusta, viidates paremale mudeli sobivusele, kuigi tegelikult võivad lisatud tunnusd olla statistiliselt mitteolulised.
+\[p_{\alpha/2} = \frac{k}{k + (n-k + 1) \cdot F_{\alpha/2,2 \cdot (n-k+1), 2\cdot k}}\]
+\[p_{1- \alpha/2} = \frac{k+1}{(k+1)+(n-k) / F_{\alpha/2,2\cdot (k+1), 2 \cdot (n-k)}}\]
 
-Korrigeeritud \(R^2\) arvutatakse järgmise valemi järgi:
+\begin{naidis}
+Seemnepartii idanevustõenäosuse teadasaamiseks idandati partiist 70 juhuslikult valitud seemet, millest idanes 19. Leida seemnete idanevustõenäosuse usalduspiirid, võttes usaldusnivooks 0,95.
+\end{naidis}
 
-\[ R^2_{\text{adj}} = 1 - \left( \frac{(1 - R^2)(n - 1)}{n - k - 1} \right) \]
+Seemnepartii idanevustõenäosuse 95\%-lised usalduspiirid avalduvad MS Excelis all-järgnevate valemitega:
 
-kus:
+\(p_{0,025}\) = k/(k+(n-k+1)\emph{FINV(0,025;2}(n-k+1);2*k)) = 19/(19+52·1,759) = 0,172;
+
+\(p_{0,975}\) = (k+1)/((n-k)/FINV(0,025;2\emph{(k+1);2}(n-k))+k+1) = 20/(51/1,637+20) = 0,391.
+
+R keskkonnas saab seda arvutada funktsiooniga \texttt{binom.test()}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{binom.test}\NormalTok{(}\DecValTok{19}\NormalTok{, }\DecValTok{70}\NormalTok{, }\DecValTok{19}\SpecialCharTok{/}\DecValTok{70}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+    Exact binomial test
+
+data:  19 and 70
+number of successes = 19, number of trials = 70, p-value = 1
+alternative hypothesis: true probability of success is not equal to 0,271
+95 percent confidence interval:
+ 0,172 0,391
+sample estimates:
+probability of success 
+                 0,271 
+\end{verbatim}
+
+\section{Valimi mahu hindamine}\label{valimi-mahu-hindamine}
+
+Üldkogumi parameetrite veahinnangud sõltuvad valimi mahust. Üldiselt tuleb hinnangu täpsuse suurendamiseks k korda suurendada valimi mahtu 2 * k korda. Praktilises metsanduslikus uurimistöös tekib tihti küsimus, kui palju tuleks mõõta puid, rajada proovitükke jne, et saadud tulemused iseloomustaksid üldkogumit piisava täpsusega.
+
+\begin{naidis}
+Vaatleme näites 1.4 esitatud valimit, milles on antud sambliku kasvukohatüübis kasvava 50-aastase männiku 60 juhuslikult valitud puu kõrguste andmed. 
+\end{naidis}
+
+Näites on selle valimi andmete põhjal arvutatud
+
+\begin{tabular}{lr}
+kõrguse aritmeetiline keskmine & 12,082 m \\
+kõrguse standardhälve & 1,185 m \\
+kõrguse variatsioonikordaja  & 9,81\% \\
+\end{tabular}
+
+Arvutame järgmise hinnangud:
 
 \begin{itemize}
 \tightlist
 \item
-  \(R^2\) on mudeli lihtne determinatsioonikoefitsient,
+  Puistu kõrguse keskväärtuse saamiseks katsetäpsusega \(\delta\) = 1\% tuleks mõõta
+
+  \begin{itemize}
+  \tightlist
+  \item
+    N = \((Vh/\delta)^2\) = \((9,81/1)^2\) \(\approx\) 96 puud.
+  \end{itemize}
 \item
-  \(n\) on vaatluste arv,
+  Puistu kõrguse keskväärtuse saamiseks standardveaga \(\epsilon\) = 0,1 m tuleks mõõta
+
+  \begin{itemize}
+  \tightlist
+  \item
+    N = \((sh/\epsilon)^2\) = \((1,185/0,1)^2\) \(\approx\) 140 puud.
+  \end{itemize}
 \item
-  \(k\) on sõltumatute tunnuste arv mudelis.
+  Puistu kõrguse keskväärtust veaga alla 0,1 m tuleks mõõta
+
+  \begin{itemize}
+  \tightlist
+  \item
+    N = \((NORMSINV(0,975)*sh/\epsilon)^2\) = \((1,96 * 1,185/0,1)^2\) \(\approx\) 539 puud.
+  \end{itemize}
 \end{itemize}
 
-Valemist nähtub, et \(R^2_{\text{adj}}\) väheneb, kui lisatakse tunnusid, mis ei paranda mudeli seletusvõimet proportsionaalselt nende arvuga. Seega, erinevalt lihtsast \(R^2\)-st, pakub korrigeeritud \(R^2\) ausamat hinnangut mudeli sobivusele, eriti kui võrrelda mudeleid, mis sisaldavad erinevat arvu sõltumatuid tunnusid. Korrigeeritud \(R^2\) on eriti kasulik mudelite võrdlemisel ja mudeli valimisel, aidates vältida ülemudelitamist ja eelistades mudelit, mis annab parima tasakaalu seletusvõime ja keerukuse vahel.
+\section{Statistilised hüpoteesid}\label{statistilised-huxfcpoteesid}
+
+\subsection{F-test normaaljaotusega üldkogumite dispersioonide võrdlemiseks}\label{f-test-normaaljaotusega-uxfcldkogumite-dispersioonide-vuxf5rdlemiseks}
+
+F-test on statistiline test, mida kasutatakse kahe või enama normaaljaotusega üldkogumi dispersioonide võrdlemiseks. See test võimaldab hinnata, kas kahe valimi varieeruvus on oluliselt erinev, mis on oluline eeldus mitmete teiste statistiliste testide, näiteks t-testi, kasutamisel. F-testi kasutatakse nii kahepoolsete kui ka ühepoolsete hüpoteeside kontrollimiseks.
+
+F-testi rakendamisel on oluline seada hüpoteesid, mida soovitakse testida. Hüpoteesid sõltuvad sellest, kas soovitakse testida dispersioonide erinevust üldiselt (kahepoolne test) või uurida, kas ühe kogumi dispersioon on suurem kui teise (ühepoolne test).
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Kahepoolne hüpotees:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Nullhüpotees (\(H_0\)): dispersioonid on võrdsed, st \(\sigma_1^2 = \sigma_2^2\).
+  \item
+    Alternatiivne hüpotees (\(H_1\)): dispersioonid on erinevad, st \(\sigma_1^2 \neq \sigma_2^2\).
+  \end{itemize}
+\item
+  \textbf{Ühepoolne hüpotees:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Nullhüpotees (\(H_0\)): ühe kogumi dispersioon on väiksem või võrdne teise kogumi dispersiooniga, st \(\sigma_1^2 \leq \sigma_2^2\) või \(\sigma_1^2 \geq \sigma_2^2\).
+  \item
+    Alternatiivne hüpotees (\(H_1\)): ühe kogumi dispersioon on suurem kui teise kogumi dispersioon, st \(\sigma_1^2 > \sigma_2^2\) või \(\sigma_1^2 < \sigma_2^2\).
+  \end{itemize}
+\end{itemize}
+
+\textbf{Teststatistiku arvutamine}
+
+F-statistiku arvutamiseks jagatakse suurema valimi dispersioon väiksemaga:
+
+\(F = \frac{s_1^2}{s_2^2}\)
+
+kus \(s_1^2\) ja \(s_2^2\) on valimite dispersioonid. On oluline, et lugejas oleks suurema dispersiooniga valim (seega alati \(F \geq 1\)). F-statistik allub F-jaotusele vabadusastmete arvudega \(n_1 - 1\) ja \(n_2 - 1\), kus \(n_1\) ja \(n_2\) on vastavate valimite mahud. F-jaotus on asümmeetriline ja selle kuju sõltub vabadusastmetest.
+
+\textbf{Otsustamine ja kriitilised väärtused}
+
+F-testi tulemuste tõlgendamiseks võrreldakse arvutatud F-statistiku väärtust kriitiliste väärtustega, mis saadakse F-jaotusest vastava olulisuse nivoo (\(\alpha\)) ja vabadusastmete alusel. Olulisuse nivoo on tavaliselt seatud 0,05-le, mis tähendab, et on 5\% tõenäosus teha I tüübi viga ehk lükata tagasi õige nullhüpotees.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Kahepoolse hüpoteesi korral} on kaks kriitilist väärtust, \(F_{krv}\) ja \(F_{krp}\), mis asuvad vastavalt F-jaotuse vasakul ja paremal pool. Nullhüpotees lükatakse tagasi, kui \(F < F_{krv}\) või \(F > F_{krp}\).
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Vasakpoolne kriitiline väärtus: \(F_{krv} = F^{-1}_{\alpha/2}(n_2 - 1, n_1 - 1)\).
+  \item
+    Parempoolne kriitiline väärtus: \(F_{krp} = F_{\alpha/2}(n_1 - 1, n_2 - 1)\).
+  \end{itemize}
+\item
+  \textbf{Ühepoolse hüpoteesi korral} (eeldades, et testime \(H_1: \sigma_1^2 > \sigma_2^2\)) on üks kriitiline väärtus, mis asub F-jaotuse paremal poolel. Nullhüpotees lükatakse tagasi, kui \(F > F_{kr}\). Kui testime \(H_1: \sigma_1^2 < \sigma_2^2\), siis asub kriitiline väärtus vasakul pool ja nullhüpotees lükatakse tagasi, kui \(F<F_{kr}\).
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Parempoolne kriitiline väärtus (kui \(\sigma_1^2 > \sigma_2^2\)): \(F_{kr} = F_{\alpha}(n_1 - 1, n_2 - 1)\).
+  \item
+    Vasakpoolne kriitiline väärtus (kui \(\sigma_1^2 < \sigma_2^2\)): \(F_{kr} = F^{-1}_{\alpha}(n_2 - 1, n_1 - 1)\).
+  \end{itemize}
+\end{itemize}
+
+\begin{naidis}
+Olgu uurimisobjektiks suhteliselt homogeensel alal sambliku kasvu¬koha¬tüübi 24-aastased männikultuurid, millest osa on rajatud põlenud ja osa põlemata pinna¬sele. Põlenud alale rajati 8 ja põlemata alale 5 proovitükki. Proovitükkide andmete töötlemise tulemusel saadi järgmised puistute kõrgused meetrites.
+
+Põlenud alal: 4,3; 3,4; 3,9; 2,9; 4,9; 3,2; 3,7; 3,6.
+
+Põlemata alal: 4,8; 4,3; 5,4; 5,1; 4,6.
+\end{naidis}
+
+Meid huvitab, kas põlenud ja põlemata alal on puistute kõrguse dispersioonid erinevad.
+
+MS Exceli funktsiooniga
+=FTEST(andmeplokk1 ; andmeplokk2)
+Antud näite korral on dispersioonide erinevuse olulisuse tõenäosus p = 0,47.
+
+R keskkonnas saab selleks kasutada funktsiooni \texttt{var.test()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{polenud }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{4.3}\NormalTok{, }\FloatTok{3.4}\NormalTok{, }\FloatTok{3.9}\NormalTok{, }\FloatTok{2.9}\NormalTok{, }\FloatTok{4.9}\NormalTok{, }\FloatTok{3.2}\NormalTok{, }\FloatTok{3.7}\NormalTok{, }\FloatTok{3.6}\NormalTok{)}
+\NormalTok{polemata }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{4.8}\NormalTok{, }\FloatTok{4.3}\NormalTok{, }\FloatTok{5.4}\NormalTok{, }\FloatTok{5.1}\NormalTok{, }\FloatTok{4.6}\NormalTok{)}
+\FunctionTok{var.test}\NormalTok{(polenud,polemata)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+    F test to compare two variances
+
+data:  polenud and polemata
+F = 2, num df = 7, denom df = 4, p-value = 0,5
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+  0,242 12,152
+sample estimates:
+ratio of variances 
+               2,2 
+\end{verbatim}
+
+\subsection{Keskmiste võrdlemine paarikaupa andmete korral normaaljaotusega üldkogumist}\label{keskmiste-vuxf5rdlemine-paarikaupa-andmete-korral-normaaljaotusega-uxfcldkogumist}
+
+Paarikaupa andmete korral keskmiste võrdlemine normaaljaotusega üldkogumistest (sõltuvate valimite t-test) võimaldab hinnata, kas mingi toiming (nt protseduur, sekkumine) on põhjustanud statistiliselt olulise muutuse üldkogumi keskväärtuses. Seda tehakse, võrreldes sama objekti kahte mõõtmist (nt enne ja pärast toimingut).
+
+\textbf{Hüpoteesid}
+
+Paarikaupa andmete korral sõnastatakse hüpoteesid järgmiselt:
 
 \begin{itemize}
 \item
-  P-väärtused näitavad, kas argumenttunnus on statistiliselt oluline mudelis. Kui P-väärtus on väiksem kui 0,05, siis võib järeldada, et argumenttunnus mõjutab oluliselt sõltuvat tunnust.
+  \textbf{Nullhüpotees (\(H_0\)):} Toiming ei mõjutanud üldkogumi keskväärtust, st keskväärtuste vahe on null.
+  \(H_0: \mu_1 = \mu_2\) või \(H_0: \mu_d = 0\), kus \(\mu_d\) on populatsiooni keskmine erinevus.
 \item
-  Regressioonikordaja väärtused annavad teavet sõltumatute tunnuste mõju kohta sõltuvale tunnusle.
+  \textbf{Alternatiivne hüpotees (\(H_1\) või \(H_a\)):} Toiming mõjutas üldkogumi keskväärtust. Alternatiivne hüpotees võib olla:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Kahepoolne:} Keskväärtus muutus (suund määramata).
+    \(H_1: \mu_1 \neq \mu_2\) või \(H_1: \mu_d \neq 0\)
+  \item
+    \textbf{Ühepoolne:}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Keskväärtus suurenes: \(H_1: \mu_1 < \mu_2\) või \(H_1: \mu_d > 0\) (vaadates \emph{enne - pärast} erinevust, on oodatav erinevus positiivne)
+    \item
+      Keskväärtus vähenes: \(H_1: \mu_1 > \mu_2\) või \(H_1: \mu_d < 0\) (vaadates \emph{enne - pärast} erinevust, on oodatav erinevus negatiivne)
+    \end{itemize}
+  \end{itemize}
 \end{itemize}
 
-Kokkuvõttes aitab väljund mõista, kuidas mudel sobitub andmetega ja millist infot see pakub sõltuvate ja sõltumatute tunnuste seoste kohta.
+\textbf{Teststatistik}
 
-\subsection{Homoskedastilisuse testimine}\label{homoskedastilisuse-testimine}
+Paarikaupa andmete korral arvutatakse t-statistik, kasutades iga paari mõõtmiste vahesid (\(d_i\)).
 
-Statistilise regressioonimudeli kontekstis viitab homoskedastiivsus olukorrale, kus jääkliikmete (ehk mudeli veatermini) dispersioon on konstantne sõltumata seletavate muutujate väärtustest. See tähendab, et mudeli ennustusvead on ühtlase hajuvusega kogu vaadeldava andmevahemiku ulatuses, ega ole süstemaatiliselt seotud ennustatud väärtustega. Homoskedastiivsus on kriitiline eeldus mitmetes statistilistes meetodites, eriti vähimruutude meetodil baseeruva lineaarse regressiooni puhul. Selle eelduse rikkumine, tuntud kui heteroskedastiivsus, võib moonutada mudeli parameetrite hinnanguid, viies ebatäpsete usaldusvahemike ja potentsiaalselt vigaste järeldusteni hüpoteeside testimisel.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Vahede arvutamine:} \(d_i = x_{1i} - x_{2i}\), kus \(x_{1i}\) on \emph{i}-nda objekti esimene mõõtmine ja \(x_{2i}\) on \emph{i}-nda objekti teine mõõtmine.
+\item
+  \textbf{Vahede keskmise arvutamine:} \(\bar{d} = \frac{\sum_{i=1}^{n} d_i}{n}\), kus \(n\) on paaride arv.
+\item
+  \textbf{Vahede standardhälbe arvutamine:} \(s_d = \sqrt{\frac{\sum_{i=1}^{n} (d_i - \bar{d})^2}{n-1}}\)
+\item
+  \textbf{t-statistiku arvutamine:}
+  \[t = \frac{\bar{d}}{s_d / \sqrt{n}}\]
+\end{enumerate}
 
-On mitmeid viise, kuidas testida, kas andmetes esineb homoskedastiivsust:
+t-statistik järgib t-jaotust \(n-1\) vabadusastmega. t-jaotus on sümmeetriline, sarnaneb normaaljaotusega, kuid on väiksemate valimite korral laiema ``sabaga''.
+
+\textbf{Otsuse tegemine}
+
+Otsus nullhüpoteesi kohta tehakse, võrreldes arvutatud t-statistikut kriitilise väärtusega (\(t_{kr}\)) või hinnates p-väärtust.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Kriitiline väärtus (\(t_{kr}\)):} See leitakse t-jaotuse tabelist või statistikatarkvara abil, lähtudes valitud olulisuse nivost (\(\alpha\), tavaliselt 0.05) ja vabadusastmete arvust (\(n-1\)). Olulisuse nivoo \(\alpha\) tähistab I tüübi vea (valesti tagasilükatud tõese nullhüpoteesi) tõenäosust.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Kahepoolse testi korral:} Nullhüpotees lükatakse tagasi, kui \(|t| > t_{kr}\), st \(t < -t_{kr}\) või \(t > t_{kr}\). Kriitiline väärtus \(t_{kr}\) vastab \(\alpha/2\) kummalgi jaotuse sabal.
+  \item
+    \textbf{Ühepoolse testi korral:}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Kui \(H_1: \mu_d > 0\): Nullhüpotees lükatakse tagasi, kui \(t > t_{kr}\).
+    \item
+      Kui \(H_1: \mu_d < 0\): Nullhüpotees lükatakse tagasi, kui \(t < -t_{kr}\).
+    \end{itemize}
+  \end{itemize}
+\item
+  \textbf{p-väärtus:} See on tõenäosus saada vähemalt sama äärmuslik (või veel äärmuslikum) t-statistik, kui nullhüpotees on tõene.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Nullhüpotees lükatakse tagasi, kui p-väärtus \(\leq \alpha\).
+  \end{itemize}
+\end{itemize}
+
+\textbf{Eeldused}
+
+Sõltuvate valimite t-testi eeldused on:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{Visuaalne analüüs:} Lihtsaim viis on vaadata jääkliikmete graafikut seletavate muutujate või ennustatud väärtuste suhtes. Kui jääkliikmed on ühtlaselt hajunud nulljoone ümber, on homoskedastiivsus tõenäoline. Kui tekib mingi muster (näiteks koonusekujuline hajumine), on tõenäoline heteroskedastiivsus.
+  \textbf{Normaaljaotus:} Mõõtmiste \emph{vahed} (\(d_i\)) peaksid olema ligikaudu normaaljaotusega. See eeldus on vähem oluline suuremate valimite korral (tänu tsentraalsele piirteoreemile).
 \item
-  \textbf{Formaliseeritud testid:} On olemas mitmed statistilised testid, näiteks Breusch-Pagani test ja White'i test, mis testivad heteroskedastiivsust formaalselt. Need testid kontrollivad, kas jääkliikmete dispersioon on seotud seletavate muutujatega.
+  \textbf{Sõltumatus:} Vaatlused (mõõtmispaarid) peavad olema üksteisest sõltumatud.
 \item
-  \textbf{Robustsed meetodid:} Kui andmetes esineb heteroskedastiivsust, võib kasutada robustseid regressioonimeetodeid, mis on vähem tundlikud heteroskedastiivsuse suhtes.
+  \textbf{Mõõtmiste skaala:} Mõõtmised on intervallskaalal või suhtarvulisel skaalal.
 \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Näide R keskkonnas}
-\FunctionTok{plot}\NormalTok{(lm\_model, }\AttributeTok{which=}\DecValTok{1}\NormalTok{, }\AttributeTok{main =} \StringTok{""}\NormalTok{) }
-\end{Highlighting}
-\end{Shaded}
+\subsection{Sõltumatuse hii-ruut-test}\label{suxf5ltumatuse-hii-ruut-test}
 
-\begin{figure}
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-63-1} \caption{Jäägid vs prognoositud väärtus}\label{fig:unnamed-chunk-63}
-\end{figure}
+Sõltumatuse hii-ruut-test ( \(\chi^2\)-test) on statistiline meetod, mida kasutatakse kahe kvalitatiivse tunnuse vahelise seose uurimiseks. Test hindab, kas kahe tunnuse jaotused on omavahel seotud või sõltumatud. Testi eesmärk on kummutada nullhüpotees (\(H_0\)), mis väidab, et tunnuste vahel seost ei ole.
 
-Lineaarse mudeli homoskedastilisuse testimiseks saab kasutada Breush-Pagan või White'i testi. Need testid hindavad, kas jääkide varieeruvus on seotud sõltumatute tunnustega ning kas see varieeruvus on ühtlane.
+\textbf{Põhimõtted ja rakendused}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Näide R keskkonnas}
-\NormalTok{lmtest}\SpecialCharTok{::}\FunctionTok{bptest}\NormalTok{(lm\_model)}
-\end{Highlighting}
-\end{Shaded}
+\(\chi^2\)-testi kasutatakse sagedusandmete analüüsimiseks, mis on esitatud risttabelina (kontingentsitabelina). Risttabeli read esitavad ühe tunnuse väärtusi ja veerud teise tunnuse väärtusi. Test võimaldab uurida, kas ühe tunnuse jaotus sõltub teise tunnuse väärtustest. Näiteks saab testida, kas vastused küsimustele sõltuvad vastaja soost või vanusest. \(\chi^2\)-testi kasutatakse ka empiirilise ja teoreetilise jaotuse võrdlemiseks, et teha kindlaks, kas juhuslik suurus allub valitud jaotusseadusele.
 
-\begin{verbatim}
+\textbf{Hüpoteesid}
 
-    studentized Breusch-Pagan test
-
-data:  lm_model
-BP = 0,9, df = 1, p-value = 0,4
-\end{verbatim}
-
-Paketi \texttt{lmtest} funktsioon \texttt{bptest()} testib regressioonimudeli jääkide heteroskedastsuse olemasolu. See tähendab, et jääkide varieeruvus ei ole konstantne üle kõigi sõltumatute tunnuste väärtuste ning võib tekitada probleeme statistiliste hüpoteeside testimisel.
-
-Testi tulemusi võib lugeda järgmiselt:
+Sõltumatuse \(\chi^2\)-testi hüpoteesid on:
 
 \begin{itemize}
 \tightlist
 \item
-  Nullhüpotees (H0): jääkide varieeruvus on konstantne (st heteroskedastsust ei esine).
+  \textbf{Nullhüpotees (\(H_0\)):} Tunnuste vahel seost ei ole (tunnused on sõltumatud). Ühe tunnuse jaotus ei sõltu teise tunnuse väärtustest.
 \item
-  Alternatiivhüpotees (H1): jääkide varieeruvus ei ole konstantne (st heteroskedastsus esineb).
+  \textbf{Alternatiivne hüpotees (\(H_1\)):} Tunnuste vahel on seos (tunnused ei ole sõltumatud). Ühe tunnuse jaotus sõltub teise tunnuse väärtustest.
 \end{itemize}
 
-Testist saadav p-väärtus aitab hinnata, kas on piisavalt tõendeid, et lükata ümber nullhüpotees heteroskedastsuse puudumise kohta. Väike p-väärtus (\textless0,05) viitab sellele, et saame nullhüpoteesi ümber lükata ja järeldada, et heteroskedastsust esineb.
+\textbf{Teststatistiku arvutamine}
 
-\subsection{Jääkide normaalsuse test}\label{juxe4uxe4kide-normaalsuse-test}
+\(\chi^2\)-teststatistiku arvutamise valem:
 
-Üks oluline eeldus, mida lineaarses regressioonis kasutatakse, on see, et mudeli jäägid vastaksid normaaljaotusele. Normaaljaotus tähendab, et andmete jaotus on sümmeetriline ning keskmise jaotusega. Kui jäägid on normaaljaotusele lähedased, siis on regressioonimudeli ennustused usaldusväärsemad ja täpsemad. Paljud statistilised testid eeldavad, et andmed vastavad normaaljaotusele. Kui jäägid ei vasta normaaljaotusele, võivad testide tulemused olla ebatäpsed või valed. Normaaljaotuse eeldustele mitte vastamine võib viidata sellele, et mudel ei sobi antud andmetele hästi ning on vajalik leida alternatiivseid mudeleid.
+\[
+\chi^2 = \sum_{i=1}^{r} \sum_{j=1}^{k} \frac{(O_{ij} - E_{ij})^2}{E_{ij}}
+\]
 
-Normaliseeritud jääkide graafik on üks viis, kuidas hinnata, kas jäägid vastavad normaaljaotusele. See graafik aitab visualiseerida, kas jäägid on juhuslikult hajutatud ümber nulli ja kas nende jaotus on ligilähedane normaaljaotusele.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Näide R keskkonnas}
-
-\FunctionTok{ggplot}\NormalTok{(lm\_model, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ .fitted, }\AttributeTok{y =}\NormalTok{ .resid)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept =} \DecValTok{0}\NormalTok{)}\SpecialCharTok{+}
-  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"gam"}\NormalTok{, }\AttributeTok{formula =}\NormalTok{ y }\SpecialCharTok{\textasciitilde{}} \FunctionTok{s}\NormalTok{(x))  }\CommentTok{\# Lisab sujuva joone GAM mudeli abil}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-65-1}
-Koodi selgitus:
-
-\textbf{\texttt{ggplot(lm\_model,\ aes(x\ =\ .fitted,\ y\ =\ .resid))}}
+kus:
 
 \begin{itemize}
 \tightlist
 \item
-  See käsk loob aluse graafikule ggplot2 paketiga.
+  \(O_{ij}\) on vaadeldud (empiiriline) sagedus risttabeli lahtris \emph{i, j}.
 \item
-  \texttt{lm\_model} määrab andmeallika, milleks on lineaarne mudel.
+  \(E_{ij}\) on oodatav sagedus risttabeli lahtris \emph{i, j}, kui tunnused oleksid sõltumatud.
 \item
-  \texttt{aes(x\ =\ .fitted,\ y\ =\ .resid)} määrab x-teljele mudeli sobitatud väärtused (.fitted) ja y-teljele jääkväärtused (.resid).
+  \(r\) on ridade arv risttabelis.
+\item
+  \(k\) on veergude arv risttabelis.
 \end{itemize}
 
-\textbf{\texttt{geom\_point()}}
+Oodatava sageduse arvutamise valem:
+
+\[
+E_{ij} = \frac{(\text{rea } i \text{ summa}) \times (\text{veeru } j \text{ summa})}{\text{üldsumma}} = \frac{(\sum_{j=1}^{k} O_{ij}) \times (\sum_{i=1}^{r} O_{ij})}{\sum_{i=1}^{r} \sum_{j=1}^{k} O_{ij}}
+\]
+
+\textbf{Vabadusastmed}
+
+Vabadusastmete arv (\(\nu\)) leitakse valemiga:
+
+\[\nu = (r - 1) \times (k - 1)\]
+
+\textbf{Otsuse tegemine}
+
+Otsuse tegemiseks võrreldakse arvutatud \(\chi^2\) väärtust kriitilise väärtusega (\(\chi^2_{\alpha, \nu}\)), mis saadakse \(\chi^2\)-jaotusest vastava vabadusastmete arvu (\(\nu\)) ja valitud olulisuse nivoo (\(\alpha\)) alusel (tavaliselt \(\alpha = 0.05\)).
 
 \begin{itemize}
 \tightlist
 \item
-  See lisab graafikule punktid, mis esindavad iga andmepunkti jääki ja sobitatud väärtust.
+  Kui \(\chi^2 > \chi^2_{\alpha, \nu}\) või p-väärtus \(< \alpha\), siis lükatakse nullhüpotees tagasi ja järeldatakse, et tunnuste vahel on statistiliselt oluline seos.
+\item
+  Kui \(\chi^2 \leq \chi^2_{\alpha, \nu}\) või p-väärtus \(\geq \alpha\), siis jäädakse nullhüpoteesi juurde (ei saa tõestada, et tunnuste vahel on seos).
 \end{itemize}
 
-\textbf{\texttt{geom\_hline(yintercept\ =\ 0)}}
+\textbf{Eeldused}
+
+\(\chi^2\)-testi kasutamisel on oluline arvestada järgmisi eeldusi:
 
 \begin{itemize}
 \tightlist
 \item
-  See lisab horisontaalse joone y-telje väärtusel 0. See joon aitab visuaalselt hinnata jääkide jaotust - ideaalses mudelis peaksid punktid jaotuma ühtlaselt joone ümber.
+  \textbf{Sõltumatud vaatlused:} Vaatlused peavad olema üksteisest sõltumatud.
+\item
+  \textbf{Piisavalt suured oodatavad sagedused:} Üldjuhul peaksid kõik oodatavad sagedused (\(E_{ij}\)) olema vähemalt 5. Mõned allikad lubavad ka väiksemaid väärtusi, kuid kui rohkem kui 20\% oodatavatest sagedustest on alla 5, või on mõni oodatav sagedus alla 1, võib test olla ebausaldusväärne. Sellisel juhul võib kasutada Yates'i korrektsiooni või Fisheri täpset testi.
 \end{itemize}
 
-\textbf{\texttt{geom\_smooth(method\ =\ "gam",\ formula\ =\ y\ \textasciitilde{}\ s(x))}}
+\chapter{Mitme tunnuse koosanalüüs}\label{mitme-tunnuse-koosanaluxfcuxfcs}
+
+Mitme tunnuse koosanalüüs hõlmab mitmesuguseid statistilisi meetodeid, mille abil uuritakse, kuidas erinevad tunnused omavahel seostuvad ja üksteist mõjutavad. See analüüs on oluline, kuna reaalsetes olukordades mõjutavad uuritavat tunnust sageli mitmed tegurid korraga. Koosanalüüsi eesmärk on selgitada välja seosed tunnuste vahel, mõista nende mõju uuritavale nähtusele ja teha prognoose. Tunnuste koosanalüüs aitab minimeerida riski, et olulised seosed jäävad kahe silma vahele.
+
+\section{Lineaarne regressioon}\label{lineaarne-regressioon}
+
+\textbf{Lineaarne regressioon} on statistiline meetod, mida kasutatakse kahe või enama muutuja vahelise lineaarse seose modelleerimiseks. See tähendab, et funktsioontunnuse (sõltuva muutuja) väärtuse muutust saab kirjeldada sirge joonega, mis on argumenttunnuse (sõltumatu muutuja) funktsioon. Regressioonanalüüsi eesmärk on leida mudel, mis kirjeldab võimalikult täpselt andmetes esinevat seost, võimaldades teha prognoose ja mõista muutujate omavahelist mõju.
+
+Lineaarne regressioonimudel, kus on üks argumenttunnus (x) ja üks funktsioontunnus (y), avaldub järgmiselt:
+
+\[y = b_0 + b_1x\]
+
+kus:
 
 \begin{itemize}
 \tightlist
 \item
-  See lisab graafikule sujuva joone, mis on arvutatud GAM mudeli (Generalized Additive Model) abil.
+  \texttt{y} on funktsioontunnus (sõltuv muutuja), mida me püüame prognoosida.
 \item
-  \texttt{method\ =\ "gam"} määrab joone arvutamise meetodiks GAM.
+  \texttt{x} on argumenttunnus (sõltumatu muutuja), mille abil me püüame funktsioontunnust prognoosida.
 \item
-  \texttt{formula\ =\ y\ \textasciitilde{}\ s(x)} määrab mudeli valemi, kus y (jääkväärtused) on seotud x-i (sobitatud väärtused) sujuva funktsiooniga s(x).
+  \texttt{b\_0} on vabaliige (y-telje lõikepunkt), mis näitab funktsioontunnuse väärtust, kui argumenttunnuse väärtus on null.
+\item
+  \texttt{b\_1} on regressioonikordaja (sirge tõus), mis näitab, kui palju muutub funktsioontunnuse väärtus, kui argumenttunnuse väärtus suureneb ühe ühiku võrra.
 \end{itemize}
 
-\textbf{Kokkuvõtteks:}
+Mitmese lineaarse regressioonimudel sisaldab mitut argumenttunnust:
 
-Kood genereerib diagnostilise graafiku, mis aitab hinnata lineaarse mudeli sobivust andmetega. Jääkide jaotus 0-joone ümber ja sujuva joone kuju annavad informatsiooni mudeli eelduste (nt homoskedastsus ja lineaarsus) täidetuse kohta.
+\[y = b_0 + b_1x_1 + b_2x_2 + ... + b_kx_k\]
 
-Samuti saab vaadata jääkide jagunemist tihedusfunktsiooni abil koostatud graafikul.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Näide R keskkonnas}
-
-\FunctionTok{ggplot}\NormalTok{(lm\_model, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ .resid)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_density}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-66-1} \caption{Jääkide tihedusfunktsioon}\label{fig:unnamed-chunk-66}
-\end{figure}
-
-Sellise protseduuri abil saad hinnata, kui hästi sobib loodud lineaarne regressioonimudel andmetele ning kas jääkide jaotus vastab normaalsuse eeldusele.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Näide R keskkonnas}
-\CommentTok{\# ANOVA}
-\FunctionTok{anova}\NormalTok{(lm\_model)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-Analysis of Variance Table
-
-Response: h
-          Df Sum Sq Mean Sq F value  Pr(>F)    
-d          1  158,5   158,5    85,5 5,7e-12 ***
-Residuals 45   83,4     1,9                    
----
-Signif. codes:  0 '***' 0,001 '**' 0,01 '*' 0,05 '.' 0,1 ' ' 1
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{confint}\NormalTok{(lm\_model)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-            2,5 % 97,5 %
-(Intercept) 14,49 18,099
-d            0,26  0,405
-\end{verbatim}
-
-\subsection{Multikollineaarsus}\label{multikollineaarsus}
-
-Lineaarses regressioonis tähistab multikollineaarsus olukorda, kus kaks või enam sõltumatut tunnust (selgitajat) on omavahel tugevalt seotud või korreleerunud. See tähendab, et ühe selgitaja väärtusi saab suure täpsusega ennustada teiste selgitajate väärtuste põhjal. Multikollineaarsus võib olla probleemiks, sest:
-
-Mõjutab koefitsientide hinnangute täpsust: multikollineaarsus suurendab koefitsientide hinnangute varieeruvust, mis muudab need ebastabiilseks. Väiksed muudatused andmestikus võivad tuua kaasa suuri muutusi koefitsientide hinnangutes, muutes mudeli interpretatsiooni keeruliseks.
-
-Raskendab tunnuste tähtsuse hindamist: kõrge multikollineaarsuse korral võib olla raske kindlaks teha, milline argumenttunnus mõjutab sõltuvat tunnust, sest statistilised testid ei pruugi olla usaldusväärsed. See võib viia oluliste tunnuste ebaõiglase kõrvalejätmiseni või ebaoluliste tunnuste mudelisse lisamiseni.
-
-Vähendab mudeli interpretatsiooni selgust: kui argumenttunnused on omavahel tugevalt seotud, muutub mudeli interpretatsioon keerulisemaks, kuna keeruline on eristada iga tunnus unikaalset mõju argumenttunnusele .
-
-Multikollineaarsuse tuvastamiseks lineaarses regressioonis kasutatakse tavaliselt järgmisi meetodeid:
+kus:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Korrelatsioonimatriks}: Vaadeldakse sõltumatute tunnuste vahelisi korrelatsioonikoefitsiente. Kõrge korrelatsioon näitab võimalikku multikollineaarsust.
+  \texttt{x\_1,\ x\_2,\ ...,\ x\_k} on erinevad argumenttunnused (regressorid).
 \item
-  \textbf{Variance Inflation Factor (VIF)}: VIF mõõdab, kui palju tunnus variatiivsus suureneb multikollineaarsuse tõttu. Tavaliselt peetakse VIF väärtust üle 5 või 10 viitavaks tugevale multikollineaarsusele.
+  \texttt{b\_1,\ b\_2,\ ...,\ b\_k} on vastavad regressioonikordajad, mis näitavad iga argumenttunnuse mõju funktsioontunnusele, eeldusel, et teiste argumenttunnuste väärtused on konstantsed.
 \item
-  \textbf{Tolerants}: Tolerants on VIF-i pöördväärtus ja näitab, kui suur osa tunnus variatsioonist ei ole seletatav teiste mudeli tunnustega. Madal tolerants viitab multikollineaarsusele.
+  \texttt{b\_0} on vabaliige.
 \end{itemize}
 
-Multikollineaarsuse lahendamiseks võib kasutada mitmeid lähenemisviise, näiteks tunnuste eemaldamist mudelist, tunnuste kombineerimist või andmete transformeerimist. Samuti võib kasulikuks osutuda regulaarimismeetodite, nagu ridge regressioon või lasso regressioon, kasutamine, mis aitavad vähendada koefitsientide varieeruvust, karistades suuri koefitsiente.
+Reaalses elus esineb juhuslikke hälbeid, mistõttu lisatakse mudelisse vealiige \(\epsilon\):
 
-Vaatame järgmist näidet, kus puude kõrgust ennustame mõlema diameetri alusel. Kui varasemalt oli näha, et üks diameeter on oluline, siis antud mudelid ei ole enam kumbki oluline, sest nende tunnuse vahel on korrelatsioon.
+\[y = b_0 + b_1x + \epsilon\]
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Näide R keskkonnas}
-\FunctionTok{summary}\NormalTok{(lm.col }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(h }\SpecialCharTok{\textasciitilde{}}\NormalTok{ d1 }\SpecialCharTok{+}\NormalTok{ d2, }\AttributeTok{data =}\NormalTok{ andmed))}
-\end{Highlighting}
-\end{Shaded}
+\textbf{Parameetrite hindamine ja vähimruutude meetod}
 
-\begin{verbatim}
+Regressioonimudeli parameetrite (\texttt{b\_0} ja \texttt{b\_1}) hindamiseks kasutatakse \textbf{vähimruutude meetodit}. Selle meetodi eesmärk on leida parameetrite väärtused, mis minimeerivad funktsioontunnuse tegelike väärtuste (\texttt{y\_i}) ja mudeli ennustatud väärtuste (\texttt{ŷ\_i}) vaheliste hälvete ruutude summa (SSE - Sum of Squared Errors):
 
-Call:
-lm(formula = h ~ d1 + d2, data = andmed)
+\[SSE = \sum_{i=1}^{n}(y_i - \hat{y}_i)^2\]
 
-Residuals:
-   Min     1Q Median     3Q    Max 
--2,709 -0,893 -0,200  0,787  3,143 
+Teisisõnu, vähimruutude meetodil leitakse sirge, mis läbib punktiparve nii, et punktide y-koordinaatide summaarne või keskmine kõrvalekalle regressioonisirgest oleks minimaalne.
 
-Coefficients:
-            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)  16,1390     0,8902   18,13   <2e-16 ***
-d1           -0,0231     0,2431   -0,09     0,92    
-d2            0,3643     0,2466    1,48     0,15    
----
-Signif. codes:  0 '***' 0,001 '**' 0,01 '*' 0,05 '.' 0,1 ' ' 1
+\textbf{Mudeli sobivuse hindamine}
 
-Residual standard error: 1,34 on 44 degrees of freedom
-Multiple R-squared:  0,671, Adjusted R-squared:  0,656 
-F-statistic:   45 on 2 and 44 DF,  p-value: 2,32e-11
-\end{verbatim}
+Pärast parameetrite hindamist on oluline hinnata mudeli sobivust ja usaldusväärsust.
 
-Tehes täiendavalt ANOVA, on näha, et diameeter, mis lineaarses regressioonimudelis ei olnud oluline, on dispersioonanalüüsi järgi peamine varieeruvuse kirjeldaja.
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Jääkide analüüs:} Jäägid on tegelike ja mudeli poolt ennustatud väärtuste vahed (\texttt{e\_i\ =\ y\_i\ -\ \textbackslash{}hat\{y\}\_i}). Jääkide analüüs aitab otsustada, kas mudeli kuju on sobiv ja kas esineb ebatüüpilisi objekte ehk erindeid. Jääkide graafiline analüüs, kus jäägid on kantud y-teljele ja x-teljel on kas argumenttunnus või prognoositud väärtused, aitab tuvastada mustreid. Kui jäägid jaotuvad juhuslikult ümber nulli, on mudel sobiv. Kui jääkides on aga märgatav muster (nt kõverjoonelisus), siis ei ole lineaarne mudel sobiv.
+\item
+  \textbf{Determinatsioonikordaja (\(R^2\)):} \(R^2\) näitab, kui suure osa funktsioontunnuse koguhajuvusest (SST) moodustab regressioonmudeliga kirjeldatud hajuvus (SSR). \(R^2\) väärtus jääb vahemikku 0 kuni 1, kus suurem \(R^2\) väärtus viitab paremale mudeli sobivusele.
+\end{itemize}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Näide R keskkonnas}
-\FunctionTok{anova}\NormalTok{(lm.col)}
-\end{Highlighting}
-\end{Shaded}
+\[R^2 = \frac{SSR}{SST} = 1 - \frac{SSE}{SST}\]
 
-\begin{verbatim}
-Analysis of Variance Table
+kus:
 
-Response: h
-          Df Sum Sq Mean Sq F value  Pr(>F)    
-d1         1  158,5   158,5   87,73 4,8e-12 ***
-d2         1    3,9     3,9    2,18    0,15    
-Residuals 44   79,5     1,8                    
----
-Signif. codes:  0 '***' 0,001 '**' 0,01 '*' 0,05 '.' 0,1 ' ' 1
-\end{verbatim}
+\begin{itemize}
+\item
+  \texttt{SST} (Total Sum of Squares) on koguhajuvus:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Arvutame VIF väärtuse multikollineaarsuse tuvastamiseks}
-\FunctionTok{vif}\NormalTok{(lm.col)}
-\end{Highlighting}
-\end{Shaded}
+  \(SST = \sum_{i=1}^{n}(y_i - \bar{y})^2\)
+\item
+  \texttt{SSR} (Sum of Squares due to Regression) on regressioonhajuvus:
 
-\begin{verbatim}
-d1 d2 
-47 47 
-\end{verbatim}
+  \(SSR = \sum_{i=1}^{n}(\hat{y}_i - \bar{y})^2\)
+\item
+  \texttt{SSE} (Sum of Squares Error) on jääkhajuvus:
 
-Kui VIF väärtus on üle 5, siis on tunnuste vahel tugev korrelatsioon, mida saame kontrollida ka korrelatsioonimaatriksiga.
+  \(SSE = \sum_{i=1}^{n}(y_i - \hat{y}_i)^2\)
+\item
+  \(\bar{y}\) on funktsioontunnuse keskväärtus.
+\item
+  \textbf{Korrigeeritud determinatsioonikordaja (\(R^2m\)):} \(R^2\) väärtus suureneb alati, kui mudelisse lisada uusi tunnuseid, isegi kui need ei ole olulised. \(R^2m\) arvestab mudeli keerukust (argumenttunnuste arvu), vältides seeläbi ülepaisutatud mudelite eelistamist. \(R^2m\) on eriti kasulik mitmese regressiooni korral.
+\end{itemize}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Näide R keskkonnas}
-\FunctionTok{cor}\NormalTok{(andmed[,}\FunctionTok{c}\NormalTok{(}\StringTok{"d1"}\NormalTok{,}\StringTok{"d2"}\NormalTok{)])}
-\end{Highlighting}
-\end{Shaded}
+\[R^2_a = 1 - (1-R^2) \frac{n-1}{n-k-1}\]
 
-\begin{verbatim}
-      d1    d2
-d1 1,000 0,989
-d2 0,989 1,000
-\end{verbatim}
+kus \texttt{n} on valimi suurus ja \texttt{k} on argumenttunnuste arv mudelis.
 
-Sellest on näha, et need on tugevas korrelatsioonis (0,986). See mõjutab ka lineaarse regressiooni parameetrite arvutamist.
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Mudeli standardviga:} Mudeli standardviga (\texttt{s\_e}) iseloomustab funktsioontunnuse väärtuste hajumist ümber regressioonsirge, sarnaselt standardhälbega ühe tunnuse korral. Mida väiksem on mudeli standardviga, seda täpsemad on prognoosid.
+\end{itemize}
 
-\section{Dispersioonanalüüs}\label{dispersioonanaluxfcuxfcs}
+\[s_e = \sqrt{\frac{\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}{n-2}} = \sqrt{\frac{SSE}{n-2}}\]
 
-Mitmese regressioonanalüüsi korral on tegemist mudeliga, kus pidev funktsioontunnus avaldub pidevate argumenttunnuste lineaarkombinatsioonina. Dispersioonanalüüsi korral on tegemist mudelitega, kus funktsioontunnuseks on pidev tunnus, kuid argument-tunnused on diskreetsed (võivad olla nii arvulised kui ka mittearvulised). Dispersioon-analüüsi argumenttunnuseid nimetatakse faktoriteks. Ühefaktorilise dispersioonanalüüsi puhul uuritakse funktsioontunnuse sõltuvust ainult ühest faktorist. Faktori võimalikke väärtusi nimetatakse faktori tasemeteks.
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Parameetrite standardvead ja usalduspiirid:} Regressioonikordajate hinnangud on valimipõhised ja seega esineb neis alati teatud määramatus. Hinnangute täpsust saab hinnata standardvigade ja usalduspiiride abil. Regressioonsirge parameetrite hinnangud alluvad t-jaotusele, mis võimaldab leida vastavad usalduspiirid.
+\item
+  \textbf{Mudeli olulisuse kontroll:} Kontrollitakse, kas mudel tervikuna on statistiliselt oluline ehk kas seos argument- ja funktsioontunnuse vahel on statistiliselt oluline. Kui mudel ei ole oluline, siis pole mõtet seda edasi uurida.
+\end{itemize}
 
-Olgu üldkogum jaotatud mittelõikuvateks osadeks ehk rühmadeks faktori tasemete järgi. Öeldakse, et faktor X mõjub tunnusele Y, kui tunnuse Y keskväärtused eri rühmades on erinevad. Uurija käsutuses on valimi mõõtmisandmed, mille funktsioon-tunnuse rühmakeskmised tavaliselt erinevad. Dispersioonanalüüs on meetod, millega otsitakse vastust küsimusele, kas valimi rühmakeskmiste erinevus on põhjustatud uuritava faktori mõjust või valimi juhuslikkusest.
+\textbf{Lineaarse regressiooni eeldused}
 
-Dispersioonanalüüsi võimalused ja vahendid sõltuvad oluliselt valitud mudelist ja katsekorraldusest. Kui iga faktortunnuse igal tasemel on tehtud ühepalju mõõtmisi, nimetatakse mudelit tasakaalustatuks, vastasel juhul on tegemist tasakaalustamata mudeliga. Kui mõõtmisi on tehtud faktori kõigil võimalikel tasemetel, siis nimetatakse seda fikseeritud faktoriks. Kui faktortunnusel on palju erinevaid väärtusi ja mõõdetud tasemeid vaadeldakse juhusliku valimina faktori võimalike tasemete hulgast, siis nimetatakse seda juhuslikuks faktoriks. Järgnevalt käsitleme ainult fikseeritud faktoritega mudeleid.
+Lineaarse regressiooni rakendamisel on vaja kontrollida järgmisi eeldusi:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Lineaarsus:} Eeldatakse, et seos funktsioontunnuse ja argumenttunnuste vahel on lineaarne. Kui seos ei ole lineaarne, tuleks kaaluda mittelineaarset regressiooni.
+\item
+  \textbf{Sõltumatus:} Iga vaatlus peab olema sõltumatu teistest vaatlustest.
+\item
+  \textbf{homoskedastilisus:} Jääkide dispersioon peaks olema konstantne kõigi argumenttunnuste väärtuste korral (jääkide hajuvus ei tohiks süstemaatiliselt muutuda).
+\item
+  \textbf{Normaaljaotus:} Jäägid peaksid olema ligikaudselt normaaljaotusega.
+\item
+  \textbf{Multikollineaarsuse puudumine:} Argumenttunnused ei tohiks omavahel tugevalt korreleeruda, sest see raskendab üksikute tunnuste mõju eristamist ja teeb regressioonikordajate hinnangud ebastabiilseks.
+\end{itemize}
+
+\textbf{Lineaarse mudeli variatsioonid}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Regressioon läbi nullpunkti:} Mõnikord on vaja hinnata lineaarset mudelit, kus vabaliige on null (\texttt{b\_0\ =\ 0}). See tähendab, et regressioonsirge läbib koordinaatide alguspunkti. Sellisel juhul ei saa kasutada tavapärast determinatsioonikordajat \texttt{R²}.
+\item
+  \textbf{Standardiseeritud kordajad:} Standardiseeritud kordajad näitavad, mitme standardhälbe võrra muutub funktsioontunnus, kui argumenttunnus suureneb ühe standardhälbe võrra. Standardiseeritud tunnustega lineaarse mudeli vabaliige on 0, st regressioonijoon läbib nullpunkti.
+\item
+  \textbf{Logaritmiline mudel:} Mittelineaarsete seoste modelleerimiseks on mõnikord kasulik logaritmida nii funktsioontunnust kui ka argumenttunnuseid. See võimaldab teatud juhtudel teisendada mittelineaarse seose lineaarseks ja kasutada seeläbi lineaarset mudelit.
+\end{itemize}
 
 \chapter{Mittelineaarne regressioon}\label{mittelineaarne-regressioon}
 
@@ -2917,6 +2365,8 @@ Näiteks, kui soovime R-is kasutada \texttt{nls()} mudelit, mis kirjeldab puu k�
 \CommentTok{\# Laadime peatükis kasutatavad paketid}
 \FunctionTok{library}\NormalTok{(dplyr)}
 \FunctionTok{library}\NormalTok{(readxl)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(broom)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2924,15 +2374,25 @@ Näiteks, kui soovime R-is kasutada \texttt{nls()} mudelit, mis kirjeldab puu k�
 \begin{Highlighting}[]
 \CommentTok{\# Laadime andmed sisse failist ning}
 \CommentTok{\# filtreerime välja puud, mille h \textgreater{} 0}
-\NormalTok{andmed }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"data/naited.xlsx"}\NormalTok{,}\StringTok{"prt\_andmed"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(h }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{)}
+\NormalTok{andmed }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"data/naited.xlsx"}\NormalTok{,}\StringTok{"PH\_MA"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{naidis}
+Olgu meil ülesandeks lähendada Eesti riigimetsa pohla kasvukohatüübi männikute keskmiste kõrguste vanuserea andmed Mitcherlichi kasvufunktsiooniga
+\end{naidis}
+
+\[H = c0 * (1 - exp(-c1 * A))^{c2}\]
+
+Kus A on vanus, H on puistu kõrgus ning c0, c1 ja c2 on mudeli parameetrid.
+
+Mudeli lähendamiseks koostame esmalt oma funktsiooni ning lisame täiendava teisenduse, kus vanus jagatakse 100-ga. Kuna parameeter c1 korrutatakse valemis vanusega ning selle parameetri väärtus on väga väike, siis lähendamine on lihtsam, kui see on sada korda suurem ehk 0,02 asemel on 2.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Määratleme mudeli funktsioon}
-\NormalTok{puu\_mudel }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(D, a, b, c) \{}
- \FloatTok{1.3} \SpecialCharTok{+}\NormalTok{ a }\SpecialCharTok{*}\NormalTok{ (D }\SpecialCharTok{/}\NormalTok{ (D }\SpecialCharTok{+}\NormalTok{ b))}\SpecialCharTok{\^{}}\NormalTok{c}
+\NormalTok{kasvuMudel }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(A, c0, c1, c2) \{}
+\NormalTok{ c0 }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}} \FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{c1 }\SpecialCharTok{*}\NormalTok{ A}\SpecialCharTok{/}\DecValTok{100}\NormalTok{))}\SpecialCharTok{\^{}}\NormalTok{c2}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -2940,14 +2400,14 @@ Näiteks, kui soovime R-is kasutada \texttt{nls()} mudelit, mis kirjeldab puu k�
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Omista algväärtused parameetritele}
-\NormalTok{alg\_param }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\AttributeTok{a =} \DecValTok{1}\NormalTok{, }\AttributeTok{c =} \FloatTok{0.5}\NormalTok{)}
+\NormalTok{alg\_param }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\AttributeTok{c0 =} \DecValTok{20}\NormalTok{, }\AttributeTok{c1 =} \DecValTok{2}\NormalTok{, }\AttributeTok{c2 =} \DecValTok{1}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Sobita mudel andmetele}
-\NormalTok{mudel }\OtherTok{\textless{}{-}} \FunctionTok{nls}\NormalTok{(h }\SpecialCharTok{\textasciitilde{}} \FunctionTok{puu\_mudel}\NormalTok{(d, a, }\DecValTok{5}\NormalTok{, c), }\AttributeTok{data =}\NormalTok{ andmed, }\AttributeTok{start =}\NormalTok{ alg\_param)}
+\NormalTok{mudel }\OtherTok{\textless{}{-}} \FunctionTok{nls}\NormalTok{(H }\SpecialCharTok{\textasciitilde{}} \FunctionTok{kasvuMudel}\NormalTok{(A, c0, c1, c2), }\AttributeTok{data =}\NormalTok{ andmed, }\AttributeTok{start =}\NormalTok{ alg\_param)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2960,96 +2420,219 @@ Näiteks, kui soovime R-is kasutada \texttt{nls()} mudelit, mis kirjeldab puu k�
 
 \begin{verbatim}
 
-Formula: h ~ puu_mudel(d, a, 5, c)
+Formula: H ~ kasvuMudel(A, c0, c1, c2)
 
 Parameters:
-  Estimate Std. Error t value Pr(>|t|)    
-a   34,341      1,430   24,01  < 2e-16 ***
-c    2,056      0,216    9,51  2,4e-12 ***
+   Estimate Std. Error t value Pr(>|t|)    
+c0  26,8400     0,2211   121,4  < 2e-16 ***
+c1   2,2104     0,0787    28,1  1,4e-11 ***
+c2   1,4858     0,0510    29,1  9,2e-12 ***
 ---
 Signif. codes:  0 '***' 0,001 '**' 0,01 '*' 0,05 '.' 0,1 ' ' 1
 
-Residual standard error: 1,32 on 45 degrees of freedom
+Residual standard error: 0,175 on 11 degrees of freedom
 
-Number of iterations to convergence: 7 
-Achieved convergence tolerance: 1,14e-07
+Number of iterations to convergence: 4 
+Achieved convergence tolerance: 1,52e-06
 \end{verbatim}
 
-Esitame selle kohta ka graafiku, millele lisame mudeli joone funktsioonidega \texttt{curve()} ja \texttt{predict()}, milles kasutame loodud mudeli objekti.
+Esitame selle kohta ka graafiku.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{plot}\NormalTok{(h}\SpecialCharTok{\textasciitilde{}}\NormalTok{d, andmed, }\AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{35}\NormalTok{), }\AttributeTok{xlim =} \FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{40}\NormalTok{))}
-\FunctionTok{curve}\NormalTok{(}\FunctionTok{predict}\NormalTok{(mudel, }\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{d =}\NormalTok{ x)), }\DecValTok{10}\NormalTok{, }\DecValTok{40}\NormalTok{, }\AttributeTok{add=}\NormalTok{T, }\AttributeTok{col =} \DecValTok{2}\NormalTok{)}
+\FunctionTok{ggplot}\NormalTok{(andmed, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ A, }\AttributeTok{y =}\NormalTok{ H)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{stat\_function}\NormalTok{(}
+    \AttributeTok{fun =} \ControlFlowTok{function}\NormalTok{(x)}
+      \FunctionTok{predict}\NormalTok{(mudel, }\AttributeTok{newdata =} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{A =}\NormalTok{ x)),}
+    \AttributeTok{color =} \DecValTok{2}
+\NormalTok{  ) }
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[!ht]
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-79-1} \caption{Mittelineaarne regressioon}\label{fig:unnamed-chunk-79}
+\begin{figure}[H]
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-53-1} \caption{Mittelineaarne regressioon}\label{fig:unnamed-chunk-53}
 \end{figure}
 
-Kontrollime
+\textbf{\texttt{ggplot(andmed,\ aes(x\ =\ A,\ y\ =\ H))\ +}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\texttt{ggplot(andmed,\ ...)}:} See alustab \texttt{ggplot2} graafiku loomist. \texttt{andmed} on andmestik (tõenäoliselt \texttt{data.frame} objekt), mida graafikul kasutatakse.
+\item
+  \textbf{\texttt{aes(x\ =\ A,\ y\ =\ H)}:} See määrab graafiku esteetilised omadused (aesthetics).
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{\texttt{x\ =\ A}:} Määrab, et graafiku x-teljel kuvatakse andmestiku \texttt{andmed} veerg \texttt{A}.
+  \item
+    \textbf{\texttt{y\ =\ H}:} Määrab, et graafiku y-teljel kuvatakse andmestiku \texttt{andmed} veerg \texttt{H}.
+  \end{itemize}
+\item
+  \textbf{\texttt{+}:} See märk näitab, et graafiku definitsioon jätkub järgmistel ridadel (lisatakse kihte).
+\end{itemize}
+
+\textbf{\texttt{geom\_point()\ +}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\texttt{geom\_point()}:} See lisab graafikule punkti kihi (scatter plot). Iga punkt vastab ühele vaatluspaarile andmestikus \texttt{andmed}, kus punkti x-koordinaat on \texttt{A} väärtus ja y-koordinaat on \texttt{H} väärtus.
+\item
+  \textbf{\texttt{+}:} Jätkab graafiku definitsiooni.
+\end{itemize}
+
+\textbf{\texttt{stat\_function(...)}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\texttt{stat\_function(...)}:} See lisab graafikule funktsiooni joonistamise kihi. See on kasulik, kui tahame joonistada mingit matemaatilist funktsiooni või, nagu antud juhul, mudeli ennustust.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{\texttt{fun\ =\ function(x)\ predict(mudel,\ newdata\ =\ data.frame(A\ =\ x))}:} See määrab joonistatava funktsiooni.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \textbf{\texttt{function(x)}:} See defineerib anonüümse funktsiooni, mille sisendiks on \texttt{x}. \texttt{stat\_function} annab sellele funktsioonile automaatselt x-telje väärtused mingis vahemikus.
+    \item
+      \textbf{\texttt{predict(mudel,\ newdata\ =\ data.frame(A\ =\ x))}:} See on funktsiooni tuum. See kutsub välja \texttt{predict()} funktsiooni, et arvutada \texttt{mudel} (eeldame, et see on eelnevalt defineeritud \texttt{nls} mudel) ennustused uutele andmepunktidele.
+
+      \begin{itemize}
+      \tightlist
+      \item
+        \textbf{\texttt{mudel}:} Eelnevalt defineeritud mudeli objekt.
+      \item
+        \textbf{\texttt{newdata\ =\ data.frame(A\ =\ x)}:} See loob uue \texttt{data.frame} objekti, kus veeru \texttt{A} väärtuseks on funktsiooni sisend \texttt{x}. Sisuliselt arvutab see mudeli ennustused erinevatele \texttt{A} väärtustele, mida \texttt{stat\_function} ette annab.
+      \end{itemize}
+    \end{itemize}
+  \item
+    \textbf{\texttt{color\ =\ 2}:} See määrab joonistatava joone värviks punase (värvikood 2 R-is on punane).
+  \end{itemize}
+\end{itemize}
+
+Järgnevalt kontrollime ka jääkide hajuvust.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{plot}\NormalTok{(}\FunctionTok{fitted}\NormalTok{(mudel), }\FunctionTok{resid}\NormalTok{(mudel),}
- \AttributeTok{xlab =} \StringTok{"Ennustatud väärtused"}\NormalTok{,}
- \AttributeTok{ylab =} \StringTok{"Jäägid"}
-\NormalTok{ )}
-\FunctionTok{abline}\NormalTok{(}\AttributeTok{h =} \DecValTok{0}\NormalTok{, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{)}
+\FunctionTok{ggplot}\NormalTok{(}\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{fitted =} \FunctionTok{fitted}\NormalTok{(mudel), }\AttributeTok{resid =} \FunctionTok{resid}\NormalTok{(mudel)),}
+       \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ fitted, }\AttributeTok{y =}\NormalTok{ resid)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept =} \DecValTok{0}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"gam"}\NormalTok{, }\AttributeTok{formula =}\NormalTok{ y }\SpecialCharTok{\textasciitilde{}} \FunctionTok{s}\NormalTok{(x))  }\CommentTok{\# Lisab sujuva joone GAM mudeli abil}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[!ht]
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-80-1} \caption{Jäägid vs ennustatud}\label{fig:unnamed-chunk-80}
+\begin{figure}[H]
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-54-1} \caption{Jäägid vs ennustatud}\label{fig:unnamed-chunk-54}
 \end{figure}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{qqnorm}\NormalTok{(}\FunctionTok{resid}\NormalTok{(mudel), }\AttributeTok{main =} \StringTok{""}\NormalTok{)}
-\FunctionTok{qqline}\NormalTok{(}\FunctionTok{resid}\NormalTok{(mudel), }\AttributeTok{col =} \StringTok{"red"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\textbf{\texttt{ggplot(data.frame(fitted\ =\ fitted(mudel),\ resid\ =\ resid(mudel)),\ ...)}}
 
-\begin{figure}[!ht]
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-81-1} \caption{Jääkide normaaljaotuse test}\label{fig:unnamed-chunk-81}
-\end{figure}
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\texttt{ggplot(...)}:} See alustab \texttt{ggplot2} graafiku loomist.
+\item
+  \textbf{\texttt{data.frame(fitted\ =\ fitted(mudel),\ resid\ =\ resid(mudel))}:} See loob andmestiku (\texttt{data.frame} objekti), mida graafikul kasutatakse. See on selle koodilõigu tuum.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{\texttt{fitted\ =\ fitted(mudel)}:} See arvutab mudeli \texttt{mudel} abil ennustatud väärtused (fitted values) kõikidele andmepunktidele, mis olid algselt kasutusel mudeli treenimisel. Need väärtused salvestatakse tulpa nimega \texttt{fitted}.
+  \item
+    \textbf{\texttt{resid\ =\ resid(mudel)}:} See arvutab jäägid (residuals) mudeli \texttt{mudel} jaoks. Jääk on tegeliku väärtuse ja ennustatud väärtuse vahe. Need väärtused salvestatakse tulpa nimega \texttt{resid}.
+  \end{itemize}
+\item
+  \textbf{\texttt{aes(x\ =\ fitted,\ y\ =\ resid)\ +}:} See määrab graafiku esteetilised omadused:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{\texttt{x\ =\ fitted}:} Määrab, et x-teljel kuvatakse ennustatud väärtused (tulbast \texttt{fitted}).
+  \item
+    \textbf{\texttt{y\ =\ resid}:} Määrab, et y-teljel kuvatakse jäägid (tulbast \texttt{resid}).
+  \end{itemize}
+\item
+  \textbf{\texttt{+}:} See märk näitab, et graafiku definitsioon jätkub järgmistel ridadel.
+\end{itemize}
+
+\textbf{\texttt{geom\_point()\ +}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\texttt{geom\_point()}:} See lisab graafikule punkti kihi. Iga punkt vastab ühele vaatluspunktile, kus punkti x-koordinaat on ennustatud väärtus ja y-koordinaat on jääk.
+\item
+  \textbf{\texttt{+}:} Jätkab graafiku definitsiooni.
+\end{itemize}
+
+\textbf{\texttt{geom\_hline(yintercept\ =\ 0)\ +}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\texttt{geom\_hline(yintercept\ =\ 0)}:} See lisab graafikule horisontaalse joone, mille y-koordinaat on 0. See joon on abiks jääkide jaotuse hindamisel - ideaalis peaksid jäägid paiknema juhuslikult nulljoone ümber.
+\item
+  \textbf{\texttt{+}:} Jätkab graafiku definitsiooni.
+\end{itemize}
+
+\textbf{\texttt{geom\_smooth(method\ =\ "gam",\ formula\ =\ y\ \textasciitilde{}\ s(x))}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\texttt{geom\_smooth(...)}:} See lisab graafikule silutud joone kihi.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{\texttt{method\ =\ "gam"}:} See määrab silumise meetodiks GAM (Generalized Additive Model). GAM on paindlik meetod mittelineaarsete seoste modelleerimiseks.
+  \item
+    \textbf{\texttt{formula\ =\ y\ \textasciitilde{}\ s(x)}:} See määrab mudeli valemi.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \textbf{\texttt{y\ \textasciitilde{}\ ...}:} Näitab, et modelleeritakse y-telje väärtust (jääke).
+    \item
+      \textbf{\texttt{s(x)}:} Näitab, et x-telje väärtuse (ennustatud väärtuste) ja y-telje väärtuse (jääkide) vahelist seost modelleeritakse sujuva funktsiooniga (splainiga). See võimaldab tuvastada mittelineaarseid mustreid.
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\textbf{Mida sellelt graafikult otsida:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Juhuslik hajuvus:} Ideaalis peaksid punktid paiknema juhuslikult nulljoone ümber, ilma selge mustrita.
+\item
+  \textbf{Süsteemne muster:} Kui punktid moodustavad mingi süsteemse mustri (nt kaar, lehter), siis see viitab probleemidele mudelis (nt mittelineaarsus, heteroskedastiivsus).
+\item
+  \textbf{Silutud joone kuju:} Kui silutud joon on sirge ja horisontaalne, siis see viitab, et ennustatud väärtuste ja jääkide vahel puudub süsteemne seos. Kui joon on kõver, siis see viitab mittelineaarsele seosele, mida mudel ei pruugi arvesse võtta.
+\end{itemize}
 
 \clearpage
 
 \section{MS Excel}\label{ms-excel-1}
 
-\textbf{Andmete sisestamine.} Avage fail, kus on puude diameetrid ja kõrgused.
+MS Exceli keskkonnas saab mittelineaarse funktsiooni parameetrite hindamiseks kasutada optimeerimisprotseduuri Solver. Selleks tuleks MS Exceli töölehele salvestada argumenttunnuse väärtused, funktsioontunnuse väärtused, prognoosifunktsiooni arvutusvalemid ja prognoosijääkide ruutude summa arvutuseeskiri. Samuti peavad töölehel olema lahtrid funktsiooni parameetrite jaoks, mida prognoosifunktsiooni arvutusvalemid kasutavad. MS Exceli optimeerimisalgoritm käivitatakse menüüst: Andmed, Solver.
 
-\textbf{Algparameetrite väärtuste sisestamine:} Valige kolm vaba lahtrit ja sisestage neisse algparameetrite väärtused a, b ja c jaoks. Need väärtused võivad olla suvalised, aga parema tulemuse saamiseks peaksid need olema lähedased oodatud väärtustele. Näiteks võite alustada a = 20, b = 10 ja c = 3. Nimetage need lahtrid vastavalt ``a'', ``b'' ja ``c''.
+Andmete ettevalmistamisel tuleb esmalt määrata lahtrid, kuhu kirjutatakse mudeli parameetrid. Järgnevas näites on need lahtrites G1:G3 ning nende nimetused on lahtrites F1:F3. Kõrguse kõrval tulpa on sisestatud valem, millega kõrgust prognoositakse sõltuvalt vanusest. Eraldi on välja arvutatud prognoosijääkide ruutude summa (SSE) MS Exceli funktsiooniga \texttt{SUMXMY2()}, millel on sisendiks tegelik kõrgus ja prognoositud kõrgus.
 
-\textbf{Arvutatud kõrguse veeru loomine:} Looge uus veerg nimega ``Arvutatud H''. Esimesse lahtrisse sisestage valem: \texttt{=1.3\ +\ \$a\ *\ (\$D2\ /\ (\$D2\ +\ \$b))\^{}\$c}. Asendage \texttt{\$a}, \texttt{\$b} ja \texttt{\$c} vastavate algparameetrite lahtritega (nt \texttt{\$F\$1,}\$F\(2, `\)F\(3`). `\)D2` on esimese diameetri väärtus. See valem arvutab kõrguse vastavalt sisestatud diameetrile ja algparameetrite väärtustele.
+Solverile tuleb anda ette lahtrid, mille väärtust minimeeritakse (SSE) ja lahtrid, mille väärtusi protseduur hakkab muutma, et minimeerida prognoosijääkide ruutude summat.
 
-\textbf{Valemi kopeerimine:} Lohistage esimese ``Arvutatud H'' lahtri paremas alumises nurgas olevat ruudukest alla, et kopeerida valem kõikidele diameetri väärtustele.
-
-\textbf{Ruutkeskmise vea arvutamine:} Valige vaba lahter ja sisestage valem \texttt{=SUMXMY2(H2:Hn,\ E2:En)/COUNT(H2:Hn)}. See valem arvutab ruutkeskmise vea (RMSE) mõõdetud kõrguse (H) ja arvutatud kõrguse (Arvutatud H) vahel. \texttt{H2:Hn} on mõõdetud kõrguste vahemik ja \texttt{E2:En} on arvutatud kõrguste vahemik.
-
-\textbf{Solveri käivitamine:} Avage menüüst ``Andmed'' -\textgreater{} ``Solver''. Kui Solverit menüüs ei ole, peate selle lisandmoodulitest aktiveerima (Fail -\textgreater{} Suvandid -\textgreater{} Lisandmoodulid -\textgreater{} Exceli lisandmoodulid -\textgreater{} Mine\ldots{} -\textgreater{} Märkige ruut ``Solver Add-in'' ja vajutage ``OK'').
-
-\textbf{Solveri seadistamine:}
-* Määrake ``Seadista eesmärk'' lahtriks RMSE lahter.
-* Valige ``Min'', et minimeerida RMSE.
-* ``Muutuvate lahtrite kaupa'' lahtritesse sisestage algparameetrite a, b ja c lahtrid.
-* Vajutage ``Lahenda''.
-
-\textbf{Tulemuste analüüs:} Solver kohandab parameetrite a, b ja c väärtusi, et minimeerida RMSE. Kui Solver on lahenduse leidnud, kuvatakse leitud parameetrite väärtused ja minimaalne RMSE. Nüüd on teil mittelineaarne regressioonimudel, mis kirjeldab puude kõrguse ja diameetri seost teie andmete põhjal.
-
-\textbf{Lisamärkused:}
-
-\begin{itemize}
-\tightlist
-\item
-  Solver ei pruugi alati leida optimaalset lahendust. Proovige erinevaid algparameetrite väärtusi ja käivitage Solver uuesti.
-\item
-  Saate visualiseerida oma andmeid ja leitud regressioonikõverat, luues hajuvusdiagrammi, kus x-teljel on diameeter ja y-teljel kõrgus. Lisage diagrammile trendijoon, valides ``Kohandatud'' ja sisestades regressioonivõrrandi.
-\item
-  Hinnake mudeli sobivust, arvestades RMSE väärtust ja visuaalset vastavust andmetele.
-\end{itemize}
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{pildid/ms_excel_solver.png}}
+\caption{Solveriga parameetrite lähendamine}
+\end{figure}
 
 \chapter{Mitteparameetriline analüüs}\label{mitteparameetriline-analuxfcuxfcs}
 
@@ -3057,7 +2640,7 @@ Kontrollime
 
 Üldistatud aditiivne mudel (GAM) on statistiline mudel, mis ühendab lineaarse mudeli omadused aditiivsete funktsioonide abil. Lihtsamalt öeldes on GAM mudel, mis modelleerib funktsioontunnust ühe või mitme argumenttunnuse summa abil, kus iga argumenttunnuse mõju funktsioontunnusele modelleeritakse splainfunktsiooni abil.
 
-Splainfunktsioon on matemaatiline funktsioon, mida kasutatakse andmete interpoleerimiseks ja sujuvaks lähendamiseks. See on ühesuguse struktuuriga tükiti polünomiaalne funktsioon, mis on konstrueeritud nii, et see oleks sujuv ja pidev andmepunktide vahel. See tähendab, et spline funktsioonil ei ole järske hüppeid ega nurki, mis teeb selle ideaalseks tööriistaks sujuvate kõverate ja pindade modelleerimiseks.
+Splainfunktsioon on matemaatiline funktsioon, mida kasutatakse andmete interpoleerimiseks ja sujuvaks lähendamiseks. See on ühesuguse struktuuriga tükiti polünomiaalne funktsioon, mis on konstrueeritud nii, et see oleks sujuv ja pidev andmepunktide vahel. See tähendab, et splinefunktsioonil ei ole järske hüppeid ega nurki, mis teeb selle ideaalseks tööriistaks sujuvate kõverate ja pindade modelleerimiseks.
 
 Selles näites kasutame R-i paketti \texttt{mgcv} GAM mudeli sobitamiseks. Eesmärk on modelleerida puu kõrguse ja diameetri vahelist seost, eeldades, et see seos ei pruugi olla lineaarne.
 
@@ -3172,8 +2755,8 @@ Saame visualiseerida diameetri ja kõrguse vahelist seost funktsiooni \texttt{pl
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[!ht]
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-88-1} \caption{Kõrguse sõltuvus diameetrist}\label{fig:unnamed-chunk-88}
+\begin{figure}[H]
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-61-1} \caption{Kõrguse sõltuvus diameetrist}\label{fig:unnamed-chunk-61}
 \end{figure}
 
 See kuvab graafiku, mis näitab diameetri mõju puu kõrgusele. Pidevjoon näitab modelleeritud seost ja kriipsjooned näitavad usaldusvahemikku. See graafik aitab visuaalselt hinnata seose kuju ja mittelineaarsust.
@@ -3183,19 +2766,21 @@ Saame kasutada mudelit uute puude kõrguse ennustamiseks, andes ette diameetri v
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Uute diameetrite väärtused}
-\NormalTok{uued\_diameetrid }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{d =} \FunctionTok{c}\NormalTok{(}\DecValTok{12}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{32}\NormalTok{))}
+\NormalTok{uued\_andmed }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{d =} \FunctionTok{c}\NormalTok{(}\DecValTok{12}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{32}\NormalTok{))}
 
 \CommentTok{\# Ennustuste tegemine}
-\NormalTok{ennustused }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(mudel, }\AttributeTok{newdata =}\NormalTok{ uued\_diameetrid)}
+\NormalTok{uued\_andmed}\SpecialCharTok{$}\NormalTok{h }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(mudel, }\AttributeTok{newdata =}\NormalTok{ uued\_andmed)}
 
 \CommentTok{\# Ennustuste kuvamine}
-\FunctionTok{print}\NormalTok{(ennustused)}
+\FunctionTok{print}\NormalTok{(uued\_andmed)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-   1    2    3 
-18,1 24,1 26,3 
+   d    h
+1 12 18,1
+2 22 24,1
+3 32 26,3
 \end{verbatim}
 
 \section{\texorpdfstring{Visualiseerimine paketiga \texttt{ggplot2}}{Visualiseerimine paketiga ggplot2}}\label{visualiseerimine-paketiga-ggplot2}
@@ -3221,8 +2806,8 @@ Kasutame \texttt{ggplot()} funktsiooni koos \texttt{geom\_point()} ja \texttt{ge
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[!ht]
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-91-1} \caption{Kõrguse sõltuvus diameetrist}\label{fig:unnamed-chunk-91}
+\begin{figure}[H]
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-64-1} \caption{Kõrguse sõltuvus diameetrist}\label{fig:unnamed-chunk-64}
 \end{figure}
 
 Selgitus:
@@ -3263,8 +2848,8 @@ Sarnaselt eelmisele näitele saate \texttt{ggplot2} abil graafikut vastavalt oma
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[!ht]
-\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-92-1} \caption{Kõrguse sõltuvus diameetrist}\label{fig:unnamed-chunk-92}
+\begin{figure}[H]
+\includegraphics[width=0.8\linewidth]{_main_files/figure-latex/unnamed-chunk-65-1} \caption{Kõrguse sõltuvus diameetrist}\label{fig:unnamed-chunk-65}
 \end{figure}
 
 Selles näites:

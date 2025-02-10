@@ -1,0 +1,66 @@
+\babel@toc {estonian}{}\relax 
+\contentsline {chapter}{\numberline {1}Sissejuhatus}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Statistikaprogramm R}{6}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}R-i paketid}{7}{subsection.1.1.1}%
+\contentsline {section}{\numberline {1.2}MS Excel}{8}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Andmestik}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Andmestiku struktuur R keskkonnas}{12}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Vektor}{12}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Maatriks}{13}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Andmetabel}{13}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}List}{14}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}Andmestike importimine R keskkonda}{14}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Andmestike rühmitamine}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Jaotused}{17}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Empiiriline jaotus}{17}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Teoreetiline jaotus}{18}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Histogramm}{18}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}R keskkonnas:}{18}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Exceli keskkonnas:}{20}{subsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.1}Histogramm}{20}{subsubsection.3.2.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2.2}Sageduste arvutamine}{20}{subsubsection.3.2.2.2}%
+\contentsline {chapter}{\numberline {4}Karakteristikud}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Keskmised}{23}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Aritmeetiline keskmine}{23}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Ruutkeskmine}{24}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Geomeetriline keskmine}{24}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Harmooniline keskmine}{25}{subsection.4.1.4}%
+\contentsline {section}{\numberline {4.2}Kvantiilid}{25}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Mediaan}{26}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Jaotusfunktsioonid}{27}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Hüpotees}{27}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Jaotusfunktsioon}{29}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Normaaljaotus}{31}{section.5.3}%
+\contentsline {section}{\numberline {5.4}T-jaotus}{32}{section.5.4}%
+\contentsline {section}{\numberline {5.5}F-jaotus}{35}{section.5.5}%
+\contentsline {section}{\numberline {5.6}\(\mitchi ^2\)-jaotus (hii-ruut-jaotus)}{38}{section.5.6}%
+\contentsline {chapter}{\numberline {6}Statistilised hinnangud}{41}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Punkthinnangud}{41}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Valimi maht}{41}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Aritmeetiline keskmine}{41}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Dispersioon}{42}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}Standardhälve}{42}{subsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.1.5}Standardviga}{42}{subsection.6.1.5}%
+\contentsline {subsection}{\numberline {6.1.6}Katsetäpsus}{43}{subsection.6.1.6}%
+\contentsline {subsection}{\numberline {6.1.7}Standardhälbe viga}{43}{subsection.6.1.7}%
+\contentsline {subsection}{\numberline {6.1.8}Dispersiooni viga}{43}{subsection.6.1.8}%
+\contentsline {subsection}{\numberline {6.1.9}Variatsioonikordaja}{44}{subsection.6.1.9}%
+\contentsline {subsection}{\numberline {6.1.10}Variatsioonikordaja viga}{44}{subsection.6.1.10}%
+\contentsline {section}{\numberline {6.2}Vahemikhinnangud}{44}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Keskväärtuse usalduspiirid}{44}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Dispersiooni usalduspiirid}{46}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Standardhälbe usalduspiirid}{48}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}Binoomjaotuse parameetri p usalduspiirid}{48}{subsection.6.2.4}%
+\contentsline {section}{\numberline {6.3}Valimi mahu hindamine}{49}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Statistilised hüpoteesid}{50}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}F-test normaaljaotusega üldkogumite dispersioonide võrdlemiseks}{50}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Keskmiste võrdlemine paarikaupa andmete korral normaaljaotusega üldkogumist}{52}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Sõltumatuse hii-ruut-test}{53}{subsection.6.4.3}%
+\contentsline {chapter}{\numberline {7}Mitme tunnuse koosanalüüs}{57}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Lineaarne regressioon}{57}{section.7.1}%
+\contentsline {chapter}{\numberline {8}Mittelineaarne regressioon}{61}{chapter.8}%
+\contentsline {section}{\numberline {8.1}R}{61}{section.8.1}%
+\contentsline {section}{\numberline {8.2}MS Excel}{67}{section.8.2}%
+\contentsline {chapter}{\numberline {9}Mitteparameetriline analüüs}{69}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Üldistatud aditiivne mudel}{69}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Visualiseerimine paketiga \texttt {ggplot2}}{72}{section.9.2}%

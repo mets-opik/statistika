@@ -214,9 +214,9 @@ qnorm(0.975, 0, 1)
 
 MS Exceli keskkonnas normaaljaotusega seotud arvutuste tegemiseks saab kasutada järgmisi funktsioone:
 
-- Näide: NORM.DIST(1,96; 0; 1; TRUE) annab tõenäosuse, et normaaljaotuse väärtus on väiksem või võrdne 1.96.
-- Näide: NORM.S.DIST(1,96; TRUE) annab tõenäosuse, et standardnormaaljaotuse väärtus on väiksem või võrdne 1.96.
-- Näide: NORM.INV(0,975; 0; 1) annab normaaljaotuse kvantiili, mis vastab 0.975 tõenäosusele.
+- Näide: `NORM.DIST(1,96; 0; 1; TRUE)` annab tõenäosuse, et normaaljaotuse väärtus on väiksem või võrdne 1.96.
+- Näide: `NORM.S.DIST(1,96; TRUE)` annab tõenäosuse, et standardnormaaljaotuse väärtus on väiksem või võrdne 1.96.
+- Näide: `NORM.INV(0,975; 0; 1)` annab normaaljaotuse kvantiili, mis vastab 0.975 tõenäosusele.
 - Näide: `NORM.S.INV(0,975)` annab standardnormaaljaotuse kvantiili, mis vastab 0.975 tõenäosusele.
 
 

@@ -1,281 +1,495 @@
 # Statistilised hinnangud
+## Punkthinnangud
 
-## Hinnangud
+Mõistmaks punktihinnanguid, on oluline eristada valimi karakteristikuid üldkogumi vastavatest parameetritest. Punktihinnang on valimi andmetel arvutatud üksik väärtus, mida kasutatakse üldkogumi parameetri hindamiseks. Alljärgnevalt on kirjeldatud küsitud punktihinnangud, tuginedes antud allikatele.
 
-### Punkthinnang
+### Valimi maht
 
-Üldkogumi tunnuseid analüüsides huvitavad uurijat tavaliselt järgnevad probleemid:
+Valimi maht on valimisse kuuluvate elementide arv. Valimi mahu tähis on $n$. Valimi maht on oluline, kuna see mõjutab hinnangute täpsust. Suurema valimi korral on hinnangud üldjuhul täpsemad ja usaldusväärsemad kui väikese valimi korral. Valimi suuruse määramiseks on olemas valemid, mis arvestavad soovitavat täpsust ja usaldusnivood.
 
-- üldkogumi tunnuse jaotusseadus;
-- selle jaotuse arvkarakteristikute ehk parameetrite arvulised väärtused (hinnangud);
-- otsustused üldkogumi parameetrite kohta (hüpoteesid).
+### Aritmeetiline keskmine
 
-Statistilises analüüsis vaadatakse sageli esimesena, kas uuritavate andmete jaotus meenutab normaaljaotust, mis on teatud tüüpi jaotus, kus enamik väärtusi koondub keskmise ümber ja vähem levinud väärtused jäävad äärtesse. Mõnikord eeldatakse, et andmed järgivad normaaljaotust ilma seda eraldi kontrollimata, sest varasemad uuringud või teoreetilised põhjendused viitavad sellele. Kui aga selgub, et andmed ei järgi normaaljaotust, tuleks kasutada erilisi, niinimetatud jaotusvabu ehk mitteparameetrilisi meetodeid. Need meetodid võimaldavad teha järeldusi andmekogumi kohta ka siis, kui eeldatav jaotus ei ole normaalne, tagades seeläbi täpsemad tulemused.
-
-Üldkogumi parameetri punkthinnang on number, mille saame valimi andmetest, kasutades kindlat arvutusviisi. See number annab meile aimu, mis võiks olla mingi omaduse tegelik väärtus kogu rühmas, mida me uurime. Punkthinnangut näidatakse sageli sama sümboliga, mida kasutatakse selle omaduse kirjeldamiseks kogu grupis, lisades sellele väikese erimärgi nagu katuse või tärni. Kuna valim võetakse juhuslikult, sõltub punkthinnangu väärtus juhusest ja see võib iga kord erineda, kui võtame uue valimi. Seetõttu käsitleme punkthinnangut kui juhuslikku suurust, millel on oma jaotus ja parameetrid nagu keskmine väärtus või hajuvus. See tähendab, et punkthinnangu abil püüame mõista kogu grupi omadusi, lähtudes vaid osast sellest grupist.
-
-Üldkogumi parameetri, näiteks keskväärtuse, hindamiseks erinevatest valimi andmetest võib kasutada mitmesuguseid arvutusreegleid. Üks lihtne viis keskväärtuse määramiseks on võtta valimi kõige väiksema ja suurima väärtuse keskmine, st. liita need kaks väärtust kokku ja jagada kahega. See meetod on eriti kasulik, kui valim on väike ja soovitakse kiiresti saada ligikaudset hinnangut keskväärtusele. Kui aga valim on suur ja sisaldab äärmuslikke väärtusi, mis võivad tulemust moonutada, on mõistlik kasutada aritmeetilist keskmist, kust on välja jäetud kõige väiksem ja suurim väärtus. Selline lähenemine aitab vähendada üksikute ebatavaliste väärtuste mõju keskmisele, andes seeläbi usaldusväärsema ülevaate üldkogumi keskväärtusest.
-
-Punkthinnangute arvutuseeskirjade analüüsiga tegelevat matemaatilise statistika haru nimetatakse **hinnangute teooriaks**. 
-
-Nihketa hinnang tähendab, et kui me arvutame keskmise väärtuse kõikidest võimalikest hinnangutest, mida me saame valimi andmete põhjal, siis see keskmine peaks langema kokku tegeliku väärtusega, mida me üritame hinnata. See on nagu täpselt sihtpunkti tabamine. Kui hinnang on nihkega, siis see tähendab, et meie hinnangud kipuvad süstemaatiliselt olema kas liiga kõrged või liiga madalad võrreldes tegeliku väärtusega.
-
-Hinnangu headust mõjutab oluliselt ka selle hajuvus, mida näitab standardhälve – see ütleb meile, kui palju hinnangud tegelikust väärtusest keskmiselt kõiguvad. Mida väiksem on hajuvus, seda usaldusväärsem on hinnang. Hajuvus sõltub suuresti valimi suurusest: mida suurem on valim, seda väiksem on hajuvus. See tähendab, et hinnangu täpsuse suurendamiseks, näiteks kahekordistamiseks, peame valimi suurust suurendama neli korda. Teisisõnu, suurema valimi korral saame täpsemaid hinnanguid, mis aitab meil teha paremaid järeldusi üldkogumi kohta.
-
-Kui kasutame sama valimit, võime saada erinevaid punkthinnanguid, olenevalt sellest, millist arvutusreeglit rakendame. Näiteks keskväärtuse hindamisel võib aritmeetiline keskmine anda kõige väiksema hajuvusega tulemuse, samas kui valimi minimaalse ja maksimaalse väärtuse keskmise kasutamine toob kaasa kõige suurema hajuvuse. Seega, kui valime hindamiseeskirja, peaksime otsima sellise, mis annab võimalikult väikese hajuvusega hinnangu.
-
-#### Keskväärtus
-Keskväärtus ehk keskmine on statistiline näitaja, mis annab aritmeetilise keskmise kõikidest väärtustest mõõtmisel. See võimaldab kokku võtta suure hulga andmeid üheks esinduslikuks näitajaks, mis näitab, kui suur on väärtuste kogusumma ja kui palju on neid väärtusi.
-
-Keskväärtuse leidmiseks tuleb kõik andmed kokku liita ja seejärel jagada andmete arvu ehk elementide arvuga. Valem keskmise leidmiseks: Keskväärtus = (x1 + x2 + ... + xn) / n, kus x1, x2, ..., xn on andmed ja n on andmete arv.
-
-Näide R-is:
-```{r}
-andmed <- rnorm(1000, 10, 2)
-# Arvutame keskmise
-mean(andmed)
-```
-
-**Näide Excelis:**
-
-```{excel}
-Lahtrisse B1 sisesta järgnev valem: `=AVERAGE(andmeplokk)`
-```
-Excel arvutab nüüd nende andmete keskmise, näidates tulemust lahtris B1.
-
-#### Dispersioon
-
-Dispersioon on statistiline mõiste, mis kirjeldab, kui palju hajuvad andmed keskmisest väärtusest. Dispersioon annab aimu sellest, kui palju erinevad üksikandmed keskmisest ning kui suur on nende vahemik. Mida suurem on dispersioon, seda ebaühtlasemalt on andmed hajunud keskmise ümber.
+Aritmeetiline keskmine on valimi väärtuste summa jagatud valimi mahuga. See on mahukeskmine, mis tähendab, et selle väärtus sõltub igast üksikust valimi väärtusest. Aritmeetiline keskmine on efektiivne hinnang üldkogumi keskväärtusele, kuna see on nihketa ja väikseima hajuvusega hinnang. Aritmeetilise keskmise arvutamise valem on järgmine:
 
 
-**R näide:**
-
-```{r}
-# Leiame andmehulga dispersiooni funktsiooni var()
-var(andmed)
-```
-
-**Näide Excelis:**
-
-```{excel}
-`=VAR(andmeplokk)`
-```
-
-Mida väiksem on dispersioon, seda kitsam on andmehulga hajuvus. Dispersiooni arvutamise valem võib Excelis varieeruda sõltuvalt sellest, kas soovite arvutada dispersiooni populatsiooni (VAR.P) või valimi (VAR.S) põhjal. R-is kasutatakse funktsiooni `var()` populatsiooni hinnangu jaoks ning `var(x, y = 1)` valimi hinnangu jaoks, kus `x` on andmehulk ja `y` on valimi põhjal arvutatava dispersiooni korrigeerimise parameetrit väljendav arv.
-
-#### Dispersiooni viga
-Dispersiooni viga (inglise keeles dispersion error) on statistiline mõiste, mis mõõdab hajuvust või ebatäpsust andmete hulgas. See näitab, kui palju erinevad individuaalsed andmed keskmisest ning omab olulist tähtsust hinnangute usaldusväärsuse hindamisel.
-
-Dispersiooni viga arvutatakse tavaliselt järgmise valemiga:
-\[ SE = \sqrt{\frac{s^2}{n}} \]
-kus \(SE\) on dispersiooni viga, \(s^2\) on proovikogumi dispersioon (standardhälve ruudus) ja \(n\) on proovikogumi suurus.
-
-Näide R-is:
-
-```{r}
-# Arvutame keskmise ja standardhälbe
-keskmine <- mean(andmed)
-dispersioon <- sd(andmed)
-
-# Arvutame dispersiooni vea
-sqrt(dispersioon^2 / length(andmed))
-```
-
-**Näide Excelis:**
-
-```{excel}
-=SQRT(STDEV(A1:A10)^2/COUNT(A1:A10)) # dispersioonivea arvutamine
-```
-
-Nii R-is kui ka Excelis arvutatud dispersiooni viga võimaldab hinnata, kui hästi keskmine esindab tervet andmestikku ning milline võiks olla keskmise usaldusväärsus.
-
-#### Standardhälve
-
-Standardhälve (või standardhälve, lühendina SD) on statistiline mõõde, mis näitab, kui palju erinevad andmed üldisest keskmisest. Mida suurem on standardhälve, seda laiem on andmehulkude ja keskmise hajuvus. Standardhälve on oluline näitaja, kui soovitakse analüüsida andmete levikut ning võrrelda erinevaid andmehulki.
-
-**Näide R-is:**
-
-```{r}
-# Arvutame standardhälbe
-sd(andmed)
-```
-
-**Näide Excelis:**
-
-```{excel}
-=STDEV(A1:A10)
-```
-
-Näiteks standardhälve arvutamine saab olla vajalik, kui soovitakse teada saada, kui palju erinevad metsanduses mõõdetud puude kõrgused üksteisest ning millised puud on silmatorkavalt kõrgemad või madalamad.
-
-#### Standardhälbe viga
-Standardhälve viga on statistiline mõõde, mis näitab, kui palju keskmisest erinevad kogumandmete proovide keskmised tulemused. Standardhälbe viga arvutatakse kogu andmestiku standardhälbe ja proovide arvu ruutjuure suhtes ning seda väljendatakse tavaliselt protsentides.
-
-Standardhälbe vea valem on järgmine:
-\[ SE = \frac{s}{\sqrt{n}}\]
-Kus:
-- \(SE\) on standardhälbe viga
-- \(s\) on proovi standardhälve
-- \(n\) on proovide arv
-
-Näide R-is:
-
-```{r}
-# Arvuta standardhälve
-sd_andmed <- sd(andmed)
-
-# Arvuta standardhälbe viga
-sd_andmed / sqrt(length(andmed))
-```
-
-**Näide Excelis:**
+\[\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i\]
 
 
-- Arvuta standardhälbe viga: `=STDEV.S(A1:A10)/SQRT(COUNT(A1:A10))`
+kus $x_i$ on valimi elemendid ja $n$ on valimi maht. 
 
-Saadud tulemus annabki standardhälbe vea, mis aitab hinnata, kui täpselt proov keskmisega kogu populatsiooni keskmine kokku langeb. Mida väiksem on standardhälbe viga, seda täpsem on proovi keskmine hinnang kogu populatsiooni keskmisele.
+\begin{tabular}{ll}
+MS Exceli funktsioon & =AVERAGE(vahemik)\\
+R funktsioon & mean(vahemik) \\
+\end{tabular}
 
-#### Standardviga
-Standardviga on statistiline mõiste, mis näitab, kui suur on keskmise arvutatud vaatlusväärtuse kõikumine tegeliku keskmise hinnangu ümber. Standardviga väljendatakse tavaliselt samades ühikutes nagu uuritav tunnus. Mida väiksem on standardviga, seda usaldusväärsemat hinnangut saab anda populatsiooni keskmisele.
 
-Näide R-is:
-Eeldame, et meil on andmestik veekogude sügavuste kohta:
-```{r}
-keskmine <- mean(andmed)
-sd(andmed) / sqrt(length(andmed))
-```
-Antud näites arvutatakse andmestiku standardiga funktsiooniga `sd` ning seejärel jagatakse see juur arvutatud andmete arvuga, et saada standardviga.
 
-**Näide Excelis:**
+### Dispersioon
 
-```{excel}
-=STDEV(A1:A10) / SQRT(COUNT(A1:A10))
-```
-Seejärel saab Excelis automaatselt arvutada standardvea vastavalt antud andmestikule.
+Dispersioon on hälvete ruutude aritmeetiline keskmine. Dispersioon mõõdab andmete hajuvust keskmise ümber. Valimi dispersiooni tähistatakse $s_x^2$. Dispersioon on alati positiivne suurus. Valimi dispersioon arvutatakse järgmise valemi abil:
 
-#### Katsetäpsus
-Katsetäpsus või eksperimentaaltäpsus kirjeldab seda, kui hästi korduvad mõõtmised või katsetulemused on omavahel kooskõlas. See mõiste aitab hinnata katse tulemuste usaldusväärsust ja täpsust. Kõrge katsetäpsuse puhul on korduvate katsete tulemused sarnased, samas kui madala katsetäpsuse korral võivad tulemused varieeruda suurel määral.
+\[s_x^2 = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2\]
 
-Näide R-is:
-```{r}
-# Loome andmestiku
+kus $x_i$ on valimi elemendid, $\bar{x}$ on valimi aritmeetiline keskmine ja $n$ on valimi maht. Valemist on näha, et valimi dispersiooni arvutamisel kasutatakse jagajat $n-1$. Jagajat $n-1$ kasutatakse, et saada nihketa hinnang üldkogumi dispersioonile, sest kui kasutada jagajat $n$, saadaksime nihkega hinnangu. Suure valimi korral ($n > 100$) on erinevus tühine, aga väikeste valimite korral erinevad need oluliselt. 
 
-# Leiame keskmise ning standardhälbe
-keskmine <- mean(andmed)
-sd <- sd(andmed)
+\begin{tabular}{ll}
+MS Exceli funktsioon & =VAR(vahemik)\\
+R funktsioon & var(vahemik) \\
+\end{tabular}
 
-# Arvutame katsetäpsuse
-sd / keskmine
-```
 
-**Näide Excelis:**
 
-```{excel}
-`=STDEV(A1:A10)/AVERAGE(A1:A10)` (katsetäpsus)
-```
+### Standardhälve
 
-Sellisel juhul väljastavad R ja Excel katsetäpsuse väärtuse, mis aitab hinnata antud mõõtmiste korduvust ja usaldusväärsust.
+Standardhälve on ruutjuur dispersioonist. Standardhälve näitab, kui palju andmed keskmisest hajuvad. Valimi standardhälvet tähistatakse $s_e$. Standardhälvet on mugav kasutada, kuna mõõtühik on sama, mis kirjeldataval tunnusel. Standardhälve on alati positiivne. Valimi standardhälve arvutatakse valemiga
 
-#### Variatsioonikordaja
-Variatsioonikordaja on statistiline mõõde, mis väljendab protsendina muutuvust numbriliste andmete hulgas. See võimaldab hinnata, kui suur on andmete hajuvus keskmisest väärtusest ning võrrelda erinevate muutujate hajuvust.
 
-Variatsioonikordajat saab arvutada järgmise valemiga: 
+\[s_x = \sqrt{s_x^2}\]
+
+
+kus $s^2$ on valimi dispersioon. 
+
+\begin{tabular}{ll}
+MS Exceli funktsioon & =STDEV(vahemik)\\
+R funktsioon & sd(vahemik) \\
+\end{tabular}
+
+
+### Standardviga
+
+Standardviga on valimi järgi arvutatud hinnangu standardhälve, mis kirjeldab üldkogumi keskväärtuse või muu parameetri valimist saadud hinnangu täpsust. See näitab, kui palju valimi keskmine võib tegelikust üldkogumi keskmisest erineda. Samast üldkogumist korduvalt võetud valimite keskväärtuste jaotus läheneb normaaljaotusele, mille standardhälve võrdub hinnangu standardveaga. Valimi keskmise standardviga arvutatakse valemiga
+
 
 \[
-CV = \left(\frac{sd}{\bar{x}}\right) \times 100\%,
+s_{\bar{x}} = \frac{s_x}{\sqrt{N}}
 \]
 
-kus:
- - \(CV\) on variatsioonikordaja,
- - \(sd\) on standardhälve ehk standardne kõrvalekalle ja
- - \(\bar{x}\) on aritmeetiline keskmine.
+kus $s_x$ on valimi standardhälve ja $N$ on valimi maht.
 
-Näide R-is:
-```{r}
-# Arvutame keskmise ja standardhälbe
-keskmine <- mean(andmed)
-sd <- sd(andmed)
-
-# Arvutame variatsioonikordaja
-(sd / keskmine) * 100
-```
-
-=STDEV(A1:A10)/AVERAGE(A1:A10) * 100
+\begin{tabular}{ll}
+MS Exceli funktsioon & =STDEV(vahemik)/SQRT(COUNT(vahemik))\\
+R funktsioon & sd(vahemik)/sqrt(length(vahemik)) \\
+\end{tabular}
 
 
-Loodetavasti aitas see selgitus ja näited mõista variatsioonikordaja mõistet ja selle arvutamist nii R-is kui ka Excelis.
+### Katsetäpsus
 
-#### Variatsioonikordaja viga
-Variatsioonikordaja viga on statistiline mõiste, mis näitab suurust, millega proov valimina võetud andmed erinevad populatsiooni üldisest muutujast. See arvutatakse suhtelise veana, võttes arvesse andmete keskmist ja standardhälvet.
+Katsetäpsus on suhteline standardviga protsentides. See näitab standardhälbe osakaalu aritmeetilisest keskmisest. Katsetäpsust arvutatakse järgmiselt:
 
-Variatsioonikordaja vigade arvutusvalemit saab defineerida järgnevalt:
-\[ CV = \frac{s}{\bar{x}} \times 100\% \]
-kus
-\( CV \) - variatsioonikordaja viga,
-\( s \) - standardhälve ja
-\( \bar{x} \) - keskmine.
 
-Kui variatsioonikordaja viga on väike, siis võib järeldada, et andmed on stabiilsed ja usaldusväärsed. Kui see aga on suur, siis võib see tähendada, et andmed on dispersiooniga ebaühtlased.
+\[
+P_x 
+= \frac{s_{\bar{x}}}{\bar{x}} \cdot 100 
+= \frac{s_x}{\sqrt{N} \cdot \bar{x}} \cdot 100 
+= \frac{V_x}{\sqrt{N}}
+\]
 
-Näide R-keskkonnas:
-```r
-# Andmestik
-andmed <- c(10, 15, 20, 25, 30)
 
-# Keskmine ja standardhälve
-keskmine <- mean(andmed)
-sd <- sd(andmed)
+kus $V_x$ on variatsioonikordaja.
 
-# Variatsioonikordaja viga
-sd / keskmine * 100
+\begin{tabular}{ll}
+MS Exceli funktsioon & =100*STDEV(H)/(AVERAGE(H)\*SQRT(COUNT(H))) \\
+R funktsioon & 100*sd(H)/(mean(H)*sqrt(length(H))) \\
+\end{tabular}
 
-```
 
-Excelis saab variatsioonikordaja vea lihtsalt arvutada järgmise valemi abil: `=STDEV(A2:E2)/A4*100`, kus A2:E2 on andmehulk ja A4 on keskmine.
+### Standardhälbe viga
 
-Variatsioonikordaja viga aitab hinnata andmete usaldusväärsust ja stabiilsust ning on oluline tööriist statistiliste analüüside tegemisel.
+Standardhälbe vea hinnang ehk standardhälbe standardhälve näitab, kui palju võib valimi standardhälve erineda üldkogumi standardhälbest. Standardhälbe viga arvutatakse järgmiselt:
 
+
+\[s_{s_x} = \frac{s_x}{\sqrt{2 \cdot N}}\]
+
+
+kus $s_x$ on valimi standardhälve ja $N$ on valimi maht.
+
+\begin{tabular}{ll}
+MS Exceli funktsioon & =STDEV(H)/SQRT(2*COUNT(H)) \\
+R funktsioon & sd(H)/sqrt(2*length(H)) \\
+\end{tabular}
+
+
+### Dispersiooni viga
+
+Dispersiooni vea hinnang ehk dispersiooni standardhälve arvutatakse valemiga
+
+\[s_{s_x^2} = s_x^2 \cdot \sqrt{\frac{2}{N}}\]
+
+kus $s_x^2$ on valimi dispersioon ja $N$ on valimi maht.
+
+\begin{tabular}{ll}
+MS Exceli funktsioon & =VAR(H)*SQRT(2/COUNT(H)) \\
+R funktsioon & var(H)*sqrt(2/length(H))
+\end{tabular}
+
+### Variatsioonikordaja
+
+Variatsioonikordaja on standardhälbe ja aritmeetilise keskmise suhe. Variatsioonikordaja on ühikuvaba suurus, mis võimaldab võrrelda erinevate ühikutes mõõdetud tunnuste varieeruvust. Variatsioonikordaja arvutatakse valemiga
+
+$$V_x = 100 \cdot \frac{s_x}{\bar{x}}$$
+\begin{tabular}{ll}
+MS Exceli funktsioon & =100*STDEV(H)/AVERAGE(H)\\
+R funktsioon & 100*sd(H)/mean(H) \\
+\end{tabular}
+
+
+### Variatsioonikordaja viga
+
+Variatsioonikordaja vea hinnang ehk variatsioonikordaja standardhälve arvutatakse valemiga
+
+$$s_{V_x} = \frac{V_x}{\sqrt{2 \cdot N}}$$
+\begin{tabular}{ll}
+MS Exceli funktsioon & =100*STDEV(H)/(SQRT(2*COUNT(H))*AVERAGE(H)) \\
+R funktsioon & 100*sd(H)/(sqrt(2*length(H))*mean(H)) \\
+\end{tabular}
 
 
 ## Vahemikhinnangud
 
-Üldkogumi parameetri vahemikhinnanguks nimetatakse valimi põhjal määratud vahemikku, kuhu see üldkogumi parameeter kuulub teatud (küllalt suure) tõenäosusega. Seda uurija poolt etteantavat tõenäosust nimetatakse usaldusnivooks ja tähistatakse traditsiooniliselt 1-$\alpha$. Usaldusnivoo väärtuseks võetakse metsanduslikes uurimustes tavaliselt 0,95, kuid vastavalt uurija kaalutlustele võib selleks olla ka 0,90; 0,99 või mingi muu suur tõenäosus. Vastavalt usaldusnivoo etteantud väärtusele arvutatakse parameetri usalduspiirid, s.o kaks arvu, mille vahel asub üldkogumi parameeter tõenäosusega 1-$\alpha$. Teades, et parameetri hinnang on juhuslik suurus, võib alumist usalduspiiri vaadelda kui parameetri hinnangu $\alpha$/2-kvantiili ja ülemist usalduspiiri kui parameetri hinnangu 1-$\alpha$/2-kvantiili.
-
 ### Keskväärtuse usalduspiirid
-Keskväärtuse usalduspiirid on statistiline mõiste, mis aitab hinnata keskmise väärtuse usaldusväärsust. Keskväärtus ehk tõenäosusega 1-$\alpha$ keskmisele vastav populatsiooni parameeter paikneb usalduspiiride vahemikus keskmise ise ja sellest suurema või väiksema arvu vahel. 
 
-Usalduspiirid aitavad mõõta seda, kui kindlalt võime väita, et hinnatud keskmine väärtus on populatsiooni tegelik keskmine väärtus. Usalduspiiride arvutamiseks kasutatakse tavaliselt keskväärtuse ja standardvea suhet ning t-tabelist leitakse vastav kriitiline tõenäosus. Näiteks 95% usaldusvahemik tähendab, et oleme 95% kindlad, et populatsiooni keskmine jääb antud vahemiku sisse.
+**Keskväärtuse usalduspiirid** on statistilised vahendid, mis aitavad hinnata valimi põhjal tehtud järelduste täpsust üldkogumi keskväärtuse kohta. Need piirid moodustavad **usaldusvahemiku**, mis näitab, millises vahemikus võib üldkogumi tegelik keskväärtus asuda antud tõenäosusega. Usalduspiirid on seega usaldusvahemiku alumine ja ülemine piir.
 
-Keskväärtuse usalduspiirid on olulised, kui soovime teha järeldusi populatsiooni keskmise kohta, kuid ei saa seda täpselt kindlaks teha. Need aitavad meil hinnata tulemuste usaldusväärsust ja teha otsuseid põhinedes piisavalt kindlatel andmetel.
+Usaldusvahemik **ei ole** vahemik, mis sisaldab valimi väärtusi, vaid see on vahemik, mille sisse me usume tegeliku parameetri (üldkogumi keskväärtuse) langevat teatud tõenäosusega. See vahemik näitab, kui kindlad saame olla, et tegelik parameetri väärtus jääb antud vahemikku. Usaldusvahemikku kasutatakse, kuna valimist arvutatud hinnang on juhuslik suurus, samas kui üldkogumi parameetri tegelik väärtus ei ole juhuslik. Usaldusvahemiku leidmisel lähtutakse valimi keskmisest ja üldkogumi keskväärtus langeb antud usaldatavusega (tõenäosusega) sellesse vahemikku.
+
+Usalduspiiride arvutamiseks kasutatakse valimi andmeid, valitakse teatud **usaldusnivoo** (tavaliselt 95% või 99%) ja arvutatakse vastav usaldusvahemik. Usaldusvahemiku arvutamiseks kasutatakse järgmist valemit:
+
+* Alumine piir:  $\bar{x} - t_{\alpha/2, n-1} \cdot \frac{s_x}{\sqrt{n}}$
+* Ülemine piir: $\bar{x} + t_{\alpha/2, n-1} \cdot \frac{s_x}{\sqrt{n}}$
+
+kus:
+
+*   $\bar{x}$ on valimi keskmine
+*   $t_{\alpha/2, n-1}$ on t-jaotuse $\alpha/2$ täiendkvantiil vabadusastmete arvuga $n-1$
+*   $n$ on vaatluste arv ehk valimi suurus
+*   $s_x$ on valimi standardhälve
+*   $\alpha$ on olulisusnivoo (1 - usaldusnivoo)
+
+Olulisusnivoo ($\alpha$) määrab tõenäosuse, et tegelik parameetri väärtus **ei jää** usaldusvahemikku. Teisisõnu, see on risk, millega oleme nõus eksima. Tavaliselt kasutatakse olulisusnivood 5% ($\alpha = 0,05$) või 1% ($\alpha = 0,01$). Mida väiksem on olulisusnivoo, seda laiem on usaldusvahemik (oleme kindlamad, et tegelik väärtus sinna jääb). Olulisusnivoo valik sõltub sellest, kumb viga on ohtlikum: kas kehtiva nullhüpoteesi tagasilükkamine (I liiki viga) või mittekehtiva nullhüpoteesi vastuvõtmine (II liiki viga). Praktikas peetakse I liiki vigu tavaliselt ohtlikumaks ja seetõttu eelistatakse madalamat olulisusnivood.
+
+Usaldusvahemik võib olla **ühe-** või **kahepoolne**. **Kahepoolset** usaldusvahemikku kasutatakse siis, kui me soovime hinnata, kas tegelik parameeter võib olla nii suurem kui ka väiksem kui valimi keskmine. **Ühepoolset** usaldusvahemikku kasutatakse siis, kui oleme huvitatud ainult sellest, kas parameeter on suurem või väiksem kui teatud väärtus. Ühepoolse usalduspiiriga piirdumine on põhjendatud, kui hinnangu hälve vastassuunas on välistatud (nt mingi näitaja ei saa olla negatiivne). Kahepoolse testi puhul on $t$-väärtus arvutatud $\alpha/2$ jaoks, ühepoolse testi puhul $\alpha$ jaoks.
+
+Väikese valimi korral ei pruugi eelnevalt toodud valemid olla täpsed, eriti osakaalude hindamisel. Ligikaudsest valemist leitud usaldusvahemiku alumine piir võib tulla negatiivne, mis ei ole reaalne (nt osakaal ei saa olla negatiivne). Sellisel juhul tuleks kasutada täpseid binoomjaotusel põhinevaid valemeid (nt Clopper-Pearsoni meetod). Suuremate valimite korral langevad täpse ja ligikaudse valemi tulemused kokku.
+
+Keskväärtuse usalduspiiride leidmine ja hüpoteeside testimine on omavahel tihedalt seotud. Kui meil on nullhüpotees $H_0: \mu = \mu_0$, siis kui valimi keskmine $\bar{x}$ langeb piirkonda, kus olulisusnivool $\alpha$ võetakse vastu $H_0$, siis $\mu_0$ asub valimi põhjal usaldatavusega $\beta = 1-\alpha$ leitud keskväärtuse usaldusvahemikus. Hüpoteesi testimisel lähtume nullhüpoteesiga püstitatud väärtusest $\mu_0$, aktsepteerimisvahemik on sellest mõlemale poole, ja me aktsepteerime nullhüpoteesi, kui valimi keskmine $\bar{x}$ jääb sellesse vahemikku. Keskväärtuse usaldusvahemiku leidmisel lähtume aga valimi keskmisest $\bar{x}$ ja üldkogumi keskväärtus $\mu$ langeb antud usaldatavusega sellesse vahemikku.
+
+\begin{naidis}
+Vaatleme näites 1.4 esitatud valimit, milles on antud sambliku kasvukohatüübis kasvava 50-aastase männiku 60 juhuslikult valitud puu kõrguste andmed. Arvutame kõrguse keskväärtuse 95%-lised usalduspiirid.
+\end{naidis}
+
+Näites on  selle valimi andmete põhjal arvutatud 
+\begin{tabular}{lr}
+kõrguse aritmeetiline keskmine & 12,082 m \\
+ja kõrguse standardhälve & 1,185 m \\
+\end{tabular}
+
+**MS Excel keskkonnas **
+
+$\mu_{0,025}$ = - TINV(0,05 ; N-1) * sh /SQRT(N) = 12,082 - 2,001·1,185/  = 11,78 m;
+
+$\mu_{0,975}$ = + TINV(0,05 ; N-1) * sh /SQRT(N)  = 12,082 + 2,001·1,185/  = 12,39 m.
+
+**R keskkonnas**
+
+```{r, warning=F, message=F}
+korgus <- as.vector(unlist(readxl::read_excel("data/naited.xlsx","N14", col_names = F)))
+korgus <- korgus[!is.na(korgus)]
+N = length(korgus)
+H = mean(korgus)
+se = sd(korgus)
+H + qt(0.025,df=N-1) * se / sqrt(N)
+H + qt(0.975,df=N-1) * se / sqrt(N)
+
+# Kordame sama funktsiooniga t.test
+t.test(korgus)
+
+```
 
 ### Dispersiooni usalduspiirid
-Dispersiooni usalduspiirid on statistilised piirid, mis näitavad, kui palju võib populatsiooni dispersioon, standardhälve või varieerumine erineda, kui võtame arvesse valimi dispersiooni. Usalduspiirid annavad meile võimaluse teha järeldusi populatsiooni dispersiooni kohta, kui meil on vaid valimi andmed.
 
-Dispersiooni usalduspiirid arvutatakse tavaliselt usaldusvahemikuna, mis näitab, milline on tõenäosus, et populatsiooni dispersioon jääb kindla vahemiku piiresse. Näiteks 95% usalduspiirid tähendavad, et 95% tõenäosusega langeb populatsiooni dispersioon selle vahemiku sisse.
+Dispersiooni usalduspiirid on statistiline tööriist, mis võimaldab hinnata, kui täpselt iseloomustab valimi dispersioon üldkogumi dispersiooni. Dispersioon kirjeldab andmete hajuvust keskväärtuse ümber ning usalduspiirid annavad meile vahemiku, milles teatud kindlusega (usaldusnivooga) asub tegeliku üldkogumi dispersiooni väärtus.
 
-Usalduspiiride arvutamine toimub tavaliselt tundmatu populatsiooni dispersiooni põhjal, kasutades valimi dispersiooni ja valimi suurust. Usalduspiiride laiust mõjutavad valimi suurus, usaldusvahemik ning populatsiooni dispersiooni enda suurus.
+Dispersioon on statistiline mõõdik, mis näitab andmepunktide hajuvust keskmise ümber. Üldkogumi dispersiooni tähistatakse tavaliselt $\sigma^2$ ja valimi dispersiooni $s^2$. Valimi dispersioon on üldkogumi dispersiooni punkthinnang, kuid paratamatult esineb erinevus tegeliku väärtusega. Seega on dispersiooni usalduspiiride kasutamine oluline, et saada parem ülevaade tegeliku dispersiooni väärtusest.
 
-Dispersiooni usalduspiirid on olulised tööriistad statistikas, sest need aitavad meil teha järeldusi populatsiooni varieeruvuse kohta ning hinnata, kui usaldusväärsed on meie tulemused. Mõistes dispersiooni usalduspiiride kontseptsiooni, saavad metsandustudengid paremini analüüsida ja tõlgendada metsanduslike andmete varieeruvust ning teha ratsionaalseid otsuseid metsandusalastes uurimustes.
+Usaldusvahemik on väärtuste vahemik, mis teatud tõenäosusega sisaldab otsitava üldkogumi parameetri (antud juhul dispersiooni) tegelikku väärtust. Usalduspiirid on selle vahemiku alumine ja ülemine piir. Need piirid defineerivad ala, kuhu üldkogumi dispersioon langeb etteantud tõenäosusega (usaldusnivooga).
 
-### Binoomjaotuse usalduspiirid
-Binoomjaotus on tõenäosusteoorias kasutatav jaotus, mis kirjeldab kahe võimaliku tulemusega eksperimentide tulemuste jaotust. Näiteks võib binoomjaotust kasutada olukorras, kus uuritakse mingi sündmuse (nt müntide viskamine, taimede ellujäämine) kordaminekut (edu) või ebaõnnestumist (ebaedu). Binoomjaotuse parameeter p tähistab tõenäosust, et sündmus toimub ühel katsekorral.
+Dispersiooni usalduspiiride arvutamine on keerukam kui keskväärtuse usalduspiiride arvutamine. Tavaliselt kasutatakse selleks $\chi^2$-jaotust (hii-ruut-jaotust). $\chi^2$-jaotus on asümmeetriline jaotus, mille kuju sõltub vabadusastmete arvust. Valimi dispersiooni usalduspiirid $(1-\alpha)$ usaldusnivoo jaoks arvutatakse järgmiselt:
 
-Usalduspiirid on hinnangulised piirid, mille sisaldamisel on kindel usaldustase, et parameetri tegelik väärtus jääb nende piiride vahele. Binoomjaotuse puhul tähendab see, et soovime leida piirid, mille vahel paikneb tõenäosus, et sündmus toimub ühel katsekorral.
+*   Alumine piir: $\frac{(n-1)s^2}{\chi^2_{\alpha/2, n-1}}$
+*   Ülemine piir: $\frac{(n-1)s^2}{\chi^2_{1-\alpha/2, n-1}}$
 
-Binoomjaotuse puhul saab leida 100(1-$\alpha$)% usaldusvahemiku soovitud usaldustasemega $\alpha$. Usalduspiirid leitakse tavaliselt normaaljaotuse abil, kasutades normaaljaotuse ligilähedast seost binoomjaotusega (kui n on piisavalt suur). Kui binoomjaotuse põhjal antakse 100(1-$\alpha$)% usaldusvahemik, siis näeb see välja järgmine:
+kus:
 
-\[
-\hat{p} ± Z_{1-\frac{\alpha}{2}} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}},
-\]
+*   $n$ on valimi suurus
+*   $s^2$ on valimi dispersioon
+*   $\chi^2_{\alpha/2, n-1}$ on $\chi^2$-jaotuse $\alpha/2$ kvantiil vabadusastmete arvuga $n-1$
+*   $\chi^2_{1-\alpha/2, n-1}$ on $\chi^2$-jaotuse $1-\alpha/2$ kvantiil vabadusastmete arvuga $n-1$
+*   $\alpha$ on olulisusnivoo (ehk eksimisvõimalus)
 
-kus $\hat{p}$ on valimi proportsioon, $Z_{1-\frac{\alpha}{2}}$ on normaaljaotuse kvantiil vastava usaldustasemega ja n on valimi suurus.
+**Standardhälbe usalduspiiride** saamiseks võetakse ruutjuur dispersiooni usalduspiiridest.
 
-Kokkuvõttes on binoomjaotuse parameetri p usalduspiirid hinnangulised piirid, mille vahel on kindel usaldustase, et parameetri tegelik väärtus paikneb. Need piirid aitavad teha järeldusi tõenäosuse kohta, et sündmus toimub ühel katsekorral.
+\begin{naidis}
+Vaatleme näites 1.4 esitatud valimit, milles on antud sambliku kasvukohatüübis kasvava 50-aastase männiku 60 juhuslikult valitud puu kõrguste andmed. Arvutame kõrguse dispersiooni 95%-lised usalduspiirid.
+\end{naidis}
+
+Näites on  selle valimi andmete põhjal arvutatud 
+\begin{tabular}{lr}
+kõrguse aritmeetiline keskmine & 12,082 m \\
+kõrguse dispersioon & 1,405 m \\
+\end{tabular}
+
+MS Exceli keskkonnas: 
+
+$$\sigma_{0,025}^2 = (N-1)*s_x^2/CHIINV(\alpha/2; N-1) = (60 - 1)*1,4046/82,12 = 1,01;$$
+$$\sigma_{0,975}^2 = (N-1)*s_x^2/CHIINV(1-\alpha ; N-1) = (60 - 1)*1,4046/39,66 = 2,09.$$
+
+R keskkonnas: 
+
+```{r}
+N = length(korgus)
+H = mean(korgus)
+se2 = var(korgus)
+
+(vra = (N-1)*se2/qchisq(0.975,N-1))
+(vry = (N-1)*se2/qchisq(0.025,N-1))
+```
+
+Saadud tulemuste põhjal võib väita, et valimi dispersioon on `r round(se2,3)` ning 95% tõenäosusega on dispersioon
+vahemikus `r round(vra,3)` m kuni `r round(vry,3)` m Standardhälbe usalduspiiride saamiseks tuleb võtta saadud väärtustest ruutjuur – `r round(sqrt(vra),3)` m kuni `r round(sqrt(vry),3)` m.
 
 ### Standardhälbe usalduspiirid
-Standardhälbe usalduspiirid on statistiline mõiste, mis aitab hinnata andmeid või tulemusi ning nende usaldusväärtust. Standardhälve on mõõtühik, mis näitab, kui palju erinevad keskmised tulemused koondumisest keskmise ümber.
 
-Standardhälbe usalduspiirid näitavad, kui kindlalt võib olla keskmise tulemuse usaldusväärsus teatud vahemikus. Enamasti kasutatakse 95% usalduspiire, mis tähendab, et 95% tõenäosusega jääb tulemus antud usalduspiiride vahemikku. Usalduspiirid arvutatakse keskmise tulemuse ja standardhälbe põhjal.
+Standardhälbe usalduspiirid on statistilised vahendid, mis aitavad hinnata üldkogumi standardhälbe $\sigma$ määramise täpsust valimi standardhälbe $s$ põhjal. Need piirid moodustavad usaldusvahemiku, mis näitab, millises vahemikus asub üldkogumi tegelik standardhälve $\sigma$ antud usaldusnivooga (tõenäosusega). Standardhälve iseloomustab andmete hajuvust keskväärtuse ümber ja usalduspiirid on usaldusvahemiku alumine ja ülemine piir.
 
-Standardhälbe usalduspiiride kasutamine aitab hinnata andmete usaldusväärsust ning teha järeldusi selle kohta, kui suures määras võivad andmed hajuda. See on oluline statistiline tööriist, mis aitab metsandustudengitel analüüsida andmeid ja teha tõenduspõhiseid otsuseid metsanduse valdkonnas.
+Standardhälbe usalduspiire arvutatakse sarnaselt dispersiooni usalduspiiride arvutamisega, kasutades $\chi^2$-jaotust (hii-ruut-jaotust). $\chi^2$-jaotus on asümmeetriline jaotus, mille kuju sõltub vabadusastmete arvust. Standardhälbe usalduspiirid $1-\alpha$ usaldusnivoo korral arvutatakse järgmiselt:
+
+*   Alumine piir: $L = \sqrt{\frac{(n-1)s^2}{\chi^2_{\alpha/2, n-1}}}$
+*   Ülemine piir: $U = \sqrt{\frac{(n-1)s^2}{\chi^2_{1-\alpha/2, n-1}}}$
+
+kus:
+
+*   $n$ on valimi suurus
+*   $s^2$ on valimi dispersioon (valimi standardhälbe ruut)
+*   $\chi^2_{\alpha/2, n-1}$ on $\chi^2$-jaotuse $\alpha/2$ kvantiil vabadusastmete arvuga $n-1$
+*   $\chi^2_{1-\alpha/2, n-1}$ on $\chi^2$-jaotuse $1-\alpha/2$ kvantiil vabadusastmete arvuga $n-1$
+*   $\alpha$ on olulisusnivoo (eksimise tõenäosus)
+
+
+### Binoomjaotuse parameetri p usalduspiirid
+
+Binoomjaotuse parameetri *p* usalduspiirid annavad vahemiku, milles tõenäoliselt asub sündmuse tegelik toimumise tõenäosus *p*, arvestades binoomjaotusega kirjeldatud katsete seeriat. Binoomjaotus on diskreetne tõenäosusjaotus, mis kirjeldab sõltumatute katsete seerias õnnestumiste arvu, kus igal katsel on kaks võimalikku tulemust: õnnestumine või ebaõnnestumine. Parameeter *p* tähistab õnnestumise tõenäosust ühes katses.
+
+Binoomjaotus on määratud kahe parameetriga: *n* (katsete arv) ja *p* (õnnestumise tõenäosus ühes katses). Binoomjaotust tähistatakse sageli B(*n*, *p*). Kui sooritame *n* sõltumatut katset ja iga katse õnnestumise tõenäosus on *p*, siis binoomjaotusega juhusliku suuruse X (õnnestumiste arv) tõenäosus on antud valemiga:
+
+$$p_{\alpha/2} = \frac{k}{k + (n-k + 1) \cdot F_{\alpha/2,2 \cdot (n-k+1), 2\cdot k}}$$
+$$p_{1- \alpha/2} = \frac{k+1}{(k+1)+(n-k) / F_{\alpha/2,2\cdot (k+1), 2 \cdot (n-k)}}$$
+\begin{naidis}
+Seemnepartii idanevustõenäosuse teadasaamiseks idandati partiist 70 juhuslikult valitud seemet, millest idanes 19. Leida seemnete idanevustõenäosuse usalduspiirid, võttes usaldusnivooks 0,95.
+\end{naidis}
+
+Seemnepartii idanevustõenäosuse 95%-lised usalduspiirid avalduvad MS Excelis all-järgnevate valemitega: 
+
+$p_{0,025}$ = k/(k+(n-k+1)*FINV(0,025;2*(n-k+1);2*k)) = 19/(19+52·1,759) = 0,172;
+
+$p_{0,975}$ = (k+1)/((n-k)/FINV(0,025;2*(k+1);2*(n-k))+k+1) = 20/(51/1,637+20) = 0,391.
+
+R keskkonnas saab seda arvutada funktsiooniga `binom.test()`
+```{r}
+binom.test(19, 70, 19/70)
+```
+
+## Valimi mahu hindamine
+
+Üldkogumi parameetrite veahinnangud sõltuvad valimi mahust. Üldiselt tuleb hinnangu täpsuse suurendamiseks k korda suurendada valimi mahtu 2 * k korda. Praktilises metsanduslikus uurimistöös tekib tihti küsimus, kui palju tuleks mõõta puid, rajada proovitükke jne, et saadud tulemused iseloomustaksid üldkogumit piisava täpsusega. 
+
+\begin{naidis}
+Vaatleme näites 1.4 esitatud valimit, milles on antud sambliku kasvukohatüübis kasvava 50-aastase männiku 60 juhuslikult valitud puu kõrguste andmed. 
+\end{naidis}
+
+Näites on  selle valimi andmete põhjal arvutatud 
+\begin{tabular}{lr}
+kõrguse aritmeetiline keskmine & 12,082 m \\
+kõrguse standardhälve & 1,185 m \\
+kõrguse variatsioonikordaja  & 9,81\% \\
+\end{tabular}
+
+Arvutame järgmise hinnangud:
+
+* Puistu kõrguse keskväärtuse saamiseks katsetäpsusega $\delta$ = 1% tuleks mõõta
+  * N = $(Vh/\delta)^2$ = $(9,81/1)^2$ $\approx$ 96 puud.
+* Puistu kõrguse keskväärtuse saamiseks standardveaga  $\epsilon$ = 0,1 m tuleks mõõta
+  * N = $(sh/\epsilon)^2$ = $(1,185/0,1)^2$ $\approx$ 140 puud.
+* Puistu kõrguse keskväärtust veaga alla 0,1 m tuleks mõõta
+  * N = $(NORMSINV(0,975)*sh/\epsilon)^2$ = $(1,96 * 1,185/0,1)^2$ $\approx$ 539 puud.
+
+## Statistilised hüpoteesid
+
+### F-test normaaljaotusega üldkogumite dispersioonide võrdlemiseks
+
+F-test on statistiline test, mida kasutatakse kahe või enama normaaljaotusega üldkogumi dispersioonide võrdlemiseks. See test võimaldab hinnata, kas kahe valimi varieeruvus on oluliselt erinev, mis on oluline eeldus mitmete teiste statistiliste testide, näiteks t-testi, kasutamisel. F-testi kasutatakse nii kahepoolsete kui ka ühepoolsete hüpoteeside kontrollimiseks.
+
+F-testi rakendamisel on oluline seada hüpoteesid, mida soovitakse testida.  Hüpoteesid sõltuvad sellest, kas soovitakse testida dispersioonide erinevust üldiselt (kahepoolne test) või uurida, kas ühe kogumi dispersioon on suurem kui teise (ühepoolne test).
+
+*   **Kahepoolne hüpotees:**
+    *   Nullhüpotees ($H_0$): dispersioonid on võrdsed, st  $\sigma_1^2 = \sigma_2^2$.
+    *   Alternatiivne hüpotees ($H_1$): dispersioonid on erinevad, st $\sigma_1^2 \neq \sigma_2^2$.
+*   **Ühepoolne hüpotees:**
+    *   Nullhüpotees ($H_0$): ühe kogumi dispersioon on väiksem või võrdne teise kogumi dispersiooniga, st $\sigma_1^2 \leq \sigma_2^2$ või $\sigma_1^2 \geq \sigma_2^2$.
+    *   Alternatiivne hüpotees ($H_1$): ühe kogumi dispersioon on suurem kui teise kogumi dispersioon, st $\sigma_1^2 > \sigma_2^2$ või $\sigma_1^2 < \sigma_2^2$.
+
+**Teststatistiku arvutamine**
+
+F-statistiku arvutamiseks jagatakse suurema valimi dispersioon väiksemaga:
+
+$F = \frac{s_1^2}{s_2^2}$
+
+kus $s_1^2$ ja $s_2^2$ on valimite dispersioonid.  On oluline, et lugejas oleks suurema dispersiooniga valim (seega alati $F \geq 1$). F-statistik allub F-jaotusele vabadusastmete arvudega $n_1 - 1$ ja $n_2 - 1$, kus $n_1$ ja $n_2$ on vastavate valimite mahud. F-jaotus on asümmeetriline ja selle kuju sõltub vabadusastmetest.
+
+**Otsustamine ja kriitilised väärtused**
+
+F-testi tulemuste tõlgendamiseks võrreldakse arvutatud F-statistiku väärtust kriitiliste väärtustega, mis saadakse F-jaotusest vastava olulisuse nivoo ($\alpha$) ja vabadusastmete alusel. Olulisuse nivoo on tavaliselt seatud 0,05-le, mis tähendab, et on 5% tõenäosus teha I tüübi viga ehk lükata tagasi õige nullhüpotees.
+
+*   **Kahepoolse hüpoteesi korral** on kaks kriitilist väärtust, $F_{krv}$ ja $F_{krp}$, mis asuvad vastavalt F-jaotuse vasakul ja paremal pool.  Nullhüpotees lükatakse tagasi, kui $F < F_{krv}$ või $F > F_{krp}$.
+    *   Vasakpoolne kriitiline väärtus: $F_{krv} = F^{-1}_{\alpha/2}(n_2 - 1, n_1 - 1)$.
+    *   Parempoolne kriitiline väärtus: $F_{krp} = F_{\alpha/2}(n_1 - 1, n_2 - 1)$.
+*   **Ühepoolse hüpoteesi korral** (eeldades, et testime $H_1: \sigma_1^2 > \sigma_2^2$) on üks kriitiline väärtus, mis asub F-jaotuse paremal poolel. Nullhüpotees lükatakse tagasi, kui $F > F_{kr}$.  Kui testime $H_1: \sigma_1^2 < \sigma_2^2$, siis asub kriitiline väärtus vasakul pool ja nullhüpotees lükatakse tagasi, kui $F<F_{kr}$.
+    * Parempoolne kriitiline väärtus (kui $\sigma_1^2 > \sigma_2^2$): $F_{kr} = F_{\alpha}(n_1 - 1, n_2 - 1)$.
+    * Vasakpoolne kriitiline väärtus (kui $\sigma_1^2 < \sigma_2^2$): $F_{kr} = F^{-1}_{\alpha}(n_2 - 1, n_1 - 1)$.
+
+\begin{naidis}
+Olgu uurimisobjektiks suhteliselt homogeensel alal sambliku kasvu¬koha¬tüübi 24-aastased männikultuurid, millest osa on rajatud põlenud ja osa põlemata pinna¬sele. Põlenud alale rajati 8 ja põlemata alale 5 proovitükki. Proovitükkide andmete töötlemise tulemusel saadi järgmised puistute kõrgused meetrites.
+
+Põlenud alal: 4,3; 3,4; 3,9; 2,9; 4,9; 3,2; 3,7; 3,6.
+
+Põlemata alal: 4,8; 4,3; 5,4; 5,1; 4,6.
+\end{naidis}
+
+Meid huvitab, kas põlenud ja põlemata alal on puistute kõrguse dispersioonid erinevad.
+
+MS Exceli funktsiooniga 
+=FTEST(andmeplokk1 ; andmeplokk2)
+Antud näite korral on dispersioonide erinevuse olulisuse tõenäosus p = 0,47.
+
+
+R keskkonnas saab selleks kasutada funktsiooni `var.test()`.
+```{r}
+polenud <- c(4.3, 3.4, 3.9, 2.9, 4.9, 3.2, 3.7, 3.6)
+polemata <- c(4.8, 4.3, 5.4, 5.1, 4.6)
+var.test(polenud,polemata)
+```
+
+### Keskmiste võrdlemine paarikaupa andmete korral normaaljaotusega üldkogumist
+
+Paarikaupa andmete korral keskmiste võrdlemine normaaljaotusega üldkogumistest (sõltuvate valimite t-test) võimaldab hinnata, kas mingi toiming (nt protseduur, sekkumine) on põhjustanud statistiliselt olulise muutuse üldkogumi keskväärtuses.  Seda tehakse, võrreldes sama objekti kahte mõõtmist (nt enne ja pärast toimingut).
+
+**Hüpoteesid**
+
+Paarikaupa andmete korral sõnastatakse hüpoteesid järgmiselt:
+
+*   **Nullhüpotees ($H_0$):** Toiming ei mõjutanud üldkogumi keskväärtust, st keskväärtuste vahe on null.
+    $H_0: \mu_1 = \mu_2$  või  $H_0: \mu_d = 0$, kus $\mu_d$ on populatsiooni keskmine erinevus.
+
+*   **Alternatiivne hüpotees ($H_1$ või $H_a$):** Toiming mõjutas üldkogumi keskväärtust.  Alternatiivne hüpotees võib olla:
+    *   **Kahepoolne:** Keskväärtus muutus (suund määramata).
+        $H_1: \mu_1 \neq \mu_2$  või  $H_1: \mu_d \neq 0$
+    *   **Ühepoolne:**
+        *   Keskväärtus suurenes: $H_1: \mu_1 < \mu_2$ või $H_1: \mu_d > 0$ (vaadates *enne - pärast* erinevust, on oodatav erinevus positiivne)
+        *   Keskväärtus vähenes: $H_1: \mu_1 > \mu_2$ või $H_1: \mu_d < 0$ (vaadates *enne - pärast* erinevust, on oodatav erinevus negatiivne)
+
+**Teststatistik**
+
+Paarikaupa andmete korral arvutatakse t-statistik, kasutades iga paari mõõtmiste vahesid ($d_i$).
+
+1.  **Vahede arvutamine:**  $d_i = x_{1i} - x_{2i}$, kus $x_{1i}$ on *i*-nda objekti esimene mõõtmine ja $x_{2i}$ on *i*-nda objekti teine mõõtmine.
+
+2.  **Vahede keskmise arvutamine:** $\bar{d} = \frac{\sum_{i=1}^{n} d_i}{n}$, kus $n$ on paaride arv.
+
+3.  **Vahede standardhälbe arvutamine:** $s_d = \sqrt{\frac{\sum_{i=1}^{n} (d_i - \bar{d})^2}{n-1}}$
+
+4.  **t-statistiku arvutamine:**
+    $$t = \frac{\bar{d}}{s_d / \sqrt{n}}$$
+
+t-statistik järgib t-jaotust $n-1$ vabadusastmega.  t-jaotus on sümmeetriline, sarnaneb normaaljaotusega, kuid on väiksemate valimite korral laiema "sabaga".
+
+**Otsuse tegemine**
+
+Otsus nullhüpoteesi kohta tehakse, võrreldes arvutatud t-statistikut kriitilise väärtusega ($t_{kr}$) või hinnates p-väärtust.
+
+*   **Kriitiline väärtus ($t_{kr}$):**  See leitakse t-jaotuse tabelist või statistikatarkvara abil, lähtudes valitud olulisuse nivost ($\alpha$, tavaliselt 0.05) ja vabadusastmete arvust ($n-1$). Olulisuse nivoo $\alpha$ tähistab I tüübi vea (valesti tagasilükatud tõese nullhüpoteesi) tõenäosust.
+    *   **Kahepoolse testi korral:**  Nullhüpotees lükatakse tagasi, kui $|t| > t_{kr}$, st $t < -t_{kr}$ või $t > t_{kr}$.  Kriitiline väärtus $t_{kr}$ vastab $\alpha/2$ kummalgi jaotuse sabal.
+    *   **Ühepoolse testi korral:**
+        *   Kui $H_1: \mu_d > 0$:  Nullhüpotees lükatakse tagasi, kui $t > t_{kr}$.
+        *   Kui $H_1: \mu_d < 0$:  Nullhüpotees lükatakse tagasi, kui $t < -t_{kr}$.
+
+*   **p-väärtus:**  See on tõenäosus saada vähemalt sama äärmuslik (või veel äärmuslikum) t-statistik, kui nullhüpotees on tõene.
+    *   Nullhüpotees lükatakse tagasi, kui p-väärtus $\leq \alpha$.
+
+**Eeldused**
+
+Sõltuvate valimite t-testi eeldused on:
+
+1.  **Normaaljaotus:** Mõõtmiste *vahed* ($d_i$) peaksid olema ligikaudu normaaljaotusega.  See eeldus on vähem oluline suuremate valimite korral (tänu tsentraalsele piirteoreemile).
+2.  **Sõltumatus:** Vaatlused (mõõtmispaarid) peavad olema üksteisest sõltumatud.
+3. **Mõõtmiste skaala:** Mõõtmised on intervallskaalal või suhtarvulisel skaalal.
+
+
+
+### Sõltumatuse hii-ruut-test
+
+Sõltumatuse hii-ruut-test ( $\chi^2$-test) on statistiline meetod, mida kasutatakse kahe kvalitatiivse tunnuse vahelise seose uurimiseks.  Test hindab, kas kahe tunnuse jaotused on omavahel seotud või sõltumatud. Testi eesmärk on kummutada nullhüpotees ($H_0$), mis väidab, et tunnuste vahel seost ei ole.
+
+**Põhimõtted ja rakendused**
+
+$\chi^2$-testi kasutatakse sagedusandmete analüüsimiseks, mis on esitatud risttabelina (kontingentsitabelina).  Risttabeli read esitavad ühe tunnuse väärtusi ja veerud teise tunnuse väärtusi. Test võimaldab uurida, kas ühe tunnuse jaotus sõltub teise tunnuse väärtustest. Näiteks saab testida, kas vastused küsimustele sõltuvad vastaja soost või vanusest. $\chi^2$-testi kasutatakse ka empiirilise ja teoreetilise jaotuse võrdlemiseks, et teha kindlaks, kas juhuslik suurus allub valitud jaotusseadusele.
+
+**Hüpoteesid**
+
+Sõltumatuse $\chi^2$-testi hüpoteesid on:
+
+*   **Nullhüpotees ($H_0$):** Tunnuste vahel seost ei ole (tunnused on sõltumatud). Ühe tunnuse jaotus ei sõltu teise tunnuse väärtustest.
+*   **Alternatiivne hüpotees ($H_1$):** Tunnuste vahel on seos (tunnused ei ole sõltumatud). Ühe tunnuse jaotus sõltub teise tunnuse väärtustest.
+
+**Teststatistiku arvutamine**
+
+$\chi^2$-teststatistiku arvutamise valem:
+
+$$
+\chi^2 = \sum_{i=1}^{r} \sum_{j=1}^{k} \frac{(O_{ij} - E_{ij})^2}{E_{ij}}
+$$
+
+kus:
+
+*   $O_{ij}$ on vaadeldud (empiiriline) sagedus risttabeli lahtris *i, j*.
+*   $E_{ij}$ on oodatav sagedus risttabeli lahtris *i, j*, kui tunnused oleksid sõltumatud.
+*   $r$ on ridade arv risttabelis.
+*   $k$ on veergude arv risttabelis.
+
+Oodatava sageduse arvutamise valem:
+
+$$
+E_{ij} = \frac{(\text{rea } i \text{ summa}) \times (\text{veeru } j \text{ summa})}{\text{üldsumma}} = \frac{(\sum_{j=1}^{k} O_{ij}) \times (\sum_{i=1}^{r} O_{ij})}{\sum_{i=1}^{r} \sum_{j=1}^{k} O_{ij}}
+$$
+
+**Vabadusastmed**
+
+Vabadusastmete arv ($\nu$) leitakse valemiga:
+
+
+$$\nu = (r - 1) \times (k - 1)$$
+
+
+**Otsuse tegemine**
+
+Otsuse tegemiseks võrreldakse arvutatud $\chi^2$ väärtust kriitilise väärtusega ($\chi^2_{\alpha, \nu}$), mis saadakse $\chi^2$-jaotusest vastava vabadusastmete arvu ($\nu$) ja valitud olulisuse nivoo ($\alpha$) alusel (tavaliselt $\alpha = 0.05$).
+
+*   Kui $\chi^2 > \chi^2_{\alpha, \nu}$ või p-väärtus $< \alpha$, siis lükatakse nullhüpotees tagasi ja järeldatakse, et tunnuste vahel on statistiliselt oluline seos.
+*   Kui $\chi^2 \leq \chi^2_{\alpha, \nu}$ või p-väärtus $\geq \alpha$, siis jäädakse nullhüpoteesi juurde (ei saa tõestada, et tunnuste vahel on seos).
+
+
+**Eeldused**
+
+$\chi^2$-testi kasutamisel on oluline arvestada järgmisi eeldusi:
+
+*   **Sõltumatud vaatlused:** Vaatlused peavad olema üksteisest sõltumatud.
+*   **Piisavalt suured oodatavad sagedused:** Üldjuhul peaksid kõik oodatavad sagedused ($E_{ij}$) olema vähemalt 5. Mõned allikad lubavad ka väiksemaid väärtusi, kuid kui rohkem kui 20% oodatavatest sagedustest on alla 5, või on mõni oodatav sagedus alla 1, võib test olla ebausaldusväärne. Sellisel juhul võib kasutada Yates'i korrektsiooni või Fisheri täpset testi.
 

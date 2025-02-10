@@ -5,9 +5,18 @@ language:
   label:
     fig: 'Joonis '
     tab: 'Tabel '
+    example: 'Näide'
     
 
 before_chapter_script: ["proc_funcs.R"]
 output_dir: docs
 
-#rmd_files: ["index.Rmd", "01-sissejuhatus.Rmd"]
+# rmd_files: ['index.Rmd', '01-sissejuhatus.Rmd']
+# rmd_files: ['index.Rmd', '02-andmestikud.Rmd']        
+# rmd_files: ['index.Rmd', '03-ruhmitamine.Rmd']
+# rmd_files: ['index.Rmd', '04-karakteristikud.Rmd']
+# rmd_files: ['index.Rmd', '05-jaotusfunktsioonid.Rmd']
+# rmd_files: ['index.Rmd', '06-hinnangud.Rmd']  
+# rmd_files: ['index.Rmd', '07-mitmetunnuse.Rmd']
+# rmd_files: ['index.Rmd', '08-mittelineaarne.Rmd']
+# rmd_files: ['index.Rmd', '09-mitteparameetriline.Rmd']

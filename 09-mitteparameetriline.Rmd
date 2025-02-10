@@ -4,7 +4,7 @@
 
 Üldistatud aditiivne mudel (GAM) on statistiline mudel, mis ühendab lineaarse mudeli omadused aditiivsete funktsioonide abil. Lihtsamalt öeldes on GAM mudel, mis modelleerib funktsioontunnust ühe või mitme argumenttunnuse summa abil, kus iga argumenttunnuse mõju funktsioontunnusele modelleeritakse splainfunktsiooni abil.
 
-Splainfunktsioon on matemaatiline funktsioon, mida kasutatakse andmete interpoleerimiseks ja sujuvaks lähendamiseks. See on ühesuguse struktuuriga tükiti polünomiaalne funktsioon, mis on konstrueeritud nii, et see oleks sujuv ja pidev andmepunktide vahel. See tähendab, et spline funktsioonil ei ole järske hüppeid ega nurki, mis teeb selle ideaalseks tööriistaks sujuvate kõverate ja pindade modelleerimiseks.
+Splainfunktsioon on matemaatiline funktsioon, mida kasutatakse andmete interpoleerimiseks ja sujuvaks lähendamiseks. See on ühesuguse struktuuriga tükiti polünomiaalne funktsioon, mis on konstrueeritud nii, et see oleks sujuv ja pidev andmepunktide vahel. See tähendab, et splinefunktsioonil ei ole järske hüppeid ega nurki, mis teeb selle ideaalseks tööriistaks sujuvate kõverate ja pindade modelleerimiseks.
 
 Selles näites kasutame R-i paketti `mgcv` GAM mudeli sobitamiseks. Eesmärk on modelleerida puu kõrguse ja diameetri vahelist seost, eeldades, et see seos ei pruugi olla lineaarne.
 
@@ -71,13 +71,13 @@ Saame kasutada mudelit uute puude kõrguse ennustamiseks, andes ette diameetri v
 
 ```{r}
 # Uute diameetrite väärtused
-uued_diameetrid <- data.frame(d = c(12, 22, 32))
+uued_andmed <- data.frame(d = c(12, 22, 32))
 
 # Ennustuste tegemine
-ennustused <- predict(mudel, newdata = uued_diameetrid)
+uued_andmed$h <- predict(mudel, newdata = uued_andmed)
 
 # Ennustuste kuvamine
-print(ennustused)
+print(uued_andmed)
 ```
 
 ## Visualiseerimine paketiga `ggplot2`

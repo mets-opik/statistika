@@ -214,7 +214,7 @@ Valemist nähtub, et \(R^2_{\text{adj}}\) väheneb, kui lisatakse tunnusid, mis 
 
 * Regressioonikordaja väärtused annavad teavet sõltumatute tunnuste mõju kohta sõltuvale tunnusle. 
 
-Kokkuvõttes aitab väljund mõista, kuidas mudel sobitub andmetega ja millist infot see pakub sõltuvate ja sõltumatute tunnuste seoste kohta.
+Kokkuvõttes aitab väljund mõista, kuidas mudel sobitub andmetega ja millist infot see pakub funktsioon- ja argumenttunnuste seoste kohta.
 
 
 ### Homoskedastilisuse testimine
@@ -228,10 +228,40 @@ On mitmeid viise, kuidas testida, kas andmetes esineb homoskedastiivsust:
 3.  **Robustsed meetodid:** Kui andmetes esineb heteroskedastiivsust, võib kasutada robustseid regressioonimeetodeid, mis on vähem tundlikud heteroskedastiivsuse suhtes.
 
 
-```{r, fig.cap = "Jäägid vs prognoositud väärtus"}
+```{r}
 # Näide R keskkonnas
-plot(lm_model, which=1, main = "") 
+
+ggplot(lm_model, aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0)+
+  geom_smooth(method = "gam", formula = y ~ s(x))  # Lisab sujuva joone GAM mudeli abil
+
 ```
+
+
+Koodi selgitus:
+
+**`ggplot(lm_model, aes(x = .fitted, y = .resid))`**
+
+*   See käsk loob aluse graafikule ggplot2 paketiga.
+*   `lm_model` määrab andmeallika, milleks on lineaarne mudel.
+*   `aes(x = .fitted, y = .resid)` määrab x-teljele mudeli sobitatud väärtused (.fitted) ja y-teljele jääkväärtused (.resid).
+
+**`geom_point()`**
+
+*   See lisab graafikule punktid, mis esindavad iga andmepunkti jääki ja sobitatud väärtust.
+
+**`geom_hline(yintercept = 0)`**
+
+*   See lisab horisontaalse joone y-telje väärtusel 0. See joon aitab visuaalselt hinnata jääkide jaotust - ideaalses mudelis peaksid punktid jaotuma ühtlaselt joone ümber.
+
+**`geom_smooth(method = "gam", formula = y ~ s(x))`**
+
+*   See lisab graafikule sujuva joone, mis on arvutatud GAM mudeli (Generalized Additive Model) abil.
+*   `method = "gam"` määrab joone arvutamise meetodiks GAM.
+*   `formula = y ~ s(x)` määrab mudeli valemi, kus y (jääkväärtused) on seotud x-i (sobitatud väärtused) sujuva funktsiooniga s(x).
+
+
 
 Lineaarse mudeli homoskedastilisuse testimiseks saab kasutada Breush-Pagan või White'i testi. Need testid hindavad, kas jääkide varieeruvus on seotud sõltumatute tunnustega ning kas see varieeruvus on ühtlane.
 
@@ -256,41 +286,6 @@ Testist saadav p-väärtus aitab hinnata, kas on piisavalt tõendeid, et lükata
 Normaliseeritud jääkide graafik on üks viis, kuidas hinnata, kas jäägid vastavad normaaljaotusele. See graafik aitab visualiseerida, kas jäägid on juhuslikult hajutatud ümber nulli ja kas nende jaotus on ligilähedane normaaljaotusele.
 
 
-```{r}
-# Näide R keskkonnas
-
-ggplot(lm_model, aes(x = .fitted, y = .resid)) +
-  geom_point() +
-  geom_hline(yintercept = 0)+
-  geom_smooth(method = "gam", formula = y ~ s(x))  # Lisab sujuva joone GAM mudeli abil
-
-```
-Koodi selgitus:
-
-**`ggplot(lm_model, aes(x = .fitted, y = .resid))`**
-
-*   See käsk loob aluse graafikule ggplot2 paketiga.
-*   `lm_model` määrab andmeallika, milleks on lineaarne mudel.
-*   `aes(x = .fitted, y = .resid)` määrab x-teljele mudeli sobitatud väärtused (.fitted) ja y-teljele jääkväärtused (.resid).
-
-**`geom_point()`**
-
-*   See lisab graafikule punktid, mis esindavad iga andmepunkti jääki ja sobitatud väärtust.
-
-**`geom_hline(yintercept = 0)`**
-
-*   See lisab horisontaalse joone y-telje väärtusel 0. See joon aitab visuaalselt hinnata jääkide jaotust - ideaalses mudelis peaksid punktid jaotuma ühtlaselt joone ümber.
-
-**`geom_smooth(method = "gam", formula = y ~ s(x))`**
-
-*   See lisab graafikule sujuva joone, mis on arvutatud GAM mudeli (Generalized Additive Model) abil.
-*   `method = "gam"` määrab joone arvutamise meetodiks GAM.
-*   `formula = y ~ s(x)` määrab mudeli valemi, kus y (jääkväärtused) on seotud x-i (sobitatud väärtused) sujuva funktsiooniga s(x).
-
-**Kokkuvõtteks:**
-
-Kood genereerib diagnostilise graafiku, mis aitab hinnata lineaarse mudeli sobivust andmetega. Jääkide jaotus 0-joone ümber ja sujuva joone kuju annavad informatsiooni mudeli eelduste (nt homoskedastsus ja lineaarsus) täidetuse kohta.
-
 
 
 Samuti saab vaadata jääkide jagunemist tihedusfunktsiooni abil koostatud graafikul.
@@ -299,11 +294,18 @@ Samuti saab vaadata jääkide jagunemist tihedusfunktsiooni abil koostatud graaf
 # Näide R keskkonnas
 
 ggplot(lm_model, aes(x = .resid)) +
-  geom_density()
+  geom_density() +
+  geom_vline(
+    xintercept = mean(lm_model$residuals),
+    color = "blue",
+    lwd = 1
+  )
 
 ```
 
 Sellise protseduuri abil saad hinnata, kui hästi sobib loodud lineaarne regressioonimudel andmetele ning kas jääkide jaotus vastab normaalsuse eeldusele.
+
+Järgnevalt vaatame mudeli ANOVA funktsiooniga `anova()` ja parameetrite usalduspiire funktsiooniga `confint()`.
 
 ```{r}
 # Näide R keskkonnas
@@ -358,8 +360,200 @@ Sellest on näha, et need on tugevas korrelatsioonis (0,986). See mõjutab ka li
 
 
 ## Dispersioonanalüüs
-Mitmese regressioonanalüüsi korral on tegemist mudeliga, kus pidev funktsioontunnus avaldub pidevate argumenttunnuste lineaarkombinatsioonina. Dispersioonanalüüsi korral on tegemist mudelitega, kus funktsioontunnuseks on pidev tunnus, kuid argument-tunnused on diskreetsed (võivad olla nii arvulised kui ka mittearvulised). Dispersioon-analüüsi argumenttunnuseid nimetatakse faktoriteks. Ühefaktorilise dispersioonanalüüsi puhul uuritakse funktsioontunnuse sõltuvust ainult ühest faktorist. Faktori võimalikke väärtusi nimetatakse faktori tasemeteks.
 
-Olgu üldkogum jaotatud mittelõikuvateks osadeks ehk rühmadeks faktori tasemete järgi. Öeldakse, et faktor X mõjub tunnusele Y, kui tunnuse Y keskväärtused eri rühmades on erinevad. Uurija käsutuses on valimi mõõtmisandmed, mille funktsioon-tunnuse rühmakeskmised tavaliselt erinevad. Dispersioonanalüüs on meetod, millega otsitakse vastust küsimusele, kas valimi rühmakeskmiste erinevus on põhjustatud uuritava faktori mõjust või valimi juhuslikkusest. 
+Dispersioonanalüüs (ANOVA) on statistiline meetod, mida kasutatakse rohkem kui kahe rühma keskväärtuste võrdlemiseks. See analüüs võimaldab hinnata, kas faktortunnuse erinevatel tasemetel (ehk rühmadel) on oluline mõju uuritavale tunnusväärtusele. Dispersioonanalüüs jagab koguhajuvuse osadeks, mis on seletatavad erinevate faktoritega, võimaldades nii tuvastada, millised faktorid mõjutavad oluliselt uuritavat tunnust.
 
-Dispersioonanalüüsi võimalused ja vahendid sõltuvad oluliselt valitud mudelist ja katsekorraldusest. Kui iga faktortunnuse igal tasemel on tehtud ühepalju mõõtmisi, nimetatakse mudelit tasakaalustatuks, vastasel juhul on tegemist tasakaalustamata mudeliga. Kui mõõtmisi on tehtud faktori kõigil võimalikel tasemetel, siis nimetatakse seda fikseeritud faktoriks. Kui faktortunnusel on palju erinevaid väärtusi ja mõõdetud tasemeid vaadeldakse juhusliku valimina faktori võimalike tasemete hulgast, siis nimetatakse seda juhuslikuks faktoriks. Järgnevalt käsitleme ainult fikseeritud faktoritega mudeleid.
+**Dispersioonanalüüsi põhimõtted ja eeldused**
+
+Dispersioonanalüüs põhineb koguhajuvuse jagamisel kaheks peamiseks komponendiks:
+*   **Seletatud hajuvus (rühmadevaheline hajuvus):** See on hajuvus, mis on tingitud erinevustest rühmade keskväärtuste vahel. Suur rühmadevaheline hajuvus viitab sellele, et faktortunnusel on oluline mõju uuritavale tunnusele.
+*   **Seletamata hajuvus (rühmasisene hajuvus):** See on hajuvus, mis esineb iga rühma sees, tulenedes juhuslikest põhjustest. Väike rühmasisene hajuvus viitab sellele, et rühmade keskväärtused on omavahel sarnased.
+
+Dispersioonanalüüsi rakendamiseks on vaja täita mõningaid eeldusi:
+1.  **Juhuslikud vead on üksteisest sõltumatud:** Iga vaatluse viga ei tohiks mõjutada teiste vaatluste vigu.
+2.  **Juhuslike vigade keskväärtus on null ja dispersioon on faktori kõikidel tasemetel ühesugune (homoskedastiivsus):** Vigade hajuvus (dispersioon) peaks olema konstantne kõigi rühmade korral. See on oluline eeldus, mille rikkumine võib viia valede järeldusteni. Meie varasemas vestluses rääkisime pikemalt homoskedastiivsusest ja selle olulisusest. Kui homoskedastiivsuse eeldus ei kehti, tuleb kasutada alternatiivseid meetodeid või transformeerida andmeid.
+3.  **Kõigi faktorite juhuslikud vead on normaaljaotusega:** Veaterminid peavad olema ligikaudu normaalselt jaotunud igas rühmas. See eeldus on eriti oluline väikeste valimite korral. Suuremate valimite korral ei ole see eeldus nii kriitiline tänu tsentraalse piirteoreemi mõjule.
+4.  **Kõik faktorite mõjud on aditiivsed:** Faktortunnuste mõjud liituvad lineaarselt, mis tähendab, et ühe faktori mõju ei sõltu teise faktori tasemest. Kui see eeldus ei kehti, võib kaaluda mitte-aditiivseid mudeleid.
+
+Kui mõni nendest eeldustest ei ole täidetud, võib kasutada mitteparameetrilisi meetodeid, nagu Kruskal-Wallise test, mis ei eelda normaaljaotust ja homoskedastiivsust.
+
+**Dispersioonanalüüsi tüübid**
+
+Dispersioonanalüüsi saab liigitada mitmel viisil:
+
+1.  **Ühefaktoriline dispersioonanalüüs (One-way ANOVA):** Kasutatakse, kui uuritakse ühe faktortunnuse mõju funktsioontunnusele. Näiteks võrdlemaks müügitulemusi erinevates piirkondades, kus piirkond on faktortunnus.
+2.  **Kahefaktoriline dispersioonanalüüs (Two-way ANOVA):** Kasutatakse, kui uuritakse kahe faktortunnuse samaaegset mõju funktsioontunnusele. Näiteks analüüsimaks nii reklaamikampaania tüübi kui ka piirkonna mõju müügitulemustele. See võimaldab uurida ka faktortunnuste koosmõju.
+3.  **Mitme faktoriline dispersioonanalüüs (Multifactor ANOVA):** Kasutatakse, kui uuritakse rohkem kui kahe faktortunnuse samaaegset mõju funktsioontunnusele.
+4.  **Fikseeritud ja juhuslikud faktorid:** Faktortunnus võib olla fikseeritud (mõõtmised on tehtud kõigil võimalikel tasemetel) või juhuslik (mõõdetud tasemed on juhuslik valim kõigi võimalike tasemete hulgast).
+
+**Dispersioonanalüüsi teostamine**
+
+Dispersioonanalüüsi teostamiseks arvutatakse erinevad ruutude summad ja keskmised ruudud:
+
+*   **Kogu ruutude summa (SST):** See mõõdab kogu hajuvust andmetes, mis on arvutatud vaatluste ja üldkeskmise hälvete ruutude summana.
+*   **Rühmadevaheline ruutude summa (SSR või MST):** See mõõdab hajuvust, mis on tingitud erinevustest rühmade keskväärtuste vahel. See on seletatud hajuvus.
+*   **Rühmasisene ruutude summa (SSE või MSE):** See mõõdab hajuvust iga rühma sees, mis on tingitud juhuslikest põhjustest. See on seletamata hajuvus.
+
+Keskmised ruudud (MS) saadakse, jagades ruutude summad vastavate vabadusastmete arvuga:
+*   **Rühmadevaheline keskmine ruut (MSR või MST):** MSR = SSR / (k - 1), kus k on rühmade arv.
+*   **Rühmasisene keskmine ruut (MSE):** MSE = SSE / (n - k), kus n on vaatluste koguarv.
+
+Teststatistik F arvutatakse järgmiselt:
+*   **F = MSR / MSE**
+
+F-statistik võrreldakse F-jaotuse kriitilise väärtusega, et otsustada, kas nullhüpotees (rühma keskväärtused on võrdsed) lükatakse tagasi. Kui F-statistik on suurem kui kriitiline väärtus, siis on piisavalt tõendeid nullhüpoteesi tagasilükkamiseks ja sisuka hüpoteesi toetamiseks (et rühmade keskväärtused on erinevad).
+
+**Dispersioonanalüüsi tulemuste interpretatsioon**
+
+Dispersioonanalüüsi tulemuste põhjal saab teha järgmisi järeldusi:
+
+1.  **F-statistik ja p-väärtus:** F-statistik ja sellega seotud p-väärtus näitavad, kas rühmade keskväärtuste erinevused on statistiliselt olulised. Väike p-väärtus (tavaliselt alla 0,05) viitab sellele, et nullhüpotees lükatakse tagasi.
+2.  **Rühma keskmised:** Kui nullhüpotees lükatakse tagasi, siis tuleb uurida, milliste rühmade keskväärtused erinevad. Selleks võib kasutada post-hoc teste (nt Tukey HSD, Bonferroni).
+3.  **Mõju suurus:** Lisaks statistilisele olulisusele on oluline hinnata ka mõju suurust, mis näitab, kui palju faktortunnus mõjutab uuritavat tunnust. Mõju suuruse mõõdikud on näiteks eta ruut ($\eta^2$) või osaline eta ruut.
+
+
+MS Exceli keskkonnas saab ühefaktorilise dispersioonanalüüsi tegemiseks kasutada protseduuri Anova (Analysis of Variance). Selleks tuleb andmed eelnevalt salvestada rühmade kaupa tulpadesse või veergudesse. Ühefaktorilise dispersioon¬analüüsi protseduuri saab kasutada nii tasakaalustatud kui ka tasakaalustamata mudeli jaoks. Protseduur käivitatakse menüüst: Andmed, Data Analysis, Anova: Single Factor.  
+
+Avanevas sisestusaknas tuleb määrata:
+Input Range – algandmete plokk,
+Grouped by – määratakse, kas rühmad on orienteeritud veerge pidi (Columns) või ridu pidi (Rows),
+Labels in First Row – märgitakse faktori tasemete väärtuste olemasolu korral andme-ploki esimeses reas (või esimeses veerus, kui andmed on orienteeritud ridu pidi), 
+Output options – määratakse, kas vastus salvestatakse samale töölehele (Output Range), uuele töölehele (New Worksheet Ply) või uude faili (New Workbook).
+Protseduuri tulemusena väljastatakse funktsioontunnuse aritmeetilised keskmised ja dispersioonid rühmade kaupa ning dispersioonanalüüsi tabel.
+
+Erinevate väetiste mõju selgitamiseks männipoogendite kasvule korraldati Mõisaküla seemlas katse, kus ühe ja sama klooni poogendeid väetati lämmastikväetisega (N), fosforväetisega (P) ja täisväetisega (NPK). Kontrollala ei väetatud. Kolmandal aastal peale väetamist mõõdeti iga katseala poogenditelt 10 juhuslikult valitud (ladvakasvu) okka pikkused millimeetrites.
+
+|N|60 | 63 | 64 | 65 | 58 | 60 | 64 | 61 | 65 | 58
+P | 51 | 49 | 52 | 48 | 54 | 52 | 52 | 51 | 50 | 50
+NPK | 56 | 56 | 55 | 56 | 56 | 53 | 58 | 59 | 58 | 53
+Kontroll | 61 | 54 | 56 | 58 | 55 | 63 | 59 | 53 | 54 | 56
+
+Kas saab tõestada, et erinevate väetamise variantide puhul on poogendite keskmised okka pikkused erinevad? Olulisuse nivooks valime 0,05. 
+Funktsioontunnuseks on okka pikkus. Faktoriks on väetamise variant, millel on 4 taset: N, P, NPK ja kontroll. Nullhüpoteesiks on väide, et kõigi nelja väetamise variandi korral on poogendite okka pikkuste keskväärtused ühesugused. Sisukaks hüpoteesiks on väide, et vähemalt ühe väetamise variandi korral on okka pikkuse kesk¬väärtus teistest erinev. 
+MS Exceli dispersioonanalüüsi protseduuri tulemusena saame järgmised tabelid.
+
+Anova: Single Factor |  |  |  |  |  | 
+SUMMARY |  |  |  |  |  | 
+Groups | Count | Sum | Average | Variance |  | 
+N | 10 | 618 | 61,8 | 7,51 |  | 
+P | 10 | 509 | 50,9 | 2,99 |  | 
+NPK | 10 | 560 | 56,0 | 4,00 |  | 
+Kontroll | 10 | 569 | 56,9 | 10,77 |  | 
+ANOVA |  |  |  |  |  | 
+Source of Variation | SS | df | MS | F | P-value | F crit
+Between Groups | 598,2 | 3 | 199,40 | 31,57 | 3,5E-10 | 2,87
+Within Groups | 227,4 | 36 | 6,32 |  |  | 
+Total | 825,6 | 39 |  |  |  | 
+Dispersioonanlüüsi tabelist on näha, et arvutatud F-statistiku väärtus on 31,57. Kuna see on suurem kui F-jaotuse 0,05-täiendkvantiil (F0,05, 3, 36 = 2,87), võime lugeda tõestatuks, et erinevate väetamisvariantide korral on vähemalt ühe variandi poogendite keskmine okka pikkus teistest erinev. 
+Lisaks ühefaktorilisele dispersioonanalüüsile on MS Exceli keskkonnas kaks kahe-faktorilise dispersioonanalüüsi protseduuri: kordsusteta ja kordsustega andmestike jaoks. Mõlemal juhul peab olema tegemist tasakaalustatud mudeliga.
+
+Näide 5.7. Olgu funktsioontunnuseks teatud metsatüübist juhuslikult valitud kümne puistu hektaritagavara ja kõrguse suhte aritmeetiline keskmine Eesti riigimetsa 50 aastastes puistutes. Antud suurus on teatud mõttes metsatüübi puistute tiheduse näitaja, mis iseloomustab puidutagavara kõrgusühiku kohta.  Alljärgnevas tabelis on see suurus arvutatud kolme peamise puuliigi (männikute, kuusikute ja kaasikute) ja nelja kasvu¬koha¬tüübi (kastikuloo, jänesekapsa, sinilille ja kõdusoo) jaoks.
+
+KKT | MA | KU | KS
+KL | 8,44 | 7,70 | 6,25
+JK | 11,66 | 12,04 | 10,09
+SL | 10,17 | 10,55 | 9,16
+KS | 11,40 | 10,95 | 8,65
+
+Meid huvitab, kas tagavara ja kõrguse suhe on antud puuliikidel erinev ning kas see suhe on antud kasvukohatüüpides erinev.
+Käivitame MS Excelis kahefaktorilise dispersioonanalüüsi protseduuri kordsusteta andmestiku jaoks, valides menüüst: Tools, Data Analysis, Anova: Two-Factor Without Replication. Avanevas sisestusaknas tuleb määrata:
+Input Range – algandmete plokk risttabeli kujul,
+Labels – märgitakse faktorite tasemete väärtuste olemasolu korral andmeploki esimeses reas ja esimeses veerus,
+Output options – määratakse, kas vastus salvestatakse samale töölehele (Output Range), uuele töölehele (New Worksheet Ply) või uude faili (New Workbook).
+Protseduuri tulemusena väljastatakse funktsioontunnuse aritmeetilised keskmised ja dispersioonid mõlema faktori kõigi tasemete jaoks ning dispersioonanalüüsi tabel.
+
+Table: Anova: Two-Factor Without Replication
+
+| SUMMARY | Count | Sum | Average | Variance
+| --- | --- | --- | --- | --- | --- | 
+| KL | 3 | 22,39 | 7,46 | 1,24
+| JK | 3 | 33,79 | 11,26 | 1,07
+| SL | 3 | 29,88 | 9,96 | 0,52
+|KS | 3 | 31,01 | 10,34 | 2,17
+|  |  |  | 
+| MA | 4 | 41,67 | 10,42 | 2,16
+| KU | 4 | 41,24 | 10,31 | 3,42
+| KS | 4 | 34,15 | 8,54 | 2,68
+
+
+|Source of Variation | SS | df | MS | F | P-value | F crit
+| --- | --- | --- | --- | --- | --- | --- | 
+|Rows | 23,70 | 3 | 7,90 | 43,70 | 0,0002 | 4,76
+|Columns | 8,92 | 2 | 4,46 | 24,67 | 0,0013 | 5,14
+|Error | 1,08 | 6 | 0,18 |  |  | 
+|Total | 33,70 | 11 |  |  |  | 
+
+Antud ülesandes on ridades (Rows) faktori “kasvukohatüüp” tasemed ja veergudes (Columns) faktori “puuliik” tasemed. Kahefaktorilise dispersioonanalüüsi tabelis kontrollitakse mõlema faktori mõju funktsioontunnusele. Et mõlemal faktori korral on F statistiku väärtus (F) suurem kui F-jaotuse 0,05-täiendkvantiil (F crit), oleme tõestanud kaks väidet (olulisuse nivooga 0,05):
+1) puistute tagavara ja kõrguse suhe ei ole männikutes, kuusikutes ja kaasikutes ühesugune;
+2) puistute tagavara ja kõrguse suhe ei ole antud kasvu¬koha¬tüüpides ühesugune.
+
+Näide 5.8. Pauska seemlas korraldati katse, kus ühe ja sama klooni kuusepoogendeid väetati lämmastikväetisega (N), fosforväetisega (P) ja täisväetisega (NPK). Kontrollala ei väetatud. Kahel järjestikusel käbiaastal: 1989/90 ja 1992/93 korjati iga väetis-variandiga alal seitsmelt poogendilt kõik käbid ja leiti iga puu keskmine käbi kaal grammides. 
+
+Table: Väetise andmed
+
+| N | P | NPK | Kontroll
+| --- | --- | --- | --- |
+| 1989/90 | 28,2 | 28,0 | 27,0 | 26,1
+| 28,6 | 26,9 | 28,3 | 28,2
+| 17,7 | 26,5 | 29,2 | 29,8
+| 28,1 | 24,2 | 23,2 | 30,6
+| 29,0 | 21,6 | 26,4 | 20,0
+| 30,5 | 23,9 | 23,4 | 20,2
+| 25,1 | 26,2 | 22,5 | 21,4
+| 1992/93 | 20,7 | 23,1 | 25,5 | 24,4
+| 22,8 | 24,3 | 22,2 | 23,6
+| 20,6 | 23,0 | 23,3 | 21,7
+| 23,3 | 24,9 | 22,0 | 24,6
+| 24,5 | 26,0 | 23,8 | 24,8
+| 23,6 | 25,7 | 24,0 | 23,3
+| 23,7 | 22,2 | 23,4 | 21,9
+
+Meid huvitab, kas poogendi keskmine käbi kaal on erinevate väetamisvariantide korral erinev. Samuti soovime teada saada, kas keskmine käbi kaal on vaadeldavatel käbiaastatel erinev.
+
+Käivitame MS Excelis kahefaktorilise dispersioonanalüüsi protseduuri kordsustega andmestiku jaoks, valides menüüst: Tools, Data Analysis, Anova: Two-Factor With Replications. Avanevas sisestusaknas tuleb määrata:
+Input Range – algandmete plokk ülal esitatud tabeli kujul,
+Rows per sample – kordsus (mõõtmiste arv) igal tasemel (antud näites 7),
+Alpha – olulisuse nivoo (vaikimisi  = 0,05),
+Output options – määratakse, kas vastus salvestatakse samale töölehele (Output Range), uuele töölehele (New Worksheet Ply) või uude faili (New Workbook).
+Protseduuri tulemusena väljastatakse funktsioontunnuse aritmeetilised keskmised ja dispersioonid mõlema faktori kõigi tasemete jaoks ning dispersioonanalüüsi tabel.
+
+
+**Anova: Two-Factor With Replication**
+
+| SUMMARY | N | P | NPK | Kontroll | Total
+|---|---:|---:|---:|---:|---:|
+| 1989/90 |  |  |  |  | 
+| Count | 7 | 7 | 7 | 7 | 28
+| Sum | 187,2 | 177,3 | 180,0 | 176,3 | 720,8
+| Average | 26,74 | 25,33 | 25,71 | 25,19 | 25,74
+| Variance | 18,52 | 4,83 | 7,16 | 21,10 | 11,85
+| --- |
+| 1992/93 |  |  |  |  | 
+| Count | 7 | 7 | 7 | 7 | 28
+| Sum | 159,2 | 169,2 | 164,2 | 164,3 | 656,9
+| Average | 22,74 | 24,17 | 23,46 | 23,47 | 23,46
+| Variance | 2,30 | 2,11 | 1,39 | 1,59 | 1,91
+|  |  |  |  | 
+| Total |  |  |  |  | 
+| Count | 14 | 14 | 14 | 14 | 
+| Sum | 346,4 | 346,5 | 344,2 | 340,6 | 
+| Average | 24,74 | 24,75 | 24,59 | 24,33 | 
+| Variance | 13,92 | 3,56 | 5,32 | 11,27 | 
+
+
+**ANOVA **
+
+| Source of Variation | SS | df | MS | F | P-value | F crit
+| --- |---:|---:|---:|---:|---:|---:|
+| Sample | 72,91 | 1 | 72,91 | 9,89 | 0,003 | 4,04
+| Columns | 1,63 | 3 | 0,54 | 0,07 | 0,974 | 2,80
+| Interaction | 15,89 | 3 | 5,30 | 0,72 | 0,546 | 2,80
+| Within | 353,95 | 48 | 7,37 |  |  | 
+| Total | 444,39 | 55 |  |  |  | 
+
+
+Antud ülesandes on ridades (Sample) faktori “käbiaasta” tasemed ja veergudes (Columns) faktori “väetamisvariant” tasemed. Antud dispersioonanalüüsi tabelis kontrollitakse lisaks mõlema faktori mõjule ka nende faktorite koosmõju olemasolu.
+Antud näiteülesande dispersioonanalüüsi tabelist saab (olulisuse nivool $\alpha$ = 0,05) välja lugeda järgmist:
+1) vaadeldavatel käbiaastatel (1989/90 ja 1992/93) on kuusepoogendite keskmine käbi kaal erinev (käbiaasta faktori real (Sample) on F-statistiku väärtus (9,89) suurem kui F jaotuse 0,05-täiendkvantiil (4,04)); 
+2) väetamisvariandi mõju kuusepoogendi keskmisele käbi kaalule ei saa antud andmes-tiku põhjal tõestada (väetamisvariandi faktori real (Columns) on F-statistiku väärtus (0,07) väiksem kui F jaotuse 0,05-täiendkvantiil (2,80));
+3) ka väetamisvariandi ja käbiaasta koosmõju kuusepoogendi keskmisele käbi kaalule ei saa antud andmestiku põhjal tõestada (real Interaction on F-statistiku väärtus (0,72) väiksem kui F jaotuse 0,05-täiendkvantiil (2,80)). 

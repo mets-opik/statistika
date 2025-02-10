@@ -38,9 +38,9 @@ Keskväärtuse leidmiseks tuleb kõik andmed kokku liita ja seejärel jagada and
 
 Näide R-is:
 ```{r}
-andmed <- rnorm(1000, 10, 2)
+df <- readxl::read_excel("data/naited.xlsx","prt_andmed")
 # Arvutame keskmise
-mean(andmed)
+mean(df$d)
 ```
 
 **Näide Excelis:**
@@ -59,7 +59,7 @@ Dispersioon on statistiline mõiste, mis kirjeldab, kui palju hajuvad andmed kes
 
 ```{r}
 # Leiame andmehulga dispersiooni funktsiooni var()
-var(andmed)
+var(df$d)
 ```
 
 **Näide Excelis:**
@@ -81,11 +81,11 @@ Näide R-is:
 
 ```{r}
 # Arvutame keskmise ja standardhälbe
-keskmine <- mean(andmed)
-dispersioon <- sd(andmed)
+keskmine <- mean(df$d)
+dispersioon <- sd(df$d)
 
 # Arvutame dispersiooni vea
-sqrt(dispersioon^2 / length(andmed))
+sqrt(dispersioon^2 / length(df$d))
 ```
 
 **Näide Excelis:**
@@ -104,7 +104,7 @@ Standardhälve (või standardhälve, lühendina SD) on statistiline mõõde, mis
 
 ```{r}
 # Arvutame standardhälbe
-sd(andmed)
+sd(df$d)
 ```
 
 **Näide Excelis:**
@@ -129,10 +129,10 @@ Näide R-is:
 
 ```{r}
 # Arvuta standardhälve
-sd_andmed <- sd(andmed)
+sd_andmed <- sd(df$d)
 
 # Arvuta standardhälbe viga
-sd_andmed / sqrt(length(andmed))
+sd_andmed / sqrt(length(df$d))
 ```
 
 **Näide Excelis:**
@@ -148,8 +148,8 @@ Standardviga on statistiline mõiste, mis näitab, kui suur on keskmise arvutatu
 Näide R-is:
 Eeldame, et meil on andmestik veekogude sügavuste kohta:
 ```{r}
-keskmine <- mean(andmed)
-sd(andmed) / sqrt(length(andmed))
+keskmine <- mean(df$d)
+sd(df$d) / sqrt(length(df$d))
 ```
 Antud näites arvutatakse andmestiku standardiga funktsiooniga `sd` ning seejärel jagatakse see juur arvutatud andmete arvuga, et saada standardviga.
 
@@ -168,8 +168,8 @@ Näide R-is:
 # Loome andmestiku
 
 # Leiame keskmise ning standardhälbe
-keskmine <- mean(andmed)
-sd <- sd(andmed)
+keskmine <- mean(df$d)
+sd <- sd(df$d)
 
 # Arvutame katsetäpsuse
 sd / keskmine
@@ -200,8 +200,8 @@ kus:
 Näide R-is:
 ```{r}
 # Arvutame keskmise ja standardhälbe
-keskmine <- mean(andmed)
-sd <- sd(andmed)
+keskmine <- mean(df$d)
+sd <- sd(df$d)
 
 # Arvutame variatsioonikordaja
 (sd / keskmine) * 100
@@ -225,13 +225,12 @@ kus
 Kui variatsioonikordaja viga on väike, siis võib järeldada, et andmed on stabiilsed ja usaldusväärsed. Kui see aga on suur, siis võib see tähendada, et andmed on dispersiooniga ebaühtlased.
 
 Näide R-keskkonnas:
-```r
-# Andmestik
-andmed <- c(10, 15, 20, 25, 30)
+
+```{r}
 
 # Keskmine ja standardhälve
-keskmine <- mean(andmed)
-sd <- sd(andmed)
+keskmine <- mean(df$d)
+sd <- sd(df$d)
 
 # Variatsioonikordaja viga
 sd / keskmine * 100
@@ -280,6 +279,7 @@ kus $\hat{p}$ on valimi proportsioon, $Z_{1-\frac{\alpha}{2}}$ on normaaljaotuse
 Kokkuvõttes on binoomjaotuse parameetri p usalduspiirid hinnangulised piirid, mille vahel on kindel usaldustase, et parameetri tegelik väärtus paikneb. Need piirid aitavad teha järeldusi tõenäosuse kohta, et sündmus toimub ühel katsekorral.
 
 ### Standardhälbe usalduspiirid
+
 Standardhälbe usalduspiirid on statistiline mõiste, mis aitab hinnata andmeid või tulemusi ning nende usaldusväärtust. Standardhälve on mõõtühik, mis näitab, kui palju erinevad keskmised tulemused koondumisest keskmise ümber.
 
 Standardhälbe usalduspiirid näitavad, kui kindlalt võib olla keskmise tulemuse usaldusväärsus teatud vahemikus. Enamasti kasutatakse 95% usalduspiire, mis tähendab, et 95% tõenäosusega jääb tulemus antud usalduspiiride vahemikku. Usalduspiirid arvutatakse keskmise tulemuse ja standardhälbe põhjal.
