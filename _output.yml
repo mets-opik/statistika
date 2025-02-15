@@ -1,9 +1,9 @@
-bookdown::pdf_book:
-  includes:
-    in_header: preamble.tex
-  latex_engine: xelatex
-  citation_package: natbib
-  keep_tex: yes
+# bookdown::pdf_book:
+#   includes:
+#     in_header: preamble.tex
+#   latex_engine: xelatex
+#   citation_package: natbib
+#   keep_tex: yes
 
 bookdown::gitbook:
   css: style.css
@@ -14,5 +14,5 @@ bookdown::gitbook:
     toc:
       #before: |
       #  <li><a href="./">Metsanduslik statistika R ja MS Excel keskkonnas</a></li>
-    #download: ["pdf"]
+    #download: [""]
 
