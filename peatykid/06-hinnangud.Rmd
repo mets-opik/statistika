@@ -1,0 +1,288 @@
+---
+title: "Statistilised hinnangud"
+author: "Allan Sims"
+date: "31.01.2025"
+output: pdf_document
+---
+
+# Statistilised hinnangud
+
+## Hinnangud
+
+### Punkthinnang
+
+Üldkogumi tunnuseid analüüsides huvitavad uurijat tavaliselt järgnevad probleemid:
+
+- üldkogumi tunnuse jaotusseadus;
+- selle jaotuse arvkarakteristikute ehk parameetrite arvulised väärtused (hinnangud);
+- otsustused üldkogumi parameetrite kohta (hüpoteesid).
+
+Statistilises analüüsis vaadatakse sageli esimesena, kas uuritavate andmete jaotus meenutab normaaljaotust, mis on teatud tüüpi jaotus, kus enamik väärtusi koondub keskmise ümber ja vähem levinud väärtused jäävad äärtesse. Mõnikord eeldatakse, et andmed järgivad normaaljaotust ilma seda eraldi kontrollimata, sest varasemad uuringud või teoreetilised põhjendused viitavad sellele. Kui aga selgub, et andmed ei järgi normaaljaotust, tuleks kasutada erilisi, niinimetatud jaotusvabu ehk mitteparameetrilisi meetodeid. Need meetodid võimaldavad teha järeldusi andmekogumi kohta ka siis, kui eeldatav jaotus ei ole normaalne, tagades seeläbi täpsemad tulemused.
+
+Üldkogumi parameetri punkthinnang on number, mille saame valimi andmetest, kasutades kindlat arvutusviisi. See number annab meile aimu, mis võiks olla mingi omaduse tegelik väärtus kogu rühmas, mida me uurime. Punkthinnangut näidatakse sageli sama sümboliga, mida kasutatakse selle omaduse kirjeldamiseks kogu grupis, lisades sellele väikese erimärgi nagu katuse või tärni. Kuna valim võetakse juhuslikult, sõltub punkthinnangu väärtus juhusest ja see võib iga kord erineda, kui võtame uue valimi. Seetõttu käsitleme punkthinnangut kui juhuslikku suurust, millel on oma jaotus ja parameetrid nagu keskmine väärtus või hajuvus. See tähendab, et punkthinnangu abil püüame mõista kogu grupi omadusi, lähtudes vaid osast sellest grupist.
+
+Üldkogumi parameetri, näiteks keskväärtuse, hindamiseks erinevatest valimi andmetest võib kasutada mitmesuguseid arvutusreegleid. Üks lihtne viis keskväärtuse määramiseks on võtta valimi kõige väiksema ja suurima väärtuse keskmine, st. liita need kaks väärtust kokku ja jagada kahega. See meetod on eriti kasulik, kui valim on väike ja soovitakse kiiresti saada ligikaudset hinnangut keskväärtusele. Kui aga valim on suur ja sisaldab äärmuslikke väärtusi, mis võivad tulemust moonutada, on mõistlik kasutada aritmeetilist keskmist, kust on välja jäetud kõige väiksem ja suurim väärtus. Selline lähenemine aitab vähendada üksikute ebatavaliste väärtuste mõju keskmisele, andes seeläbi usaldusväärsema ülevaate üldkogumi keskväärtusest.
+
+Punkthinnangute arvutuseeskirjade analüüsiga tegelevat matemaatilise statistika haru nimetatakse **hinnangute teooriaks**. 
+
+Nihketa hinnang tähendab, et kui me arvutame keskmise väärtuse kõikidest võimalikest hinnangutest, mida me saame valimi andmete põhjal, siis see keskmine peaks langema kokku tegeliku väärtusega, mida me üritame hinnata. See on nagu täpselt sihtpunkti tabamine. Kui hinnang on nihkega, siis see tähendab, et meie hinnangud kipuvad süstemaatiliselt olema kas liiga kõrged või liiga madalad võrreldes tegeliku väärtusega.
+
+Hinnangu headust mõjutab oluliselt ka selle hajuvus, mida näitab standardhälve – see ütleb meile, kui palju hinnangud tegelikust väärtusest keskmiselt kõiguvad. Mida väiksem on hajuvus, seda usaldusväärsem on hinnang. Hajuvus sõltub suuresti valimi suurusest: mida suurem on valim, seda väiksem on hajuvus. See tähendab, et hinnangu täpsuse suurendamiseks, näiteks kahekordistamiseks, peame valimi suurust suurendama neli korda. Teisisõnu, suurema valimi korral saame täpsemaid hinnanguid, mis aitab meil teha paremaid järeldusi üldkogumi kohta.
+
+Kui kasutame sama valimit, võime saada erinevaid punkthinnanguid, olenevalt sellest, millist arvutusreeglit rakendame. Näiteks keskväärtuse hindamisel võib aritmeetiline keskmine anda kõige väiksema hajuvusega tulemuse, samas kui valimi minimaalse ja maksimaalse väärtuse keskmise kasutamine toob kaasa kõige suurema hajuvuse. Seega, kui valime hindamiseeskirja, peaksime otsima sellise, mis annab võimalikult väikese hajuvusega hinnangu.
+
+#### Keskväärtus
+Keskväärtus ehk keskmine on statistiline näitaja, mis annab aritmeetilise keskmise kõikidest väärtustest mõõtmisel. See võimaldab kokku võtta suure hulga andmeid üheks esinduslikuks näitajaks, mis näitab, kui suur on väärtuste kogusumma ja kui palju on neid väärtusi.
+
+Keskväärtuse leidmiseks tuleb kõik andmed kokku liita ja seejärel jagada andmete arvu ehk elementide arvuga. Valem keskmise leidmiseks: Keskväärtus = (x1 + x2 + ... + xn) / n, kus x1, x2, ..., xn on andmed ja n on andmete arv.
+
+Näide R-is:
+```{r}
+df <- readxl::read_excel("data/naited.xlsx","prt_andmed")
+# Arvutame keskmise
+mean(df$d)
+```
+
+**Näide Excelis:**
+
+```{excel}
+Lahtrisse B1 sisesta järgnev valem: `=AVERAGE(andmeplokk)`
+```
+Excel arvutab nüüd nende andmete keskmise, näidates tulemust lahtris B1.
+
+#### Dispersioon
+
+Dispersioon on statistiline mõiste, mis kirjeldab, kui palju hajuvad andmed keskmisest väärtusest. Dispersioon annab aimu sellest, kui palju erinevad üksikandmed keskmisest ning kui suur on nende vahemik. Mida suurem on dispersioon, seda ebaühtlasemalt on andmed hajunud keskmise ümber.
+
+
+**R näide:**
+
+```{r}
+# Leiame andmehulga dispersiooni funktsiooni var()
+var(df$d)
+```
+
+**Näide Excelis:**
+
+```{excel}
+`=VAR(andmeplokk)`
+```
+
+Mida väiksem on dispersioon, seda kitsam on andmehulga hajuvus. Dispersiooni arvutamise valem võib Excelis varieeruda sõltuvalt sellest, kas soovite arvutada dispersiooni populatsiooni (VAR.P) või valimi (VAR.S) põhjal. R-is kasutatakse funktsiooni `var()` populatsiooni hinnangu jaoks ning `var(x, y = 1)` valimi hinnangu jaoks, kus `x` on andmehulk ja `y` on valimi põhjal arvutatava dispersiooni korrigeerimise parameetrit väljendav arv.
+
+#### Dispersiooni viga
+Dispersiooni viga (inglise keeles dispersion error) on statistiline mõiste, mis mõõdab hajuvust või ebatäpsust andmete hulgas. See näitab, kui palju erinevad individuaalsed andmed keskmisest ning omab olulist tähtsust hinnangute usaldusväärsuse hindamisel.
+
+Dispersiooni viga arvutatakse tavaliselt järgmise valemiga:
+\[ SE = \sqrt{\frac{s^2}{n}} \]
+kus \(SE\) on dispersiooni viga, \(s^2\) on proovikogumi dispersioon (standardhälve ruudus) ja \(n\) on proovikogumi suurus.
+
+Näide R-is:
+
+```{r}
+# Arvutame keskmise ja standardhälbe
+keskmine <- mean(df$d)
+dispersioon <- sd(df$d)
+
+# Arvutame dispersiooni vea
+sqrt(dispersioon^2 / length(df$d))
+```
+
+**Näide Excelis:**
+
+```{excel}
+=SQRT(STDEV(A1:A10)^2/COUNT(A1:A10)) # dispersioonivea arvutamine
+```
+
+Nii R-is kui ka Excelis arvutatud dispersiooni viga võimaldab hinnata, kui hästi keskmine esindab tervet andmestikku ning milline võiks olla keskmise usaldusväärsus.
+
+#### Standardhälve
+
+Standardhälve (või standardhälve, lühendina SD) on statistiline mõõde, mis näitab, kui palju erinevad andmed üldisest keskmisest. Mida suurem on standardhälve, seda laiem on andmehulkude ja keskmise hajuvus. Standardhälve on oluline näitaja, kui soovitakse analüüsida andmete levikut ning võrrelda erinevaid andmehulki.
+
+**Näide R-is:**
+
+```{r}
+# Arvutame standardhälbe
+sd(df$d)
+```
+
+**Näide Excelis:**
+
+```{excel}
+=STDEV(A1:A10)
+```
+
+Näiteks standardhälve arvutamine saab olla vajalik, kui soovitakse teada saada, kui palju erinevad metsanduses mõõdetud puude kõrgused üksteisest ning millised puud on silmatorkavalt kõrgemad või madalamad.
+
+#### Standardhälbe viga
+Standardhälve viga on statistiline mõõde, mis näitab, kui palju keskmisest erinevad kogumandmete proovide keskmised tulemused. Standardhälbe viga arvutatakse kogu andmestiku standardhälbe ja proovide arvu ruutjuure suhtes ning seda väljendatakse tavaliselt protsentides.
+
+Standardhälbe vea valem on järgmine:
+\[ SE = \frac{s}{\sqrt{n}}\]
+Kus:
+- \(SE\) on standardhälbe viga
+- \(s\) on proovi standardhälve
+- \(n\) on proovide arv
+
+Näide R-is:
+
+```{r}
+# Arvuta standardhälve
+sd_andmed <- sd(df$d)
+
+# Arvuta standardhälbe viga
+sd_andmed / sqrt(length(df$d))
+```
+
+**Näide Excelis:**
+
+
+- Arvuta standardhälbe viga: `=STDEV.S(A1:A10)/SQRT(COUNT(A1:A10))`
+
+Saadud tulemus annabki standardhälbe vea, mis aitab hinnata, kui täpselt proov keskmisega kogu populatsiooni keskmine kokku langeb. Mida väiksem on standardhälbe viga, seda täpsem on proovi keskmine hinnang kogu populatsiooni keskmisele.
+
+#### Standardviga
+Standardviga on statistiline mõiste, mis näitab, kui suur on keskmise arvutatud vaatlusväärtuse kõikumine tegeliku keskmise hinnangu ümber. Standardviga väljendatakse tavaliselt samades ühikutes nagu uuritav tunnus. Mida väiksem on standardviga, seda usaldusväärsemat hinnangut saab anda populatsiooni keskmisele.
+
+Näide R-is:
+Eeldame, et meil on andmestik veekogude sügavuste kohta:
+```{r}
+keskmine <- mean(df$d)
+sd(df$d) / sqrt(length(df$d))
+```
+Antud näites arvutatakse andmestiku standardiga funktsiooniga `sd` ning seejärel jagatakse see juur arvutatud andmete arvuga, et saada standardviga.
+
+**Näide Excelis:**
+
+```{excel}
+=STDEV(A1:A10) / SQRT(COUNT(A1:A10))
+```
+Seejärel saab Excelis automaatselt arvutada standardvea vastavalt antud andmestikule.
+
+#### Katsetäpsus
+Katsetäpsus või eksperimentaaltäpsus kirjeldab seda, kui hästi korduvad mõõtmised või katsetulemused on omavahel kooskõlas. See mõiste aitab hinnata katse tulemuste usaldusväärsust ja täpsust. Kõrge katsetäpsuse puhul on korduvate katsete tulemused sarnased, samas kui madala katsetäpsuse korral võivad tulemused varieeruda suurel määral.
+
+Näide R-is:
+```{r}
+# Loome andmestiku
+
+# Leiame keskmise ning standardhälbe
+keskmine <- mean(df$d)
+sd <- sd(df$d)
+
+# Arvutame katsetäpsuse
+sd / keskmine
+```
+
+**Näide Excelis:**
+
+```{excel}
+`=STDEV(A1:A10)/AVERAGE(A1:A10)` (katsetäpsus)
+```
+
+Sellisel juhul väljastavad R ja Excel katsetäpsuse väärtuse, mis aitab hinnata antud mõõtmiste korduvust ja usaldusväärsust.
+
+#### Variatsioonikordaja
+Variatsioonikordaja on statistiline mõõde, mis väljendab protsendina muutuvust numbriliste andmete hulgas. See võimaldab hinnata, kui suur on andmete hajuvus keskmisest väärtusest ning võrrelda erinevate muutujate hajuvust.
+
+Variatsioonikordajat saab arvutada järgmise valemiga: 
+
+\[
+CV = \left(\frac{sd}{\bar{x}}\right) \times 100\%,
+\]
+
+kus:
+ - \(CV\) on variatsioonikordaja,
+ - \(sd\) on standardhälve ehk standardne kõrvalekalle ja
+ - \(\bar{x}\) on aritmeetiline keskmine.
+
+Näide R-is:
+```{r}
+# Arvutame keskmise ja standardhälbe
+keskmine <- mean(df$d)
+sd <- sd(df$d)
+
+# Arvutame variatsioonikordaja
+(sd / keskmine) * 100
+```
+
+=STDEV(A1:A10)/AVERAGE(A1:A10) * 100
+
+
+Loodetavasti aitas see selgitus ja näited mõista variatsioonikordaja mõistet ja selle arvutamist nii R-is kui ka Excelis.
+
+#### Variatsioonikordaja viga
+Variatsioonikordaja viga on statistiline mõiste, mis näitab suurust, millega proov valimina võetud andmed erinevad populatsiooni üldisest muutujast. See arvutatakse suhtelise veana, võttes arvesse andmete keskmist ja standardhälvet.
+
+Variatsioonikordaja vigade arvutusvalemit saab defineerida järgnevalt:
+\[ CV = \frac{s}{\bar{x}} \times 100\% \]
+kus
+\( CV \) - variatsioonikordaja viga,
+\( s \) - standardhälve ja
+\( \bar{x} \) - keskmine.
+
+Kui variatsioonikordaja viga on väike, siis võib järeldada, et andmed on stabiilsed ja usaldusväärsed. Kui see aga on suur, siis võib see tähendada, et andmed on dispersiooniga ebaühtlased.
+
+Näide R-keskkonnas:
+
+```{r}
+
+# Keskmine ja standardhälve
+keskmine <- mean(df$d)
+sd <- sd(df$d)
+
+# Variatsioonikordaja viga
+sd / keskmine * 100
+
+```
+
+Excelis saab variatsioonikordaja vea lihtsalt arvutada järgmise valemi abil: `=STDEV(A2:E2)/A4*100`, kus A2:E2 on andmehulk ja A4 on keskmine.
+
+Variatsioonikordaja viga aitab hinnata andmete usaldusväärsust ja stabiilsust ning on oluline tööriist statistiliste analüüside tegemisel.
+
+
+
+## Vahemikhinnangud
+
+Üldkogumi parameetri vahemikhinnanguks nimetatakse valimi põhjal määratud vahemikku, kuhu see üldkogumi parameeter kuulub teatud (küllalt suure) tõenäosusega. Seda uurija poolt etteantavat tõenäosust nimetatakse usaldusnivooks ja tähistatakse traditsiooniliselt 1-$\alpha$. Usaldusnivoo väärtuseks võetakse metsanduslikes uurimustes tavaliselt 0,95, kuid vastavalt uurija kaalutlustele võib selleks olla ka 0,90; 0,99 või mingi muu suur tõenäosus. Vastavalt usaldusnivoo etteantud väärtusele arvutatakse parameetri usalduspiirid, s.o kaks arvu, mille vahel asub üldkogumi parameeter tõenäosusega 1-$\alpha$. Teades, et parameetri hinnang on juhuslik suurus, võib alumist usalduspiiri vaadelda kui parameetri hinnangu $\alpha$/2-kvantiili ja ülemist usalduspiiri kui parameetri hinnangu 1-$\alpha$/2-kvantiili.
+
+### Keskväärtuse usalduspiirid
+Keskväärtuse usalduspiirid on statistiline mõiste, mis aitab hinnata keskmise väärtuse usaldusväärsust. Keskväärtus ehk tõenäosusega 1-$\alpha$ keskmisele vastav populatsiooni parameeter paikneb usalduspiiride vahemikus keskmise ise ja sellest suurema või väiksema arvu vahel. 
+
+Usalduspiirid aitavad mõõta seda, kui kindlalt võime väita, et hinnatud keskmine väärtus on populatsiooni tegelik keskmine väärtus. Usalduspiiride arvutamiseks kasutatakse tavaliselt keskväärtuse ja standardvea suhet ning t-tabelist leitakse vastav kriitiline tõenäosus. Näiteks 95% usaldusvahemik tähendab, et oleme 95% kindlad, et populatsiooni keskmine jääb antud vahemiku sisse.
+
+Keskväärtuse usalduspiirid on olulised, kui soovime teha järeldusi populatsiooni keskmise kohta, kuid ei saa seda täpselt kindlaks teha. Need aitavad meil hinnata tulemuste usaldusväärsust ja teha otsuseid põhinedes piisavalt kindlatel andmetel.
+
+### Dispersiooni usalduspiirid
+Dispersiooni usalduspiirid on statistilised piirid, mis näitavad, kui palju võib populatsiooni dispersioon, standardhälve või varieerumine erineda, kui võtame arvesse valimi dispersiooni. Usalduspiirid annavad meile võimaluse teha järeldusi populatsiooni dispersiooni kohta, kui meil on vaid valimi andmed.
+
+Dispersiooni usalduspiirid arvutatakse tavaliselt usaldusvahemikuna, mis näitab, milline on tõenäosus, et populatsiooni dispersioon jääb kindla vahemiku piiresse. Näiteks 95% usalduspiirid tähendavad, et 95% tõenäosusega langeb populatsiooni dispersioon selle vahemiku sisse.
+
+Usalduspiiride arvutamine toimub tavaliselt tundmatu populatsiooni dispersiooni põhjal, kasutades valimi dispersiooni ja valimi suurust. Usalduspiiride laiust mõjutavad valimi suurus, usaldusvahemik ning populatsiooni dispersiooni enda suurus.
+
+Dispersiooni usalduspiirid on olulised tööriistad statistikas, sest need aitavad meil teha järeldusi populatsiooni varieeruvuse kohta ning hinnata, kui usaldusväärsed on meie tulemused. Mõistes dispersiooni usalduspiiride kontseptsiooni, saavad metsandustudengid paremini analüüsida ja tõlgendada metsanduslike andmete varieeruvust ning teha ratsionaalseid otsuseid metsandusalastes uurimustes.
+
+### Binoomjaotuse usalduspiirid
+Binoomjaotus on tõenäosusteoorias kasutatav jaotus, mis kirjeldab kahe võimaliku tulemusega eksperimentide tulemuste jaotust. Näiteks võib binoomjaotust kasutada olukorras, kus uuritakse mingi sündmuse (nt müntide viskamine, taimede ellujäämine) kordaminekut (edu) või ebaõnnestumist (ebaedu). Binoomjaotuse parameeter p tähistab tõenäosust, et sündmus toimub ühel katsekorral.
+
+Usalduspiirid on hinnangulised piirid, mille sisaldamisel on kindel usaldustase, et parameetri tegelik väärtus jääb nende piiride vahele. Binoomjaotuse puhul tähendab see, et soovime leida piirid, mille vahel paikneb tõenäosus, et sündmus toimub ühel katsekorral.
+
+Binoomjaotuse puhul saab leida 100(1-$\alpha$)% usaldusvahemiku soovitud usaldustasemega $\alpha$. Usalduspiirid leitakse tavaliselt normaaljaotuse abil, kasutades normaaljaotuse ligilähedast seost binoomjaotusega (kui n on piisavalt suur). Kui binoomjaotuse põhjal antakse 100(1-$\alpha$)% usaldusvahemik, siis näeb see välja järgmine:
+
+\[
+\hat{p} ± Z_{1-\frac{\alpha}{2}} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}},
+\]
+
+kus $\hat{p}$ on valimi proportsioon, $Z_{1-\frac{\alpha}{2}}$ on normaaljaotuse kvantiil vastava usaldustasemega ja n on valimi suurus.
+
+Kokkuvõttes on binoomjaotuse parameetri p usalduspiirid hinnangulised piirid, mille vahel on kindel usaldustase, et parameetri tegelik väärtus paikneb. Need piirid aitavad teha järeldusi tõenäosuse kohta, et sündmus toimub ühel katsekorral.
+
+### Standardhälbe usalduspiirid
+
+Standardhälbe usalduspiirid on statistiline mõiste, mis aitab hinnata andmeid või tulemusi ning nende usaldusväärtust. Standardhälve on mõõtühik, mis näitab, kui palju erinevad keskmised tulemused koondumisest keskmise ümber.
+
+Standardhälbe usalduspiirid näitavad, kui kindlalt võib olla keskmise tulemuse usaldusväärsus teatud vahemikus. Enamasti kasutatakse 95% usalduspiire, mis tähendab, et 95% tõenäosusega jääb tulemus antud usalduspiiride vahemikku. Usalduspiirid arvutatakse keskmise tulemuse ja standardhälbe põhjal.
+
+Standardhälbe usalduspiiride kasutamine aitab hinnata andmete usaldusväärsust ning teha järeldusi selle kohta, kui suures määras võivad andmed hajuda. See on oluline statistiline tööriist, mis aitab metsandustudengitel analüüsida andmeid ja teha tõenduspõhiseid otsuseid metsanduse valdkonnas.
+

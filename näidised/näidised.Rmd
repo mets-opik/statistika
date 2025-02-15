@@ -1,0 +1,39 @@
+---
+title: "Näidised"
+author: "Allan Sims"
+date: "2025-02-03"
+output: 
+  pdf_document:
+    keep_tex:  true
+header-includes:
+   - \newtheorem{mytheorem}{Teoreem}
+       
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+theorem_engine <- function(options) {
+  # Get the code from the chunk
+  code <- options$code
+  
+  # Format the code (wrap in a \begin{theorem} environment)
+  formatted_code <- paste("\\begin{theorem}\n", code, "\n\\end{theorem}")
+  
+  # Use results='asis' to indicate that the output is raw LaTeX
+  options$results <- 'asis' 
+  
+  # Return the results in a way knitr understands
+  knitr::engine_output(options, code, formatted_code)
+}
+
+knitr::knit_engines$set(theorem = theorem_engine)
+
+```
+
+
+```{theorem}
+Olgu juhuslikuks suuruseks puu diameeter. Antud näites on esitatud Järvseljal kvartalis 252  kasvanud 75 aasta vanuse naadisaariku saarepuude diameetri empiiriline jaotus proovitüki kluppimisandmete järgi.
+```
+
+Konstrueerime näite 1.2 andmete põhjal saarepuude diameetri jaotusfunktsiooni graafiku. Alljärgnevas tabelis tähistab dü vastava diameetriklassi di ülemist piiri. Jaotusfunktsiooni väärtused F(dü) saadakse osakaalude pi tõusva summeerimise teel.

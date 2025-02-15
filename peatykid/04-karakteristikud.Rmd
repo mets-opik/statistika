@@ -1,0 +1,156 @@
+---
+title: "Karakteristikud"
+author: "Allan Sims"
+date: "31.01.2025"
+output: pdf_document
+---
+
+# Karakteristikud
+
+Statistilised karakteristikud on kvantitatiivsed või kvalitatiivsed omadused, mis kirjeldavad ja iseloomustavad andmekogumeid või andmete jaotusi. Neid kasutatakse andmete kokkuvõtlikuks esitamiseks, et saada aru andmete üldisest käitumisest, trendidest ja omadustest. Statistilised karakteristikud võimaldavad teha järeldusi kogu populatsiooni kohta, analüüsides selleks valimit. Peamised statistilised karakteristikud jagunevad kaheks suureks rühmaks: keskmise ja hajuvuse karakteristikud.
+
+Juhuslik suurus on täielikult kirjeldatud üldkogumi jaotus- või tihedusfunktsiooniga (jaotusega). Juhusliku suuruse iseloomustamiseks teatud aspektist kasutatakse erinevaid arvkarakteristikuid. Neist tähtsaim on **keskväärtus** ehk matemaatiline ootus, mida tähistatakse EX ja mis on defineeritud järgnevalt.
+
+Pideva juhusliku suuruse korral:
+\[EX = \sum_{-\infty}^{\infty} x \cdot f(x) dx\]
+
+Diskreetse juhusliku suuruse korral:
+\[EX = \sum_{i=1}^{n} x_i \cdot p_i\]
+
+## Keskmised
+
+### Aritmeetiline keskmine
+
+Juhusliku suuruse jaotusseadus on uurijale enamasti teadmata. Seetõttu kasutatakse üldkogumi karakteristikute hindamiseks valimi vastavaid karakteristikuid. Üldkogumi keskväärtusele vastab valimi aritmeetiline keskmine, mida tähistatakse ülakriipsuga vastava muutuja kohal \(\bar x \) ja arvutatakse järgnevalt. 
+
+\[ \bar x=\frac{1}{N}\sum_{i=1}^{k}n_i \cdot x_i \]
+
+Kus \(x_{i}\) on iga andmehulga liige ning \(n\) on andmehulga suurus.
+
+
+```{r, include = F}
+```
+
+**R keskkonnas:**
+
+```{r}
+# Laadime proovitükkide andmed
+df <- readxl::read_excel("data/naited.xlsx","prt_andmed")
+# Tunnusest arvutatakse keskmine:
+mean(df$d)
+```
+
+**Exceli keskkonnas:**
+
+```{excel}
+=MEAN(andme_vektor)
+```
+
+
+### Ruutkeskmine
+Ruutkeskmine on üks keskmise leidmise meetoditest, mis annab ülevaate andmehulgast ning aitab mõõta andmete hajuvust. Ruutkeskmise leidmiseks tuleb iga andmehulga liige ruutu võtta, seejärel leida nende aritmeetiline keskmine ning võtta sellest ruutjuur. Matemaatiliselt väljendatuna on ruutkeskmine järgmine:
+
+\[ \bar x_{ruut}=\sqrt{\frac{1}{N}\sum_{i=1}^{k}n_i \cdot x_i^2} \],
+
+kus \(x_{i}\) on iga andmehulga liige ning \(n\) on andmehulga suurus.
+
+Metsanduses on ruutkeskmine kasutusel keskmise diameetri arvutamisel.
+
+**R keskkonnas:**
+
+```{r}
+# Tunnusest arvutatakse ruut ning keskmisest võetakse ruutjuur:
+sqrt(mean(df$d^2))
+```
+
+**Exceli keskkonnas:**
+
+```{excel}
+=SQRT(MEAN(andmeplokk^2))
+```
+
+### Geomeetriline keskmine
+
+Geomeetriline keskmine on keskmise arvutamise meetod, mille puhul kõik antud arvud korrutatakse omavahel ning seejärel võetakse saadud korrutisest n-nda astme juur, kus n tähistab arvude kogust. Geomeetriline keskmine \(\bar x_{geom}\) arvutatakse järgneva valemiga:
+
+\[\bar x_{geom}=\exp \biggl( \frac{1}{N}\sum_{i=n}^k n_i \cdot \ln(x_i) \biggr) \]
+
+kus:
+
+- \(n\) on arvude kogus
+- \(x_1, x_2, \ldots, x_n\) on positiivsed arvud
+
+
+
+**R keskkonnas:**
+
+```{r}
+# Tunnusest arvutatakse logaritm ning keskmisest võetakse exponent:
+exp(mean(log(df$d)))
+```
+
+**Exceli keskkonnas:**
+
+```{excel}
+=GEOMEAN(andmeplokk)
+```
+
+
+### Harmooniline keskmine
+Harmooniline keskmine on statistiline mõõde, mis arvutatakse jagades arvude hulk nende vastandväärtuste summa järgi. Harmooniline keskmine on erinev aritmeetilisest ja geomeetrilisest keskmisest ning seda kasutatakse eelkõige siis, kui on vaja leida keskmine, mis arvestab vastandväärtusi või suhtarve.
+
+Harmoonilist keskmist kasutatakse sageli olukordades, kus on vaja arvutada keskmine mingis suhtarvulises kontekstis, näiteks kiiruste, ajade või muude vastandväärtustega seotud suuruste puhul. Näiteks võib harmooniline keskmine kiirus olla kasulik, kui on vaja arvutada keskmine kiirus teepikkuse ja sõiduaegadega seotud olukorras.
+
+Harmoonilist keskmist arvutatakse valemiga:
+\[\bar x_{harm} = \frac{N}{\sum_{i=1}^k n_i / x_i},\]
+kus \(x_{1}, x_{2}, \ldots, x_{n}\) on arvude hulk, mille harmoonilist keskmist soovitakse leida ning \(n\) on arvude hulga suurus.
+
+**R keskkonnas:**
+
+```{r}
+# Tunnuse pöördväärtuse keskmisest võetakse pöördväärtus:
+1/mean(1/df$d)
+```
+
+**Exceli keskkonnas:**
+
+```{excel}
+=HARMEAN(andmeplokk)
+```
+
+
+## Kvantiilid
+
+
+Juhusliku suuruse p-kvantiiliks (0 < p < 1) nimetatakse sellist juhusliku suuruse väärtust xp, millest väiksemate väärtuste esinemise tõenäosus on p:
+
+ \[ P (X < x_p) = p \]
+
+Teatud kvantiilide jaoks kasutatakse erinimetusi:
+
+- \(x_{0,50}\)	– mediaan, tähistatakse ka Me;
+- \(x_{0,25}\)	– alumine kvartiil;
+- \(x_{0,75}\)	– ülemine kvartiil;
+- \(x_{0,10}\)	– alumine detsiil;
+- \(x_{0,9}\)	– ülemine detsiil;
+- \(x_{0,01}\)	– alumine protsentiil;
+- \(x_{0,99}\)	– ülemine protsentiil. 
+
+Enamkasutatavam kvantiil on **mediaan**, mida võib pidada (nagu keskväärtustki) juhusliku suuruse tsentriks. Mediaan on juhusliku suuruse selline väärtus, millest nii väiksemate kui ka suuremate väärtuste esinemise tõenäosus on 0,5. Mediaan iseloomustab juhusliku suuruse asendi poolest keskmist väärtust. 
+Kui on teada juhusliku suuruse jaotusfunktsioon F(x), siis saab juhusliku suuruse kvantiili xp arvutada kui jaotusfunktsiooni pöördfunktsiooni, sest kvantiili definitsioonist tuleneb F(xp) = p. Juhul kui on tegemist vaatlusandmestikuga, saab kvantiile ligikaudu hinnata empiiriliselt jaotusfunktsiooni graafikult. 
+
+
+## Mediaan
+Mediaan väärtus, mis jagab andmed kaheks võrdselt suureks pooleks. See ei sõltu ekstreemsetest väärtustest ega hajutatud andmetest.
+
+
+Mediaani arvutamine:
+```{r}
+median(df$d)
+```
+
+Exceli keskkonnas:
+
+```{excel}
+=MEDIAN(andmeplokk)
+```

@@ -1,14 +1,14 @@
 \usepackage{booktabs}
 
-%\usepackage{titlesec}
-%\newcommand{\sectionbreak}{\clearpage}
-%, provide=*
+\AtBeginEnvironment{verbatim}{\small}
+\AtEndEnvironment{verbatim}{}
+
 \usepackage[estonian, provide=*]{babel}
 \usepackage{float}
 
 \usepackage{CormorantGaramond}
 %\usepackage{ebgaramond-maths}
-\usepackage{times}
+%\usepackage{times}
 
 \usepackage{makeidx}
 
@@ -40,6 +40,25 @@
 \usepackage[absolute,overlay]{textpos} % Teksti paigutamiseks pildi peale
 \usepackage{xcolor} % Värvi kasutamiseks
 
+\newcommand{\naitefont}{\usefont{T1}{cmbr}{m}{n}\fontsize{8}{14}\selectfont}
+
+\newcounter{naidis}[chapter]
+
+\newenvironment{naidis}
+{%
+\definecolor{shadecolor}{rgb}{200, 200, 0}
+\par\parindent 0pt
+\begin{framed}
+\begin{naitefont}
+\refstepcounter{naidis}\textbf{Näide \thenaidis.}
+}
+{%
+\end{naitefont}%
+\end{framed}
+}%
+
+\counterwithin{naidis}{chapter}
+
 \DefineVerbatimEnvironment{naideExcel}{Verbatim}{
 	xleftmargin=.5cm,
 	fontsize=\small,
@@ -50,7 +69,6 @@
 
 
 \renewcommand{\normalsize}{\fontsize{12}{18}\selectfont}
-
 
 %\RecustomVerbatimEnvironment{Highlighting}{Verbatim}{fontsize=\small}
 \renewenvironment{Shaded} {\begin{snugshade}\footnotesize} {\end{snugshade}}
@@ -75,14 +93,7 @@
         \vspace{0.5cm}
         {\Large\textit{Diana Laarmann}}\\
         \vspace{1cm}
-        
-        % Kaanepilt
-        %\includegraphics[width=\textwidth]{kaanepilt.jpg}\\
-        %\vspace{2cm}
-        
-        % Avaldamise kuupäev või muu tekst
-        %{\Large 2024}
-        
+
         \vfill
         
         % Kirjastuse või muu asjakohase info lisamine
@@ -94,4 +105,3 @@
 
 % Kaane lehe lisamine dokumenti enne sisu algust
 %\AtBeginDocument{\kaanekaas}
-   

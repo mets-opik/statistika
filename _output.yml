@@ -1,19 +1,18 @@
-bookdown::gitbook:
-  css: style.css
-  config:
-    caption:
-      figure_num_sep: "."
-      table_num_sep: "."  
-    toc:
-      #before: |
-      #  <li><a href="./">Metsanduslik statistika R ja MS Excel keskkonnas</a></li>
-      #after: |
-      #  <li><a href="https://github.com/rstudio/bookdown" target="blank">Publitseeritud bookdown paketiga</a></li>
-    #edit: https://github.com/USERNAME/REPO/edit/BRANCH/%s
-    download: ["pdf"]
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes
+
+bookdown::gitbook:
+  css: style.css
+  config:
+    caption:
+      figure_num_sep: "."
+      table_num_sep: "."
+    toc:
+      #before: |
+      #  <li><a href="./">Metsanduslik statistika R ja MS Excel keskkonnas</a></li>
+    #download: ["pdf"]
+

@@ -1,3 +1,4 @@
+gti pull
 git add .
 git commit -m "Uuendus"
 
