@@ -100,7 +100,7 @@ Normaaljaotus, tuntud ka kui Gaussi jaotus, on pidev sümmeetriline jaotus, mida
 
 **Sümmeetria:** Normaaljaotus on sümmeetriline keskväärtuse ($\mu$) suhtes. Keskväärtus, mediaan ja mood langevad kokku.
 
-```{r, echo = F, fig.cap="Normaajaotuse tihedusfunktsioon"}
+```{r, echo = F, fig.cap="Normaaljaotuse tihedusfunktsioon."}
 par(mar=c(4,4,1,1), mgp=c(2, 0.7, 0))
 curve(dnorm(x), -3, 3)
 ```
@@ -114,13 +114,13 @@ kus:
  * $\mu$ on jaotuse keskväärtus (määrab jaotuskõvera asukoha).
  * $\sigma$ on standardhälve (määrab jaotuskõvera laiuse - suurem $\sigma$ tähendab laiemat ja madalamat kõverat).
 
-**Tõenäosused ja Standardhälve:**
+**Tõenäosused ja standardhälve:**
 
 * $P(\mu - \sigma \le X \le \mu + \sigma) \approx 0,683$ (68.3% väärtustest jääb $\pm 1\sigma$ vahemikku).
 * $P(\mu - 2\sigma \le X \le \mu + 2\sigma) \approx 0,954$ (95.4% väärtustest jääb $\pm 2\sigma$ vahemikku).
 * $P(\mu - 3\sigma \le X \le \mu + 3\sigma) \approx 0,997$ (99.7% väärtustest jääb $\pm 3\sigma$ vahemikku).
 
-**Standardiseeritud Normaaljaotus (Z-jaotus):** Normaaljaotusega juhuslik suurus $X$ saab teisendada standardiseeritud normaaljaotusele $Z$ järgmise valemiga:
+**Standardiseeritud normaaljaotus (Z-jaotus):** Normaaljaotusega juhuslik suurus $X$ saab teisendada standardiseeritud normaaljaotusele $Z$ järgmise valemiga:
 
 $$z = \frac{x - \mu}{\sigma}$$
 
@@ -130,7 +130,7 @@ Standardiseeritud normaaljaotuse puhul $\mu = 0$ ja $\sigma = 1$, tähistatakse 
 
 **Kasutusalad:**
 
-**Statistilised Järeldused:** Normaaljaotus on aluseks paljudele statistilistele meetoditele (nt t-testid, ANOVA, regressioonanalüüs), mis sageli eeldavad andmete normaaljaotust. Suurte valimite puhul (n > 30) on võimalik teatud piirini eirata andmete kõrvalekaldumist normaaljaotusest.
+**Statistilised järeldused:** Normaaljaotus on aluseks paljudele statistilistele meetoditele (nt t-testid, ANOVA, regressioonanalüüs), mis sageli eeldavad andmete normaaljaotust. Suurte valimite puhul (n > 30) on võimalik teatud piirini eirata andmete kõrvalekaldumist normaaljaotusest.
 
 **Protsesside Modelleerimine:** Paljud looduslikud ja majanduslikud nähtused on ligikaudu normaaljaotusega, olles mõjutatud mitmetest sõltumatutest juhuslikest teguritest.
 
