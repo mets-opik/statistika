@@ -276,6 +276,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb78-2"><a href="mittelineaarne-regressioon.html#cb78-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb78-3"><a href="mittelineaarne-regressioon.html#cb78-3" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb78-4"><a href="mittelineaarne-regressioon.html#cb78-4" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<div class="naidis">
+<p>Olgu meil ülesandeks lähendada Eesti riigimetsa pohla kasvukohatüübi männikute keskmiste kõrguste vanuserea andmed Mitcherlichi kasvufunktsiooniga</p>
+</div>
 <p><span class="math display">\[H = c0 * (1 - exp(-c1 * A))^{c2}\]</span></p>
 <p>Kus A on vanus, H on puistu kõrgus ning c0, c1 ja c2 on mudeli parameetrid.</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="mittelineaarne-regressioon.html#cb79-1" tabindex="-1"></a><span class="co"># Laadime andmed sisse failist ning</span></span>
@@ -313,10 +316,10 @@ Achieved convergence tolerance: 1,52e-06</code></pre>
 <span id="cb85-5"><a href="mittelineaarne-regressioon.html#cb85-5" tabindex="-1"></a>      <span class="fu">predict</span>(mudel, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">A =</span> x)),</span>
 <span id="cb85-6"><a href="mittelineaarne-regressioon.html#cb85-6" tabindex="-1"></a>    <span class="at">color =</span> <span class="dv">2</span></span>
 <span id="cb85-7"><a href="mittelineaarne-regressioon.html#cb85-7" tabindex="-1"></a>  ) </span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-65"></span>
-<img src="_main_files/figure-html/unnamed-chunk-65-1.png" alt="Mittelineaarne regressioon" width="80%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-60"></span>
+<img src="_main_files/figure-html/unnamed-chunk-60-1.png" alt="Mittelineaarne regressioon" width="80%" />
 <p class="caption">
-Joonis 8.1: Mittelineaarne regressioon
+Joonis 8.1. Mittelineaarne regressioon
 </p>
 </div>
 <p>Testime mittelineaarset lähenemist puu diameetri ja kõrguse vahelise seose modelleerimiseks.</p>
@@ -344,10 +347,10 @@ Achieved convergence tolerance: 1,03e-06</code></pre>
 <span id="cb89-4"><a href="mittelineaarne-regressioon.html#cb89-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb89-5"><a href="mittelineaarne-regressioon.html#cb89-5" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
 <span id="cb89-6"><a href="mittelineaarne-regressioon.html#cb89-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;gam&quot;</span>, <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">s</span>(x))  <span class="co"># Lisab sujuva joone GAM mudeli abil</span></span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-68"></span>
-<img src="_main_files/figure-html/unnamed-chunk-68-1.png" alt="Jäägid vs ennustatud" width="80%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-63"></span>
+<img src="_main_files/figure-html/unnamed-chunk-63-1.png" alt="Jäägid vs ennustatud" width="80%" />
 <p class="caption">
-Joonis 8.2: Jäägid vs ennustatud
+Joonis 8.2. Jäägid vs ennustatud
 </p>
 </div>
 <p><strong>Mida sellelt graafikult otsida:</strong></p>

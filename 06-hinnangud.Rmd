@@ -173,9 +173,9 @@ Väikese valimi korral ei pruugi eelnevalt toodud valemid olla täpsed, eriti os
 
 Keskväärtuse usalduspiiride leidmine ja hüpoteeside testimine on omavahel tihedalt seotud. Kui meil on nullhüpotees $H_0: \mu = \mu_0$, siis kui valimi keskmine $\bar{x}$ langeb piirkonda, kus olulisusnivool $\alpha$ võetakse vastu $H_0$, siis $\mu_0$ asub valimi põhjal usaldatavusega $\beta = 1-\alpha$ leitud keskväärtuse usaldusvahemikus. Hüpoteesi testimisel lähtume nullhüpoteesiga püstitatud väärtusest $\mu_0$, aktsepteerimisvahemik on sellest mõlemale poole, ja me aktsepteerime nullhüpoteesi, kui valimi keskmine $\bar{x}$ jääb sellesse vahemikku. Keskväärtuse usaldusvahemiku leidmisel lähtume aga valimi keskmisest $\bar{x}$ ja üldkogumi keskväärtus $\mu$ langeb antud usaldatavusega sellesse vahemikku.
 
-\begin{naidis}
+:::{.naidis}
 Vaatleme näites 1.4 esitatud valimit, milles on antud sambliku kasvukohatüübis kasvava 50-aastase männiku 60 juhuslikult valitud puu kõrguste andmed. Arvutame kõrguse keskväärtuse 95%-lised usalduspiirid.
-\end{naidis}
+:::
 
 Näites on  selle valimi andmete põhjal arvutatud 
 \begin{tabular}{lr}
@@ -228,9 +228,9 @@ kus:
 
 **Standardhälbe usalduspiiride** saamiseks võetakse ruutjuur dispersiooni usalduspiiridest.
 
-\begin{naidis}
+:::{.naidis}
 Vaatleme näites 1.4 esitatud valimit, milles on antud sambliku kasvukohatüübis kasvava 50-aastase männiku 60 juhuslikult valitud puu kõrguste andmed. Arvutame kõrguse dispersiooni 95%-lised usalduspiirid.
-\end{naidis}
+:::
 
 Näites on  selle valimi andmete põhjal arvutatud 
 \begin{tabular}{lr}
@@ -283,9 +283,10 @@ Binoomjaotus on määratud kahe parameetriga: *n* (katsete arv) ja *p* (õnnestu
 
 $$p_{\alpha/2} = \frac{k}{k + (n-k + 1) \cdot F_{\alpha/2,2 \cdot (n-k+1), 2\cdot k}}$$
 $$p_{1- \alpha/2} = \frac{k+1}{(k+1)+(n-k) / F_{\alpha/2,2\cdot (k+1), 2 \cdot (n-k)}}$$
-\begin{naidis}
+
+:::{.naidis}
 Seemnepartii idanevustõenäosuse teadasaamiseks idandati partiist 70 juhuslikult valitud seemet, millest idanes 19. Leida seemnete idanevustõenäosuse usalduspiirid, võttes usaldusnivooks 0,95.
-\end{naidis}
+:::
 
 Seemnepartii idanevustõenäosuse 95%-lised usalduspiirid avalduvad MS Excelis all-järgnevate valemitega: 
 
@@ -302,9 +303,9 @@ binom.test(19, 70, 19/70)
 
 Üldkogumi parameetrite veahinnangud sõltuvad valimi mahust. Üldiselt tuleb hinnangu täpsuse suurendamiseks k korda suurendada valimi mahtu 2 * k korda. Praktilises metsanduslikus uurimistöös tekib tihti küsimus, kui palju tuleks mõõta puid, rajada proovitükke jne, et saadud tulemused iseloomustaksid üldkogumit piisava täpsusega. 
 
-\begin{naidis}
+:::{.naidis}
 Vaatleme näites 1.4 esitatud valimit, milles on antud sambliku kasvukohatüübis kasvava 50-aastase männiku 60 juhuslikult valitud puu kõrguste andmed. 
-\end{naidis}
+:::
 
 Näites on  selle valimi andmete põhjal arvutatud 
 \begin{tabular}{lr}
@@ -356,13 +357,13 @@ F-testi tulemuste tõlgendamiseks võrreldakse arvutatud F-statistiku väärtust
     * Parempoolne kriitiline väärtus (kui $\sigma_1^2 > \sigma_2^2$): $F_{kr} = F_{\alpha}(n_1 - 1, n_2 - 1)$.
     * Vasakpoolne kriitiline väärtus (kui $\sigma_1^2 < \sigma_2^2$): $F_{kr} = F^{-1}_{\alpha}(n_2 - 1, n_1 - 1)$.
 
-\begin{naidis}
+:::{.naidis}
 Olgu uurimisobjektiks suhteliselt homogeensel alal sambliku kasvu¬koha¬tüübi 24-aastased männikultuurid, millest osa on rajatud põlenud ja osa põlemata pinna¬sele. Põlenud alale rajati 8 ja põlemata alale 5 proovitükki. Proovitükkide andmete töötlemise tulemusel saadi järgmised puistute kõrgused meetrites.
 
 Põlenud alal: 4,3; 3,4; 3,9; 2,9; 4,9; 3,2; 3,7; 3,6.
 
 Põlemata alal: 4,8; 4,3; 5,4; 5,1; 4,6.
-\end{naidis}
+:::
 
 Meid huvitab, kas põlenud ja põlemata alal on puistute kõrguse dispersioonid erinevad.
 

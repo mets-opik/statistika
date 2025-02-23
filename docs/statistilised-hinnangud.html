@@ -346,6 +346,9 @@ P_x
 <p>Usaldusvahemik võib olla <strong>ühe-</strong> või <strong>kahepoolne</strong>. <strong>Kahepoolset</strong> usaldusvahemikku kasutatakse siis, kui me soovime hinnata, kas tegelik parameeter võib olla nii suurem kui ka väiksem kui valimi keskmine. <strong>Ühepoolset</strong> usaldusvahemikku kasutatakse siis, kui oleme huvitatud ainult sellest, kas parameeter on suurem või väiksem kui teatud väärtus. Ühepoolse usalduspiiriga piirdumine on põhjendatud, kui hinnangu hälve vastassuunas on välistatud (nt mingi näitaja ei saa olla negatiivne). Kahepoolse testi puhul on <span class="math inline">\(t\)</span>-väärtus arvutatud <span class="math inline">\(\alpha/2\)</span> jaoks, ühepoolse testi puhul <span class="math inline">\(\alpha\)</span> jaoks.</p>
 <p>Väikese valimi korral ei pruugi eelnevalt toodud valemid olla täpsed, eriti osakaalude hindamisel. Ligikaudsest valemist leitud usaldusvahemiku alumine piir võib tulla negatiivne, mis ei ole reaalne (nt osakaal ei saa olla negatiivne). Sellisel juhul tuleks kasutada täpseid binoomjaotusel põhinevaid valemeid (nt Clopper-Pearsoni meetod). Suuremate valimite korral langevad täpse ja ligikaudse valemi tulemused kokku.</p>
 <p>Keskväärtuse usalduspiiride leidmine ja hüpoteeside testimine on omavahel tihedalt seotud. Kui meil on nullhüpotees <span class="math inline">\(H_0: \mu = \mu_0\)</span>, siis kui valimi keskmine <span class="math inline">\(\bar{x}\)</span> langeb piirkonda, kus olulisusnivool <span class="math inline">\(\alpha\)</span> võetakse vastu <span class="math inline">\(H_0\)</span>, siis <span class="math inline">\(\mu_0\)</span> asub valimi põhjal usaldatavusega <span class="math inline">\(\beta = 1-\alpha\)</span> leitud keskväärtuse usaldusvahemikus. Hüpoteesi testimisel lähtume nullhüpoteesiga püstitatud väärtusest <span class="math inline">\(\mu_0\)</span>, aktsepteerimisvahemik on sellest mõlemale poole, ja me aktsepteerime nullhüpoteesi, kui valimi keskmine <span class="math inline">\(\bar{x}\)</span> jääb sellesse vahemikku. Keskväärtuse usaldusvahemiku leidmisel lähtume aga valimi keskmisest <span class="math inline">\(\bar{x}\)</span> ja üldkogumi keskväärtus <span class="math inline">\(\mu\)</span> langeb antud usaldatavusega sellesse vahemikku.</p>
+<div class="naidis">
+<p>Vaatleme näites 1.4 esitatud valimit, milles on antud sambliku kasvukohatüübis kasvava 50-aastase männiku 60 juhuslikult valitud puu kõrguste andmed. Arvutame kõrguse keskväärtuse 95%-lised usalduspiirid.</p>
+</div>
 Näites on selle valimi andmete põhjal arvutatud
 <p><strong>MS Excel keskkonnas </strong></p>
 <p><span class="math inline">\(\mu_{0,025}\)</span> = - TINV(0,05 ; N-1) * sh /SQRT(N) = 12,082 - 2,001·1,185/ = 11,78 m;</p>
@@ -393,6 +396,9 @@ mean of x
 <li><span class="math inline">\(\alpha\)</span> on olulisusnivoo (ehk eksimisvõimalus)</li>
 </ul>
 <p><strong>Standardhälbe usalduspiiride</strong> saamiseks võetakse ruutjuur dispersiooni usalduspiiridest.</p>
+<div class="naidis">
+<p>Vaatleme näites 1.4 esitatud valimit, milles on antud sambliku kasvukohatüübis kasvava 50-aastase männiku 60 juhuslikult valitud puu kõrguste andmed. Arvutame kõrguse dispersiooni 95%-lised usalduspiirid.</p>
+</div>
 Näites on selle valimi andmete põhjal arvutatud
 <p>MS Exceli keskkonnas:</p>
 <p><span class="math display">\[\sigma_{0,025}^2 = (N-1)*s_x^2/CHIINV(\alpha/2; N-1) = (60 - 1)*1,4046/82,12 = 1,01;\]</span>
@@ -430,8 +436,11 @@ vahemikus 1,009 m kuni 2,089 m Standardhälbe usalduspiiride saamiseks tuleb võ
 <h3><span class="header-section-number">6.2.4</span> Binoomjaotuse parameetri p usalduspiirid<a href="statistilised-hinnangud.html#binoomjaotuse-parameetri-p-usalduspiirid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Binoomjaotuse parameetri <em>p</em> usalduspiirid annavad vahemiku, milles tõenäoliselt asub sündmuse tegelik toimumise tõenäosus <em>p</em>, arvestades binoomjaotusega kirjeldatud katsete seeriat. Binoomjaotus on diskreetne tõenäosusjaotus, mis kirjeldab sõltumatute katsete seerias õnnestumiste arvu, kus igal katsel on kaks võimalikku tulemust: õnnestumine või ebaõnnestumine. Parameeter <em>p</em> tähistab õnnestumise tõenäosust ühes katses.</p>
 <p>Binoomjaotus on määratud kahe parameetriga: <em>n</em> (katsete arv) ja <em>p</em> (õnnestumise tõenäosus ühes katses). Binoomjaotust tähistatakse sageli B(<em>n</em>, <em>p</em>). Kui sooritame <em>n</em> sõltumatut katset ja iga katse õnnestumise tõenäosus on <em>p</em>, siis binoomjaotusega juhusliku suuruse X (õnnestumiste arv) tõenäosus on antud valemiga:</p>
-<span class="math display">\[p_{\alpha/2} = \frac{k}{k + (n-k + 1) \cdot F_{\alpha/2,2 \cdot (n-k+1), 2\cdot k}}\]</span>
-<span class="math display">\[p_{1- \alpha/2} = \frac{k+1}{(k+1)+(n-k) / F_{\alpha/2,2\cdot (k+1), 2 \cdot (n-k)}}\]</span>
+<p><span class="math display">\[p_{\alpha/2} = \frac{k}{k + (n-k + 1) \cdot F_{\alpha/2,2 \cdot (n-k+1), 2\cdot k}}\]</span>
+<span class="math display">\[p_{1- \alpha/2} = \frac{k+1}{(k+1)+(n-k) / F_{\alpha/2,2\cdot (k+1), 2 \cdot (n-k)}}\]</span></p>
+<div class="naidis">
+<p>Seemnepartii idanevustõenäosuse teadasaamiseks idandati partiist 70 juhuslikult valitud seemet, millest idanes 19. Leida seemnete idanevustõenäosuse usalduspiirid, võttes usaldusnivooks 0,95.</p>
+</div>
 <p>Seemnepartii idanevustõenäosuse 95%-lised usalduspiirid avalduvad MS Excelis all-järgnevate valemitega:</p>
 <p><span class="math inline">\(p_{0,025}\)</span> = k/(k+(n-k+1)<em>FINV(0,025;2</em>(n-k+1);2*k)) = 19/(19+52·1,759) = 0,172;</p>
 <p><span class="math inline">\(p_{0,975}\)</span> = (k+1)/((n-k)/FINV(0,025;2<em>(k+1);2</em>(n-k))+k+1) = 20/(51/1,637+20) = 0,391.</p>
@@ -453,6 +462,9 @@ probability of success
 <div id="valimi-mahu-hindamine" class="section level2 hasAnchor" number="6.3">
 <h2><span class="header-section-number">6.3</span> Valimi mahu hindamine<a href="statistilised-hinnangud.html#valimi-mahu-hindamine" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Üldkogumi parameetrite veahinnangud sõltuvad valimi mahust. Üldiselt tuleb hinnangu täpsuse suurendamiseks k korda suurendada valimi mahtu 2 * k korda. Praktilises metsanduslikus uurimistöös tekib tihti küsimus, kui palju tuleks mõõta puid, rajada proovitükke jne, et saadud tulemused iseloomustaksid üldkogumit piisava täpsusega.</p>
+<div class="naidis">
+<p>Vaatleme näites 1.4 esitatud valimit, milles on antud sambliku kasvukohatüübis kasvava 50-aastase männiku 60 juhuslikult valitud puu kõrguste andmed.</p>
+</div>
 Näites on selle valimi andmete põhjal arvutatud
 <p>Arvutame järgmise hinnangud:</p>
 <ul>
@@ -506,6 +518,11 @@ Näites on selle valimi andmete põhjal arvutatud
 <li>Vasakpoolne kriitiline väärtus (kui <span class="math inline">\(\sigma_1^2 &lt; \sigma_2^2\)</span>): <span class="math inline">\(F_{kr} = F^{-1}_{\alpha}(n_2 - 1, n_1 - 1)\)</span>.</li>
 </ul></li>
 </ul>
+<div class="naidis">
+<p>Olgu uurimisobjektiks suhteliselt homogeensel alal sambliku kasvu¬koha¬tüübi 24-aastased männikultuurid, millest osa on rajatud põlenud ja osa põlemata pinna¬sele. Põlenud alale rajati 8 ja põlemata alale 5 proovitükki. Proovitükkide andmete töötlemise tulemusel saadi järgmised puistute kõrgused meetrites.</p>
+<p>Põlenud alal: 4,3; 3,4; 3,9; 2,9; 4,9; 3,2; 3,7; 3,6.</p>
+<p>Põlemata alal: 4,8; 4,3; 5,4; 5,1; 4,6.</p>
+</div>
 <p>Meid huvitab, kas põlenud ja põlemata alal on puistute kõrguse dispersioonid erinevad.</p>
 <p>MS Exceli funktsiooniga
 =FTEST(andmeplokk1 ; andmeplokk2)

@@ -31,9 +31,9 @@ library(ggplot2)
 ```
 
 
-\begin{naidis}
+:::{.naidis}
 Olgu meil ülesandeks lähendada Eesti riigimetsa pohla kasvukohatüübi männikute keskmiste kõrguste vanuserea andmed Mitcherlichi kasvufunktsiooniga
-\end{naidis}
+:::
 
 \[H = c0 * (1 - exp(-c1 * A))^{c2}\]
 

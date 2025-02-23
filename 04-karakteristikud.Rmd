@@ -36,9 +36,9 @@ mean(df$d)
 
 **MS Exceli keskkonnas**
 
-```{excel}
+:::{.excel}
 =MEAN(andme_vektor)
-```
+:::
 
 
 ### Ruutkeskmine
@@ -60,9 +60,9 @@ sqrt(mean(df$d^2))
 
 **MS Exceli keskkonnas**
 
-```{excel}
+:::{.excel}
 =SQRT(MEAN(andmeplokk^2))
-```
+:::
 
 ### Geomeetriline keskmine
 
@@ -86,9 +86,9 @@ exp(mean(log(df$d)))
 
 **MS Exceli keskkonnas**
 
-```{excel}
+:::{.excel}
 =GEOMEAN(andmeplokk)
-```
+:::
 
 
 ### Harmooniline keskmine
@@ -109,9 +109,9 @@ kus \(x_{1}, x_{2}, \ldots, x_{n}\) on arvude hulk, mille harmoonilist keskmist 
 
 **MS Exceli keskkonnas**
 
-```{excel}
+:::{.excel}
 =HARMEAN(andmeplokk)
-```
+:::
 
 
 ## Kvantiilid
@@ -147,6 +147,6 @@ median(df$d)
 
 **MS Exceli keskkonnas**
 
-```{excel}
+:::{.excel}
 =MEDIAN(andmeplokk)
-```
+:::

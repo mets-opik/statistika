@@ -276,7 +276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>H ~ s(D)</code> määrab mudeli valemi. <code>H</code> on funktsioontunnus ja <code>s(D)</code> määrab, et diameetri (D) mõju kõrgusele modelleeritakse sujuva funktsiooni <code>s()</code> abil.</li>
 <li><code>data = andmed</code> määrab andmestiku, mida kasutada.</li>
 </ul>
-<p><strong>3. Mudeli kokkuvõtte vaatamine:</strong></p>
+<p><strong>3. Mudeli kokkuvõtte vaatamine.</strong></p>
 <p>Saame mudeli kohta detailse kokkuvõtte funktsiooni <code>summary()</code> abil:</p>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="mitteparameetriline-analüüs.html#cb93-1" tabindex="-1"></a><span class="co"># Mudeli kokkuvõte</span></span>
 <span id="cb93-2"><a href="mitteparameetriline-analüüs.html#cb93-2" tabindex="-1"></a><span class="fu">summary</span>(mudel)</span></code></pre></div>
@@ -299,10 +299,10 @@ R-sq.(adj) =  0,705   Deviance explained = 72,8%
 GCV = 1,7242  Scale est. = 1,5525    n = 47</code></pre>
 <p>Kokkuvõte annab meile informatsiooni mudeli sobivuse kohta, sh:</p>
 <ul>
-<li><strong>Parametric coefficients:</strong> Kui mudelis on ka lineaarseid komponente, näidatakse siin nende koefitsiendid. Kuna mudelis ühtegi lineaarset tunnust ei ole kasutatud, siis on siin ainult vabaliige <code>(Intercept)</code>.</li>
-<li><strong>Approximate significance of smooth terms:</strong> Siin näeme p-väärtuse hinnangut splainfunktsiooni olulisuse kohta. Madal p-väärtus (&lt;0.05) viitab statistiliselt olulisele mittelineaarsele seosele diameetri ja kõrguse vahel.</li>
-<li><strong>R-sq.(adj):</strong> Korrigeeritud determinatsioonikordaja näitab, kui suure osa kõrguse varieeruvusest mudel seletab.</li>
-<li><strong>Deviance explained:</strong> Sarnane determinatsioonikordajale, näitab mudeli poolt seletatud hälbimuse osakaalu.</li>
+<li><strong>Parametric coefficients.</strong> Kui mudelis on ka lineaarseid komponente, näidatakse siin nende koefitsiendid. Kuna mudelis ühtegi lineaarset tunnust ei ole kasutatud, siis on siin ainult vabaliige <code>(Intercept)</code>.</li>
+<li><strong>Approximate significance of smooth terms.</strong> Siin näeme p-väärtuse hinnangut splainfunktsiooni olulisuse kohta. Madal p-väärtus (&lt;0.05) viitab statistiliselt olulisele mittelineaarsele seosele diameetri ja kõrguse vahel.</li>
+<li><strong>R-sq.(adj).</strong> Korrigeeritud determinatsioonikordaja näitab, kui suure osa kõrguse varieeruvusest mudel seletab.</li>
+<li><strong>Deviance explained.</strong> Sarnane determinatsioonikordajale, näitab mudeli poolt seletatud hälbimuse osakaalu.</li>
 </ul>
 <p>Kasutades funktsiooni <code>coef()</code>, näeme splainfunktsiooni polünoomi parameetrite väärtusi.</p>
 <div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="mitteparameetriline-analüüs.html#cb95-1" tabindex="-1"></a><span class="fu">coef</span>(mudel)</span></code></pre></div>
@@ -314,10 +314,10 @@ GCV = 1,7242  Scale est. = 1,5525    n = 47</code></pre>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="mitteparameetriline-analüüs.html#cb97-1" tabindex="-1"></a><span class="co"># Mudeli visualiseerimine</span></span>
 <span id="cb97-2"><a href="mitteparameetriline-analüüs.html#cb97-2" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">mgp=</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">0.7</span>, <span class="dv">0</span>))</span>
 <span id="cb97-3"><a href="mitteparameetriline-analüüs.html#cb97-3" tabindex="-1"></a><span class="fu">plot</span>(mudel)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-75"></span>
-<img src="_main_files/figure-html/unnamed-chunk-75-1.png" alt="Kõrguse sõltuvus diameetrist" width="80%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-70"></span>
+<img src="_main_files/figure-html/unnamed-chunk-70-1.png" alt="Kõrguse sõltuvus diameetrist" width="80%" />
 <p class="caption">
-Joonis 9.1: Kõrguse sõltuvus diameetrist
+Joonis 9.1. Kõrguse sõltuvus diameetrist
 </p>
 </div>
 <p>See kuvab graafiku, mis näitab diameetri mõju puu kõrgusele. Pidevjoon näitab modelleeritud seost ja kriipsjooned näitavad usaldusvahemikku. See graafik aitab visuaalselt hinnata seose kuju ja mittelineaarsust.</p>
@@ -346,10 +346,10 @@ Joonis 9.1: Kõrguse sõltuvus diameetrist
 <span id="cb101-3"><a href="mitteparameetriline-analüüs.html#cb101-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;gam&quot;</span>, <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">s</span>(x)) <span class="sc">+</span>  <span class="co"># Lisab sujuva joone GAM mudeli abil</span></span>
 <span id="cb101-4"><a href="mitteparameetriline-analüüs.html#cb101-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Diameeter (cm)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Kõrgus (m)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb101-5"><a href="mitteparameetriline-analüüs.html#cb101-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-78"></span>
-<img src="_main_files/figure-html/unnamed-chunk-78-1.png" alt="Kõrguse sõltuvus diameetrist" width="80%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-73"></span>
+<img src="_main_files/figure-html/unnamed-chunk-73-1.png" alt="Kõrguse sõltuvus diameetrist" width="80%" />
 <p class="caption">
-Joonis 9.2: Kõrguse sõltuvus diameetrist
+Joonis 9.2. Kõrguse sõltuvus diameetrist
 </p>
 </div>
 <p>Selgitus:</p>
@@ -372,10 +372,10 @@ Joonis 9.2: Kõrguse sõltuvus diameetrist
 <span id="cb102-5"><a href="mitteparameetriline-analüüs.html#cb102-5" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;gam&quot;</span>, <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">s</span>(x)) <span class="sc">+</span>  </span>
 <span id="cb102-6"><a href="mitteparameetriline-analüüs.html#cb102-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Diameeter (D)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Kõrgus (H)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb102-7"><a href="mitteparameetriline-analüüs.html#cb102-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-79"></span>
-<img src="_main_files/figure-html/unnamed-chunk-79-1.png" alt="Kõrguse sõltuvus diameetrist" width="80%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-74"></span>
+<img src="_main_files/figure-html/unnamed-chunk-74-1.png" alt="Kõrguse sõltuvus diameetrist" width="80%" />
 <p class="caption">
-Joonis 9.3: Kõrguse sõltuvus diameetrist
+Joonis 9.3. Kõrguse sõltuvus diameetrist
 </p>
 </div>
 <p>Selles näites:</p>

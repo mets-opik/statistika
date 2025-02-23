@@ -265,8 +265,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Hüpoteeside püstitamine.</strong> Hüpoteese püstitatakse üldkogumi, mitte valimi kohta. Hüpoteeside kontrollimise loogika algab eeldusest, et nullhüpotees kehtib ning uuritakse, kui tõenäoline on antud andmete saamine nullhüpoteesi kehtimise korral. Hüpoteese on alati kaks, sest need peavad teineteist välistama. Üldjuhul on nii, et ühte hüpoteesi ümber lükates, võetakse vastu teine hüpotees.</p>
 <p><strong>Hüpoteeside testimine.</strong> Hüpoteeside testimisel arvutatakse valimi andmete põhjal teststatistik. Teststatistiku väärtust võrreldakse teoreetilise jaotusega, mis on teada nullhüpoteesi kehtivuse korral. Kui valimi põhjal arvutatud teststatistiku väärtus on ebatõenäoline, loetakse nullhüpotees ümber lükatuks ja sisukas hüpotees tõestatuks. Oluline on mõista, et hüpoteese ei saa tõestada, vaid saab leida tõendeid nende toetuseks või vastuoluks. Kui andmed ei anna piisavalt tõendeid sisuka hüpoteesi kasuks, jäädakse nullhüpoteesi juurde. See ei tähenda, et nullhüpotees on tõestatud, vaid seda, et ei leitud piisavalt tõendeid selle ümberlükkamiseks.</p>
 <p><strong>Vead hüpoteeside kontrollimisel.</strong> Hüpoteeside kontrollimisel on võimalik teha kaht liiki vigu:</p>
-<p><strong>I liiki viga (<span class="math inline">\(\alpha\)</span>).</strong> I liiki viga tekib siis, kui otsustatakse sisukas hüpotees vastu võtta, kuigi tegelikult on õige nullhüpotees. See on vale positiivne järeldus, mis tähendab, et leitakse seos või erinevus, mida tegelikult ei ole. I liiki vea tegemise tõenäosust nimetatakse olulisuse nivooks ja tähistatakse sümboliga <span class="math inline">\(\alpha\)</span>. Üldiselt on I liiki vea tõenäosus seatud tasemele 0,05, mis tähendab, et on 5% tõenäosus teha viga, kui nullhüpotees on õige. I liiki viga on enamasti raskemate tagajärgedega. I liiki vea tõenäosuse vähendamiseks tuleb vähendada olulisuse nivood.
-<strong>II liiki viga (<span class="math inline">\(\beta\)</span>).</strong> II liiki viga tekib siis, kui jäädakse nullhüpoteesi juurde, kuigi tegelikult on õige sisukas hüpotees. See on vale negatiivne järeldus, mis tähendab, et jäetakse leidmata seos või erinevus, mis tegelikult eksisteerib. II liiki viga on kergem viga, sest see tavaliselt tähendab, et soovitud tulemuste saamiseks on vaja rohkem andmeid koguda. Olulisuse nivoo vähendamine suurendab II liiki vea tõenäosust.</p>
+<p><strong>I liiki viga (<span class="math inline">\(\alpha\)</span>).</strong> I liiki viga tekib siis, kui otsustatakse sisukas hüpotees vastu võtta, kuigi tegelikult on õige nullhüpotees. See on vale positiivne järeldus, mis tähendab, et leitakse seos või erinevus, mida tegelikult ei ole. I liiki vea tegemise tõenäosust nimetatakse olulisuse nivooks ja tähistatakse sümboliga <span class="math inline">\(\alpha\)</span>. Üldiselt on I liiki vea tõenäosus seatud tasemele 0,05, mis tähendab, et on 5% tõenäosus teha viga, kui nullhüpotees on õige. I liiki viga on enamasti raskemate tagajärgedega. I liiki vea tõenäosuse vähendamiseks tuleb vähendada olulisuse nivood.</p>
+<p><strong>II liiki viga (<span class="math inline">\(\beta\)</span>).</strong> II liiki viga tekib siis, kui jäädakse nullhüpoteesi juurde, kuigi tegelikult on õige sisukas hüpotees. See on vale negatiivne järeldus, mis tähendab, et jäetakse leidmata seos või erinevus, mis tegelikult eksisteerib. II liiki viga on kergem viga, sest see tavaliselt tähendab, et soovitud tulemuste saamiseks on vaja rohkem andmeid koguda. Olulisuse nivoo vähendamine suurendab II liiki vea tõenäosust.</p>
 <p><strong>Hüpoteeside liigid vastavalt suunale:</strong></p>
 <p><strong>Kahepoolne hüpotees.</strong> Kahepoolse hüpoteesi puhul testitakse, kas üldkogumi parameeter erineb teatud väärtusest, ilma et oleks määratud erinevuse suund. Näiteks, kas kahe grupi keskmised väärtused on erinevad (<span class="math inline">\(H_1: \mu_1 \neq \mu_2\)</span>). Kahepoolse hüpoteesi korral on kriitiline piirkond mõlemal pool jaotuse keskmist.</p>
 <p><strong>Ühepoolne hüpotees.</strong> Ühepoolse hüpoteesi puhul testitakse, kas üldkogumi parameeter on suurem või väiksem teatud väärtusest. Ühepoolse hüpoteesi korral on kriitiline piirkond ühel pool jaotuse keskmist. Näiteks, kas ühe grupi keskmine on suurem kui teise grupi keskmine (<span class="math inline">\(H_1: \mu_1 &gt; \mu_2\)</span>) või vastupidi (<span class="math inline">\(H_1: \mu_1 &lt; \mu_2\)</span>).</p>
@@ -322,10 +322,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Normaaljaotus, tuntud ka kui Gaussi jaotus, on pidev sümmeetriline jaotus, mida iseloomustab kellakujuline tihedusfunktsiooni graafik. See on statistikas üks olulisemaid jaotusi, kuna paljud juhuslikud suurused on ligikaudu normaaljaotusega või on teisendatavad normaaljaotusele alluvaks.</p>
 <p><strong>Põhiomadused</strong></p>
 <p><strong>Sümmeetria.</strong> Normaaljaotus on sümmeetriline keskväärtuse (<span class="math inline">\(\mu\)</span>) suhtes. Keskväärtus, mediaan ja mood langevad kokku.</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-36"></span>
-<img src="_main_files/figure-html/unnamed-chunk-36-1.png" alt="Normaaljaotuse tihedusfunktsioon." width="80%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-31"></span>
+<img src="_main_files/figure-html/unnamed-chunk-31-1.png" alt="Normaaljaotuse tihedusfunktsioon." width="80%" />
 <p class="caption">
-Joonis 5.1: Normaaljaotuse tihedusfunktsioon.
+Joonis 5.1. Normaaljaotuse tihedusfunktsioon.
 </p>
 </div>
 <p><strong>Tihedusfunktsioon.</strong> Normaaljaotuse tihedusfunktsioon on defineeritud järgmiselt:</p>
@@ -368,10 +368,10 @@ Joonis 5.1: Normaaljaotuse tihedusfunktsioon.
 <p>T-jaotus, tuntud ka kui Studenti t-jaotus, on pidev tõenäosusjaotus, mis meenutab normaaljaotust, olles lamedam ja laiema sabaga. See on eriti kasulik statistikas väikeste valimite puhul (tavaliselt alla 30) ja kui üldkogumi standardhälve pole teada. T-jaotust rakendatakse peamiselt hüpoteeside testimisel, usaldusvahemike leidmisel ja valimi keskmise võrdlemisel üldkogumi keskväärtusega. T-jaotuse kuju sõltub vabadusastmete arvust (df - <em>degrees of freedom</em>), mis on seotud valimi suurusega. Mida suurem on vabadusastmete arv, seda enam sarnaneb t-jaotus normaaljaotusega.</p>
 <p><strong>T-jaotuse omadused ja tunnused</strong></p>
 <p><strong>Sümmeetria.</strong> T-jaotus on sümmeetriline nulli ümber, sarnaselt standardsele normaaljaotusele. See tähendab, et jaotuse mõlemad pooled on keskmisest võrdsel kaugusel.</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-37"></span>
-<img src="_main_files/figure-html/unnamed-chunk-37-1.png" alt="T-jaotuse tihedusfunktsioon" width="80%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-32"></span>
+<img src="_main_files/figure-html/unnamed-chunk-32-1.png" alt="T-jaotuse tihedusfunktsioon" width="80%" />
 <p class="caption">
-Joonis 5.2: T-jaotuse tihedusfunktsioon
+Joonis 5.2. T-jaotuse tihedusfunktsioon
 </p>
 </div>
 <p><strong>Tihedusfunktsioon.</strong> T-jaotuse tihedusfunktsioon on keerukam kui normaaljaotusel ja sõltub vabadusastmete arvust. Valem on järgmine:</p>
@@ -410,10 +410,10 @@ Joonis 5.2: T-jaotuse tihedusfunktsioon
 <strong>Tihedusfunktsioon.</strong> F-jaotuse tihedusfunktsioon on defineeritud järgmiselt:</p>
 <p><span class="math display">\[f(x) = \frac{\Gamma\left(\frac{k + h}{2}\right)}{\Gamma\left(\frac{k}{2}\right) \Gamma\left(\frac{h}{2}\right)} \left(\frac{k}{h}\right)^{\frac{k}{2}} x^{\frac{k}{2} - 1} \left(1 + \frac{k}{h} x\right)^{-\frac{k + h}{2}}, \quad x &gt; 0\]</span>
 kus <span class="math inline">\(x\)</span> on argument, <span class="math inline">\(\Gamma\)</span> on gammafunktsioon, <span class="math inline">\(k\)</span> on lugeja vabadusastmete arv ja <span class="math inline">\(h\)</span> on nimetaja vabadusastmete arv. Valem näitab, kuidas F-jaotuse tihedus muutub argumendi <span class="math inline">\(x\)</span> väärtuste korral.</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-38"></span>
-<img src="_main_files/figure-html/unnamed-chunk-38-1.png" alt="T-jaotuse tihedusfunktsioon." width="80%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-33"></span>
+<img src="_main_files/figure-html/unnamed-chunk-33-1.png" alt="T-jaotuse tihedusfunktsioon." width="80%" />
 <p class="caption">
-Joonis 5.3: T-jaotuse tihedusfunktsioon.
+Joonis 5.3. T-jaotuse tihedusfunktsioon.
 </p>
 </div>
 <p><strong>Väärtuste vahemik.</strong> F-jaotuse väärtused on alati positiivsed ja ulatuvad nullist lõpmatuseni.</p>

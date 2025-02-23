@@ -16,6 +16,7 @@ Hüpotees on statistikas ja teadusuuringutes oluline mõiste, mis kujutab endast
 **Vead hüpoteeside kontrollimisel.** Hüpoteeside kontrollimisel on võimalik teha kaht liiki vigu:
 
 **I liiki viga ($\alpha$).** I liiki viga tekib siis, kui otsustatakse sisukas hüpotees vastu võtta, kuigi tegelikult on õige nullhüpotees. See on vale positiivne järeldus, mis tähendab, et leitakse seos või erinevus, mida tegelikult ei ole. I liiki vea tegemise tõenäosust nimetatakse olulisuse nivooks ja tähistatakse sümboliga $\alpha$. Üldiselt on I liiki vea tõenäosus seatud tasemele 0,05, mis tähendab, et on 5% tõenäosus teha viga, kui nullhüpotees on õige. I liiki viga on enamasti raskemate tagajärgedega. I liiki vea tõenäosuse vähendamiseks tuleb vähendada olulisuse nivood.
+
 **II liiki viga ($\beta$).** II liiki viga tekib siis, kui jäädakse nullhüpoteesi juurde, kuigi tegelikult on õige sisukas hüpotees. See on vale negatiivne järeldus, mis tähendab, et jäetakse leidmata seos või erinevus, mis tegelikult eksisteerib. II liiki viga on kergem viga, sest see tavaliselt tähendab, et soovitud tulemuste saamiseks on vaja rohkem andmeid koguda. Olulisuse nivoo vähendamine suurendab II liiki vea tõenäosust.
 
 **Hüpoteeside liigid vastavalt suunale:**

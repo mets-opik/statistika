@@ -307,7 +307,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Eeldusel, et <span class="math inline">\((\mathbf{X}^T\mathbf{X})\)</span> on pööratav. See on peamine valem regressioonikoefitsientide arvutamiseks.</p>
 <p>Pärast regressioonimudeli arvutamist on oluline hinnata selle sobivust ja statistilist olulisust. Peamised teststatistikud ja hindamise meetodid on järgmised:</p>
 <ol style="list-style-type: decimal">
-<li><p><strong><span class="math inline">\(R^2\)</span> ja kohandatud <span class="math inline">\(R^2\)</span>:</strong></p>
+<li><p><strong><span class="math inline">\(R^2\)</span> ja kohandatud <span class="math inline">\(R^2\)</span>.</strong></p>
 <ul>
 <li><strong><span class="math inline">\(R^2\)</span> (determinatsioonikordaja).</strong> Mõõdab, kui suure osa sõltuva muutuja varieeruvusest suudab regressioonimudel seletada. <span class="math inline">\(R^2\)</span> väärtused jäävad vahemikku 0 kuni 1. Mida lähemal on <span class="math inline">\(R^2\)</span> väärtusele 1, seda paremini mudel andmeid sobitab.</li>
 <li>Valem <span class="math inline">\(R^2\)</span> arvutamiseks:
@@ -318,13 +318,13 @@ kus <span class="math inline">\(TSS\)</span> on hälvete ruutude summa (Total Su
 <span class="math display">\[\text{Kohandatud } R^2 = 1 - \frac{(1-R^2)(n-1)}{n-p-1}\]</span>
 kus <span class="math inline">\(n\)</span> on vaatluste arv ja <span class="math inline">\(p\)</span> on sõltumatute muutujate arv mudelis (ilma lõikepunktita).</li>
 </ul></li>
-<li><p><strong>RMSE (ruutkeskmine viga):</strong></p>
+<li><p><strong>RMSE (ruutkeskmine viga).</strong></p>
 <ul>
 <li>RMSE mõõdab mudeli ennustusvigade standardhälvet. See annab aimu, kui suur on tüüpiline erinevus ennustatud ja tegelike väärtuste vahel. Madalam RMSE näitab paremat mudeli ennustustäpsust.</li>
 <li>Valem RMSE arvutamiseks:
 <span class="math display">\[RMSE = \sqrt{\frac{RSS}{n}} = \sqrt{\frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{n}}\]</span></li>
 </ul></li>
-<li><p><strong>Koefitsientide statistiline olulisus (t-test):</strong></p>
+<li><p><strong>Koefitsientide statistiline olulisus (t-test).</strong></p>
 <ul>
 <li>Iga regressioonikoefitsiendi <span class="math inline">\(\beta_j\)</span> (välja arvatud <span class="math inline">\(\beta_0\)</span>) puhul saab testida nullhüpoteesi <span class="math inline">\(H_0: \beta_j = 0\)</span>, mis tähendab, et <span class="math inline">\(j\)</span>-ndal sõltumatul muutujal puudub seos sõltuva muutujaga (kui kõik teised muutujad on konstantsed).</li>
 <li>T-testi statistiku arvutamine koefitsiendi <span class="math inline">\(\beta_j\)</span> jaoks:
@@ -332,7 +332,7 @@ kus <span class="math inline">\(n\)</span> on vaatluste arv ja <span class="math
 kus <span class="math inline">\(SE(\hat{\beta}_j)\)</span> on <span class="math inline">\(\hat{\beta}_j\)</span> standardviga. Standardvea saab arvutada mudeli veaterminite dispersiooni ja disainmaatriksi <span class="math inline">\(\mathbf{X}\)</span> põhjal.</li>
 <li>Saadud t-statistikut võrreldakse t-jaotuse kriitiliste väärtustega (või arvutatakse p-väärtus), et otsustada nullhüpoteesi tagasilükkamine. Madal p-väärtus (tavaliselt alla 0.05) viitab, et koefitsient on statistiliselt oluline ja sõltumatu muutuja avaldab olulist mõju sõltuvale muutujale.</li>
 </ul></li>
-<li><p><strong>Mudeli üldine olulisus (F-test):</strong></p>
+<li><p><strong>Mudeli üldine olulisus (F-test).</strong></p>
 <ul>
 <li>F-test testib nullhüpoteesi, et kõik regressioonikoefitsiendid (välja arvatud <span class="math inline">\(\beta_0\)</span>) on samaaegselt null <span class="math inline">\(H_0: \beta_1 = \beta_2 = ... = \beta_p = 0\)</span>. See test hindab, kas mudel tervikuna on statistiliselt oluline ja kas on vähemalt üks sõltumatu muutuja, mis aitab sõltuva muutuja varieeruvust seletada.</li>
 <li>F-statistiku arvutamine:
@@ -346,97 +346,100 @@ kus <span class="math inline">\(MSS\)</span> on mudeli ruutude keskmine summa (M
 <h2><span class="header-section-number">7.2</span> Lineaarse regressiooni eelduste selgitus<a href="mitme-tunnuse-koosanalüüs.html#lineaarse-regressiooni-eelduste-selgitus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Lineaarse regressiooni rakendamine on võimas meetod seoste modelleerimiseks, kuid selle tulemuste usaldusväärsus sõltub teatud eelduste täitmisest. Need eeldused tagavad, et vähimruutude meetod annab parimad võimalikud ja usaldusväärsed hinnangud regressioonikoefitsientidele ja mudeli statistilisele olulisusele. Vaatame neid eeldusi ükshaaval põhjalikumalt:</p>
 <ul>
-<li><p><strong>Lineaarsus:</strong> Eeldatakse, et sõltuva muutuja ja sõltumatute muutujate vaheline seos on lineaarne. See tähendab, et sõltuva muutuja muutuse ennustatakse iga sõltumatu muutuja ühiku muutuse kohta konstantse suurusega.</p>
+<li><p><strong>Lineaarsus.</strong> Eeldatakse, et sõltuva muutuja ja sõltumatute muutujate vaheline seos on lineaarne. See tähendab, et sõltuva muutuja muutuse ennustatakse iga sõltumatu muutuja ühiku muutuse kohta konstantse suurusega.</p>
 <ul>
-<li><strong>Mida see tähendab:</strong> Graafiliselt kujutades peaks andmepunktide hajumine järgima sirget joont (lihtsa lineaarse regressiooni puhul) või hüpertasapinda (mitmese lineaarse regressiooni puhul). Formaalselt öeldes tähendab see, et oodatav väärtus sõltuvale muutujale on lineaarne funktsioon sõltumatutest muutujatest.</li>
-<li><strong>Miks see oluline on:</strong> Kui tegelik seos ei ole lineaarne, siis lineaarse regressiooni mudel ei suuda seost adekvaatselt kirjeldada. Lineaarne mudel võib anda eksitavaid ennustusi ja valed järeldused muutujate seoste kohta.</li>
-<li><strong>Kuidas kontrollida:</strong>
+<li><strong>Mida see tähendab.</strong> Graafiliselt kujutades peaks andmepunktide hajumine järgima sirget joont (lihtsa lineaarse regressiooni puhul) või hüpertasapinda (mitmese lineaarse regressiooni puhul). Formaalselt öeldes tähendab see, et oodatav väärtus sõltuvale muutujale on lineaarne funktsioon sõltumatutest muutujatest.</li>
+<li><strong>Miks see oluline on.</strong> Kui tegelik seos ei ole lineaarne, siis lineaarse regressiooni mudel ei suuda seost adekvaatselt kirjeldada. Lineaarne mudel võib anda eksitavaid ennustusi ja valed järeldused muutujate seoste kohta.</li>
+<li><strong>Kuidas kontrollida.</strong>
 <ul>
-<li><strong>Hajuvusdiagrammid:</strong> Sõltuva muutuja hajuvusdiagrammi joonistamine iga sõltumatu muutuja suhtes aitab visuaalselt hinnata lineaarsust.</li>
-<li><strong>Jääkide diagrammid:</strong> Jääkide (tegelike ja ennustatud väärtuste vahe) diagrammi joonistamine ennustatud väärtuste või sõltumatute muutujate suhtes. Lineaarsuse korral peaks jääkide hajumine olema juhuslikult jaotunud nulljoone ümber, ilma süstemaatilise mustrita. Mitte-lineaarsuse korral võib diagrammil näha kõveraid mustreid.</li>
+<li><strong>Hajuvusdiagrammid.</strong> Sõltuva muutuja hajuvusdiagrammi joonistamine iga sõltumatu muutuja suhtes aitab visuaalselt hinnata lineaarsust.</li>
+<li><strong>Jääkide diagrammid.</strong> Jääkide (tegelike ja ennustatud väärtuste vahe) diagrammi joonistamine ennustatud väärtuste või sõltumatute muutujate suhtes. Lineaarsuse korral peaks jääkide hajumine olema juhuslikult jaotunud nulljoone ümber, ilma süstemaatilise mustrita. Mitte-lineaarsuse korral võib diagrammil näha kõveraid mustreid.</li>
 </ul></li>
-<li><strong>Mis juhtub, kui eeldus on rikutud:</strong> Lineaarne mudel võib anda halbu ennustusi ja valed järeldused.</li>
-<li><strong>Mida teha:</strong>
+<li><strong>Mis juhtub, kui eeldus on rikutud.</strong> Lineaarne mudel võib anda halbu ennustusi ja valed järeldused.</li>
+<li><strong>Mida teha.</strong>
 <ul>
-<li><strong>Muutujate transformeerimine:</strong> Sõltuva ja/või sõltumatute muutujate transformeerimine (näiteks logaritm, ruutjuur, ruut) võib mõnikord muuta mittelineaarse seose lineaarseks.</li>
-<li><strong>Polünoomiline regressioon:</strong> Lineaarse mudeli asemel võib kasutada polünoomilist regressiooni, mis võimaldab modelleerida mittelineaarseid seoseid polünoomide abil.</li>
-<li><strong>Mittelineaarne regressioon:</strong> Kui seos on teadaolevalt mittelineaarne ja transformatsioonid ei aita, võib kasutada mittelineaarset regressiooni meetodit, mis on spetsiifiliselt loodud mittelineaarsete seoste modelleerimiseks.</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Sõltumatus:</strong> Iga vaatlus peab olema sõltumatu teistest vaatlustest. See tähendab, et ühe vaatluse väärtus ei tohiks olla mõjutatud teiste vaatluste väärtustest.</p>
-<ul>
-<li><strong>Mida see tähendab:</strong> Iga andmepunkt peaks olema kogutud või genereeritud sõltumatult teistest andmepunktidest. Näiteks, kui me uurime individuaalsete inimeste andmeid, eeldame, et ühe inimese andmed ei mõjuta teise inimese andmeid.</li>
-<li><strong>Miks see oluline on:</strong> Sõltumatuse eeldus on oluline standardvigade korrektseks hindamiseks ja seega ka statistilise olulisuse testide ja usaldusvahemike usaldusväärsuseks. Kui vaatlused on sõltuvad, siis standardvead võivad olla alahinnatud, mis viib valejäreldusteni statistilise olulisuse kohta (mudel näib statistiliselt olulisem kui see tegelikult on).</li>
-<li><strong>Kuidas kontrollida:</strong>
-<ul>
-<li><strong>Andmete kogumise protsessi mõistmine:</strong> Hoolikalt tuleb kaaluda, kuidas andmed on kogutud. Kas on potentsiaalseid sõltuvuse allikaid? Näiteks aja-reas andmetes (andmed, mis on kogutud aja jooksul järjestikku) on sageli sõltuvus, kus eilne väärtus võib mõjutada tänast väärtust. Samuti võib sõltuvust esineda klasterandmetes (näiteks õpilased klassides, patsiendid arstides), kus grupis olevad vaatlused võivad olla sarnasemad kui grupidest väljaspool olevad vaatlused.</li>
-<li><strong>Durbin-Watson test (aja-rea andmete korral):</strong> Durbin-Watson test on spetsiifiliselt loodud autokorrelatsiooni (sõltuvuse) tuvastamiseks jääkides aja-rea andmetes.</li>
-</ul></li>
-<li><strong>Mis juhtub, kui eeldus on rikutud:</strong> Standardvead on ebatäpsed, mis teeb statistilised testid ja usaldusvahemikud ebausaldusväärseks.</li>
-<li><strong>Mida teha:</strong>
-<ul>
-<li><strong>Aja-rea mudelid:</strong> Kui tegemist on aja-rea andmetega ja sõltuvus on autokorrelatsioon, võib kasutada aja-rea mudelite (näiteks ARIMA mudelid) asemel lineaarselt regressiooni.</li>
-<li><strong>Segamõjudega mudelid (klasterandmete korral):</strong> Kui tegemist on klasterandmetega, võib kasutada segamõjudega mudeleid (mixed-effects models), mis võtavad arvesse grupisisese sõltuvuse.</li>
-<li><strong>Robustsed standardvead:</strong> Teatud juhtudel, kui sõltuvust ei saa täielikult modelleerida, saab kasutada robustseid standardvigu (näiteks Huber-White standardvead), mis on vähem tundlikud sõltuvuse suhtes (kuigi need ei lahenda probleemi täielikult).</li>
+<li><strong>Muutujate transformeerimine.</strong> Sõltuva ja/või sõltumatute muutujate transformeerimine (näiteks logaritm, ruutjuur, ruut) võib mõnikord muuta mittelineaarse seose lineaarseks.</li>
+<li><strong>Polünoomiline regressioon.</strong> Lineaarse mudeli asemel võib kasutada polünoomilist regressiooni, mis võimaldab modelleerida mittelineaarseid seoseid polünoomide abil.</li>
+<li><strong>Mittelineaarne regressioon.</strong> Kui seos on teadaolevalt mittelineaarne ja transformatsioonid ei aita, võib kasutada mittelineaarset regressiooni meetodit, mis on spetsiifiliselt loodud mittelineaarsete seoste modelleerimiseks.</li>
 </ul></li>
 </ul></li>
-<li><p><strong>Homoskedastilisus:</strong> Jääkide dispersioon (variatsioon) peaks olema konstantne kõigi sõltumatute muutujate väärtuste korral. See tähendab, et jääkide “hajuvus” peaks olema ühtlane kogu regressioonisirge pikkuses. Heteroskedastilisus on homoskedastilisuse vastand ja tähendab, et jääkide dispersioon ei ole konstantne, vaid muutub sõltuvalt sõltumatute muutujate väärtustest.</p>
+<li><p><strong>Sõltumatus.</strong> Iga vaatlus peab olema sõltumatu teistest vaatlustest. See tähendab, et ühe vaatluse väärtus ei tohiks olla mõjutatud teiste vaatluste väärtustest.</p>
 <ul>
-<li><strong>Mida see tähendab:</strong> Jääkide hajumisdiagrammil ennustatud väärtuste või sõltumatute muutujate suhtes peaks jääkide punktide “laius” olema enam-vähem sama kogu ulatuses.</li>
-<li><strong>Miks see oluline on:</strong> Homoskedastilisus on oluline vähimruutude meetodi efektiivsuse tagamiseks. Kuigi vähimruutude meetod annab ikka erapooletud hinnangud koefitsientidele ka heteroskedastilisuse korral, on hinnangud ebaefektiivsed (neil on suurem dispersioon kui vaja oleks) ja standardvead on jälle ebatäpsed, mis mõjutab statistiliste testide ja usaldusvahemike usaldusväärsust.</li>
-<li><strong>Kuidas kontrollida:</strong>
+<li><strong>Mida see tähendab.</strong> Iga andmepunkt peaks olema kogutud või genereeritud sõltumatult teistest andmepunktidest. Näiteks, kui me uurime individuaalsete inimeste andmeid, eeldame, et ühe inimese andmed ei mõjuta teise inimese andmeid.</li>
+<li><strong>Miks see oluline on.</strong> Sõltumatuse eeldus on oluline standardvigade korrektseks hindamiseks ja seega ka statistilise olulisuse testide ja usaldusvahemike usaldusväärsuseks. Kui vaatlused on sõltuvad, siis standardvead võivad olla alahinnatud, mis viib valejäreldusteni statistilise olulisuse kohta (mudel näib statistiliselt olulisem kui see tegelikult on).</li>
+<li><strong>Kuidas kontrollida.</strong>
 <ul>
-<li><strong>Jääkide hajumisdiagrammid:</strong> Jääkide diagrammi joonistamine ennustatud väärtuste või iga sõltumatu muutuja suhtes. Homoskedastilisuse korral peaks jääkide hajumine olema juhuslik ja ühtlane riba ümber nulljoone. Heteroskedastilisuse korral võib diagrammil näha mustreid, näiteks jääkide “laiuse” suurenemine või vähenemine koos ennustatud väärtuste või sõltumatu muutuja väärtustega (näiteks “lehviku” kuju).</li>
-<li><strong>Breusch-Pagan test ja White’i test:</strong> Need on formaalsed statistilised testid heteroskedastilisuse testimiseks. Need testid hindavad, kas jääkide ruudud on seotud sõltumatute muutujate või nende ruutudega.</li>
+<li><strong>Andmete kogumise protsessi mõistmine.</strong> Hoolikalt tuleb kaaluda, kuidas andmed on kogutud. Kas on potentsiaalseid sõltuvuse allikaid? Näiteks aja-reas andmetes (andmed, mis on kogutud aja jooksul järjestikku) on sageli sõltuvus, kus eilne väärtus võib mõjutada tänast väärtust. Samuti võib sõltuvust esineda klasterandmetes (näiteks õpilased klassides, patsiendid arstides), kus grupis olevad vaatlused võivad olla sarnasemad kui grupidest väljaspool olevad vaatlused.</li>
+<li><strong>Durbin-Watson test (aja-rea andmete korral).</strong> Durbin-Watson test on spetsiifiliselt loodud autokorrelatsiooni (sõltuvuse) tuvastamiseks jääkides aja-rea andmetes.</li>
 </ul></li>
-<li><strong>Mis juhtub, kui eeldus on rikutud:</strong> Vähimruutude hinnangud on ebaefektiivsed ja standardvead on ebatäpsed.</li>
-<li><strong>Mida teha:</strong>
+<li><strong>Mis juhtub, kui eeldus on rikutud.</strong> Standardvead on ebatäpsed, mis teeb statistilised testid ja usaldusvahemikud ebausaldusväärseks.</li>
+<li><strong>Mida teha.</strong>
 <ul>
-<li><strong>Muutujate transformeerimine:</strong> Sõltuva muutuja transformeerimine (näiteks logaritm, ruutjuur) võib mõnikord vähendada heteroskedastilisust, eriti kui heteroskedastilisus on seotud sõltuva muutuja tasemega.</li>
-<li><strong>Robustsed standardvead:</strong> Nagu sõltumatuse puhul, saab ka heteroskedastilisuse korral kasutada robustseid standardvigu (näiteks Huber-White standardvead). Need annavad usaldusväärsemad standardvead ja seega ka usaldusväärsemad statistilised testid ja usaldusvahemikud, isegi kui heteroskedastilisus on olemas.</li>
-<li><strong>Kaalutud vähimruudud (Weighted Least Squares - WLS):</strong> WLS meetod on spetsiifiliselt loodud heteroskedastilisuse probleemi lahendamiseks. See meetod annab suuremad kaalud vaatlustele, millel on väiksem jääkide dispersioon, ja väiksemad kaalud vaatlustele, millel on suurem jääkide dispersioon, et “ühtlustada” variatsiooni.</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Normaaljaotus:</strong> Jäägid peaksid olema ligikaudselt normaaljaotusega. See eeldus kehtib eelkõige statistiliste testide ja usaldusvahemike usaldusväärsuse jaoks, eriti väikeste valimite korral. Suurte valimite korral, tänu keskväärtusteoreemile, on regressioonikoefitsientide hinnangud ligikaudu normaalselt jaotunud isegi siis, kui jäägid ei ole täpselt normaalselt jaotunud (kuid siiski peaksid olema homoskedastilised ja sõltumatud).</p>
-<ul>
-<li><strong>Mida see tähendab:</strong> Jääkide histogramm peaks meenutama kellakujulist normaaljaotust. Jääkide teoreetiline jaotus peaks olema normaalne.</li>
-<li><strong>Miks see oluline on:</strong> Normaaljaotuse eeldus on oluline, et kasutada t-teste koefitsientide statistilise olulisuse testimiseks ja F-testi mudeli üldise olulisuse testimiseks, eriti väikeste valimite korral. Kui jäägid on normaalselt jaotunud, siis koefitsientide hinnangud on ka normaalselt jaotunud ja teststatistikud järgivad t- ja F-jaotusi vastavalt. Kui jäägid ei ole normaalselt jaotunud (eriti kui valim on väike), siis võivad testide p-väärtused ja usaldusvahemikud olla ebatäpsed.</li>
-<li><strong>Kuidas kontrollida:</strong>
-<ul>
-<li><strong>Histogramm ja tihedusdiagramm:</strong> Jääkide histogrammi ja tihedusdiagrammi joonistamine aitab visuaalselt hinnata, kas jäägid on ligikaudu normaalselt jaotunud.</li>
-<li><strong>Normaalsuse Q-Q diagramm (Quantile-Quantile plot):</strong> Q-Q diagramm võrdleb jääkide kvantiile teoreetilise normaaljaotuse kvantiilidega. Kui jäägid on normaalselt jaotunud, peaksid punktid Q-Q diagrammil paiknema ligikaudu sirgel joonel.</li>
-<li><strong>Formaalsed normaalsuse testid:</strong> Näiteks Shapiro-Wilk test, Kolmogorov-Smirnov test, Jarque-Bera test. Need testid annavad statistilise p-väärtuse, mis hindab, kas jäägid erinevad oluliselt normaaljaotusest.</li>
-</ul></li>
-<li><strong>Mis juhtub, kui eeldus on rikutud:</strong> Väikeste valimite korral võivad t-testid ja F-testid olla ebausaldusväärsed. Suurte valimite korral on lineaarsed regressioonitulemused sageli robustsed normaalsuse rikkumise suhtes (tänu keskväärtusteoreemile).</li>
-<li><strong>Mida teha:</strong>
-<ul>
-<li><strong>Muutujate transformeerimine:</strong> Sõltuva muutuja transformeerimine võib mõnikord muuta jääkide jaotust normaalsemaks.</li>
-<li><strong>Mitteparameetrilised meetodid:</strong> Kui normaalsuse rikkumine on tõsine ja valim on väike, võib kaaluda mitteparameetriliste regressioonimeetodite kasutamist, mis ei eelda normaaljaotust (kuid need meetodid võivad olla vähem võimsad kui lineaarne regressioon, kui eeldused on täidetud).</li>
-<li><strong>Suur valim:</strong> Suurte valimite korral on lineaarne regressioon suhteliselt robustne normaalsuse rikkumise suhtes. Kui valim on piisavalt suur, ei pruugi normaalsuse eeldus olla nii kriitiline.</li>
+<li><strong>Aja-rea mudelid.</strong> Kui tegemist on aja-rea andmetega ja sõltuvus on autokorrelatsioon, võib kasutada aja-rea mudelite (näiteks ARIMA mudelid) asemel lineaarselt regressiooni.</li>
+<li><strong>Segamõjudega mudelid (klasterandmete korral).</strong> Kui tegemist on klasterandmetega, võib kasutada segamõjudega mudeleid (mixed-effects models), mis võtavad arvesse grupisisese sõltuvuse.</li>
+<li><strong>Robustsed standardvead.</strong> Teatud juhtudel, kui sõltuvust ei saa täielikult modelleerida, saab kasutada robustseid standardvigu (näiteks Huber-White standardvead), mis on vähem tundlikud sõltuvuse suhtes (kuigi need ei lahenda probleemi täielikult).</li>
 </ul></li>
 </ul></li>
-<li><p><strong>Multikollineaarsuse puudumine:</strong> Sõltumatud tunnused (argumenttunnused) ei tohiks omavahel tugevalt korreleeruda. Multikollineaarsus tekib siis, kui kaks või enam sõltumatut muutujat on omavahel tugevalt lineaarselt seotud.</p>
+<li><p><strong>Homoskedastilisus.</strong> Jääkide dispersioon (variatsioon) peaks olema konstantne kõigi sõltumatute muutujate väärtuste korral. See tähendab, et jääkide “hajuvus” peaks olema ühtlane kogu regressioonisirge pikkuses. Heteroskedastilisus on homoskedastilisuse vastand ja tähendab, et jääkide dispersioon ei ole konstantne, vaid muutub sõltuvalt sõltumatute muutujate väärtustest.</p>
 <ul>
-<li><strong>Mida see tähendab:</strong> See tähendab, et sõltumatud muutujad ei tohiks olla üksteise ennustajad. Näiteks, kui me modelleerime palku haridustaseme ja töökogemuse põhjal, võib multikollineaarsus tekkida, kui haridustase ja töökogemus on tugevalt korreleeritud (kõrgema haridusega inimestel on tavaliselt rohkem töökogemust).</li>
-<li><strong>Miks see oluline on:</strong> Multikollineaarsus ei mõjuta mudeli ennustusvõimet tervikuna, kuid see teeb üksikute sõltumatute muutujate mõju eristamise raskeks ja ebastabiilseks. Regressioonikoefitsiendid muutuvad ebatäpseks (suured standardvead) ja ebastabiilseks (väikesed muutused andmetes võivad põhjustada suuri muutusi koefitsientides). Samuti võib see muuta koefitsientide märke ootamatuks.</li>
-<li><strong>Kuidas kontrollida:</strong>
+<li><strong>Mida see tähendab.</strong> Jääkide hajumisdiagrammil ennustatud väärtuste või sõltumatute muutujate suhtes peaks jääkide punktide “laius” olema enam-vähem sama kogu ulatuses.</li>
+<li><strong>Miks see oluline on.</strong> Homoskedastilisus on oluline vähimruutude meetodi efektiivsuse tagamiseks. Kuigi vähimruutude meetod annab ikka erapooletud hinnangud koefitsientidele ka heteroskedastilisuse korral, on hinnangud ebaefektiivsed (neil on suurem dispersioon kui vaja oleks) ja standardvead on jälle ebatäpsed, mis mõjutab statistiliste testide ja usaldusvahemike usaldusväärsust.</li>
+<li><strong>Kuidas kontrollida.</strong>
 <ul>
-<li><strong>Korrelatsioonimaatriks:</strong> Sõltumatute muutujate vahelise korrelatsioonimaatriksi arvutamine ja korrelatsioonikordajate (eriti Pearsoni korrelatsioonikordajate) vaatamine. Kõrged korrelatsioonikordajad (näiteks absoluutväärtus üle 0.7 või 0.8) võivad viidata multikollineaarsusele.</li>
-<li><strong>VIF (Variance Inflation Factor - dispersiooni paisutustegur):</strong> VIF arvutatakse iga sõltumatu muutuja jaoks. See mõõdab, kui palju iga muutuja standardviga on paisunud multikollineaarsuse tõttu. Kõrged VIF väärtused (tavaliselt üle 5 või 10) viitavad multikollineaarsusele.</li>
+<li><strong>Jääkide hajumisdiagrammid.</strong> Jääkide diagrammi joonistamine ennustatud väärtuste või iga sõltumatu muutuja suhtes. Homoskedastilisuse korral peaks jääkide hajumine olema juhuslik ja ühtlane riba ümber nulljoone. Heteroskedastilisuse korral võib diagrammil näha mustreid, näiteks jääkide “laiuse” suurenemine või vähenemine koos ennustatud väärtuste või sõltumatu muutuja väärtustega (näiteks “lehviku” kuju).</li>
+<li><strong>Breusch-Pagan test ja White’i test.</strong> Need on formaalsed statistilised testid heteroskedastilisuse testimiseks. Need testid hindavad, kas jääkide ruudud on seotud sõltumatute muutujate või nende ruutudega.</li>
 </ul></li>
-<li><strong>Mis juhtub, kui eeldus on rikutud:</strong> Regressioonikoefitsiendid on ebastabiilsed ja raskesti interpreteeritavad, standardvead paisuvad, mis teeb statistilised testid vähem võimsaks. Kuigi mudeli ennustusvõime tervikuna ei pruugi kannatada, on üksikute muutujate mõju raske hinnata.</li>
-<li><strong>Mida teha:</strong>
+<li><strong>Mis juhtub, kui eeldus on rikutud.</strong> Vähimruutude hinnangud on ebaefektiivsed ja standardvead on ebatäpsed.</li>
+<li><strong>Mida teha.</strong>
 <ul>
-<li><strong>Muutujate eemaldamine:</strong> Kui multikollineaarsus on probleemiks, võib eemaldada mudelist ühe või mitu omavahel korreleeruvat muutujat. Tuleb valida, millised muutujad on teoreetiliselt või praktiliselt vähem olulised või redundantsed.</li>
-<li><strong>Muutujate kombineerimine:</strong> Korreleeritud muutujad võib kombineerida üheks uueks muutujaks (näiteks summeerida või arvutada keskmist).</li>
-<li><strong>PCA (Principal Component Analysis - peamiste komponentide analüüs) või PLS (Partial Least Squares - osalised vähimruudud) regressioon:</strong> Need meetodid on spetsiifiliselt loodud multikollineaarsuse probleemi lahendamiseks. PCA regressioon teisendab algsed muutujad uuteks, ortogonaalseteks (mitte-korreleeritud) komponentideks ja kasutab neid regressioonis. PLS regressioon on eriti kasulik, kui on palju sõltumatuid muutujaid ja multikollineaarsus on tugev.</li>
-<li><strong>Regulariseerimine (näiteks Ridge regressioon või Lasso regressioon):</strong> Regulariseerimise meetodid aitavad vähendada multikollineaarsuse mõju, “kahandades” koefitsiente ja vähendades nende dispersiooni (kuigi nad võivad ka koefitsientide hinnanguid “biaseerida”).</li>
+<li><strong>Muutujate transformeerimine.</strong> Sõltuva muutuja transformeerimine (näiteks logaritm, ruutjuur) võib mõnikord vähendada heteroskedastilisust, eriti kui heteroskedastilisus on seotud sõltuva muutuja tasemega.</li>
+<li><strong>Robustsed standardvead.</strong> Nagu sõltumatuse puhul, saab ka heteroskedastilisuse korral kasutada robustseid standardvigu (näiteks Huber-White standardvead). Need annavad usaldusväärsemad standardvead ja seega ka usaldusväärsemad statistilised testid ja usaldusvahemikud, isegi kui heteroskedastilisus on olemas.</li>
+<li><strong>Kaalutud vähimruudud (Weighted Least Squares - WLS).</strong> WLS meetod on spetsiifiliselt loodud heteroskedastilisuse probleemi lahendamiseks. See meetod annab suuremad kaalud vaatlustele, millel on väiksem jääkide dispersioon, ja väiksemad kaalud vaatlustele, millel on suurem jääkide dispersioon, et “ühtlustada” variatsiooni.</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Normaaljaotus.</strong> Jäägid peaksid olema ligikaudselt normaaljaotusega. See eeldus kehtib eelkõige statistiliste testide ja usaldusvahemike usaldusväärsuse jaoks, eriti väikeste valimite korral. Suurte valimite korral, tänu keskväärtusteoreemile, on regressioonikoefitsientide hinnangud ligikaudu normaalselt jaotunud isegi siis, kui jäägid ei ole täpselt normaalselt jaotunud (kuid siiski peaksid olema homoskedastilised ja sõltumatud).</p>
+<ul>
+<li><strong>Mida see tähendab.</strong> Jääkide histogramm peaks meenutama kellakujulist normaaljaotust. Jääkide teoreetiline jaotus peaks olema normaalne.</li>
+<li><strong>Miks see oluline on.</strong> Normaaljaotuse eeldus on oluline, et kasutada t-teste koefitsientide statistilise olulisuse testimiseks ja F-testi mudeli üldise olulisuse testimiseks, eriti väikeste valimite korral. Kui jäägid on normaalselt jaotunud, siis koefitsientide hinnangud on ka normaalselt jaotunud ja teststatistikud järgivad t- ja F-jaotusi vastavalt. Kui jäägid ei ole normaalselt jaotunud (eriti kui valim on väike), siis võivad testide p-väärtused ja usaldusvahemikud olla ebatäpsed.</li>
+<li><strong>Kuidas kontrollida.</strong>
+<ul>
+<li><strong>Histogramm ja tihedusdiagramm.</strong> Jääkide histogrammi ja tihedusdiagrammi joonistamine aitab visuaalselt hinnata, kas jäägid on ligikaudu normaalselt jaotunud.</li>
+<li><strong>Normaalsuse Q-Q diagramm (Quantile-Quantile plot).</strong> Q-Q diagramm võrdleb jääkide kvantiile teoreetilise normaaljaotuse kvantiilidega. Kui jäägid on normaalselt jaotunud, peaksid punktid Q-Q diagrammil paiknema ligikaudu sirgel joonel.</li>
+<li><strong>Formaalsed normaalsuse testid.</strong> Näiteks Shapiro-Wilk test, Kolmogorov-Smirnov test, Jarque-Bera test. Need testid annavad statistilise p-väärtuse, mis hindab, kas jäägid erinevad oluliselt normaaljaotusest.</li>
+</ul></li>
+<li><strong>Mis juhtub, kui eeldus on rikutud.</strong> Väikeste valimite korral võivad t-testid ja F-testid olla ebausaldusväärsed. Suurte valimite korral on lineaarsed regressioonitulemused sageli robustsed normaalsuse rikkumise suhtes (tänu keskväärtusteoreemile).</li>
+<li><strong>Mida teha.</strong>
+<ul>
+<li><strong>Muutujate transformeerimine.</strong> Sõltuva muutuja transformeerimine võib mõnikord muuta jääkide jaotust normaalsemaks.</li>
+<li><strong>Mitteparameetrilised meetodid.</strong> Kui normaalsuse rikkumine on tõsine ja valim on väike, võib kaaluda mitteparameetriliste regressioonimeetodite kasutamist, mis ei eelda normaaljaotust (kuid need meetodid võivad olla vähem võimsad kui lineaarne regressioon, kui eeldused on täidetud).</li>
+<li><strong>Suur valim.</strong> Suurte valimite korral on lineaarne regressioon suhteliselt robustne normaalsuse rikkumise suhtes. Kui valim on piisavalt suur, ei pruugi normaalsuse eeldus olla nii kriitiline.</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Multikollineaarsuse puudumine.</strong> Sõltumatud tunnused (argumenttunnused) ei tohiks omavahel tugevalt korreleeruda. Multikollineaarsus tekib siis, kui kaks või enam sõltumatut muutujat on omavahel tugevalt lineaarselt seotud.</p>
+<ul>
+<li><strong>Mida see tähendab.</strong> See tähendab, et sõltumatud muutujad ei tohiks olla üksteise ennustajad. Näiteks, kui me modelleerime palku haridustaseme ja töökogemuse põhjal, võib multikollineaarsus tekkida, kui haridustase ja töökogemus on tugevalt korreleeritud (kõrgema haridusega inimestel on tavaliselt rohkem töökogemust).</li>
+<li><strong>Miks see oluline on.</strong> Multikollineaarsus ei mõjuta mudeli ennustusvõimet tervikuna, kuid see teeb üksikute sõltumatute muutujate mõju eristamise raskeks ja ebastabiilseks. Regressioonikoefitsiendid muutuvad ebatäpseks (suured standardvead) ja ebastabiilseks (väikesed muutused andmetes võivad põhjustada suuri muutusi koefitsientides). Samuti võib see muuta koefitsientide märke ootamatuks.</li>
+<li><strong>Kuidas kontrollida.</strong>
+<ul>
+<li><strong>Korrelatsioonimaatriks.</strong> Sõltumatute muutujate vahelise korrelatsioonimaatriksi arvutamine ja korrelatsioonikordajate (eriti Pearsoni korrelatsioonikordajate) vaatamine. Kõrged korrelatsioonikordajad (näiteks absoluutväärtus üle 0.7 või 0.8) võivad viidata multikollineaarsusele.</li>
+<li><strong>VIF (Variance Inflation Factor - dispersiooni paisutustegur).</strong> VIF arvutatakse iga sõltumatu muutuja jaoks. See mõõdab, kui palju iga muutuja standardviga on paisunud multikollineaarsuse tõttu. Kõrged VIF väärtused (tavaliselt üle 5 või 10) viitavad multikollineaarsusele.</li>
+</ul></li>
+<li><strong>Mis juhtub, kui eeldus on rikutud.</strong> Regressioonikoefitsiendid on ebastabiilsed ja raskesti interpreteeritavad, standardvead paisuvad, mis teeb statistilised testid vähem võimsaks. Kuigi mudeli ennustusvõime tervikuna ei pruugi kannatada, on üksikute muutujate mõju raske hinnata.</li>
+<li><strong>Mida teha.</strong>
+<ul>
+<li><strong>Muutujate eemaldamine.</strong> Kui multikollineaarsus on probleemiks, võib eemaldada mudelist ühe või mitu omavahel korreleeruvat muutujat. Tuleb valida, millised muutujad on teoreetiliselt või praktiliselt vähem olulised või redundantsed.</li>
+<li><strong>Muutujate kombineerimine.</strong> Korreleeritud muutujad võib kombineerida üheks uueks muutujaks (näiteks summeerida või arvutada keskmist).</li>
+<li><strong>PCA (Principal Component Analysis - peamiste komponentide analüüs) või PLS (Partial Least Squares - osalised vähimruudud) regressioon.</strong> Need meetodid on spetsiifiliselt loodud multikollineaarsuse probleemi lahendamiseks. PCA regressioon teisendab algsed muutujad uuteks, ortogonaalseteks (mitte-korreleeritud) komponentideks ja kasutab neid regressioonis. PLS regressioon on eriti kasulik, kui on palju sõltumatuid muutujaid ja multikollineaarsus on tugev.</li>
+<li><strong>Regulariseerimine (näiteks Ridge regressioon või Lasso regressioon).</strong> Regulariseerimise meetodid aitavad vähendada multikollineaarsuse mõju, “kahandades” koefitsiente ja vähendades nende dispersiooni (kuigi nad võivad ka koefitsientide hinnanguid “biaseerida”).</li>
 </ul></li>
 </ul></li>
 </ul>
 </div>
 <div id="lineaarne-regressioon-r-is" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> Lineaarne regressioon R-is<a href="mitme-tunnuse-koosanalüüs.html#lineaarne-regressioon-r-is" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="naidis">
+<p>Proovitükil on mõõdetud puudel diameetrid ja kõrgused. Eesmärgiks on leida lineaarse regressiooniga mudel, millega ennustada diameetrist puude kõrgust.</p>
+</div>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="mitme-tunnuse-koosanalüüs.html#cb57-1" tabindex="-1"></a><span class="co"># Laadi alla &#39;readxl&#39; pakett, et lugeda Exceli faili</span></span>
 <span id="cb57-2"><a href="mitme-tunnuse-koosanalüüs.html#cb57-2" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb57-3"><a href="mitme-tunnuse-koosanalüüs.html#cb57-3" tabindex="-1"></a></span>
@@ -483,11 +486,14 @@ F-statistic: 70,7 on 1 and 32 DF,  p-value: 1,32e-09</code></pre>
 <span id="cb61-4"><a href="mitme-tunnuse-koosanalüüs.html#cb61-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="co"># Lisa punktid andmete jaoks</span></span>
 <span id="cb61-5"><a href="mitme-tunnuse-koosanalüüs.html#cb61-5" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
 <span id="cb61-6"><a href="mitme-tunnuse-koosanalüüs.html#cb61-6" tabindex="-1"></a>    <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">20</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">20</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-47"></span>
-<img src="_main_files/figure-html/unnamed-chunk-47-1.png" alt="Hajuvusdiagramm" width="80%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-42"></span>
+<img src="_main_files/figure-html/unnamed-chunk-42-1.png" alt="Hajuvusdiagramm" width="80%" />
 <p class="caption">
-Joonis 7.1: Hajuvusdiagramm
+Joonis 7.1. Hajuvusdiagramm
 </p>
+</div>
+<div class="naidis">
+<p>Täiendame regressioonimudelit, kus argumenttunnuseks on naturaallogaritm diameetrist.</p>
 </div>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="mitme-tunnuse-koosanalüüs.html#cb62-1" tabindex="-1"></a><span class="co"># Lineaarse regressiooni mudeli loomine</span></span>
 <span id="cb62-2"><a href="mitme-tunnuse-koosanalüüs.html#cb62-2" tabindex="-1"></a><span class="co"># R-is tähistatakse seda valemit kujul H ~ log(D)</span></span>
@@ -515,10 +521,10 @@ F-statistic:  131 on 1 and 32 DF,  p-value: 7,2e-13</code></pre>
 <span id="cb64-4"><a href="mitme-tunnuse-koosanalüüs.html#cb64-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="co"># Lisa punktid andmete jaoks</span></span>
 <span id="cb64-5"><a href="mitme-tunnuse-koosanalüüs.html#cb64-5" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">formula =</span> y<span class="sc">~</span><span class="fu">log</span>(x),  <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
 <span id="cb64-6"><a href="mitme-tunnuse-koosanalüüs.html#cb64-6" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">20</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">20</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-49"></span>
-<img src="_main_files/figure-html/unnamed-chunk-49-1.png" alt="Hajuvusdiagramm logaritmilise teisendusega" width="80%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-44"></span>
+<img src="_main_files/figure-html/unnamed-chunk-44-1.png" alt="Hajuvusdiagramm logaritmilise teisendusega" width="80%" />
 <p class="caption">
-Joonis 7.2: Hajuvusdiagramm logaritmilise teisendusega
+Joonis 7.2. Hajuvusdiagramm logaritmilise teisendusega
 </p>
 </div>
 <p>ANOVA (Analysis of Variance) on statistiline meetod, mida kasutatakse kahe või enama rühma keskmiste võrdlemiseks. Regressioonimudelite puhul saab ANOVA-t kasutada kahe mudeli võrdlemiseks, et näha, kas üks mudel selgitab oluliselt rohkem varieeruvust kui teine mudel.</p>
@@ -547,14 +553,17 @@ Model 2: H ~ log(D)
 1     32 42,1                      
 2     32 26,5  0      15,7         </code></pre>
 <p>Tulemusest näeme, et esimese mudeli hälvete ruutude summa (RSS) on suurem (42,1308 &gt; 26,46116), seega on teine mudel täpsem.</p>
+<div class="naidis">
+<p>Hindame mudelite jääkide jaotust ning hindame, kas need vastavad normaaljaotusele.</p>
+</div>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="mitme-tunnuse-koosanalüüs.html#cb67-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">mgp=</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">0.7</span>, <span class="dv">0</span>))</span>
 <span id="cb67-2"><a href="mitme-tunnuse-koosanalüüs.html#cb67-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(<span class="fu">resid</span>(lm_1), <span class="at">bw =</span> <span class="fl">0.5</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.4</span>), <span class="at">main=</span><span class="st">&quot;&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Jäägid&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;f(x)&quot;</span>)</span>
 <span id="cb67-3"><a href="mitme-tunnuse-koosanalüüs.html#cb67-3" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(<span class="fu">resid</span>(lm_2), <span class="at">bw =</span> <span class="fl">0.5</span>), <span class="at">col =</span> <span class="dv">2</span>)</span>
 <span id="cb67-4"><a href="mitme-tunnuse-koosanalüüs.html#cb67-4" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">0</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-51"></span>
-<img src="_main_files/figure-html/unnamed-chunk-51-1.png" alt="Lineaarse regressiooni jääkide tihedusfunktsioon." width="80%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-46"></span>
+<img src="_main_files/figure-html/unnamed-chunk-46-1.png" alt="Lineaarse regressiooni jääkide tihedusfunktsioon." width="80%" />
 <p class="caption">
-Joonis 7.3: Lineaarse regressiooni jääkide tihedusfunktsioon.
+Joonis 7.3. Lineaarse regressiooni jääkide tihedusfunktsioon.
 </p>
 </div>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="mitme-tunnuse-koosanalüüs.html#cb68-1" tabindex="-1"></a>(sh_tst_1 <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(<span class="fu">resid</span>(lm_1)))</span></code></pre></div>
@@ -565,20 +574,23 @@ data:  resid(lm_1)
 W = 0,957, p-value = 0,2</code></pre>
 <p>Sinu antud tulemus näitab järgmist:</p>
 <ul>
-<li><strong>W = 0,95708:</strong> See on teststatistik. W väärtus, mis on lähedal 1-le, viitab sellele, et andmed on tõenäoliselt normaaljaotusega.</li>
-<li><strong>p-value = 0,19958:</strong> See on olulisuse tõenäosus (p-väärtus). See näitab tõenäosust, et saaksid sarnase või ekstreemsema tulemuse, kui andmed tegelikult oleksid normaaljaotusega.</li>
+<li><strong>W = 0,95708.</strong> See on teststatistik. W väärtus, mis on lähedal 1-le, viitab sellele, et andmed on tõenäoliselt normaaljaotusega.</li>
+<li><strong>p-value = 0,19958.</strong> See on olulisuse tõenäosus (p-väärtus). See näitab tõenäosust, et saaksid sarnase või ekstreemsema tulemuse, kui andmed tegelikult oleksid normaaljaotusega.</li>
 </ul>
 <p><strong>Järeldus</strong></p>
 <p>Kuna p-väärtus (0,95708) on suurem kui tavaline <span class="math inline">\(\alpha\)</span>-tase 0,05, siis me ei saa nullhüpoteesi (et andmed on normaaljaotusega) ümber lükata. See tähendab, et antud andmete põhjal <strong>ei ole piisavalt tõendeid selle kohta, et andmed ei oleks normaaljaotusega</strong>.</p>
 <p><strong>Täiendavad kaalutlused</strong></p>
 <ul>
-<li><strong>Praktiline olulisus:</strong> Kuigi test näitab, et andmed ei pruugi olla <em>täpselt</em> normaaljaotusega, võib see kõrvalekalle olla piisavalt väike, et mitte mõjutada oluliselt järgnevaid statistilisi analüüse.</li>
-<li><strong>Visuaalne kontroll:</strong> Lisaks testile on alati kasulik andmeid visuaalselt kontrollida näiteks histogrammi või Q-Q graafiku abil. See aitab paremini mõista andmete jaotust ja võimalikke kõrvalekaldeid.</li>
+<li><strong>Praktiline olulisus.</strong> Kuigi test näitab, et andmed ei pruugi olla <em>täpselt</em> normaaljaotusega, võib see kõrvalekalle olla piisavalt väike, et mitte mõjutada oluliselt järgnevaid statistilisi analüüse.</li>
+<li><strong>Visuaalne kontroll.</strong> Lisaks testile on alati kasulik andmeid visuaalselt kontrollida näiteks histogrammi või Q-Q graafiku abil. See aitab paremini mõista andmete jaotust ja võimalikke kõrvalekaldeid.</li>
 </ul>
-<p><strong>Kokkuvõtteks:</strong> Shapiro-Wilki testi tulemus näitab, et andmed on tõenäoliselt normaaljaotusega, kuid alati on hea mõelda ka andmete praktilisele olulisusele ja neid visuaalselt kontrollida.</p>
+<p><strong>Kokkuvõtteks.</strong> Shapiro-Wilki testi tulemus näitab, et andmed on tõenäoliselt normaaljaotusega, kuid alati on hea mõelda ka andmete praktilisele olulisusele ja neid visuaalselt kontrollida.</p>
 </div>
 <div id="lineaarne-regressioon-mitme-tunnusega" class="section level2 hasAnchor" number="7.4">
 <h2><span class="header-section-number">7.4</span> Lineaarne regressioon mitme tunnusega<a href="mitme-tunnuse-koosanalüüs.html#lineaarne-regressioon-mitme-tunnusega" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="naidis">
+<p>Koostame mitmese lineaarse regressiooni, kus võraalguse kõrgus ennustatakse diameetri ja kõrgus alusel (HV = D + H).</p>
+</div>
 <p>Koostame mudeli, mille valem on <code>HV~D+H</code>.</p>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="mitme-tunnuse-koosanalüüs.html#cb70-1" tabindex="-1"></a><span class="fu">summary</span>(lm_3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(HV<span class="sc">~</span>D<span class="sc">+</span>H, andmed))</span></code></pre></div>
 <pre><code>
@@ -614,24 +626,24 @@ Residuals 31  12,18    0,39                </code></pre>
 <p>Tulemusest on näha, et täiendavalt diameetrit sisaldav mudel on oluliselt (p-väärtus 3,37587^{-6}) täpsem, kui ainult kõrgusest sõltuv mudel.</p>
 <p>Kasutame funktsiooni <code>termplot()</code>, et hinnata regressioonimudeli üksikute terminite mõju visualselt. See aitab mõista, kuidas iga argumenttunnus mõjutab funktsioontunnust, kui kõik teised tunnused hoitakse konstantsena.</p>
 <ol style="list-style-type: decimal">
-<li><strong>Regressioonimudel:</strong> Esiteks pead looma regressioonimudeli (lineaarne, üldistatud lineaarne või mõni muu), kasutades näiteks funktsioone nagu <code>lm</code> või <code>glm</code>.</li>
-<li><strong><code>termplot()</code> funktsioon:</strong> Seejärel kasutad funktsiooni <code>termplot</code>, andes sellele mudeli ja määrates, milliseid termineid (tunnuseid) soovid visualiseerida.</li>
-<li><strong>Graafik:</strong> <code>termplot</code> loob graafiku, kus x-teljel on konkreetse tunnuse väärtused ja y-teljel on selle tunnuse mõju vastussuurusele. Graafik näitab, kuidas vastussuurus muutub, kui tunnuse väärtus muutub, hoides samal ajal kõik teised tunnused konstantsena.</li>
+<li><strong>Regressioonimudel.</strong> Esiteks pead looma regressioonimudeli (lineaarne, üldistatud lineaarne või mõni muu), kasutades näiteks funktsioone nagu <code>lm</code> või <code>glm</code>.</li>
+<li><strong><code>termplot()</code> funktsioon.</strong> Seejärel kasutad funktsiooni <code>termplot</code>, andes sellele mudeli ja määrates, milliseid termineid (tunnuseid) soovid visualiseerida.</li>
+<li><strong>Graafik.</strong> <code>termplot</code> loob graafiku, kus x-teljel on konkreetse tunnuse väärtused ja y-teljel on selle tunnuse mõju vastussuurusele. Graafik näitab, kuidas vastussuurus muutub, kui tunnuse väärtus muutub, hoides samal ajal kõik teised tunnused konstantsena.</li>
 </ol>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="mitme-tunnuse-koosanalüüs.html#cb75-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfcol=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">mgp=</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">0.7</span>, <span class="dv">0</span>))</span>
 <span id="cb75-2"><a href="mitme-tunnuse-koosanalüüs.html#cb75-2" tabindex="-1"></a><span class="fu">termplot</span>(lm_3, <span class="at">partial.resid =</span> T, <span class="at">se=</span>T)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-56"></span>
-<img src="_main_files/figure-html/unnamed-chunk-56-1.png" alt="Argumenttunnuste mõju funktsioontunnusele." width="80%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-51"></span>
+<img src="_main_files/figure-html/unnamed-chunk-51-1.png" alt="Argumenttunnuste mõju funktsioontunnusele." width="80%" />
 <p class="caption">
-Joonis 7.4: Argumenttunnuste mõju funktsioontunnusele.
+Joonis 7.4. Argumenttunnuste mõju funktsioontunnusele.
 </p>
 </div>
 <p><strong>Olulised parameetrid</strong></p>
 <ul>
-<li><strong><code>model</code>:</strong> Regressioonimudel, mille jaoks termplot luuakse.</li>
-<li><strong><code>terms</code>:</strong> Vektor, mis määrab, milliseid termineid (tunnuseid) soovitakse visualiseerida.</li>
-<li><strong><code>partial.resid</code>:</strong> Loogiline väärtus, mis määrab, kas graafikule lisatakse osalised jäägid.</li>
-<li><strong><code>se</code>:</strong> Loogiline väärtus, mis määrab, kas graafikule lisatakse standardvead.</li>
+<li><strong><code>model</code>.</strong> Regressioonimudel, mille jaoks termplot luuakse.</li>
+<li><strong><code>terms</code>.</strong> Vektor, mis määrab, milliseid termineid (tunnuseid) soovitakse visualiseerida.</li>
+<li><strong><code>partial.resid</code>.</strong> Loogiline väärtus, mis määrab, kas graafikule lisatakse osalised jäägid.</li>
+<li><strong><code>se</code>.</strong> Loogiline väärtus, mis määrab, kas graafikule lisatakse standardvead.</li>
 </ul>
 <p>Vaatame tunnuste omavahelist korrelatsiooni ning sellest näeme, et D ja H vahel on tugev korrelatsioon. See mõjutab ka mudeli parameetreid.</p>
 <div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="mitme-tunnuse-koosanalüüs.html#cb76-1" tabindex="-1"></a><span class="fu">cor</span>(andmed[,<span class="fu">c</span>(<span class="st">&quot;D&quot;</span>,<span class="st">&quot;H&quot;</span>, <span class="st">&quot;HV&quot;</span>)])</span></code></pre></div>

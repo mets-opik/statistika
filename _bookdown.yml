@@ -1,9 +1,9 @@
-delete_merged_file: true
+delete_merged_file: false
 language:
   ui:
     chapter_name: "Peatükk "
   label:
-    fig: 'Joonis '
+    fig: !expr function(x) sprintf("Joonis %s. ", x)
     tab: 'Tabel '
     example: 'Näide'
     

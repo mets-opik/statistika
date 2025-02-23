@@ -31,9 +31,9 @@ Teoreetiline jaotus on statistikas abstraktne kontseptsioon, mis kirjeldab tõen
 Histogramm ehk sagedusjaotuse tulpdiagramm on graafiline esitusviis andmehulga sageduste jaotumise näitamiseks. Histogramm koosneb üksteise kõrvale paigutatud tulpadest, kus iga tulp esindab teatud vahemikku või klassi, ning selle kõrgus näitab antud klassi sagedust. Horisontaaltelg esitab klasside vahemikke või kategooriaid ning vertikaaltelg näitab vastavate klasside sagedusi või sageduste suhtarvu. Histogrammi abil saab hinnata andmehulga jaotust ning tuvastada erinevaid tendentse ja mustreid andmetes. Histogrammi loomise eesmärgiks on anda visuaalne ülevaade andmete koondumisest ja levikust ning seeläbi paremini mõista andmete struktuuri. Histogrammi loomisel on oluline valida sobiv klassilaius, mis võimaldab õigesti tõlgendada ja analüüsida andmeid. Histogramm on oluline tööriist statistilise info esitamiseks ja mõistmiseks nii akadeemilistes kui ka praktilistes seadetes, sealhulgas metsanduses.
 
 
-\begin{naidis}
+:::{.naidis}
 Olgu juhuslikuks suuruseks puu diameeter. Antud näites on esitatud Järvseljal kvartalis 252  kasvanud 75 aasta vanuse naadisaariku saarepuude diameetri empiiriline jaotus proovitüki kluppimisandmete järgi. 
-\end{naidis}
+:::
 
 ### R keskkonnas histogrammi loomine
 

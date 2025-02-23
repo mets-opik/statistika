@@ -276,6 +276,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb33-4"><a href="karakteristikud.html#cb33-4" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>d)</span></code></pre></div>
 <pre><code>[1] 23,265</code></pre>
 <p><strong>MS Exceli keskkonnas</strong></p>
+<div class="excel">
+<p>=MEAN(andme_vektor)</p>
+</div>
 </div>
 <div id="ruutkeskmine" class="section level3 hasAnchor" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> Ruutkeskmine<a href="karakteristikud.html#ruutkeskmine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -288,6 +291,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb35-2"><a href="karakteristikud.html#cb35-2" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">mean</span>(df<span class="sc">$</span>d<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div>
 <pre><code>[1] 23,795</code></pre>
 <p><strong>MS Exceli keskkonnas</strong></p>
+<div class="excel">
+<p>=SQRT(MEAN(andmeplokk^2))</p>
+</div>
 </div>
 <div id="geomeetriline-keskmine" class="section level3 hasAnchor" number="4.1.3">
 <h3><span class="header-section-number">4.1.3</span> Geomeetriline keskmine<a href="karakteristikud.html#geomeetriline-keskmine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -303,6 +309,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb37-2"><a href="karakteristikud.html#cb37-2" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">mean</span>(<span class="fu">log</span>(df<span class="sc">$</span>d)))</span></code></pre></div>
 <pre><code>[1] 22,738</code></pre>
 <p><strong>MS Exceli keskkonnas</strong></p>
+<div class="excel">
+<p>=GEOMEAN(andmeplokk)</p>
+</div>
 </div>
 <div id="harmooniline-keskmine" class="section level3 hasAnchor" number="4.1.4">
 <h3><span class="header-section-number">4.1.4</span> Harmooniline keskmine<a href="karakteristikud.html#harmooniline-keskmine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -316,6 +325,9 @@ kus <span class="math inline">\(x_{1}, x_{2}, \ldots, x_{n}\)</span> on arvude h
 <span id="cb39-2"><a href="karakteristikud.html#cb39-2" tabindex="-1"></a><span class="dv">1</span><span class="sc">/</span><span class="fu">mean</span>(<span class="dv">1</span><span class="sc">/</span>df<span class="sc">$</span>d)</span></code></pre></div>
 <pre><code>[1] 22,222</code></pre>
 <p><strong>MS Exceli keskkonnas</strong></p>
+<div class="excel">
+<p>=HARMEAN(andmeplokk)</p>
+</div>
 </div>
 </div>
 <div id="kvantiilid" class="section level2 hasAnchor" number="4.2">
@@ -342,6 +354,9 @@ Kui on teada juhusliku suuruse jaotusfunktsioon F(x), siis saab juhusliku suurus
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="karakteristikud.html#cb41-1" tabindex="-1"></a><span class="fu">median</span>(df<span class="sc">$</span>d)</span></code></pre></div>
 <pre><code>[1] 23,2</code></pre>
 <p><strong>MS Exceli keskkonnas</strong></p>
+<div class="excel">
+<p>=MEDIAN(andmeplokk)</p>
+</div>
 
 </div>
 </div>

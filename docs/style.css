@@ -17,3 +17,31 @@ body {
   text-align: justify;
 }
 
+.figure-number:after {
+    content: ".";
+}
+
+.naidis {
+  background-color: #f0f0f0; /* Helehall taust */
+  border: 1px solid #ccc;     /* Õhuke hall piirjoon */
+  padding: 15px;              /* Sisemine polsterdus */
+  margin-bottom: 15px;        /* Alumine marginaal */
+  border-radius: 5px;         /* Ümarad nurgad */
+}
+
+.naidis::before {
+  content: "Näide: "; /* Sõna "Näidis" ja tühik */
+  font-weight: bold;   /* Tee "Näidis" rasvaseks */
+  display: block;     /* Pane "Näidis" omaette reale */
+  margin-bottom: 5px;  /* Väike vahe "Näidis" ja bloki sisu vahel */
+  color: #333;       /* Tumeda halli värvusega */
+}
+
+.excel {
+  background-color: #f0f0ff; /* Helehall taust */
+  border: 1px solid #ccc;     /* Õhuke hall piirjoon */
+  padding: 15px;              /* Sisemine polsterdus */
+  margin-bottom: 15px;        /* Alumine marginaal */
+  border-radius: 5px;         /* Ümarad nurgad */
+  
+}

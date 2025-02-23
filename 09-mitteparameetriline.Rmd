@@ -35,7 +35,7 @@ Selles koodis:
 * `H ~ s(D)` määrab mudeli valemi. `H` on funktsioontunnus ja `s(D)` määrab, et diameetri (D) mõju kõrgusele modelleeritakse sujuva funktsiooni `s()` abil.
 * `data = andmed` määrab andmestiku, mida kasutada.
 
-**3. Mudeli kokkuvõtte vaatamine:**
+**3. Mudeli kokkuvõtte vaatamine.**
 
 Saame mudeli kohta detailse kokkuvõtte funktsiooni `summary()` abil:
 
@@ -46,10 +46,10 @@ summary(mudel)
 
 Kokkuvõte annab meile informatsiooni mudeli sobivuse kohta, sh:
 
-* **Parametric coefficients:** Kui mudelis on ka lineaarseid komponente, näidatakse siin nende koefitsiendid. Kuna mudelis ühtegi lineaarset tunnust ei ole kasutatud, siis on siin ainult vabaliige `(Intercept)`.
-* **Approximate significance of smooth terms:** Siin näeme p-väärtuse hinnangut splainfunktsiooni olulisuse kohta. Madal p-väärtus (<0.05) viitab statistiliselt olulisele mittelineaarsele seosele diameetri ja kõrguse vahel.
-* **R-sq.(adj):** Korrigeeritud determinatsioonikordaja näitab, kui suure osa kõrguse varieeruvusest mudel seletab.
-* **Deviance explained:** Sarnane determinatsioonikordajale, näitab mudeli poolt seletatud hälbimuse osakaalu.
+* **Parametric coefficients.** Kui mudelis on ka lineaarseid komponente, näidatakse siin nende koefitsiendid. Kuna mudelis ühtegi lineaarset tunnust ei ole kasutatud, siis on siin ainult vabaliige `(Intercept)`.
+* **Approximate significance of smooth terms.** Siin näeme p-väärtuse hinnangut splainfunktsiooni olulisuse kohta. Madal p-väärtus (<0.05) viitab statistiliselt olulisele mittelineaarsele seosele diameetri ja kõrguse vahel.
+* **R-sq.(adj).** Korrigeeritud determinatsioonikordaja näitab, kui suure osa kõrguse varieeruvusest mudel seletab.
+* **Deviance explained.** Sarnane determinatsioonikordajale, näitab mudeli poolt seletatud hälbimuse osakaalu.
 
 
 Kasutades funktsiooni `coef()`, näeme splainfunktsiooni polünoomi parameetrite väärtusi. 
