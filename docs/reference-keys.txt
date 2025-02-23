@@ -27,8 +27,8 @@ jaotused
 empiiriline-jaotus
 teoreetiline-jaotus
 histogramm
-r-keskkonnas
-exceli-keskkonnas
+r-keskkonnas-histogrammi-loomine
+exceli-keskkonnas-histogrammi-loomine
 histogramm-1
 sageduste-arvutamine
 karakteristikud

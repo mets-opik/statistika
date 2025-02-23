@@ -4,11 +4,11 @@ Pideva tunnuse rühmitamine tähendab andmete jaotamist gruppidesse või kategoo
 
 Pideva tunnuse rühmitamine võib olla vajalik mitmel põhjusel:
 
-- Andmete lihtsustamine. Pidevate tunnuste rühmitamine võib muuta andmed hõlpsamini tõlgendatavaks ja analüüsitavaks, eriti juhul, kui on suur hulk erinevaid väärtusi.
+- **Andmete lihtsustamine.** Pidevate tunnuste rühmitamine võib muuta andmed hõlpsamini tõlgendatavaks ja analüüsitavaks, eriti juhul, kui on suur hulk erinevaid väärtusi.
 
-- Seoste või trendide avastamine. Rühmitades pidevaid tunnuseid, võime avastada seoseid või mustreid erinevate gruppide vahel. See võib aidata mõista näiteks, kuidas üks muutuja mõjutab teist või millised tegurid on omavahel seotud.
+- **Seoste või trendide avastamine.** Rühmitades pidevaid tunnuseid, võime avastada seoseid või mustreid erinevate gruppide vahel. See võib aidata mõista näiteks, kuidas üks muutuja mõjutab teist või millised tegurid on omavahel seotud.
 
-- Statistilise analüüsi täpsus. Pidevate tunnuste rühmitamine võib parandada statistiliste analüüside täpsust ja usaldusväärsust, kuna see võib aidata vähendada andmete varieeruvust ning korrigeerida võimalikke moonutusi.
+- **Statistilise analüüsi täpsus.** Pidevate tunnuste rühmitamine võib parandada statistiliste analüüside täpsust ja usaldusväärsust, kuna see võib aidata vähendada andmete varieeruvust ning korrigeerida võimalikke moonutusi.
 
 Seega on pideva tunnuse rühmitamine oluline statistilise analüüsi tööriist, mis aitab andmeid paremini mõista ja interpreteerida ning seeläbi teha järeldusi ja otsuseid põhinevalt faktidel ja statistilistel seostel.
 
@@ -35,7 +35,7 @@ Histogramm ehk sagedusjaotuse tulpdiagramm on graafiline esitusviis andmehulga s
 Olgu juhuslikuks suuruseks puu diameeter. Antud näites on esitatud Järvseljal kvartalis 252  kasvanud 75 aasta vanuse naadisaariku saarepuude diameetri empiiriline jaotus proovitüki kluppimisandmete järgi. 
 \end{naidis}
 
-### R keskkonnas:
+### R keskkonnas histogrammi loomine
 
 
 ```{r, warning=FALSE, message=FALSE}
@@ -92,7 +92,7 @@ See kood loob R-keeles `ggplot2` paketiga graafiku, mis visualiseerib andmete ja
 
 Tulpdiagrammile võib eelnevalt välja arvutada antud sagedused. Selleks saab kasutada funktsiooni `cut()`, mis vajab rühmade piire sisendiks ning seejärel saab juba funktsiooniga `table()` loendada kokku iga rühma liikmete arvu.
 
-### Exceli keskkonnas:
+### Exceli keskkonnas histogrammi loomine
 
 #### Histogramm
 Histogrammi loomiseks Excelis peab andmed esmalt sisestama tabelisse ja seejärel kasutama selle jaoks sobivat tööriista.
@@ -109,11 +109,11 @@ MS Exceli funktsioon `FREQUENCY()` võimaldab kasutajatel määrata, kui sageli 
 
 Enne `FREQUENCY()` funktsiooni kasutamist peate määrama rühmade vahemike piirid, millesse soovite oma andmed jaotada. Need piirid tuleks sisestada eraldi veergu Exceli töölehel. Näiteks, kui soovite analüüsida testitulemusi vahemikus 0-100, võite määrata piirid 0, 20, 40, 60, 80, 100.
 
-1. **Andmete ja piiride sisestamine:**
+1. **Andmete ja piiride sisestamine.**
  - Sisestage oma andmekogum ühte veergu (nt A2:A101).
  - Sisestage vahemike piirid teise veergu (nt B2:B7, eeldades, et esitasite näiteks eelmises punktis toodud piirid).
 
-2. **Funktsiooni rakendamine:**
+2. **Funktsiooni rakendamine.**
  - Valige tühi ala, kuhu soovite tulemused väljastada. Sellel peaks olema sama palju lahtrid kui määratletud vahemike piire. Kui teil on 6 piiri, valige 6 lahtrit vertikaalselt.
  - Sisestage `FREQUENCY()` funktsioon. Kuna `FREQUENCY()` on massiivifunktsioon, tuleb see sisestada massiivivalemiga. Algusesse minev andmevahemik on teie andmekogum ja teine vahemik on teie vahemike piirid.
  Näiteks: `=FREQUENCY(A2:A101, B2:B7)`

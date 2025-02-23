@@ -5,7 +5,6 @@
 Metsanduses esineb sageli mittelineaarseid seoseid. Mittelineaarne regressioon võimaldab neid keerukaid seoseid täpsemalt modelleerida ja paremini mõista.
 
 Mittelineaarne regressioonimudel kirjutatakse üldjuhul kujul:
-  
 
 \[Y = f(X, \beta) + \epsilon\]
 
@@ -68,7 +67,6 @@ mudel <- nls(H ~ kasvuMudel(A, c0, c1, c2), data = andmed, start = alg_param)
 ```{r}
 # Vaatame mudeli kokkuvõtet
 summary(mudel)
-
 ```
 
 Esitame selle kohta ka graafiku kasutades funktsiooni `ggplot()`.
@@ -114,9 +112,9 @@ ggplot(data.frame(fitted = fitted(nls_mudel), resid = resid(nls_mudel)),
 
 **Mida sellelt graafikult otsida:**
 
-- **Juhuslik hajuvus:** Ideaalis peaksid punktid paiknema juhuslikult nulljoone ümber, ilma selge mustrita.
-- **Süsteemne muster:** Kui punktid moodustavad mingi süsteemse mustri (nt kaar, lehter), siis see viitab probleemidele mudelis (nt mittelineaarsus, heteroskedastiivsus).
-- **Silutud joone kuju:** Kui silutud joon on sirge ja horisontaalne, siis see viitab, et ennustatud väärtuste ja jääkide vahel puudub süsteemne seos. Kui joon on kõver, siis see viitab mittelineaarsele seosele, mida mudel ei pruugi arvesse võtta.
+- **Juhuslik hajuvus.** Ideaalis peaksid punktid paiknema juhuslikult nulljoone ümber, ilma selge mustrita.
+- **Süsteemne muster.** Kui punktid moodustavad mingi süsteemse mustri (nt kaar, lehter), siis see viitab probleemidele mudelis (nt mittelineaarsus, heteroskedastiivsus).
+- **Silutud joone kuju.** Kui silutud joon on sirge ja horisontaalne, siis see viitab, et ennustatud väärtuste ja jääkide vahel puudub süsteemne seos. Kui joon on kõver, siis see viitab mittelineaarsele seosele, mida mudel ei pruugi arvesse võtta.
 
 ## Mittelineaarne regressioon MS Excel keskkonnas
 

@@ -165,8 +165,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#histogramm"><i class="fa fa-check"></i><b>3.2</b> Histogramm</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#r-keskkonnas"><i class="fa fa-check"></i><b>3.2.1</b> R keskkonnas:</a></li>
-<li class="chapter" data-level="3.2.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#exceli-keskkonnas"><i class="fa fa-check"></i><b>3.2.2</b> Exceli keskkonnas:</a></li>
+<li class="chapter" data-level="3.2.1" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#r-keskkonnas-histogrammi-loomine"><i class="fa fa-check"></i><b>3.2.1</b> R keskkonnas histogrammi loomine</a></li>
+<li class="chapter" data-level="3.2.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#exceli-keskkonnas-histogrammi-loomine"><i class="fa fa-check"></i><b>3.2.2</b> Exceli keskkonnas histogrammi loomine</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="karakteristikud.html"><a href="karakteristikud.html"><i class="fa fa-check"></i><b>4</b> Karakteristikud</a>
@@ -259,20 +259,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="hüpotees" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Hüpotees<a href="#h%C3%BCpotees" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Hüpotees on statistikas ja teadusuuringutes oluline mõiste, mis kujutab endast oletust või väidet üldkogumi kohta, mida soovitakse testida. Hüpoteesid on aluseks statistilisele analüüsile, võimaldades teha järeldusi valimi põhjal üldkogumi kohta. Hüpoteeside kontrollimise eesmärk on otsustada, kas andmed toetavad teatud väidet või mitte.</p>
-<p><strong>Hüpoteeside liigid:</strong></p>
-<p><strong>Nullhüpotees (<span class="math inline">\(H_0\)</span>):</strong> Nullhüpotees on väide, mille kohaselt oletatav seos või erinevus puudub, uuritav faktor ei mõjuta tunnuse jaotust või üldkogumi parameeter on võrdne teatud väärtusega. See on hüpotees, mida soovitakse ümber lükata või mille kehtivust testitakse. Nullhüpotees on seisukoht, mis kehtib vaikimisi, kuni on olemas piisavalt tõendeid selle ümberlükkamiseks. Näiteks võidakse püstitada nullhüpotees, et kahe grupi keskmised väärtused on võrdsed või et mingi muutuja jaotust ei mõjuta teine muutuja. Nullhüpoteesi püstitamine peab võimaldama selle ümberlükkamist.</p>
-<p><strong>Sisukas hüpotees (<span class="math inline">\(H_1\)</span>):</strong> Sisukas hüpotees, mida nimetatakse ka alternatiivseks hüpoteesiks, on väide, mis on nullhüpoteesile vastand. See väljendab uurija ootust või arvamust, et mingi seos või erinevus on olemas või et uuritav faktor mõjutab tunnuse jaotust. Sisukas hüpotees on see, mida uurija soovib tõestada, seega on uurimise eesmärk leida piisavalt tõendeid, mis toetaksid sisuka hüpoteesi vastuvõtmist ja nullhüpoteesi ümberlükkamist. Näiteks, et kahe grupi keskmised väärtused erinevad või et mingi muutuja jaotus on mõjutatud teisest muutujast.</p>
-<p><strong>Hüpoteeside püstitamine:</strong>
-Hüpoteese püstitatakse üldkogumi, mitte valimi kohta. Hüpoteeside kontrollimise loogika algab eeldusest, et nullhüpotees kehtib ning uuritakse, kui tõenäoline on antud andmete saamine nullhüpoteesi kehtimise korral. Hüpoteese on alati kaks, sest need peavad teineteist välistama. Üldjuhul on nii, et ühte hüpoteesi ümber lükates, võetakse vastu teine hüpotees.</p>
-<p><strong>Hüpoteeside testimine:</strong>
-Hüpoteeside testimisel arvutatakse valimi andmete põhjal teststatistik. Teststatistiku väärtust võrreldakse teoreetilise jaotusega, mis on teada nullhüpoteesi kehtivuse korral. Kui valimi põhjal arvutatud teststatistiku väärtus on ebatõenäoline, loetakse nullhüpotees ümber lükatuks ja sisukas hüpotees tõestatuks. Oluline on mõista, et hüpoteese ei saa tõestada, vaid saab leida tõendeid nende toetuseks või vastuoluks. Kui andmed ei anna piisavalt tõendeid sisuka hüpoteesi kasuks, jäädakse nullhüpoteesi juurde. See ei tähenda, et nullhüpotees on tõestatud, vaid seda, et ei leitud piisavalt tõendeid selle ümberlükkamiseks.</p>
-<p><strong>Vead hüpoteeside kontrollimisel:</strong>
-Hüpoteeside kontrollimisel on võimalik teha kaht liiki vigu:</p>
-<p><strong>I liiki viga (<span class="math inline">\(\alpha\)</span>):</strong> I liiki viga tekib siis, kui otsustatakse sisukas hüpotees vastu võtta, kuigi tegelikult on õige nullhüpotees. See on vale positiivne järeldus, mis tähendab, et leitakse seos või erinevus, mida tegelikult ei ole. I liiki vea tegemise tõenäosust nimetatakse olulisuse nivooks ja tähistatakse sümboliga <span class="math inline">\(\alpha\)</span>. Üldiselt on I liiki vea tõenäosus seatud tasemele 0,05, mis tähendab, et on 5% tõenäosus teha viga, kui nullhüpotees on õige. I liiki viga on enamasti raskemate tagajärgedega. I liiki vea tõenäosuse vähendamiseks tuleb vähendada olulisuse nivood.
-<strong>II liiki viga (<span class="math inline">\(\beta\)</span>):</strong> II liiki viga tekib siis, kui jäädakse nullhüpoteesi juurde, kuigi tegelikult on õige sisukas hüpotees. See on vale negatiivne järeldus, mis tähendab, et jäetakse leidmata seos või erinevus, mis tegelikult eksisteerib. II liiki viga on kergem viga, sest see tavaliselt tähendab, et soovitud tulemuste saamiseks on vaja rohkem andmeid koguda. Olulisuse nivoo vähendamine suurendab II liiki vea tõenäosust.</p>
+<p><strong>Hüpoteeside liigid</strong></p>
+<p><strong>Nullhüpotees (<span class="math inline">\(H_0\)</span>).</strong> Nullhüpotees on väide, mille kohaselt oletatav seos või erinevus puudub, uuritav faktor ei mõjuta tunnuse jaotust või üldkogumi parameeter on võrdne teatud väärtusega. See on hüpotees, mida soovitakse ümber lükata või mille kehtivust testitakse. Nullhüpotees on seisukoht, mis kehtib vaikimisi, kuni on olemas piisavalt tõendeid selle ümberlükkamiseks. Näiteks võidakse püstitada nullhüpotees, et kahe grupi keskmised väärtused on võrdsed või et mingi muutuja jaotust ei mõjuta teine muutuja. Nullhüpoteesi püstitamine peab võimaldama selle ümberlükkamist.</p>
+<p><strong>Sisukas hüpotees (<span class="math inline">\(H_1\)</span>).</strong> Sisukas hüpotees, mida nimetatakse ka alternatiivseks hüpoteesiks, on väide, mis on nullhüpoteesile vastand. See väljendab uurija ootust või arvamust, et mingi seos või erinevus on olemas või et uuritav faktor mõjutab tunnuse jaotust. Sisukas hüpotees on see, mida uurija soovib tõestada, seega on uurimise eesmärk leida piisavalt tõendeid, mis toetaksid sisuka hüpoteesi vastuvõtmist ja nullhüpoteesi ümberlükkamist. Näiteks, et kahe grupi keskmised väärtused erinevad või et mingi muutuja jaotus on mõjutatud teisest muutujast.</p>
+<p><strong>Hüpoteeside püstitamine.</strong> Hüpoteese püstitatakse üldkogumi, mitte valimi kohta. Hüpoteeside kontrollimise loogika algab eeldusest, et nullhüpotees kehtib ning uuritakse, kui tõenäoline on antud andmete saamine nullhüpoteesi kehtimise korral. Hüpoteese on alati kaks, sest need peavad teineteist välistama. Üldjuhul on nii, et ühte hüpoteesi ümber lükates, võetakse vastu teine hüpotees.</p>
+<p><strong>Hüpoteeside testimine.</strong> Hüpoteeside testimisel arvutatakse valimi andmete põhjal teststatistik. Teststatistiku väärtust võrreldakse teoreetilise jaotusega, mis on teada nullhüpoteesi kehtivuse korral. Kui valimi põhjal arvutatud teststatistiku väärtus on ebatõenäoline, loetakse nullhüpotees ümber lükatuks ja sisukas hüpotees tõestatuks. Oluline on mõista, et hüpoteese ei saa tõestada, vaid saab leida tõendeid nende toetuseks või vastuoluks. Kui andmed ei anna piisavalt tõendeid sisuka hüpoteesi kasuks, jäädakse nullhüpoteesi juurde. See ei tähenda, et nullhüpotees on tõestatud, vaid seda, et ei leitud piisavalt tõendeid selle ümberlükkamiseks.</p>
+<p><strong>Vead hüpoteeside kontrollimisel.</strong> Hüpoteeside kontrollimisel on võimalik teha kaht liiki vigu:</p>
+<p><strong>I liiki viga (<span class="math inline">\(\alpha\)</span>).</strong> I liiki viga tekib siis, kui otsustatakse sisukas hüpotees vastu võtta, kuigi tegelikult on õige nullhüpotees. See on vale positiivne järeldus, mis tähendab, et leitakse seos või erinevus, mida tegelikult ei ole. I liiki vea tegemise tõenäosust nimetatakse olulisuse nivooks ja tähistatakse sümboliga <span class="math inline">\(\alpha\)</span>. Üldiselt on I liiki vea tõenäosus seatud tasemele 0,05, mis tähendab, et on 5% tõenäosus teha viga, kui nullhüpotees on õige. I liiki viga on enamasti raskemate tagajärgedega. I liiki vea tõenäosuse vähendamiseks tuleb vähendada olulisuse nivood.
+<strong>II liiki viga (<span class="math inline">\(\beta\)</span>).</strong> II liiki viga tekib siis, kui jäädakse nullhüpoteesi juurde, kuigi tegelikult on õige sisukas hüpotees. See on vale negatiivne järeldus, mis tähendab, et jäetakse leidmata seos või erinevus, mis tegelikult eksisteerib. II liiki viga on kergem viga, sest see tavaliselt tähendab, et soovitud tulemuste saamiseks on vaja rohkem andmeid koguda. Olulisuse nivoo vähendamine suurendab II liiki vea tõenäosust.</p>
 <p><strong>Hüpoteeside liigid vastavalt suunale:</strong></p>
-<p><strong>Kahepoolne hüpotees:</strong> Kahepoolse hüpoteesi puhul testitakse, kas üldkogumi parameeter erineb teatud väärtusest, ilma et oleks määratud erinevuse suund. Näiteks, kas kahe grupi keskmised väärtused on erinevad (<span class="math inline">\(H_1: \mu_1 \neq \mu_2\)</span>). Kahepoolse hüpoteesi korral on kriitiline piirkond mõlemal pool jaotuse keskmist.</p>
-<p><strong>Ühepoolne hüpotees:</strong> Ühepoolse hüpoteesi puhul testitakse, kas üldkogumi parameeter on suurem või väiksem teatud väärtusest. Ühepoolse hüpoteesi korral on kriitiline piirkond ühel pool jaotuse keskmist. Näiteks, kas ühe grupi keskmine on suurem kui teise grupi keskmine (<span class="math inline">\(H_1: \mu_1 &gt; \mu_2\)</span>) või vastupidi (<span class="math inline">\(H_1: \mu_1 &lt; \mu_2\)</span>).</p>
+<p><strong>Kahepoolne hüpotees.</strong> Kahepoolse hüpoteesi puhul testitakse, kas üldkogumi parameeter erineb teatud väärtusest, ilma et oleks määratud erinevuse suund. Näiteks, kas kahe grupi keskmised väärtused on erinevad (<span class="math inline">\(H_1: \mu_1 \neq \mu_2\)</span>). Kahepoolse hüpoteesi korral on kriitiline piirkond mõlemal pool jaotuse keskmist.</p>
+<p><strong>Ühepoolne hüpotees.</strong> Ühepoolse hüpoteesi puhul testitakse, kas üldkogumi parameeter on suurem või väiksem teatud väärtusest. Ühepoolse hüpoteesi korral on kriitiline piirkond ühel pool jaotuse keskmist. Näiteks, kas ühe grupi keskmine on suurem kui teise grupi keskmine (<span class="math inline">\(H_1: \mu_1 &gt; \mu_2\)</span>) või vastupidi (<span class="math inline">\(H_1: \mu_1 &lt; \mu_2\)</span>).</p>
 <p>Järgnevalt nimekiri täiendavatest statistika mõistetest, mida on oluline tunda hüpoteesi testimisel:</p>
 <p><strong>Testimise protsess:</strong></p>
 <ul>
@@ -288,9 +285,9 @@ Hüpoteeside kontrollimisel on võimalik teha kaht liiki vigu:</p>
 <li><strong>Ühepoolne test.</strong> Hüpoteesi test, kus alternatiivne hüpotees määratleb suuna (nt keskmine on suurem kui).</li>
 <li><strong>Kahepoolne test.</strong> Hüpoteesi test, kus alternatiivne hüpotees ei määra suunda (nt keskmine on erinev).</li>
 <li><strong>Usaldusnivoo.</strong> Usaldusvahemikuga seotud kindluse tase, mis näitab usaldusvahemiku katvustõenäosust.</li>
-<li><strong>Usaldusvahemik:</strong> Väärtuste vahemik, mis teatud usaldusnivooga sisaldab populatsiooni parameetri tegelikku väärtust.</li>
-<li><strong>Vabadusastmete arv:</strong> Vaatlusandmete arv, mis on vabad varieeruma pärast statistiliste parameetrite hindamist.</li>
-<li><strong>Jaotus:</strong> Statistiline funktsioon, mis kirjeldab juhusliku muutuja võimalike väärtuste ja nende esinemise tõenäosusi (nt normaaljaotus, t-jaotus).</li>
+<li><strong>Usaldusvahemik.</strong> Väärtuste vahemik, mis teatud usaldusnivooga sisaldab populatsiooni parameetri tegelikku väärtust.</li>
+<li><strong>Vabadusastmete arv.</strong> Vaatlusandmete arv, mis on vabad varieeruma pärast statistiliste parameetrite hindamist.</li>
+<li><strong>Jaotus.</strong> Statistiline funktsioon, mis kirjeldab juhusliku muutuja võimalike väärtuste ja nende esinemise tõenäosusi (nt normaaljaotus, t-jaotus).</li>
 </ul>
 </div>
 <div id="jaotusfunktsioon" class="section level2 hasAnchor" number="5.2">
@@ -298,20 +295,20 @@ Hüpoteeside kontrollimisel on võimalik teha kaht liiki vigu:</p>
 <p>Jaotusfunktsioon on matemaatilise statistika mõiste, mis kirjeldab juhusliku suuruse väärtuste jaotust tõenäosuste kaudu. See seob iga juhusliku muutuja võimaliku väärtusega tõenäosuse, et muutuja väärtus on sellest väärtusest väiksem või sellega võrdne. Jaotusfunktsiooni tähistatakse tavaliselt <span class="math inline">\(F(x)\)</span> või <span class="math inline">\(F_X(a)\)</span>, kus <span class="math inline">\(x\)</span> või <span class="math inline">\(a\)</span> tähistab reaalarvu, mille kohta tõenäosust arvutatakse. Seega,</p>
 <p><span class="math display">\[F(x) = P(X \leq x),\]</span></p>
 <p>kus <span class="math inline">\(X\)</span> on juhuslik suurus ja <span class="math inline">\(P(X \leq x)\)</span> on tõenäosus, et <span class="math inline">\(X\)</span> võtab väärtuse, mis on väiksem või võrdne <span class="math inline">\(x\)</span>-ga.</p>
-<p><strong>Jaotusfunktsiooni olemus:</strong></p>
-<p><strong>Kumulatiivne tõenäosus:</strong> Jaotusfunktsioon esitab kumulatiivset tõenäosust, st see näitab, kui suure tõenäosusega on juhusliku suuruse väärtus mingist antud väärtusest väiksem või sellega võrdne.</p>
-<p><strong>Diskreetse juhusliku suuruse jaotusfunktsioon:</strong> Diskreetse muutuja puhul, mille väärtused on eraldiseisvad (nt täisarvud), on jaotusfunktsioon treppfunktsioon, mis kasvab hüppeliselt iga võimaliku väärtuse juures. Jaotusfunktsiooni väärtus on sel juhul iga konkreetse väärtuse tõenäosuste summa. Kui <span class="math inline">\(p_i\)</span> on tõenäosus, et <span class="math inline">\(X = x_i\)</span>, siis diskreetse muutuja jaotusfunktsiooni võib kirjutada kui</p>
+<p><strong>Jaotusfunktsiooni olemus</strong></p>
+<p><strong>Kumulatiivne tõenäosus.</strong> Jaotusfunktsioon esitab kumulatiivset tõenäosust, st see näitab, kui suure tõenäosusega on juhusliku suuruse väärtus mingist antud väärtusest väiksem või sellega võrdne.</p>
+<p><strong>Diskreetse juhusliku suuruse jaotusfunktsioon.</strong> Diskreetse muutuja puhul, mille väärtused on eraldiseisvad (nt täisarvud), on jaotusfunktsioon treppfunktsioon, mis kasvab hüppeliselt iga võimaliku väärtuse juures. Jaotusfunktsiooni väärtus on sel juhul iga konkreetse väärtuse tõenäosuste summa. Kui <span class="math inline">\(p_i\)</span> on tõenäosus, et <span class="math inline">\(X = x_i\)</span>, siis diskreetse muutuja jaotusfunktsiooni võib kirjutada kui</p>
 <p><span class="math display">\[F(a) = \sum_{x_i \leq a} p_i.\]</span></p>
-<p><strong>Pideva juhusliku suuruse jaotusfunktsioon:</strong> Pideva muutuja puhul, mille väärtused võivad olla mistahes arvud teatud vahemikus (nt pikkus, kaal), on jaotusfunktsioon pidev. Pideva muutuja puhul on iga üksiku väärtuse tõenäosus null, seega kasutatakse tihedusfunktsiooni, mis kirjeldab muutuja väärtuste jaotumist. Jaotusfunktsioon on sel juhul tihedusfunktsiooni <span class="math inline">\(f(x)\)</span> integraal:</p>
+<p><strong>Pideva juhusliku suuruse jaotusfunktsioon.</strong> Pideva muutuja puhul, mille väärtused võivad olla mistahes arvud teatud vahemikus (nt pikkus, kaal), on jaotusfunktsioon pidev. Pideva muutuja puhul on iga üksiku väärtuse tõenäosus null, seega kasutatakse tihedusfunktsiooni, mis kirjeldab muutuja väärtuste jaotumist. Jaotusfunktsioon on sel juhul tihedusfunktsiooni <span class="math inline">\(f(x)\)</span> integraal:</p>
 <p><span class="math display">\[F(x) = \int_{-\infty}^{x} f(t) dt.\]</span></p>
 <p>Graafiliselt vastab integraalile graafikualuse ala pindala integreeritavas vahemikus, mis tähendab, et sündmuse tõenäosus kuuluda etteantud väärtusvahemikku on võrdne väärtusvahemikku jääva tihedusfunktsiooni aluse pindalaga.</p>
-<p><strong>Jaotusfunktsiooni omadused:</strong> Jaotusfunktsioon on mittekahanev, mis tähendab, et see ei saa kahaneda, kui argument suureneb. Jaotusfunktsiooni piirväärtused on 0 ja 1, st <span class="math inline">\(\lim_{x \to -\infty} F(x) = 0\)</span> ja <span class="math inline">\(\lim_{x \to \infty} F(x) = 1\)</span>, mis tähendab, et tõenäosus on vahemikus 0 ja 1. Samuti on jaotusfunktsioon paremalt pidev.</p>
-<p><strong>Kasutusalad:</strong> Jaotusfunktsiooni abil saab leida tõenäosusi, et juhuslik suurus <span class="math inline">\(X\)</span> on väiksem või võrdne mingi arvuga <span class="math inline">\(a\)</span> (<span class="math inline">\(P(X \leq a)\)</span>), suurem mingist arvust <span class="math inline">\(b\)</span> (<span class="math inline">\(P(X &gt; b) = 1 - P(X \leq b)\)</span>), või asub mingis vahemikus <span class="math inline">\(a\)</span> kuni <span class="math inline">\(b\)</span> (<span class="math inline">\(P(a &lt; X \leq b) = F(b) - F(a)\)</span>). Jaotusfunktsioon on oluline tööriist mitmesugustes statistilistes analüüsides ja modelleerimises.</p>
-<p><strong>Näide:</strong></p>
+<p><strong>Jaotusfunktsiooni omadused.</strong> Jaotusfunktsioon on mittekahanev, mis tähendab, et see ei saa kahaneda, kui argument suureneb. Jaotusfunktsiooni piirväärtused on 0 ja 1, st <span class="math inline">\(\lim_{x \to -\infty} F(x) = 0\)</span> ja <span class="math inline">\(\lim_{x \to \infty} F(x) = 1\)</span>, mis tähendab, et tõenäosus on vahemikus 0 ja 1. Samuti on jaotusfunktsioon paremalt pidev.</p>
+<p><strong>Kasutusalad.</strong> Jaotusfunktsiooni abil saab leida tõenäosusi, et juhuslik suurus <span class="math inline">\(X\)</span> on väiksem või võrdne mingi arvuga <span class="math inline">\(a\)</span> (<span class="math inline">\(P(X \leq a)\)</span>), suurem mingist arvust <span class="math inline">\(b\)</span> (<span class="math inline">\(P(X &gt; b) = 1 - P(X \leq b)\)</span>), või asub mingis vahemikus <span class="math inline">\(a\)</span> kuni <span class="math inline">\(b\)</span> (<span class="math inline">\(P(a &lt; X \leq b) = F(b) - F(a)\)</span>). Jaotusfunktsioon on oluline tööriist mitmesugustes statistilistes analüüsides ja modelleerimises.</p>
+<p><strong>Näide</strong></p>
 <p>Kui meil on juhuslik suurus <span class="math inline">\(X\)</span>, mis näitab mündiviske tulemust (0 = “kiri” ja 1 = “kull”), siis jaotusfunktsioon oleks järgmine:</p>
 <ul>
 <li><span class="math inline">\(F(x) = 0\)</span>, kui <span class="math inline">\(x &lt; 0\)</span></li>
-<li><span class="math inline">\(F(x) = 0.5\)</span>, kui <span class="math inline">\(0 \leq x &lt; 1\)</span></li>
+<li><span class="math inline">\(F(x) = 0,5\)</span>, kui <span class="math inline">\(0 \leq x &lt; 1\)</span></li>
 <li><span class="math inline">\(F(x) = 1\)</span>, kui <span class="math inline">\(x \geq 1\)</span></li>
 </ul>
 <p>See näide illustreerib diskreetse jaotusfunktsiooni, kus tõenäosus hüppab 0-lt 0,5-le ja sealt 1-le.</p>
@@ -323,35 +320,35 @@ Hüpoteeside kontrollimisel on võimalik teha kaht liiki vigu:</p>
 <div id="normaaljaotus" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Normaaljaotus<a href="jaotusfunktsioonid.html#normaaljaotus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Normaaljaotus, tuntud ka kui Gaussi jaotus, on pidev sümmeetriline jaotus, mida iseloomustab kellakujuline tihedusfunktsiooni graafik. See on statistikas üks olulisemaid jaotusi, kuna paljud juhuslikud suurused on ligikaudu normaaljaotusega või on teisendatavad normaaljaotusele alluvaks.</p>
-<p><strong>Põhiomadused:</strong></p>
-<p><strong>Sümmeetria:</strong> Normaaljaotus on sümmeetriline keskväärtuse (<span class="math inline">\(\mu\)</span>) suhtes. Keskväärtus, mediaan ja mood langevad kokku.</p>
+<p><strong>Põhiomadused</strong></p>
+<p><strong>Sümmeetria.</strong> Normaaljaotus on sümmeetriline keskväärtuse (<span class="math inline">\(\mu\)</span>) suhtes. Keskväärtus, mediaan ja mood langevad kokku.</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-36"></span>
-<img src="_main_files/figure-html/unnamed-chunk-36-1.png" alt="Normaajaotuse tihedusfunktsioon" width="80%" />
+<img src="_main_files/figure-html/unnamed-chunk-36-1.png" alt="Normaaljaotuse tihedusfunktsioon." width="80%" />
 <p class="caption">
-Joonis 5.1: Normaajaotuse tihedusfunktsioon
+Joonis 5.1: Normaaljaotuse tihedusfunktsioon.
 </p>
 </div>
-<p><strong>Tihedusfunktsioon:</strong> Normaaljaotuse tihedusfunktsioon on defineeritud järgmiselt:</p>
+<p><strong>Tihedusfunktsioon.</strong> Normaaljaotuse tihedusfunktsioon on defineeritud järgmiselt:</p>
 <p><span class="math display">\[f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]</span></p>
 <p>kus:</p>
 <ul>
 <li><span class="math inline">\(\mu\)</span> on jaotuse keskväärtus (määrab jaotuskõvera asukoha).</li>
 <li><span class="math inline">\(\sigma\)</span> on standardhälve (määrab jaotuskõvera laiuse - suurem <span class="math inline">\(\sigma\)</span> tähendab laiemat ja madalamat kõverat).</li>
 </ul>
-<p><strong>Tõenäosused ja Standardhälve:</strong></p>
+<p><strong>Tõenäosused ja standardhälve.</strong></p>
 <ul>
-<li><span class="math inline">\(P(\mu - \sigma \le X \le \mu + \sigma) \approx 0,683\)</span> (68.3% väärtustest jääb <span class="math inline">\(\pm 1\sigma\)</span> vahemikku).</li>
-<li><span class="math inline">\(P(\mu - 2\sigma \le X \le \mu + 2\sigma) \approx 0,954\)</span> (95.4% väärtustest jääb <span class="math inline">\(\pm 2\sigma\)</span> vahemikku).</li>
-<li><span class="math inline">\(P(\mu - 3\sigma \le X \le \mu + 3\sigma) \approx 0,997\)</span> (99.7% väärtustest jääb <span class="math inline">\(\pm 3\sigma\)</span> vahemikku).</li>
+<li><span class="math inline">\(P(\mu - \sigma \le X \le \mu + \sigma) \approx 0,683\)</span> (68,3% väärtustest jääb <span class="math inline">\(\pm 1\sigma\)</span> vahemikku).</li>
+<li><span class="math inline">\(P(\mu - 2\sigma \le X \le \mu + 2\sigma) \approx 0,954\)</span> (95,4% väärtustest jääb <span class="math inline">\(\pm 2\sigma\)</span> vahemikku).</li>
+<li><span class="math inline">\(P(\mu - 3\sigma \le X \le \mu + 3\sigma) \approx 0,997\)</span> (99,7% väärtustest jääb <span class="math inline">\(\pm 3\sigma\)</span> vahemikku).</li>
 </ul>
-<p><strong>Standardiseeritud Normaaljaotus (Z-jaotus):</strong> Normaaljaotusega juhuslik suurus <span class="math inline">\(X\)</span> saab teisendada standardiseeritud normaaljaotusele <span class="math inline">\(Z\)</span> järgmise valemiga:</p>
+<p><strong>Standardiseeritud normaaljaotus (Z-jaotus).</strong> Normaaljaotusega juhuslik suurus <span class="math inline">\(X\)</span> saab teisendada standardiseeritud normaaljaotusele <span class="math inline">\(Z\)</span> järgmise valemiga:</p>
 <p><span class="math display">\[z = \frac{x - \mu}{\sigma}\]</span></p>
 <p>Standardiseeritud normaaljaotuse puhul <span class="math inline">\(\mu = 0\)</span> ja <span class="math inline">\(\sigma = 1\)</span>, tähistatakse <span class="math inline">\(N(0,1)\)</span>.</p>
-<p><strong>Jaotusfunktsioon:</strong> Kumulatiivne jaotusfunktsioon <span class="math inline">\(F(x)\)</span> näitab tõenäosust <span class="math inline">\(P(X \le x)\)</span> ja on tihedusfunktsiooni integraal. Normaaljaotuse jaotusfunktsioon on S-kujuline.</p>
-<p><strong>Kasutusalad:</strong></p>
-<p><strong>Statistilised Järeldused:</strong> Normaaljaotus on aluseks paljudele statistilistele meetoditele (nt t-testid, ANOVA, regressioonanalüüs), mis sageli eeldavad andmete normaaljaotust. Suurte valimite puhul (n &gt; 30) on võimalik teatud piirini eirata andmete kõrvalekaldumist normaaljaotusest.</p>
-<p><strong>Protsesside Modelleerimine:</strong> Paljud looduslikud ja majanduslikud nähtused on ligikaudu normaaljaotusega, olles mõjutatud mitmetest sõltumatutest juhuslikest teguritest.</p>
-<p><strong>Eelised ja Piirangud:</strong></p>
+<p><strong>Jaotusfunktsioon.</strong> Kumulatiivne jaotusfunktsioon <span class="math inline">\(F(x)\)</span> näitab tõenäosust <span class="math inline">\(P(X \le x)\)</span> ja on tihedusfunktsiooni integraal. Normaaljaotuse jaotusfunktsioon on S-kujuline.</p>
+<p><strong>Kasutusalad</strong></p>
+<p><strong>Statistilised järeldused.</strong> Normaaljaotus on aluseks paljudele statistilistele meetoditele (nt t-testid, ANOVA, regressioonanalüüs), mis sageli eeldavad andmete normaaljaotust. Suurte valimite puhul (n &gt; 30) on võimalik teatud piirini eirata andmete kõrvalekaldumist normaaljaotusest.</p>
+<p><strong>Protsesside modelleerimine.</strong> Paljud looduslikud ja majanduslikud nähtused on ligikaudu normaaljaotusega, olles mõjutatud mitmetest sõltumatutest juhuslikest teguritest.</p>
+<p><strong>Eelised ja piirangud.</strong></p>
 <p><strong>Eelised:</strong></p>
 <ul>
 <li>Lihtne matemaatiline kirjeldus kahe parameetriga (<span class="math inline">\(\mu\)</span> ja <span class="math inline">\(\sigma\)</span>).</li>
@@ -369,66 +366,65 @@ Joonis 5.1: Normaajaotuse tihedusfunktsioon
 <div id="t-jaotus" class="section level2 hasAnchor" number="5.4">
 <h2><span class="header-section-number">5.4</span> T-jaotus<a href="jaotusfunktsioonid.html#t-jaotus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>T-jaotus, tuntud ka kui Studenti t-jaotus, on pidev tõenäosusjaotus, mis meenutab normaaljaotust, olles lamedam ja laiema sabaga. See on eriti kasulik statistikas väikeste valimite puhul (tavaliselt alla 30) ja kui üldkogumi standardhälve pole teada. T-jaotust rakendatakse peamiselt hüpoteeside testimisel, usaldusvahemike leidmisel ja valimi keskmise võrdlemisel üldkogumi keskväärtusega. T-jaotuse kuju sõltub vabadusastmete arvust (df - <em>degrees of freedom</em>), mis on seotud valimi suurusega. Mida suurem on vabadusastmete arv, seda enam sarnaneb t-jaotus normaaljaotusega.</p>
-<p><strong>T-jaotuse omadused ja tunnused:</strong></p>
-<p><strong>Sümmeetria:</strong> T-jaotus on sümmeetriline nulli ümber, sarnaselt standardsele normaaljaotusele. See tähendab, et jaotuse mõlemad pooled on keskmisest võrdsel kaugusel.</p>
+<p><strong>T-jaotuse omadused ja tunnused</strong></p>
+<p><strong>Sümmeetria.</strong> T-jaotus on sümmeetriline nulli ümber, sarnaselt standardsele normaaljaotusele. See tähendab, et jaotuse mõlemad pooled on keskmisest võrdsel kaugusel.</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-37"></span>
 <img src="_main_files/figure-html/unnamed-chunk-37-1.png" alt="T-jaotuse tihedusfunktsioon" width="80%" />
 <p class="caption">
 Joonis 5.2: T-jaotuse tihedusfunktsioon
 </p>
 </div>
-<p><strong>Tihedusfunktsioon:</strong> T-jaotuse tihedusfunktsioon on keerukam kui normaaljaotusel ja sõltub vabadusastmete arvust. Valem on järgmine:</p>
+<p><strong>Tihedusfunktsioon.</strong> T-jaotuse tihedusfunktsioon on keerukam kui normaaljaotusel ja sõltub vabadusastmete arvust. Valem on järgmine:</p>
 <p><span class="math display">\[f(t) = \frac{\Gamma\left(\frac{\nu + 1}{2}\right)}{\sqrt{\nu\pi}\Gamma\left(\frac{\nu}{2}\right)} \left(1 + \frac{t^2}{\nu}\right)^{-\frac{\nu + 1}{2}}\]</span></p>
 <p>kus <span class="math inline">\(\nu\)</span> on vabadusastmete arv ja <span class="math inline">\(\Gamma\)</span> on gammafunktsioon.</p>
-<p><strong>Vabadusastmed (df):</strong> T-jaotuse kuju määrab vabadusastmete arv. See arvutatakse valimi suuruse (<span class="math inline">\(n\)</span>) põhjal. Ühe valimi t-testi korral on <span class="math inline">\(df = n - 1\)</span>, sõltumatute valimite t-testi korral <span class="math inline">\(df = n_1 + n_2 - 2\)</span>. Mida suurem on vabadusastmete arv, seda enam sarnaneb t-jaotus standardsele normaaljaotusele.</p>
-<p><strong>Keskväärtus ja dispersioon:</strong> T-jaotuse keskväärtus on 0, kui vabadusastmed on suuremad kui 1 (<span class="math inline">\(\nu &gt; 1\)</span>). Dispersioon sõltub vabadusastmetest ja on suurem kui 1 (<span class="math inline">\(\frac{\nu}{\nu-2}\)</span>, kui <span class="math inline">\(\nu&gt;2\)</span>).</p>
-<p><strong>Kasutusala:</strong> T-jaotust kasutatakse peamiselt juhul, kui valimi suurus on väike (tavaliselt <span class="math inline">\(n &lt; 30\)</span>) ja üldkogumi standardhälve on teadmata. Sellisel juhul ei saa kasutada standardset normaaljaotust.</p>
-<p><strong>T-jaotuse rakendamine:</strong></p>
-<p><strong>Hüpoteeside testimine:</strong> T-jaotust kasutatakse hüpoteeside testimisel, kui võrreldakse valimi keskmist teatud väärtusega või kahe valimi keskmisi. Näiteks t-testi abil kontrollitakse, kas kahe grupi keskmised erinevad oluliselt. T-testid võivad olla ühepoolsed või kahepoolsed. Ühepoolset testi kasutatakse siis, kui on teada, mis suunas hüpotees peaks erinema. Kahepoolset testi rakendatakse, kui soovitakse kontrollida, kas erinevus üldse on olemas.</p>
-<p><strong>Usaldusvahemikud:</strong> T-jaotust rakendatakse usaldusvahemike leidmisel, kui hinnatakse, millises vahemikus paikneb üldkogumi keskväärtus antud valimi põhjal. Usaldusvahemik näitab, kui suur on tõenäosus, et tegelik keskmine väärtus jääb antud piiridesse.</p>
-<p><strong>Regressioonanalüüs:</strong> Regressioonanalüüsis rakendatakse t-jaotust regressioonimudeli parameetrite olulisuse testimiseks. Näiteks, et teha kindlaks, kas mingi muutuja mõjutab sõltuvat muutujat statistiliselt olulisel määral. Regressioonanalüüsi käigus hinnatakse mudeli parameetreid ja iga parameetri kohta arvutatakse t-statistik, mille abil otsustatakse, kas vastav muutuja on oluline mudeli seletusjõu seisukohalt.</p>
-<p><strong>Järelduste tegemine väikeste valimitega:</strong> T-jaotus on hädavajalik, kui valim on väike. Sellisel juhul ei saa kasutada normaaljaotust, mis eeldab suuremat valimit usaldusväärsete järelduste tegemiseks. T-jaotus võimaldab teha järeldusi ka väikeste valimite puhul, arvestades ebakindlust, mis kaasneb väikese valimi kasutamisega.</p>
-<p><strong>Võrdlusülesanded:</strong> T-test on statistiline meetod, mida kasutatakse kahe valimi keskmiste võrdlemiseks, eeldades, et andmed on normaalselt jaotunud või valimi suurus on piisavalt suur.</p>
-<p><strong>T-testide liigid:</strong></p>
-<p><strong>Ühe valimi t-test:</strong> Kasutatakse, kui võrreldakse valimi keskmist teadaoleva või hüpoteetilise keskväärtusega.</p>
-<p><strong>Sõltumatute valimite t-test:</strong> Kasutatakse, kui võrreldakse kahe sõltumatu valimi keskmisi. See test eeldab, et andmed on mõlemas valimis ligikaudu normaalselt jaotunud ja et dispersioonid on ligikaudu võrdsed (või tehakse korrektsioon ebavõrdsete dispersioonide korral).</p>
-<p><strong>Sõltuvate valimite t-test:</strong> Kasutatakse, kui võrreldakse kahe sõltuva valimi keskmisi, kus iga vaatlus ühes valimis on seotud vastava vaatlusega teises valimis (näiteks mõõtmised enne ja pärast sekkumist).</p>
-<p><strong>T-statistiku arvutamine:</strong></p>
+<p><strong>Vabadusastmed (df).</strong> T-jaotuse kuju määrab vabadusastmete arv. See arvutatakse valimi suuruse (<span class="math inline">\(n\)</span>) põhjal. Ühe valimi t-testi korral on <span class="math inline">\(df = n - 1\)</span>, sõltumatute valimite t-testi korral <span class="math inline">\(df = n_1 + n_2 - 2\)</span>. Mida suurem on vabadusastmete arv, seda enam sarnaneb t-jaotus standardsele normaaljaotusele.</p>
+<p><strong>Keskväärtus ja dispersioon.</strong> T-jaotuse keskväärtus on 0, kui vabadusastmed on suuremad kui 1 (<span class="math inline">\(\nu &gt; 1\)</span>). Dispersioon sõltub vabadusastmetest ja on suurem kui 1 (<span class="math inline">\(\frac{\nu}{\nu-2}\)</span>, kui <span class="math inline">\(\nu&gt;2\)</span>).</p>
+<p><strong>Kasutusala.</strong> T-jaotust kasutatakse peamiselt juhul, kui valimi suurus on väike (tavaliselt <span class="math inline">\(n &lt; 30\)</span>) ja üldkogumi standardhälve on teadmata. Sellisel juhul ei saa kasutada standardset normaaljaotust.</p>
+<p><strong>T-jaotuse rakendamine</strong></p>
+<p><strong>Hüpoteeside testimine.</strong> T-jaotust kasutatakse hüpoteeside testimisel, kui võrreldakse valimi keskmist teatud väärtusega või kahe valimi keskmisi. Näiteks t-testi abil kontrollitakse, kas kahe grupi keskmised erinevad oluliselt. T-testid võivad olla ühepoolsed või kahepoolsed. Ühepoolset testi kasutatakse siis, kui on teada, mis suunas hüpotees peaks erinema. Kahepoolset testi rakendatakse, kui soovitakse kontrollida, kas erinevus üldse on olemas.</p>
+<p><strong>Usaldusvahemikud.</strong> T-jaotust rakendatakse usaldusvahemike leidmisel, kui hinnatakse, millises vahemikus paikneb üldkogumi keskväärtus antud valimi põhjal. Usaldusvahemik näitab, kui suur on tõenäosus, et tegelik keskmine väärtus jääb antud piiridesse.</p>
+<p><strong>Regressioonanalüüs.</strong> Regressioonanalüüsis rakendatakse t-jaotust regressioonimudeli parameetrite olulisuse testimiseks. Näiteks, et teha kindlaks, kas mingi muutuja mõjutab sõltuvat muutujat statistiliselt olulisel määral. Regressioonanalüüsi käigus hinnatakse mudeli parameetreid ja iga parameetri kohta arvutatakse t-statistik, mille abil otsustatakse, kas vastav muutuja on oluline mudeli seletusjõu seisukohalt.</p>
+<p><strong>Järelduste tegemine väikeste valimitega.</strong> T-jaotus on hädavajalik, kui valim on väike. Sellisel juhul ei saa kasutada normaaljaotust, mis eeldab suuremat valimit usaldusväärsete järelduste tegemiseks. T-jaotus võimaldab teha järeldusi ka väikeste valimite puhul, arvestades ebakindlust, mis kaasneb väikese valimi kasutamisega.</p>
+<p><strong>Võrdlusülesanded.</strong> T-test on statistiline meetod, mida kasutatakse kahe valimi keskmiste võrdlemiseks, eeldades, et andmed on normaalselt jaotunud või valimi suurus on piisavalt suur.</p>
+<p><strong>T-testide liigid</strong></p>
+<p><strong>Ühe valimi t-test.</strong> Kasutatakse, kui võrreldakse valimi keskmist teadaoleva või hüpoteetilise keskväärtusega.</p>
+<p><strong>Sõltumatute valimite t-test.</strong> Kasutatakse, kui võrreldakse kahe sõltumatu valimi keskmisi. See test eeldab, et andmed on mõlemas valimis ligikaudu normaalselt jaotunud ja et dispersioonid on ligikaudu võrdsed (või tehakse korrektsioon ebavõrdsete dispersioonide korral).</p>
+<p><strong>Sõltuvate valimite t-test.</strong> Kasutatakse, kui võrreldakse kahe sõltuva valimi keskmisi, kus iga vaatlus ühes valimis on seotud vastava vaatlusega teises valimis (näiteks mõõtmised enne ja pärast sekkumist).</p>
+<p><strong>T-statistiku arvutamine</strong></p>
 <p>T-statistiku arvutamise valem sõltub kasutatavast t-testist, kuid üldine idee on leida valimi keskmise hälve hüpoteetilisest keskväärtusest või kahe valimi keskmise erinevus, jagatuna standardveaga. Ühe valimi t-testi puhul on valem järgmine:</p>
 <p><span class="math display">\[t = \frac{\bar{x} - \mu}{s / \sqrt{n}}\]</span></p>
 <p>kus <span class="math inline">\(\bar{x}\)</span> on valimi keskmine, <span class="math inline">\(\mu\)</span> on hüpoteetiline keskväärtus, <span class="math inline">\(s\)</span> on valimi standardhälve ja <span class="math inline">\(n\)</span> on valimi suurus.</p>
-<p><strong>Vead t-testi rakendamisel:</strong></p>
-<p><strong>I liiki viga (<span class="math inline">\(\alpha\)</span>):</strong> I liiki viga tekib siis, kui lükatakse tagasi nullhüpotees, kuigi see on tegelikult õige. See tähendab, et leitakse statistiliselt oluline erinevus, mida tegelikult ei ole. T-testi tulemustes on selle vea tõenäosus P(T&lt;=t), mis tähistab tõenäosust, et t-statistik on võrdne või suurem antud väärtusest.</p>
-<p><strong>II liiki viga (<span class="math inline">\(\beta\)</span>):</strong> II liiki viga tekib siis, kui ei lükata tagasi nullhüpoteesi, kuigi see on tegelikult vale. See tähendab, et ei leita statistiliselt olulist erinevust, kuigi see tegelikult eksisteerib.</p>
-<p><strong>Olulisuse nivoo:</strong></p>
-<p>Enne testi tegemist valitakse olulisuse nivoo (<span class="math inline">\(\alpha\)</span>), mis määrab tõenäosuse teha I liiki viga. Tavaliselt kasutatakse olulisuse nivood 0,05, mis tähendab, et on 5% tõenäosus teha I liiki viga. Olulisuse nivoo valik sõltub ka sellest, milliseid tagajärgi toob kaasa vea tegemine.</p>
+<p><strong>Vead t-testi rakendamisel</strong></p>
+<p><strong>I liiki viga (<span class="math inline">\(\alpha\)</span>).</strong> I liiki viga tekib siis, kui lükatakse tagasi nullhüpotees, kuigi see on tegelikult õige. See tähendab, et leitakse statistiliselt oluline erinevus, mida tegelikult ei ole. T-testi tulemustes on selle vea tõenäosus P(T&lt;=t), mis tähistab tõenäosust, et t-statistik on võrdne või suurem antud väärtusest.</p>
+<p><strong>II liiki viga (<span class="math inline">\(\beta\)</span>).</strong> II liiki viga tekib siis, kui ei lükata tagasi nullhüpoteesi, kuigi see on tegelikult vale. See tähendab, et ei leita statistiliselt olulist erinevust, kuigi see tegelikult eksisteerib.</p>
+<p><strong>Olulisuse nivoo.</strong> Enne testi tegemist valitakse olulisuse nivoo (<span class="math inline">\(\alpha\)</span>), mis määrab tõenäosuse teha I liiki viga. Tavaliselt kasutatakse olulisuse nivood 0,05, mis tähendab, et on 5% tõenäosus teha I liiki viga. Olulisuse nivoo valik sõltub ka sellest, milliseid tagajärgi toob kaasa vea tegemine.</p>
 </div>
 <div id="f-jaotus" class="section level2 hasAnchor" number="5.5">
 <h2><span class="header-section-number">5.5</span> F-jaotus<a href="jaotusfunktsioonid.html#f-jaotus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>F-jaotus on pidev tõenäosusjaotus, mida kasutatakse peamiselt dispersioonanalüüsis (ANOVA) ja hüpoteeside testimisel, eriti kahe või enama valimi dispersioonide võrdlemisel. See jaotus on statistikas oluline, kuna võimaldab hinnata, kas erinevused valimite dispersioonides on statistiliselt olulised või juhuslikud. F-jaotus on alati positiivne, sest see põhineb dispersioonide jagatisel, mis on alati positiivne.</p>
-<p><strong>F-jaotuse omadused ja tunnused:</strong></p>
-<p><strong>Pidevus:</strong> F-jaotus on pidev jaotus, mis tähendab, et see hõlmab kõiki positiivseid reaalarve.</p>
-<p><strong>Asümmeetria:</strong> F-jaotus on parempoolse kaldega, asümmeetriline jaotus. Jaotuse tihedusfunktsioon ei ole sümmeetriline, jaotuse “saba” ulatub paremale poole.</p>
-<p><strong>Parameetrid:</strong> F-jaotust iseloomustavad kaks parameetrit: lugeja vabadusastmete arv (k) ja nimetaja vabadusastmete arv (h). Need vabadusastmed on seotud võrreldavate valimite suurustega.</p>
-<p><strong>Vabadusastmed:</strong> Vabadusastmed (degrees of freedom) tähistavad sõltumatute andmepunktide arvu, mida saab kasutada dispersiooni hindamiseks. Vabadusastmete arv mõjutab oluliselt F-jaotuse kuju.
-<strong>Tihedusfunktsioon:</strong> F-jaotuse tihedusfunktsioon on defineeritud järgmiselt:</p>
+<p><strong>F-jaotuse omadused ja tunnused</strong></p>
+<p><strong>Pidevus.</strong> F-jaotus on pidev jaotus, mis tähendab, et see hõlmab kõiki positiivseid reaalarve.</p>
+<p><strong>Asümmeetria.</strong> F-jaotus on parempoolse kaldega, asümmeetriline jaotus. Jaotuse tihedusfunktsioon ei ole sümmeetriline, jaotuse “saba” ulatub paremale poole.</p>
+<p><strong>Parameetrid.</strong> F-jaotust iseloomustavad kaks parameetrit: lugeja vabadusastmete arv (k) ja nimetaja vabadusastmete arv (h). Need vabadusastmed on seotud võrreldavate valimite suurustega.</p>
+<p><strong>Vabadusastmed.</strong> Vabadusastmed (degrees of freedom) tähistavad sõltumatute andmepunktide arvu, mida saab kasutada dispersiooni hindamiseks. Vabadusastmete arv mõjutab oluliselt F-jaotuse kuju.
+<strong>Tihedusfunktsioon.</strong> F-jaotuse tihedusfunktsioon on defineeritud järgmiselt:</p>
 <p><span class="math display">\[f(x) = \frac{\Gamma\left(\frac{k + h}{2}\right)}{\Gamma\left(\frac{k}{2}\right) \Gamma\left(\frac{h}{2}\right)} \left(\frac{k}{h}\right)^{\frac{k}{2}} x^{\frac{k}{2} - 1} \left(1 + \frac{k}{h} x\right)^{-\frac{k + h}{2}}, \quad x &gt; 0\]</span>
 kus <span class="math inline">\(x\)</span> on argument, <span class="math inline">\(\Gamma\)</span> on gammafunktsioon, <span class="math inline">\(k\)</span> on lugeja vabadusastmete arv ja <span class="math inline">\(h\)</span> on nimetaja vabadusastmete arv. Valem näitab, kuidas F-jaotuse tihedus muutub argumendi <span class="math inline">\(x\)</span> väärtuste korral.</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-38"></span>
-<img src="_main_files/figure-html/unnamed-chunk-38-1.png" alt="T-jaotuse tihedusfunktsioon" width="80%" />
+<img src="_main_files/figure-html/unnamed-chunk-38-1.png" alt="T-jaotuse tihedusfunktsioon." width="80%" />
 <p class="caption">
-Joonis 5.3: T-jaotuse tihedusfunktsioon
+Joonis 5.3: T-jaotuse tihedusfunktsioon.
 </p>
 </div>
-<p><strong>Väärtuste vahemik:</strong> F-jaotuse väärtused on alati positiivsed ja ulatuvad nullist lõpmatuseni.</p>
-<p><strong>Kuju sõltuvus vabadusastmetest:</strong> F-jaotuse kuju sõltub lugeja ja nimetaja vabadusastmetest. Suuremate vabadusastmete korral muutub jaotus sümmeetrilisemaks ja läheneb normaaljaotusele.</p>
-<p><strong>F-jaotuse rakendused:</strong></p>
-<p><strong>Dispersioonanalüüs (ANOVA):</strong> F-jaotust kasutatakse peamiselt ANOVA-s, et testida, kas kahe või enama grupi keskmiste vahel on statistiliselt olulisi erinevusi. ANOVA-s arvutatakse F-statistik, mis on gruppidevahelise dispersiooni jagatis grupisisese dispersiooniga. Kui F-statistik on piisavalt suur, lükatakse tagasi nullhüpotees, mis väidab, et kõikide gruppide keskmised on võrdsed.</p>
-<p><strong>Hüpoteeside testimine:</strong> F-jaotust rakendatakse hüpoteeside testimisel, eriti dispersioonide võrdlemisel. Näiteks Levene’i test kasutab F-jaotust, et kontrollida, kas kahe või enama valimi dispersioonid on võrdsed. Seda tehakse sageli enne t-testi või ANOVA-t, veendumaks, et eeldus dispersioonide võrdsusest on täidetud.</p>
-<p><strong>Regressioonanalüüs:</strong> F-jaotust kasutatakse regressioonanalüüsis mudeli sobivuse hindamiseks. F-testi abil hinnatakse, kas regressioonimudel seletab olulisel määral sõltuva muutuja varieeruvust, võrreldes mudeliga, mis ei sisalda ühtegi seletavat muutujat.</p>
-<p><strong>Kahe dispersiooni võrdlemine:</strong> Kahe valimi dispersiooni võrdlemiseks kasutatakse F-testi, mis põhineb F-jaotusel. Teststatistiku arvutamiseks jagatakse suurem dispersioon väiksemaga. Seejärel võrreldakse saadud väärtust F-jaotuse kriitilise väärtusega, et teha kindlaks statistiline olulisus.</p>
-<p><strong>Mudelite võrdlemine:</strong> F-jaotust saab rakendada ka erinevate statistiliste mudelite võrdlemiseks, et selgitada välja, milline mudel sobib andmetega paremini. Näiteks mitme lineaarse regressiooni mudeli puhul saab F-testi abil võrrelda mudelite seletusjõudu ja parameetrite olulisust.</p>
-<p><strong>F-statistiku arvutamine:</strong></p>
+<p><strong>Väärtuste vahemik.</strong> F-jaotuse väärtused on alati positiivsed ja ulatuvad nullist lõpmatuseni.</p>
+<p><strong>Kuju sõltuvus vabadusastmetest.</strong> F-jaotuse kuju sõltub lugeja ja nimetaja vabadusastmetest. Suuremate vabadusastmete korral muutub jaotus sümmeetrilisemaks ja läheneb normaaljaotusele.</p>
+<p><strong>F-jaotuse rakendused.</strong></p>
+<p><strong>Dispersioonanalüüs (ANOVA).</strong> F-jaotust kasutatakse peamiselt ANOVA-s, et testida, kas kahe või enama grupi keskmiste vahel on statistiliselt olulisi erinevusi. ANOVA-s arvutatakse F-statistik, mis on gruppidevahelise dispersiooni jagatis grupisisese dispersiooniga. Kui F-statistik on piisavalt suur, lükatakse tagasi nullhüpotees, mis väidab, et kõikide gruppide keskmised on võrdsed.</p>
+<p><strong>Hüpoteeside testimine.</strong> F-jaotust rakendatakse hüpoteeside testimisel, eriti dispersioonide võrdlemisel. Näiteks Levene’i test kasutab F-jaotust, et kontrollida, kas kahe või enama valimi dispersioonid on võrdsed. Seda tehakse sageli enne t-testi või ANOVA-t, veendumaks, et eeldus dispersioonide võrdsusest on täidetud.</p>
+<p><strong>Regressioonanalüüs.</strong> F-jaotust kasutatakse regressioonanalüüsis mudeli sobivuse hindamiseks. F-testi abil hinnatakse, kas regressioonimudel seletab olulisel määral sõltuva muutuja varieeruvust, võrreldes mudeliga, mis ei sisalda ühtegi seletavat muutujat.</p>
+<p><strong>Kahe dispersiooni võrdlemine.</strong> Kahe valimi dispersiooni võrdlemiseks kasutatakse F-testi, mis põhineb F-jaotusel. Teststatistiku arvutamiseks jagatakse suurem dispersioon väiksemaga. Seejärel võrreldakse saadud väärtust F-jaotuse kriitilise väärtusega, et teha kindlaks statistiline olulisus.</p>
+<p><strong>Mudelite võrdlemine.</strong> F-jaotust saab rakendada ka erinevate statistiliste mudelite võrdlemiseks, et selgitada välja, milline mudel sobib andmetega paremini. Näiteks mitme lineaarse regressiooni mudeli puhul saab F-testi abil võrrelda mudelite seletusjõudu ja parameetrite olulisust.</p>
+<p><strong>F-statistiku arvutamine</strong></p>
 <p>F-statistiku arvutamise täpne valem sõltub konkreetsest testist või analüüsist, kuid üldpõhimõte on dispersioonide võrdlemine.</p>
 <p>ANOVA-s defineeritakse F-statistik järgmiselt:</p>
 <p><span class="math display">\[F = \frac{MST}{MSE}\]</span></p>
@@ -436,53 +432,53 @@ Joonis 5.3: T-jaotuse tihedusfunktsioon
 <p>Kahe dispersiooni võrdlemisel arvutatakse F-statistik järgmiselt:</p>
 <p><span class="math display">\[F = \frac{s_1^2}{s_2^2}\]</span>
 kus <span class="math inline">\(s_1^2\)</span> on suurem dispersioon ja <span class="math inline">\(s_2^2\)</span> on väiksem dispersioon.</p>
-<p><strong>F-jaotuse seos teiste jaotustega:</strong></p>
-<p><strong><span class="math inline">\(\chi^2\)</span>-jaotus:</strong> F-jaotus on tihedalt seotud <span class="math inline">\(\chi^2\)</span>-jaotusega. Kui kaks sõltumatut juhuslikku suurust <span class="math inline">\(X_k\)</span> ja <span class="math inline">\(X_h\)</span> alluvad <span class="math inline">\(\chi^2\)</span>-jaotusele vabadusastmetega <span class="math inline">\(k\)</span> ja <span class="math inline">\(h\)</span>, siis avaldis <span class="math inline">\(\frac{X_k/k}{X_h/h}\)</span> allub F-jaotusele vabadusastmetega <span class="math inline">\(k\)</span> ja <span class="math inline">\(h\)</span>.</p>
-<p><strong>t-jaotus:</strong> F-jaotust saab kasutada t-jaotuse tulemuste tuletamiseks. Kui <span class="math inline">\(t\)</span> allub t-jaotusele vabadusastmega <span class="math inline">\(v\)</span>, siis <span class="math inline">\(t^2\)</span> allub F-jaotusele vabadusastmetega 1 ja <span class="math inline">\(v\)</span>. Seega saab F-jaotust kasutada näiteks kahe valimi t-testi tulemuste kontrollimiseks ja usaldusväärsuse hindamiseks.</p>
-<p><strong>Vead F-testi rakendamisel:</strong></p>
-<p><strong>I liiki viga (<span class="math inline">\(\alpha\)</span>):</strong> I liiki viga tekib, kui lükatakse tagasi tõene nullhüpotees. See tähendab, et leitakse statistiliselt oluline erinevus, mida tegelikult ei eksisteeri.</p>
-<p><strong>II liiki viga (<span class="math inline">\(\beta\)</span>):</strong> II liiki viga tekib, kui jäetakse tagasi lükkamata vale nullhüpotees. See tähendab, et ei leita statistiliselt olulist erinevust, mis tegelikult eksisteerib.</p>
+<p><strong>F-jaotuse seos teiste jaotustega</strong></p>
+<p><strong><span class="math inline">\(\chi^2\)</span>-jaotus.</strong> F-jaotus on tihedalt seotud <span class="math inline">\(\chi^2\)</span>-jaotusega. Kui kaks sõltumatut juhuslikku suurust <span class="math inline">\(X_k\)</span> ja <span class="math inline">\(X_h\)</span> alluvad <span class="math inline">\(\chi^2\)</span>-jaotusele vabadusastmetega <span class="math inline">\(k\)</span> ja <span class="math inline">\(h\)</span>, siis avaldis <span class="math inline">\(\frac{X_k/k}{X_h/h}\)</span> allub F-jaotusele vabadusastmetega <span class="math inline">\(k\)</span> ja <span class="math inline">\(h\)</span>.</p>
+<p><strong>T-jaotus.</strong> F-jaotust saab kasutada t-jaotuse tulemuste tuletamiseks. Kui <span class="math inline">\(t\)</span> allub t-jaotusele vabadusastmega <span class="math inline">\(v\)</span>, siis <span class="math inline">\(t^2\)</span> allub F-jaotusele vabadusastmetega 1 ja <span class="math inline">\(v\)</span>. Seega saab F-jaotust kasutada näiteks kahe valimi t-testi tulemuste kontrollimiseks ja usaldusväärsuse hindamiseks.</p>
+<p><strong>Vead F-testi rakendamisel</strong></p>
+<p><strong>I liiki viga (<span class="math inline">\(\alpha\)</span>).</strong> I liiki viga tekib, kui lükatakse tagasi tõene nullhüpotees. See tähendab, et leitakse statistiliselt oluline erinevus, mida tegelikult ei eksisteeri.</p>
+<p><strong>II liiki viga (<span class="math inline">\(\beta\)</span>).</strong> II liiki viga tekib, kui jäetakse tagasi lükkamata vale nullhüpotees. See tähendab, et ei leita statistiliselt olulist erinevust, mis tegelikult eksisteerib.</p>
 </div>
 <div id="chi2-jaotus-hii-ruut-jaotus" class="section level2 hasAnchor" number="5.6">
 <h2><span class="header-section-number">5.6</span> <span class="math inline">\(\chi^2\)</span>-jaotus (hii-ruut-jaotus)<a href="jaotusfunktsioonid.html#chi2-jaotus-hii-ruut-jaotus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><span class="math inline">\(\chi^2\)</span>-jaotus ehk hii-ruut-jaotus on pidev tõenäosusjaotus, mida kasutatakse statistikas laialdaselt erinevate hüpoteeside testimiseks, eriti kategooriliste andmete puhul või dispersioonide hindamisel. See jaotus on asümmeetriline ja omab olulist rolli mitmetes statistilistes testides.</p>
-<p><strong><span class="math inline">\(\chi^2\)</span>-jaotuse omadused ja tunnused:</strong></p>
-<p><strong>Pidevus:</strong> <span class="math inline">\(\chi^2\)</span>-jaotus on pidev, mis tähendab, et see võib omandada mis tahes positiivseid väärtusi.</p>
-<p><strong>Asümmeetria:</strong> Jaotus on parempoolse kaldega, st jaotuse saba ulatub paremale ja tihedusfunktsioon ei ole sümmeetriline. Mida suurem on vabadusastmete arv, seda sümmeetrilisemaks jaotus muutub, lähenedes normaaljaotusele.</p>
-<p><strong>Parameetrid:</strong> <span class="math inline">\(\chi^2\)</span>-jaotust iseloomustab üks parameeter: vabadusastmete arv (<span class="math inline">\(n\)</span>). Vabadusastmed on seotud valimi suuruse ja analüüsis kasutatavate piirangutega.</p>
-<p><strong>Vabadusastmed:</strong> Vabadusastmed (degrees of freedom) tähistavad iseseisvate andmepunktide arvu, mis on kasutatavad dispersiooni hindamiseks. Vabadusastmete arv mõjutab oluliselt <span class="math inline">\(\chi^2\)</span>-jaotuse kuju ja positsiooni.</p>
-<p><strong>Tihedusfunktsioon:</strong> <span class="math inline">\(\chi^2\)</span>-jaotuse tihedusfunktsioon on määratud valemiga, kus parameetriks on vabadusastmete arv. Konkreetne valem on keeruline, aga oluline on teada, et see kirjeldab, kuidas <span class="math inline">\(\chi^2\)</span>-jaotuse tihedus muutub sõltuvalt väärtusest ja vabadusastmetest.</p>
-<p><strong>Väärtuste vahemik:</strong> <span class="math inline">\(\chi^2\)</span>-jaotuse väärtused on alati positiivsed ja ulatuvad nullist lõpmatuseni, kuna <span class="math inline">\(\chi^2\)</span>-statistikud arvutatakse ruutude summana.</p>
-<p><strong>Seos normaaljaotusega:</strong> Kui sõltumatud juhuslikud suurused <span class="math inline">\(X_1, X_2, ..., X_n\)</span> alluvad standardsele normaaljaotusele <span class="math inline">\(N(0, 1)\)</span>, siis nende ruutude summa, <span class="math inline">\(Y_n = \sum_{i=1}^n X_i^2\)</span>, allub <span class="math inline">\(\chi^2\)</span>-jaotusele vabadusastmete arvuga <span class="math inline">\(n\)</span>. See seos on oluline, kuna see võimaldab seostada <span class="math inline">\(\chi^2\)</span>-jaotust normaaljaotusega.</p>
-<p><strong>Keskväärtus ja dispersioon:</strong> <span class="math inline">\(\chi^2\)</span>-jaotuse keskväärtus võrdub vabadusastmete arvuga (<span class="math inline">\(n\)</span>) ja dispersioon on <span class="math inline">\(2n\)</span>.</p>
-<p><strong><span class="math inline">\(\chi^2\)</span>-jaotuse kasutamine:</strong></p>
-<p><strong>Hüpoteeside testimine:</strong> <span class="math inline">\(\chi^2\)</span>-jaotust kasutatakse laialdaselt erinevate hüpoteeside testimiseks, eriti kategooriliste andmete puhul. See hõlmab järgmisi olukordi:</p>
-<p><strong>Sobivuse test:</strong> <span class="math inline">\(\chi^2\)</span>-sobivuse test (goodness-of-fit test) hindab, kas empiiriliste andmete jaotus vastab teoreetilisele jaotusele. Näiteks, kas mündiviske tulemused vastavad ootusele, et mõlemad pooled on võrdselt tõenäolised.</p>
-<p><strong>Sõltumatuse test:</strong> <span class="math inline">\(\chi^2\)</span>-sõltumatuse test (test of independence) uurib, kas kaks kategoorilist muutujat on omavahel sõltuvad. Näiteks, kas haridustase ja sotsiaalmajanduslik staatus on omavahel seotud.</p>
-<p><strong>Homogeensuse test:</strong> <span class="math inline">\(\chi^2\)</span>-homogeensuse test uurib, kas mitu valimit on pärit samast populatsioonist. Näiteks, kas erinevates piirkondades esineb samasugune osakaal erinevaid haridustasemeid.</p>
-<p><strong>Dispersiooni hindamine:</strong> <span class="math inline">\(\chi^2\)</span>-jaotust kasutatakse ka valimi dispersiooni hindamisel, kui populatsioon on normaaljaotusega. Näiteks valimi standardhälbe usalduspiiride leidmisel.</p>
-<p><strong>Vastavusanalüüs:</strong> <span class="math inline">\(\chi^2\)</span>-statistikut kasutatakse vastavusanalüüsis (correspondence analysis) kategooriliste muutujate vahelise seose hindamiseks ja visualiseerimiseks.</p>
-<p><strong>Teguranalüüs:</strong> <span class="math inline">\(\chi^2\)</span>-testi kasutatakse ka teguranalüüsis, et hinnata mudeli sobivust andmetega.</p>
-<p><strong>Pideva juhusliku suuruse testimine:</strong> <span class="math inline">\(\chi^2\)</span>-testi saab kasutada ka pidevate juhuslike suuruste korral, aga sel juhul tuleb variatsioonrida eelnevalt intervallida.</p>
-<p><strong><span class="math inline">\(\chi^2\)</span>-statistiku arvutamine:</strong></p>
+<p><strong><span class="math inline">\(\chi^2\)</span>-jaotuse omadused ja tunnused</strong></p>
+<p><strong>Pidevus.</strong> <span class="math inline">\(\chi^2\)</span>-jaotus on pidev, mis tähendab, et see võib omandada mis tahes positiivseid väärtusi.</p>
+<p><strong>Asümmeetria.</strong> Jaotus on parempoolse kaldega, st jaotuse saba ulatub paremale ja tihedusfunktsioon ei ole sümmeetriline. Mida suurem on vabadusastmete arv, seda sümmeetrilisemaks jaotus muutub, lähenedes normaaljaotusele.</p>
+<p><strong>Parameetrid.</strong> <span class="math inline">\(\chi^2\)</span>-jaotust iseloomustab üks parameeter: vabadusastmete arv (<span class="math inline">\(n\)</span>). Vabadusastmed on seotud valimi suuruse ja analüüsis kasutatavate piirangutega.</p>
+<p><strong>Vabadusastmed.</strong> Vabadusastmed (degrees of freedom) tähistavad iseseisvate andmepunktide arvu, mis on kasutatavad dispersiooni hindamiseks. Vabadusastmete arv mõjutab oluliselt <span class="math inline">\(\chi^2\)</span>-jaotuse kuju ja positsiooni.</p>
+<p><strong>Tihedusfunktsioon.</strong> <span class="math inline">\(\chi^2\)</span>-jaotuse tihedusfunktsioon on määratud valemiga, kus parameetriks on vabadusastmete arv. Konkreetne valem on keeruline, aga oluline on teada, et see kirjeldab, kuidas <span class="math inline">\(\chi^2\)</span>-jaotuse tihedus muutub sõltuvalt väärtusest ja vabadusastmetest.</p>
+<p><strong>Väärtuste vahemik.</strong> <span class="math inline">\(\chi^2\)</span>-jaotuse väärtused on alati positiivsed ja ulatuvad nullist lõpmatuseni, kuna <span class="math inline">\(\chi^2\)</span>-statistikud arvutatakse ruutude summana.</p>
+<p><strong>Seos normaaljaotusega.</strong> Kui sõltumatud juhuslikud suurused <span class="math inline">\(X_1, X_2, ..., X_n\)</span> alluvad standardsele normaaljaotusele <span class="math inline">\(N(0, 1)\)</span>, siis nende ruutude summa, <span class="math inline">\(Y_n = \sum_{i=1}^n X_i^2\)</span>, allub <span class="math inline">\(\chi^2\)</span>-jaotusele vabadusastmete arvuga <span class="math inline">\(n\)</span>. See seos on oluline, kuna see võimaldab seostada <span class="math inline">\(\chi^2\)</span>-jaotust normaaljaotusega.</p>
+<p><strong>Keskväärtus ja dispersioon.</strong> <span class="math inline">\(\chi^2\)</span>-jaotuse keskväärtus võrdub vabadusastmete arvuga (<span class="math inline">\(n\)</span>) ja dispersioon on <span class="math inline">\(2n\)</span>.</p>
+<p><strong><span class="math inline">\(\chi^2\)</span>-jaotuse kasutamine</strong></p>
+<p><strong>Hüpoteeside testimine.</strong> <span class="math inline">\(\chi^2\)</span>-jaotust kasutatakse laialdaselt erinevate hüpoteeside testimiseks, eriti kategooriliste andmete puhul. See hõlmab järgmisi olukordi:</p>
+<p><strong>Sobivuse test.</strong> <span class="math inline">\(\chi^2\)</span>-sobivuse test (goodness-of-fit test) hindab, kas empiiriliste andmete jaotus vastab teoreetilisele jaotusele. Näiteks, kas mündiviske tulemused vastavad ootusele, et mõlemad pooled on võrdselt tõenäolised.</p>
+<p><strong>Sõltumatuse test.</strong> <span class="math inline">\(\chi^2\)</span>-sõltumatuse test (test of independence) uurib, kas kaks kategoorilist muutujat on omavahel sõltuvad. Näiteks, kas haridustase ja sotsiaalmajanduslik staatus on omavahel seotud.</p>
+<p><strong>Homogeensuse test.</strong> <span class="math inline">\(\chi^2\)</span>-homogeensuse test uurib, kas mitu valimit on pärit samast populatsioonist. Näiteks, kas erinevates piirkondades esineb samasugune osakaal erinevaid haridustasemeid.</p>
+<p><strong>Dispersiooni hindamine.</strong> <span class="math inline">\(\chi^2\)</span>-jaotust kasutatakse ka valimi dispersiooni hindamisel, kui populatsioon on normaaljaotusega. Näiteks valimi standardhälbe usalduspiiride leidmisel.</p>
+<p><strong>Vastavusanalüüs.</strong> <span class="math inline">\(\chi^2\)</span>-statistikut kasutatakse vastavusanalüüsis (correspondence analysis) kategooriliste muutujate vahelise seose hindamiseks ja visualiseerimiseks.</p>
+<p><strong>Teguranalüüs.</strong> <span class="math inline">\(\chi^2\)</span>-testi kasutatakse ka teguranalüüsis, et hinnata mudeli sobivust andmetega.</p>
+<p><strong>Pideva juhusliku suuruse testimine.</strong> <span class="math inline">\(\chi^2\)</span>-testi saab kasutada ka pidevate juhuslike suuruste korral, aga sel juhul tuleb variatsioonrida eelnevalt intervallida.</p>
+<p><strong><span class="math inline">\(\chi^2\)</span>-statistiku arvutamine</strong></p>
 <p><span class="math inline">\(\chi^2\)</span>-statistiku arvutamise valem sõltub testitavast hüpoteesist, aga üldine idee on võrrelda vaadeldud sagedusi oodatavate sagedustega. Üldiselt arvutatakse <span class="math inline">\(\chi^2\)</span>-statistik järgmiselt:</p>
 <p><span class="math display">\[\chi^2 = \sum_{i=1}^k \frac{(O_i - E_i)^2}{E_i}\]</span></p>
 <p>kus <span class="math inline">\(O_i\)</span> on vaadeldud sagedus <span class="math inline">\(i\)</span>-ndas kategoorias ja <span class="math inline">\(E_i\)</span> on oodatav sagedus <span class="math inline">\(i\)</span>-ndas kategoorias. Oodatav sagedus arvutatakse nullhüpoteesi kehtivuse korral.</p>
 <p><strong><span class="math inline">\(\chi^2\)</span>-testi eeldused:</strong></p>
 <ul>
-<li><strong>Sõltumatud vaatlused:</strong> Vaatlused peavad olema üksteisest sõltumatud.</li>
-<li><strong>Oodatavad sagedused:</strong> Oodatavad sagedused ei tohiks olla liiga väikesed (tavaliselt vähemalt 5 igas kategoorias). Liiga väikeste oodatavate sageduste korral võib test olla ebatäpne.</li>
-<li><strong>Kategoorilised andmed:</strong> <span class="math inline">\(\chi^2\)</span>-test sobib peamiselt kategooriliste andmete analüüsiks. Pidevate andmete puhul tuleb need enne testi rakendamist kategooriatesse jaotada.</li>
+<li><strong>Sõltumatud vaatlused.</strong> Vaatlused peavad olema üksteisest sõltumatud.</li>
+<li><strong>Oodatavad sagedused.</strong> Oodatavad sagedused ei tohiks olla liiga väikesed (tavaliselt vähemalt 5 igas kategoorias). Liiga väikeste oodatavate sageduste korral võib test olla ebatäpne.</li>
+<li><strong>Kategoorilised andmed.</strong> <span class="math inline">\(\chi^2\)</span>-test sobib peamiselt kategooriliste andmete analüüsiks. Pidevate andmete puhul tuleb need enne testi rakendamist kategooriatesse jaotada.</li>
 </ul>
-<p><strong><span class="math inline">\(\chi^2\)</span>-jaotuse seos teiste jaotustega:</strong></p>
+<p><strong><span class="math inline">\(\chi^2\)</span>-jaotuse seos teiste jaotustega</strong></p>
 <ul>
-<li><strong>F-jaotus:</strong> <span class="math inline">\(\chi^2\)</span>-jaotus on seotud F-jaotusega. Kui kaks sõltumatut <span class="math inline">\(\chi^2\)</span>-jaotusega juhuslikku suurust jagatakse vastavate vabadusastmetega, siis nende jagatis allub F-jaotusele.</li>
-<li><strong>Normaaljaotus:</strong> Suure vabadusastmete arvu korral läheneb <span class="math inline">\(\chi^2\)</span>-jaotus normaaljaotusele.</li>
+<li><strong>F-jaotus.</strong> <span class="math inline">\(\chi^2\)</span>-jaotus on seotud F-jaotusega. Kui kaks sõltumatut <span class="math inline">\(\chi^2\)</span>-jaotusega juhuslikku suurust jagatakse vastavate vabadusastmetega, siis nende jagatis allub F-jaotusele.</li>
+<li><strong>Normaaljaotus.</strong> Suure vabadusastmete arvu korral läheneb <span class="math inline">\(\chi^2\)</span>-jaotus normaaljaotusele.</li>
 </ul>
-<p><strong>Vead <span class="math inline">\(\chi^2\)</span>-testi rakendamisel:</strong></p>
+<p><strong>Vead <span class="math inline">\(\chi^2\)</span>-testi rakendamisel</strong></p>
 <ul>
-<li><strong>I liiki viga (<span class="math inline">\(\alpha\)</span>):</strong> Esimest liiki viga tehakse siis, kui lükatakse tagasi nullhüpotees, kuigi see on tegelikult õige. See tähendab, et leitakse statistiliselt oluline erinevus, kuigi seda tegelikult ei ole.</li>
-<li><strong>II liiki viga (<span class="math inline">\(\beta\)</span>):</strong> Teist liiki viga tehakse siis, kui ei lükata tagasi nullhüpoteesi, kuigi see on tegelikult vale. See tähendab, et ei leita statistiliselt olulist erinevust, kuigi see tegelikult eksisteerib.</li>
+<li><strong>I liiki viga (<span class="math inline">\(\alpha\)</span>).</strong> Esimest liiki viga tehakse siis, kui lükatakse tagasi nullhüpotees, kuigi see on tegelikult õige. See tähendab, et leitakse statistiliselt oluline erinevus, kuigi seda tegelikult ei ole.</li>
+<li><strong>II liiki viga (<span class="math inline">\(\beta\)</span>).</strong> Teist liiki viga tehakse siis, kui ei lükata tagasi nullhüpoteesi, kuigi see on tegelikult vale. See tähendab, et ei leita statistiliselt olulist erinevust, kuigi see tegelikult eksisteerib.</li>
 </ul>
 
 </div>

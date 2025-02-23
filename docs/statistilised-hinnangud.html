@@ -165,8 +165,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#histogramm"><i class="fa fa-check"></i><b>3.2</b> Histogramm</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#r-keskkonnas"><i class="fa fa-check"></i><b>3.2.1</b> R keskkonnas:</a></li>
-<li class="chapter" data-level="3.2.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#exceli-keskkonnas"><i class="fa fa-check"></i><b>3.2.2</b> Exceli keskkonnas:</a></li>
+<li class="chapter" data-level="3.2.1" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#r-keskkonnas-histogrammi-loomine"><i class="fa fa-check"></i><b>3.2.1</b> R keskkonnas histogrammi loomine</a></li>
+<li class="chapter" data-level="3.2.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#exceli-keskkonnas-histogrammi-loomine"><i class="fa fa-check"></i><b>3.2.2</b> Exceli keskkonnas histogrammi loomine</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="karakteristikud.html"><a href="karakteristikud.html"><i class="fa fa-check"></i><b>4</b> Karakteristikud</a>
@@ -327,7 +327,7 @@ P_x
 <h2><span class="header-section-number">6.2</span> Vahemikhinnangud<a href="statistilised-hinnangud.html#vahemikhinnangud" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="keskväärtuse-usalduspiirid" class="section level3 hasAnchor" number="6.2.1">
 <h3><span class="header-section-number">6.2.1</span> Keskväärtuse usalduspiirid<a href="#keskv%C3%A4%C3%A4rtuse-usalduspiirid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Keskväärtuse usalduspiirid</strong> on statistilised vahendid, mis aitavad hinnata valimi põhjal tehtud järelduste täpsust üldkogumi keskväärtuse kohta. Need piirid moodustavad <strong>usaldusvahemiku</strong>, mis näitab, millises vahemikus võib üldkogumi tegelik keskväärtus asuda antud tõenäosusega. Usalduspiirid on seega usaldusvahemiku alumine ja ülemine piir.</p>
+<p><strong>Keskväärtuse usalduspiirid</strong> on statistilised parameetrid, mis aitavad hinnata valimi põhjal tehtud järelduste täpsust üldkogumi keskväärtuse kohta. Need piirid moodustavad <strong>usaldusvahemiku</strong>, mis näitab, millises vahemikus võib üldkogumi tegelik keskväärtus asuda antud tõenäosusega. Usalduspiirid on seega usaldusvahemiku alumine ja ülemine piir.</p>
 <p>Usaldusvahemik <strong>ei ole</strong> vahemik, mis sisaldab valimi väärtusi, vaid see on vahemik, mille sisse me usume tegeliku parameetri (üldkogumi keskväärtuse) langevat teatud tõenäosusega. See vahemik näitab, kui kindlad saame olla, et tegelik parameetri väärtus jääb antud vahemikku. Usaldusvahemikku kasutatakse, kuna valimist arvutatud hinnang on juhuslik suurus, samas kui üldkogumi parameetri tegelik väärtus ei ole juhuslik. Usaldusvahemiku leidmisel lähtutakse valimi keskmisest ja üldkogumi keskväärtus langeb antud usaldatavusega (tõenäosusega) sellesse vahemikku.</p>
 <p>Usalduspiiride arvutamiseks kasutatakse valimi andmeid, valitakse teatud <strong>usaldusnivoo</strong> (tavaliselt 95% või 99%) ja arvutatakse vastav usaldusvahemik. Usaldusvahemiku arvutamiseks kasutatakse järgmist valemit:</p>
 <ul>
@@ -477,12 +477,12 @@ Näites on selle valimi andmete põhjal arvutatud
 <p>F-test on statistiline test, mida kasutatakse kahe või enama normaaljaotusega üldkogumi dispersioonide võrdlemiseks. See test võimaldab hinnata, kas kahe valimi varieeruvus on oluliselt erinev, mis on oluline eeldus mitmete teiste statistiliste testide, näiteks t-testi, kasutamisel. F-testi kasutatakse nii kahepoolsete kui ka ühepoolsete hüpoteeside kontrollimiseks.</p>
 <p>F-testi rakendamisel on oluline seada hüpoteesid, mida soovitakse testida. Hüpoteesid sõltuvad sellest, kas soovitakse testida dispersioonide erinevust üldiselt (kahepoolne test) või uurida, kas ühe kogumi dispersioon on suurem kui teise (ühepoolne test).</p>
 <ul>
-<li><strong>Kahepoolne hüpotees:</strong>
+<li><strong>Kahepoolne hüpotees.</strong>
 <ul>
 <li>Nullhüpotees (<span class="math inline">\(H_0\)</span>): dispersioonid on võrdsed, st <span class="math inline">\(\sigma_1^2 = \sigma_2^2\)</span>.</li>
 <li>Alternatiivne hüpotees (<span class="math inline">\(H_1\)</span>): dispersioonid on erinevad, st <span class="math inline">\(\sigma_1^2 \neq \sigma_2^2\)</span>.</li>
 </ul></li>
-<li><strong>Ühepoolne hüpotees:</strong>
+<li><strong>Ühepoolne hüpotees.</strong>
 <ul>
 <li>Nullhüpotees (<span class="math inline">\(H_0\)</span>): ühe kogumi dispersioon on väiksem või võrdne teise kogumi dispersiooniga, st <span class="math inline">\(\sigma_1^2 \leq \sigma_2^2\)</span> või <span class="math inline">\(\sigma_1^2 \geq \sigma_2^2\)</span>.</li>
 <li>Alternatiivne hüpotees (<span class="math inline">\(H_1\)</span>): ühe kogumi dispersioon on suurem kui teise kogumi dispersioon, st <span class="math inline">\(\sigma_1^2 &gt; \sigma_2^2\)</span> või <span class="math inline">\(\sigma_1^2 &lt; \sigma_2^2\)</span>.</li>
@@ -532,13 +532,13 @@ ratio of variances
 <p><strong>Hüpoteesid</strong></p>
 <p>Paarikaupa andmete korral sõnastatakse hüpoteesid järgmiselt:</p>
 <ul>
-<li><p><strong>Nullhüpotees (<span class="math inline">\(H_0\)</span>):</strong> Toiming ei mõjutanud üldkogumi keskväärtust, st keskväärtuste vahe on null.
+<li><p><strong>Nullhüpotees (<span class="math inline">\(H_0\)</span>).</strong> Toiming ei mõjutanud üldkogumi keskväärtust, st keskväärtuste vahe on null.
 <span class="math inline">\(H_0: \mu_1 = \mu_2\)</span> või <span class="math inline">\(H_0: \mu_d = 0\)</span>, kus <span class="math inline">\(\mu_d\)</span> on populatsiooni keskmine erinevus.</p></li>
-<li><p><strong>Alternatiivne hüpotees (<span class="math inline">\(H_1\)</span> või <span class="math inline">\(H_a\)</span>):</strong> Toiming mõjutas üldkogumi keskväärtust. Alternatiivne hüpotees võib olla:</p>
+<li><p><strong>Alternatiivne hüpotees (<span class="math inline">\(H_1\)</span> või <span class="math inline">\(H_a\)</span>).</strong> Toiming mõjutas üldkogumi keskväärtust. Alternatiivne hüpotees võib olla:</p>
 <ul>
-<li><strong>Kahepoolne:</strong> Keskväärtus muutus (suund määramata).
+<li><strong>Kahepoolne.</strong> Keskväärtus muutus (suund määramata).
 <span class="math inline">\(H_1: \mu_1 \neq \mu_2\)</span> või <span class="math inline">\(H_1: \mu_d \neq 0\)</span></li>
-<li><strong>Ühepoolne:</strong>
+<li><strong>Ühepoolne.</strong>
 <ul>
 <li>Keskväärtus suurenes: <span class="math inline">\(H_1: \mu_1 &lt; \mu_2\)</span> või <span class="math inline">\(H_1: \mu_d &gt; 0\)</span> (vaadates <em>enne - pärast</em> erinevust, on oodatav erinevus positiivne)</li>
 <li>Keskväärtus vähenes: <span class="math inline">\(H_1: \mu_1 &gt; \mu_2\)</span> või <span class="math inline">\(H_1: \mu_d &lt; 0\)</span> (vaadates <em>enne - pärast</em> erinevust, on oodatav erinevus negatiivne)</li>
@@ -548,26 +548,26 @@ ratio of variances
 <p><strong>Teststatistik</strong></p>
 <p>Paarikaupa andmete korral arvutatakse t-statistik, kasutades iga paari mõõtmiste vahesid (<span class="math inline">\(d_i\)</span>).</p>
 <ol style="list-style-type: decimal">
-<li><p><strong>Vahede arvutamine:</strong> <span class="math inline">\(d_i = x_{1i} - x_{2i}\)</span>, kus <span class="math inline">\(x_{1i}\)</span> on <em>i</em>-nda objekti esimene mõõtmine ja <span class="math inline">\(x_{2i}\)</span> on <em>i</em>-nda objekti teine mõõtmine.</p></li>
-<li><p><strong>Vahede keskmise arvutamine:</strong> <span class="math inline">\(\bar{d} = \frac{\sum_{i=1}^{n} d_i}{n}\)</span>, kus <span class="math inline">\(n\)</span> on paaride arv.</p></li>
-<li><p><strong>Vahede standardhälbe arvutamine:</strong> <span class="math inline">\(s_d = \sqrt{\frac{\sum_{i=1}^{n} (d_i - \bar{d})^2}{n-1}}\)</span></p></li>
-<li><p><strong>t-statistiku arvutamine:</strong>
+<li><p><strong>Vahede arvutamine.</strong> <span class="math inline">\(d_i = x_{1i} - x_{2i}\)</span>, kus <span class="math inline">\(x_{1i}\)</span> on <em>i</em>-nda objekti esimene mõõtmine ja <span class="math inline">\(x_{2i}\)</span> on <em>i</em>-nda objekti teine mõõtmine.</p></li>
+<li><p><strong>Vahede keskmise arvutamine.</strong> <span class="math inline">\(\bar{d} = \frac{\sum_{i=1}^{n} d_i}{n}\)</span>, kus <span class="math inline">\(n\)</span> on paaride arv.</p></li>
+<li><p><strong>Vahede standardhälbe arvutamine.</strong> <span class="math inline">\(s_d = \sqrt{\frac{\sum_{i=1}^{n} (d_i - \bar{d})^2}{n-1}}\)</span></p></li>
+<li><p><strong>t-statistiku arvutamine.</strong>
 <span class="math display">\[t = \frac{\bar{d}}{s_d / \sqrt{n}}\]</span></p></li>
 </ol>
 <p>t-statistik järgib t-jaotust <span class="math inline">\(n-1\)</span> vabadusastmega. t-jaotus on sümmeetriline, sarnaneb normaaljaotusega, kuid on väiksemate valimite korral laiema “sabaga”.</p>
 <p><strong>Otsuse tegemine</strong></p>
 <p>Otsus nullhüpoteesi kohta tehakse, võrreldes arvutatud t-statistikut kriitilise väärtusega (<span class="math inline">\(t_{kr}\)</span>) või hinnates p-väärtust.</p>
 <ul>
-<li><strong>Kriitiline väärtus (<span class="math inline">\(t_{kr}\)</span>):</strong> See leitakse t-jaotuse tabelist või statistikatarkvara abil, lähtudes valitud olulisuse nivost (<span class="math inline">\(\alpha\)</span>, tavaliselt 0.05) ja vabadusastmete arvust (<span class="math inline">\(n-1\)</span>). Olulisuse nivoo <span class="math inline">\(\alpha\)</span> tähistab I tüübi vea (valesti tagasilükatud tõese nullhüpoteesi) tõenäosust.
+<li><strong>Kriitiline väärtus (<span class="math inline">\(t_{kr}\)</span>).</strong> See leitakse t-jaotuse tabelist või statistikatarkvara abil, lähtudes valitud olulisuse nivost (<span class="math inline">\(\alpha\)</span>, tavaliselt 0.05) ja vabadusastmete arvust (<span class="math inline">\(n-1\)</span>). Olulisuse nivoo <span class="math inline">\(\alpha\)</span> tähistab I tüübi vea (valesti tagasilükatud tõese nullhüpoteesi) tõenäosust.
 <ul>
-<li><strong>Kahepoolse testi korral:</strong> Nullhüpotees lükatakse tagasi, kui <span class="math inline">\(|t| &gt; t_{kr}\)</span>, st <span class="math inline">\(t &lt; -t_{kr}\)</span> või <span class="math inline">\(t &gt; t_{kr}\)</span>. Kriitiline väärtus <span class="math inline">\(t_{kr}\)</span> vastab <span class="math inline">\(\alpha/2\)</span> kummalgi jaotuse sabal.</li>
-<li><strong>Ühepoolse testi korral:</strong>
+<li><strong>Kahepoolse testi korral.</strong> Nullhüpotees lükatakse tagasi, kui <span class="math inline">\(|t| &gt; t_{kr}\)</span>, st <span class="math inline">\(t &lt; -t_{kr}\)</span> või <span class="math inline">\(t &gt; t_{kr}\)</span>. Kriitiline väärtus <span class="math inline">\(t_{kr}\)</span> vastab <span class="math inline">\(\alpha/2\)</span> kummalgi jaotuse sabal.</li>
+<li><strong>Ühepoolse testi korral.</strong>
 <ul>
 <li>Kui <span class="math inline">\(H_1: \mu_d &gt; 0\)</span>: Nullhüpotees lükatakse tagasi, kui <span class="math inline">\(t &gt; t_{kr}\)</span>.</li>
 <li>Kui <span class="math inline">\(H_1: \mu_d &lt; 0\)</span>: Nullhüpotees lükatakse tagasi, kui <span class="math inline">\(t &lt; -t_{kr}\)</span>.</li>
 </ul></li>
 </ul></li>
-<li><strong>p-väärtus:</strong> See on tõenäosus saada vähemalt sama äärmuslik (või veel äärmuslikum) t-statistik, kui nullhüpotees on tõene.
+<li><strong>p-väärtus.</strong> See on tõenäosus saada vähemalt sama äärmuslik (või veel äärmuslikum) t-statistik, kui nullhüpotees on tõene.
 <ul>
 <li>Nullhüpotees lükatakse tagasi, kui p-väärtus <span class="math inline">\(\leq \alpha\)</span>.</li>
 </ul></li>
@@ -575,9 +575,9 @@ ratio of variances
 <p><strong>Eeldused</strong></p>
 <p>Sõltuvate valimite t-testi eeldused on:</p>
 <ol style="list-style-type: decimal">
-<li><strong>Normaaljaotus:</strong> Mõõtmiste <em>vahed</em> (<span class="math inline">\(d_i\)</span>) peaksid olema ligikaudu normaaljaotusega. See eeldus on vähem oluline suuremate valimite korral (tänu tsentraalsele piirteoreemile).</li>
-<li><strong>Sõltumatus:</strong> Vaatlused (mõõtmispaarid) peavad olema üksteisest sõltumatud.</li>
-<li><strong>Mõõtmiste skaala:</strong> Mõõtmised on intervallskaalal või suhtarvulisel skaalal.</li>
+<li><strong>Normaaljaotus.</strong> Mõõtmiste <em>vahed</em> (<span class="math inline">\(d_i\)</span>) peaksid olema ligikaudu normaaljaotusega. See eeldus on vähem oluline suuremate valimite korral (tänu tsentraalsele piirteoreemile).</li>
+<li><strong>Sõltumatus.</strong> Vaatlused (mõõtmispaarid) peavad olema üksteisest sõltumatud.</li>
+<li><strong>Mõõtmiste skaala.</strong> Mõõtmised on intervallskaalal või suhtarvulisel skaalal.</li>
 </ol>
 </div>
 <div id="sõltumatuse-hii-ruut-test" class="section level3 hasAnchor" number="6.4.3">
@@ -588,8 +588,8 @@ ratio of variances
 <p><strong>Hüpoteesid</strong></p>
 <p>Sõltumatuse <span class="math inline">\(\chi^2\)</span>-testi hüpoteesid on:</p>
 <ul>
-<li><strong>Nullhüpotees (<span class="math inline">\(H_0\)</span>):</strong> Tunnuste vahel seost ei ole (tunnused on sõltumatud). Ühe tunnuse jaotus ei sõltu teise tunnuse väärtustest.</li>
-<li><strong>Alternatiivne hüpotees (<span class="math inline">\(H_1\)</span>):</strong> Tunnuste vahel on seos (tunnused ei ole sõltumatud). Ühe tunnuse jaotus sõltub teise tunnuse väärtustest.</li>
+<li><strong>Nullhüpotees (<span class="math inline">\(H_0\)</span>).</strong> Tunnuste vahel seost ei ole (tunnused on sõltumatud). Ühe tunnuse jaotus ei sõltu teise tunnuse väärtustest.</li>
+<li><strong>Alternatiivne hüpotees (<span class="math inline">\(H_1\)</span>).</strong> Tunnuste vahel on seos (tunnused ei ole sõltumatud). Ühe tunnuse jaotus sõltub teise tunnuse väärtustest.</li>
 </ul>
 <p><strong>Teststatistiku arvutamine</strong></p>
 <p><span class="math inline">\(\chi^2\)</span>-teststatistiku arvutamise valem:</p>
@@ -619,8 +619,8 @@ E_{ij} = \frac{(\text{rea } i \text{ summa}) \times (\text{veeru } j \text{ summ
 <p><strong>Eeldused</strong></p>
 <p><span class="math inline">\(\chi^2\)</span>-testi kasutamisel on oluline arvestada järgmisi eeldusi:</p>
 <ul>
-<li><strong>Sõltumatud vaatlused:</strong> Vaatlused peavad olema üksteisest sõltumatud.</li>
-<li><strong>Piisavalt suured oodatavad sagedused:</strong> Üldjuhul peaksid kõik oodatavad sagedused (<span class="math inline">\(E_{ij}\)</span>) olema vähemalt 5. Mõned allikad lubavad ka väiksemaid väärtusi, kuid kui rohkem kui 20% oodatavatest sagedustest on alla 5, või on mõni oodatav sagedus alla 1, võib test olla ebausaldusväärne. Sellisel juhul võib kasutada Yates’i korrektsiooni või Fisheri täpset testi.</li>
+<li><strong>Sõltumatud vaatlused.</strong> Vaatlused peavad olema üksteisest sõltumatud.</li>
+<li><strong>Piisavalt suured oodatavad sagedused.</strong> Üldjuhul peaksid kõik oodatavad sagedused (<span class="math inline">\(E_{ij}\)</span>) olema vähemalt 5. Mõned allikad lubavad ka väiksemaid väärtusi, kuid kui rohkem kui 20% oodatavatest sagedustest on alla 5, või on mõni oodatav sagedus alla 1, võib test olla ebausaldusväärne. Sellisel juhul võib kasutada Yates’i korrektsiooni või Fisheri täpset testi.</li>
 </ul>
 
 </div>

@@ -165,8 +165,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#histogramm"><i class="fa fa-check"></i><b>3.2</b> Histogramm</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#r-keskkonnas"><i class="fa fa-check"></i><b>3.2.1</b> R keskkonnas:</a></li>
-<li class="chapter" data-level="3.2.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#exceli-keskkonnas"><i class="fa fa-check"></i><b>3.2.2</b> Exceli keskkonnas:</a></li>
+<li class="chapter" data-level="3.2.1" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#r-keskkonnas-histogrammi-loomine"><i class="fa fa-check"></i><b>3.2.1</b> R keskkonnas histogrammi loomine</a></li>
+<li class="chapter" data-level="3.2.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#exceli-keskkonnas-histogrammi-loomine"><i class="fa fa-check"></i><b>3.2.2</b> Exceli keskkonnas histogrammi loomine</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="karakteristikud.html"><a href="karakteristikud.html"><i class="fa fa-check"></i><b>4</b> Karakteristikud</a>
@@ -267,9 +267,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><strong>Tüübid:</strong>
 <ul>
-<li><strong>Vektor:</strong> Sama tüüpi väärtuste jada (nt arvude vektor, tekstiväärtuste vektor).</li>
-<li><strong>Maatriks:</strong> Sama tüüpi väärtuste kogum, kuid mis on mitmemõõtmeline.</li>
-<li><strong>Andmetabel:</strong> Struktureeritud andmete kogum, kus iga rida esindab ühte objekti ja iga veerg esindab objekti atribuuti.</li>
+<li><strong>Vektor.</strong> Sama tüüpi väärtuste jada (nt arvude vektor, tekstiväärtuste vektor).</li>
+<li><strong>Maatriks.</strong> Sama tüüpi väärtuste kogum, kuid mis on mitmemõõtmeline.</li>
+<li><strong>Andmetabel.</strong> Struktureeritud andmete kogum, kus iga rida esindab ühte objekti ja iga veerg esindab objekti atribuuti.</li>
 </ul></li>
 </ul>
 <div id="andmestiku-struktuur-r-keskkonnas" class="section level2 hasAnchor" number="2.1">
@@ -279,20 +279,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Vektor on andmetüüp, mis võimaldab talletada mitut ühesugust andmetüüpi elementi ühes andmestruktuuris. Vektoris saab hoida näiteks numbreid, teksti või loogilisi väärtusi. Vektorit loetakse ühemõõtmeliseks andmestruktuuriks, kuna kõik selles sisalduvad elemendid asuvad ühes reas.</p>
 <p>Vektorit saab luua kasutades funktsiooni <code>c()</code>, kuhu tuleb sisestada eraldatud komadega elemendid. Näiteks:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="andmestik.html#cb4-1" tabindex="-1"></a><span class="co"># Näide R keskkonnas</span></span>
-<span id="cb4-2"><a href="andmestik.html#cb4-2" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="andmestik.html#cb4-3" tabindex="-1"></a>num_vektor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code></pre></div>
-<p>Vektori elementidele saab viidata indeksite abil, alustades indeksist 1. Näiteks:</p>
+<span id="cb4-2"><a href="andmestik.html#cb4-2" tabindex="-1"></a>num_vektor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code></pre></div>
+<p>Vektori elementidele saab viidata indeksite abil, alustades indeksist 1, näiteks:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="andmestik.html#cb5-1" tabindex="-1"></a><span class="co"># Näide R keskkonnas</span></span>
 <span id="cb5-2"><a href="andmestik.html#cb5-2" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="andmestik.html#cb5-3" tabindex="-1"></a><span class="co"># väljastab vektori num_vektor kolmanda elemendi väärtuse</span></span>
 <span id="cb5-4"><a href="andmestik.html#cb5-4" tabindex="-1"></a>num_vektor[<span class="dv">3</span>] </span></code></pre></div>
 <pre><code>[1] 3</code></pre>
-<p>Vektori pikkus ehk elementide arv on võimalik saada funktsiooniga <code>length()</code>. Vektorit saab ühendada teise vektoriga funktsiooniga <code>c()</code>. Näiteks:</p>
+<p>Vektori pikkus ehk elementide arv on võimalik saada funktsiooniga <code>length()</code>. Vektorit saab ühendada teise vektoriga funktsiooniga <code>c()</code>, näiteks:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="andmestik.html#cb7-1" tabindex="-1"></a><span class="co"># Näide R keskkonnas</span></span>
 <span id="cb7-2"><a href="andmestik.html#cb7-2" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="andmestik.html#cb7-3" tabindex="-1"></a>num_vektor_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>)</span>
 <span id="cb7-4"><a href="andmestik.html#cb7-4" tabindex="-1"></a>kombineeritud_vektor <span class="ot">&lt;-</span> <span class="fu">c</span>(num_vektor, num_vektor_2)</span></code></pre></div>
-<p>Võimalik on ka vektorit luua jada genereerimise abil, kasutades funktsiooni <code>seq()</code>. Näiteks:</p>
+<p>Võimalik on ka vektorit luua jada genereerimise abil, kasutades funktsiooni <code>seq()</code>, näiteks:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="andmestik.html#cb8-1" tabindex="-1"></a><span class="co"># Näide R keskkonnas</span></span>
 <span id="cb8-2"><a href="andmestik.html#cb8-2" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="andmestik.html#cb8-3" tabindex="-1"></a><span class="co"># loob vektori, mis sisaldab arve vahemikus 1 kuni 10 sammuga 2</span></span>
@@ -308,10 +307,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-3"><a href="andmestik.html#cb9-3" tabindex="-1"></a><span class="co"># Loome kahemõõtmelise maatriksi juhuslikest arvudest</span></span>
 <span id="cb9-4"><a href="andmestik.html#cb9-4" tabindex="-1"></a>minu_maatriks <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">runif</span>(<span class="dv">12</span>), <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">4</span>)</span>
 <span id="cb9-5"><a href="andmestik.html#cb9-5" tabindex="-1"></a><span class="fu">print</span>(minu_maatriks)</span></code></pre></div>
-<pre><code>        [,1]     [,2]    [,3]    [,4]
-[1,] 0,28758 0,883017 0,52811 0,45661
-[2,] 0,78831 0,940467 0,89242 0,95683
-[3,] 0,40898 0,045556 0,55144 0,45333</code></pre>
+<pre><code>         [,1]    [,2]    [,3]     [,4]
+[1,] 0,633642 0,65606 0,80332 0,387479
+[2,] 0,520479 0,78411 0,88021 0,436787
+[3,] 0,018057 0,05782 0,56126 0,021871</code></pre>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="andmestik.html#cb11-1" tabindex="-1"></a><span class="co"># Loome kolmemõõtmelise maatriksi juhuslikest arvudest</span></span>
 <span id="cb11-2"><a href="andmestik.html#cb11-2" tabindex="-1"></a>minu_array <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="fu">runif</span>(<span class="dv">12</span>), <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code></pre></div>
 <p>Maatriksit saab kasutada erinevate arvutusoperatsioonide tegemiseks, nagu maatriksite korrutamine, liitmine, lahutamine jne. Samuti on võimalik maatriksit indekseerida ja välja printida konkreetseid ridu ja veerge.</p>

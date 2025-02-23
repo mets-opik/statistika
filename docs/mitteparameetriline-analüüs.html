@@ -165,8 +165,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#histogramm"><i class="fa fa-check"></i><b>3.2</b> Histogramm</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#r-keskkonnas"><i class="fa fa-check"></i><b>3.2.1</b> R keskkonnas:</a></li>
-<li class="chapter" data-level="3.2.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#exceli-keskkonnas"><i class="fa fa-check"></i><b>3.2.2</b> Exceli keskkonnas:</a></li>
+<li class="chapter" data-level="3.2.1" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#r-keskkonnas-histogrammi-loomine"><i class="fa fa-check"></i><b>3.2.1</b> R keskkonnas histogrammi loomine</a></li>
+<li class="chapter" data-level="3.2.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#exceli-keskkonnas-histogrammi-loomine"><i class="fa fa-check"></i><b>3.2.2</b> Exceli keskkonnas histogrammi loomine</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="karakteristikud.html"><a href="karakteristikud.html"><i class="fa fa-check"></i><b>4</b> Karakteristikud</a>
@@ -306,10 +306,10 @@ GCV = 1,7242  Scale est. = 1,5525    n = 47</code></pre>
 </ul>
 <p>Kasutades funktsiooni <code>coef()</code>, näeme splainfunktsiooni polünoomi parameetrite väärtusi.</p>
 <div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="mitteparameetriline-analüüs.html#cb95-1" tabindex="-1"></a><span class="fu">coef</span>(mudel)</span></code></pre></div>
-<pre><code>(Intercept)      s(d).1      s(d).2      s(d).3      s(d).4      s(d).5      s(d).6      s(d).7 
- 24,3680851  -1,6514056  -0,8997401  -0,0019625   0,0345575  -0,0430375   0,1877321  -0,1323456 
-     s(d).8      s(d).9 
- -0,8129444   3,4477405 </code></pre>
+<pre><code>(Intercept)      s(d).1      s(d).2      s(d).3      s(d).4      s(d).5 
+ 24,3680851  -1,6514056  -0,8997401  -0,0019625   0,0345575  -0,0430375 
+     s(d).6      s(d).7      s(d).8      s(d).9 
+  0,1877321  -0,1323456  -0,8129444   3,4477405 </code></pre>
 <p>Saame visualiseerida diameetri ja kõrguse vahelist seost funktsiooni <code>plot()</code> abil:</p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="mitteparameetriline-analüüs.html#cb97-1" tabindex="-1"></a><span class="co"># Mudeli visualiseerimine</span></span>
 <span id="cb97-2"><a href="mitteparameetriline-analüüs.html#cb97-2" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">mgp=</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="fl">0.7</span>, <span class="dv">0</span>))</span>

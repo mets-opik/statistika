@@ -148,7 +148,7 @@ R funktsioon & 100*sd(H)/(sqrt(2*length(H))*mean(H)) \\
 
 ### Keskväärtuse usalduspiirid
 
-**Keskväärtuse usalduspiirid** on statistilised vahendid, mis aitavad hinnata valimi põhjal tehtud järelduste täpsust üldkogumi keskväärtuse kohta. Need piirid moodustavad **usaldusvahemiku**, mis näitab, millises vahemikus võib üldkogumi tegelik keskväärtus asuda antud tõenäosusega. Usalduspiirid on seega usaldusvahemiku alumine ja ülemine piir.
+**Keskväärtuse usalduspiirid** on statistilised parameetrid, mis aitavad hinnata valimi põhjal tehtud järelduste täpsust üldkogumi keskväärtuse kohta. Need piirid moodustavad **usaldusvahemiku**, mis näitab, millises vahemikus võib üldkogumi tegelik keskväärtus asuda antud tõenäosusega. Usalduspiirid on seega usaldusvahemiku alumine ja ülemine piir.
 
 Usaldusvahemik **ei ole** vahemik, mis sisaldab valimi väärtusi, vaid see on vahemik, mille sisse me usume tegeliku parameetri (üldkogumi keskväärtuse) langevat teatud tõenäosusega. See vahemik näitab, kui kindlad saame olla, et tegelik parameetri väärtus jääb antud vahemikku. Usaldusvahemikku kasutatakse, kuna valimist arvutatud hinnang on juhuslik suurus, samas kui üldkogumi parameetri tegelik väärtus ei ole juhuslik. Usaldusvahemiku leidmisel lähtutakse valimi keskmisest ja üldkogumi keskväärtus langeb antud usaldatavusega (tõenäosusega) sellesse vahemikku.
 
@@ -330,10 +330,10 @@ F-test on statistiline test, mida kasutatakse kahe või enama normaaljaotusega �
 
 F-testi rakendamisel on oluline seada hüpoteesid, mida soovitakse testida.  Hüpoteesid sõltuvad sellest, kas soovitakse testida dispersioonide erinevust üldiselt (kahepoolne test) või uurida, kas ühe kogumi dispersioon on suurem kui teise (ühepoolne test).
 
-*   **Kahepoolne hüpotees:**
+*   **Kahepoolne hüpotees.**
     *   Nullhüpotees ($H_0$): dispersioonid on võrdsed, st  $\sigma_1^2 = \sigma_2^2$.
     *   Alternatiivne hüpotees ($H_1$): dispersioonid on erinevad, st $\sigma_1^2 \neq \sigma_2^2$.
-*   **Ühepoolne hüpotees:**
+*   **Ühepoolne hüpotees.**
     *   Nullhüpotees ($H_0$): ühe kogumi dispersioon on väiksem või võrdne teise kogumi dispersiooniga, st $\sigma_1^2 \leq \sigma_2^2$ või $\sigma_1^2 \geq \sigma_2^2$.
     *   Alternatiivne hüpotees ($H_1$): ühe kogumi dispersioon on suurem kui teise kogumi dispersioon, st $\sigma_1^2 > \sigma_2^2$ või $\sigma_1^2 < \sigma_2^2$.
 
@@ -386,13 +386,13 @@ Paarikaupa andmete korral keskmiste võrdlemine normaaljaotusega üldkogumistest
 
 Paarikaupa andmete korral sõnastatakse hüpoteesid järgmiselt:
 
-*   **Nullhüpotees ($H_0$):** Toiming ei mõjutanud üldkogumi keskväärtust, st keskväärtuste vahe on null.
+*   **Nullhüpotees ($H_0$).** Toiming ei mõjutanud üldkogumi keskväärtust, st keskväärtuste vahe on null.
     $H_0: \mu_1 = \mu_2$  või  $H_0: \mu_d = 0$, kus $\mu_d$ on populatsiooni keskmine erinevus.
 
-*   **Alternatiivne hüpotees ($H_1$ või $H_a$):** Toiming mõjutas üldkogumi keskväärtust.  Alternatiivne hüpotees võib olla:
-    *   **Kahepoolne:** Keskväärtus muutus (suund määramata).
+*   **Alternatiivne hüpotees ($H_1$ või $H_a$).** Toiming mõjutas üldkogumi keskväärtust.  Alternatiivne hüpotees võib olla:
+    *   **Kahepoolne.** Keskväärtus muutus (suund määramata).
         $H_1: \mu_1 \neq \mu_2$  või  $H_1: \mu_d \neq 0$
-    *   **Ühepoolne:**
+    *   **Ühepoolne.**
         *   Keskväärtus suurenes: $H_1: \mu_1 < \mu_2$ või $H_1: \mu_d > 0$ (vaadates *enne - pärast* erinevust, on oodatav erinevus positiivne)
         *   Keskväärtus vähenes: $H_1: \mu_1 > \mu_2$ või $H_1: \mu_d < 0$ (vaadates *enne - pärast* erinevust, on oodatav erinevus negatiivne)
 
@@ -400,13 +400,13 @@ Paarikaupa andmete korral sõnastatakse hüpoteesid järgmiselt:
 
 Paarikaupa andmete korral arvutatakse t-statistik, kasutades iga paari mõõtmiste vahesid ($d_i$).
 
-1.  **Vahede arvutamine:**  $d_i = x_{1i} - x_{2i}$, kus $x_{1i}$ on *i*-nda objekti esimene mõõtmine ja $x_{2i}$ on *i*-nda objekti teine mõõtmine.
+1.  **Vahede arvutamine.**  $d_i = x_{1i} - x_{2i}$, kus $x_{1i}$ on *i*-nda objekti esimene mõõtmine ja $x_{2i}$ on *i*-nda objekti teine mõõtmine.
 
-2.  **Vahede keskmise arvutamine:** $\bar{d} = \frac{\sum_{i=1}^{n} d_i}{n}$, kus $n$ on paaride arv.
+2.  **Vahede keskmise arvutamine.** $\bar{d} = \frac{\sum_{i=1}^{n} d_i}{n}$, kus $n$ on paaride arv.
 
-3.  **Vahede standardhälbe arvutamine:** $s_d = \sqrt{\frac{\sum_{i=1}^{n} (d_i - \bar{d})^2}{n-1}}$
+3.  **Vahede standardhälbe arvutamine.** $s_d = \sqrt{\frac{\sum_{i=1}^{n} (d_i - \bar{d})^2}{n-1}}$
 
-4.  **t-statistiku arvutamine:**
+4.  **t-statistiku arvutamine.**
     $$t = \frac{\bar{d}}{s_d / \sqrt{n}}$$
 
 t-statistik järgib t-jaotust $n-1$ vabadusastmega.  t-jaotus on sümmeetriline, sarnaneb normaaljaotusega, kuid on väiksemate valimite korral laiema "sabaga".
@@ -415,22 +415,22 @@ t-statistik järgib t-jaotust $n-1$ vabadusastmega.  t-jaotus on sümmeetriline,
 
 Otsus nullhüpoteesi kohta tehakse, võrreldes arvutatud t-statistikut kriitilise väärtusega ($t_{kr}$) või hinnates p-väärtust.
 
-*   **Kriitiline väärtus ($t_{kr}$):**  See leitakse t-jaotuse tabelist või statistikatarkvara abil, lähtudes valitud olulisuse nivost ($\alpha$, tavaliselt 0.05) ja vabadusastmete arvust ($n-1$). Olulisuse nivoo $\alpha$ tähistab I tüübi vea (valesti tagasilükatud tõese nullhüpoteesi) tõenäosust.
-    *   **Kahepoolse testi korral:**  Nullhüpotees lükatakse tagasi, kui $|t| > t_{kr}$, st $t < -t_{kr}$ või $t > t_{kr}$.  Kriitiline väärtus $t_{kr}$ vastab $\alpha/2$ kummalgi jaotuse sabal.
-    *   **Ühepoolse testi korral:**
+*   **Kriitiline väärtus ($t_{kr}$).**  See leitakse t-jaotuse tabelist või statistikatarkvara abil, lähtudes valitud olulisuse nivost ($\alpha$, tavaliselt 0.05) ja vabadusastmete arvust ($n-1$). Olulisuse nivoo $\alpha$ tähistab I tüübi vea (valesti tagasilükatud tõese nullhüpoteesi) tõenäosust.
+    *   **Kahepoolse testi korral.**  Nullhüpotees lükatakse tagasi, kui $|t| > t_{kr}$, st $t < -t_{kr}$ või $t > t_{kr}$.  Kriitiline väärtus $t_{kr}$ vastab $\alpha/2$ kummalgi jaotuse sabal.
+    *   **Ühepoolse testi korral.**
         *   Kui $H_1: \mu_d > 0$:  Nullhüpotees lükatakse tagasi, kui $t > t_{kr}$.
         *   Kui $H_1: \mu_d < 0$:  Nullhüpotees lükatakse tagasi, kui $t < -t_{kr}$.
 
-*   **p-väärtus:**  See on tõenäosus saada vähemalt sama äärmuslik (või veel äärmuslikum) t-statistik, kui nullhüpotees on tõene.
+*   **p-väärtus.**  See on tõenäosus saada vähemalt sama äärmuslik (või veel äärmuslikum) t-statistik, kui nullhüpotees on tõene.
     *   Nullhüpotees lükatakse tagasi, kui p-väärtus $\leq \alpha$.
 
 **Eeldused**
 
 Sõltuvate valimite t-testi eeldused on:
 
-1.  **Normaaljaotus:** Mõõtmiste *vahed* ($d_i$) peaksid olema ligikaudu normaaljaotusega.  See eeldus on vähem oluline suuremate valimite korral (tänu tsentraalsele piirteoreemile).
-2.  **Sõltumatus:** Vaatlused (mõõtmispaarid) peavad olema üksteisest sõltumatud.
-3. **Mõõtmiste skaala:** Mõõtmised on intervallskaalal või suhtarvulisel skaalal.
+1.  **Normaaljaotus.** Mõõtmiste *vahed* ($d_i$) peaksid olema ligikaudu normaaljaotusega.  See eeldus on vähem oluline suuremate valimite korral (tänu tsentraalsele piirteoreemile).
+2.  **Sõltumatus.** Vaatlused (mõõtmispaarid) peavad olema üksteisest sõltumatud.
+3. **Mõõtmiste skaala.** Mõõtmised on intervallskaalal või suhtarvulisel skaalal.
 
 
 
@@ -446,8 +446,8 @@ $\chi^2$-testi kasutatakse sagedusandmete analüüsimiseks, mis on esitatud rist
 
 Sõltumatuse $\chi^2$-testi hüpoteesid on:
 
-*   **Nullhüpotees ($H_0$):** Tunnuste vahel seost ei ole (tunnused on sõltumatud). Ühe tunnuse jaotus ei sõltu teise tunnuse väärtustest.
-*   **Alternatiivne hüpotees ($H_1$):** Tunnuste vahel on seos (tunnused ei ole sõltumatud). Ühe tunnuse jaotus sõltub teise tunnuse väärtustest.
+*   **Nullhüpotees ($H_0$).** Tunnuste vahel seost ei ole (tunnused on sõltumatud). Ühe tunnuse jaotus ei sõltu teise tunnuse väärtustest.
+*   **Alternatiivne hüpotees ($H_1$).** Tunnuste vahel on seos (tunnused ei ole sõltumatud). Ühe tunnuse jaotus sõltub teise tunnuse väärtustest.
 
 **Teststatistiku arvutamine**
 
@@ -490,6 +490,6 @@ Otsuse tegemiseks võrreldakse arvutatud $\chi^2$ väärtust kriitilise väärtu
 
 $\chi^2$-testi kasutamisel on oluline arvestada järgmisi eeldusi:
 
-*   **Sõltumatud vaatlused:** Vaatlused peavad olema üksteisest sõltumatud.
-*   **Piisavalt suured oodatavad sagedused:** Üldjuhul peaksid kõik oodatavad sagedused ($E_{ij}$) olema vähemalt 5. Mõned allikad lubavad ka väiksemaid väärtusi, kuid kui rohkem kui 20% oodatavatest sagedustest on alla 5, või on mõni oodatav sagedus alla 1, võib test olla ebausaldusväärne. Sellisel juhul võib kasutada Yates'i korrektsiooni või Fisheri täpset testi.
+*   **Sõltumatud vaatlused.** Vaatlused peavad olema üksteisest sõltumatud.
+*   **Piisavalt suured oodatavad sagedused.** Üldjuhul peaksid kõik oodatavad sagedused ($E_{ij}$) olema vähemalt 5. Mõned allikad lubavad ka väiksemaid väärtusi, kuid kui rohkem kui 20% oodatavatest sagedustest on alla 5, või on mõni oodatav sagedus alla 1, võib test olla ebausaldusväärne. Sellisel juhul võib kasutada Yates'i korrektsiooni või Fisheri täpset testi.
 

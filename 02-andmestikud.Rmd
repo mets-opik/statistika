@@ -7,18 +7,15 @@ Metsanduses kogutakse pidevalt mitmesuguseid andmeid, mis võivad erineda nii om
 * **Määramisel** saadakse üldjuhul **nominaalne tunnus**. See on selline tunnus, mis väljendab kvalitatiivseid ehk mittearvulisi andmeid, mida ei saa järjestada. Näiteks puuliik, kasvukohatüüp vms. Selle alla liigitub ka **ordinaalne tunnus** ehk järjestustunnus on tunnus, mille väärtustel on loogiline järjestus, kuid väärtuste vahed ei ole tingimata võrdsed. Näiteks on metsanduses selleks boniteediklass.
 
 
-
 Statistikas tähendab **andmestik** vaatlusandmete kogumit, mis on kogutud mingi uuringu või eksperimendi käigus. See on toorandmete hulk, mida analüüsitakse, et avastada mustreid, seoseid ja teha järeldusi. Andmete tüüp mängib olulist rolli statistilises analüüsis, kuna see määrab, milliseid meetodeid ja visualiseerimisviise saab kasutada. Õige andmetüübi tuvastamine on seega esimene samm edukaks andmetöötluseks ja tulemuste tõlgendamiseks.
 
 
 Andmestik on organiseeritud andmete kogum, mis on tavaliselt salvestatud tabelitesse, andmebaasidesse või muudesse struktuuridesse.
 
 * **Tüübid:**
-    * **Vektor:** Sama tüüpi väärtuste jada (nt arvude vektor, tekstiväärtuste vektor).
-    * **Maatriks:** Sama tüüpi väärtuste kogum, kuid mis on mitmemõõtmeline.
-    * **Andmetabel:** Struktureeritud andmete kogum, kus iga rida esindab ühte objekti ja iga veerg esindab objekti atribuuti.
-
-
+    * **Vektor.** Sama tüüpi väärtuste jada (nt arvude vektor, tekstiväärtuste vektor).
+    * **Maatriks.** Sama tüüpi väärtuste kogum, kuid mis on mitmemõõtmeline.
+    * **Andmetabel.** Struktureeritud andmete kogum, kus iga rida esindab ühte objekti ja iga veerg esindab objekti atribuuti.
 
 
 ## Andmestiku struktuur R keskkonnas
@@ -29,11 +26,10 @@ Vektor on andmetüüp, mis võimaldab talletada mitut ühesugust andmetüüpi el
 Vektorit saab luua kasutades funktsiooni `c()`, kuhu tuleb sisestada eraldatud komadega elemendid. Näiteks:
 ```{r}
 # Näide R keskkonnas
-
 num_vektor <- c(1, 2, 3, 4, 5)
 ```
 
-Vektori elementidele saab viidata indeksite abil, alustades indeksist 1. Näiteks:
+Vektori elementidele saab viidata indeksite abil, alustades indeksist 1, näiteks:
 ```{r}
 # Näide R keskkonnas
 
@@ -41,7 +37,7 @@ Vektori elementidele saab viidata indeksite abil, alustades indeksist 1. Näitek
 num_vektor[3] 
 ```
 
-Vektori pikkus ehk elementide arv on võimalik saada funktsiooniga `length()`. Vektorit saab ühendada teise vektoriga funktsiooniga `c()`. Näiteks:
+Vektori pikkus ehk elementide arv on võimalik saada funktsiooniga `length()`. Vektorit saab ühendada teise vektoriga funktsiooniga `c()`, näiteks:
 ```{r}
 # Näide R keskkonnas
 
@@ -49,7 +45,7 @@ num_vektor_2 <- c(6, 7, 8)
 kombineeritud_vektor <- c(num_vektor, num_vektor_2)
 ```
 
-Võimalik on ka vektorit luua jada genereerimise abil, kasutades funktsiooni `seq()`. Näiteks:
+Võimalik on ka vektorit luua jada genereerimise abil, kasutades funktsiooni `seq()`, näiteks:
 ```{r}
 # Näide R keskkonnas
 

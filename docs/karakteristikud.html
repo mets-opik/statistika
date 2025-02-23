@@ -165,8 +165,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#histogramm"><i class="fa fa-check"></i><b>3.2</b> Histogramm</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#r-keskkonnas"><i class="fa fa-check"></i><b>3.2.1</b> R keskkonnas:</a></li>
-<li class="chapter" data-level="3.2.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#exceli-keskkonnas"><i class="fa fa-check"></i><b>3.2.2</b> Exceli keskkonnas:</a></li>
+<li class="chapter" data-level="3.2.1" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#r-keskkonnas-histogrammi-loomine"><i class="fa fa-check"></i><b>3.2.1</b> R keskkonnas histogrammi loomine</a></li>
+<li class="chapter" data-level="3.2.2" data-path="andmestike-rühmitamine.html"><a href="andmestike-rühmitamine.html#exceli-keskkonnas-histogrammi-loomine"><i class="fa fa-check"></i><b>3.2.2</b> Exceli keskkonnas histogrammi loomine</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="karakteristikud.html"><a href="karakteristikud.html"><i class="fa fa-check"></i><b>4</b> Karakteristikud</a>
@@ -258,8 +258,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Peatükk 4</span> Karakteristikud<a href="karakteristikud.html#karakteristikud" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Statistilised karakteristikud on kvantitatiivsed või kvalitatiivsed omadused, mis kirjeldavad ja iseloomustavad andmekogumeid või andmete jaotusi. Neid kasutatakse andmete kokkuvõtlikuks esitamiseks, et saada aru andmete üldisest käitumisest, trendidest ja omadustest. Statistilised karakteristikud võimaldavad teha järeldusi kogu populatsiooni kohta, analüüsides selleks valimit. Peamised statistilised karakteristikud jagunevad kaheks suureks rühmaks: keskmise ja hajuvuse karakteristikud.</p>
 <p>Juhuslik suurus on täielikult kirjeldatud üldkogumi jaotus- või tihedusfunktsiooniga (jaotusega). Juhusliku suuruse iseloomustamiseks teatud aspektist kasutatakse erinevaid arvkarakteristikuid. Neist tähtsaim on <strong>keskväärtus</strong> ehk matemaatiline ootus, mida tähistatakse EX ja mis on defineeritud järgnevalt.</p>
-<p>Pideva juhusliku suuruse korral:
-<span class="math display">\[EX = \sum_{-\infty}^{\infty} x \cdot f(x) dx\]</span></p>
+<p>Pideva juhusliku suuruse korral:</p>
+<p><span class="math display">\[EX = \sum_{-\infty}^{\infty} x \cdot f(x) dx\]</span></p>
 <p>Diskreetse juhusliku suuruse korral:
 <span class="math display">\[EX = \sum_{i=1}^{n} x_i \cdot p_i\]</span></p>
 <div id="keskmised" class="section level2 hasAnchor" number="4.1">
@@ -269,13 +269,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Juhusliku suuruse jaotusseadus on uurijale enamasti teadmata. Seetõttu kasutatakse üldkogumi karakteristikute hindamiseks valimi vastavaid karakteristikuid. Üldkogumi keskväärtusele vastab valimi aritmeetiline keskmine, mida tähistatakse ülakriipsuga vastava muutuja kohal <span class="math inline">\(\bar x\)</span> ja arvutatakse järgnevalt.</p>
 <p><span class="math display">\[ \bar x=\frac{1}{N}\sum_{i=1}^{k}n_i \cdot x_i \]</span></p>
 <p>Kus <span class="math inline">\(x_{i}\)</span> on iga andmehulga liige ning <span class="math inline">\(n\)</span> on andmehulga suurus.</p>
-<p><strong>R keskkonnas:</strong></p>
+<p><strong>R keskkonnas</strong></p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="karakteristikud.html#cb33-1" tabindex="-1"></a><span class="co"># Laadime proovitükkide andmed</span></span>
 <span id="cb33-2"><a href="karakteristikud.html#cb33-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">&quot;data/naited.xlsx&quot;</span>,<span class="st">&quot;prt_andmed&quot;</span>)</span>
 <span id="cb33-3"><a href="karakteristikud.html#cb33-3" tabindex="-1"></a><span class="co"># Tunnusest arvutatakse keskmine:</span></span>
 <span id="cb33-4"><a href="karakteristikud.html#cb33-4" tabindex="-1"></a><span class="fu">mean</span>(df<span class="sc">$</span>d)</span></code></pre></div>
 <pre><code>[1] 23,265</code></pre>
-<p><strong>Exceli keskkonnas:</strong></p>
+<p><strong>MS Exceli keskkonnas</strong></p>
 </div>
 <div id="ruutkeskmine" class="section level3 hasAnchor" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> Ruutkeskmine<a href="karakteristikud.html#ruutkeskmine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -283,11 +283,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[ \bar x_{ruut}=\sqrt{\frac{1}{N}\sum_{i=1}^{k}n_i \cdot x_i^2} \]</span>,</p>
 <p>kus <span class="math inline">\(x_{i}\)</span> on iga andmehulga liige ning <span class="math inline">\(n\)</span> on andmehulga suurus.</p>
 <p>Metsanduses on ruutkeskmine kasutusel keskmise diameetri arvutamisel.</p>
-<p><strong>R keskkonnas:</strong></p>
+<p><strong>R keskkonnas</strong></p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="karakteristikud.html#cb35-1" tabindex="-1"></a><span class="co"># Tunnusest arvutatakse ruut ning keskmisest võetakse ruutjuur:</span></span>
 <span id="cb35-2"><a href="karakteristikud.html#cb35-2" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">mean</span>(df<span class="sc">$</span>d<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div>
 <pre><code>[1] 23,795</code></pre>
-<p><strong>Exceli keskkonnas:</strong></p>
+<p><strong>MS Exceli keskkonnas</strong></p>
 </div>
 <div id="geomeetriline-keskmine" class="section level3 hasAnchor" number="4.1.3">
 <h3><span class="header-section-number">4.1.3</span> Geomeetriline keskmine<a href="karakteristikud.html#geomeetriline-keskmine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -298,11 +298,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">\(n\)</span> on arvude kogus</li>
 <li><span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> on positiivsed arvud</li>
 </ul>
-<p><strong>R keskkonnas:</strong></p>
+<p><strong>R keskkonnas</strong></p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="karakteristikud.html#cb37-1" tabindex="-1"></a><span class="co"># Tunnusest arvutatakse logaritm ning keskmisest võetakse exponent:</span></span>
 <span id="cb37-2"><a href="karakteristikud.html#cb37-2" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">mean</span>(<span class="fu">log</span>(df<span class="sc">$</span>d)))</span></code></pre></div>
 <pre><code>[1] 22,738</code></pre>
-<p><strong>Exceli keskkonnas:</strong></p>
+<p><strong>MS Exceli keskkonnas</strong></p>
 </div>
 <div id="harmooniline-keskmine" class="section level3 hasAnchor" number="4.1.4">
 <h3><span class="header-section-number">4.1.4</span> Harmooniline keskmine<a href="karakteristikud.html#harmooniline-keskmine" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -311,11 +311,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Harmoonilist keskmist arvutatakse valemiga:
 <span class="math display">\[\bar x_{harm} = \frac{N}{\sum_{i=1}^k n_i / x_i},\]</span>
 kus <span class="math inline">\(x_{1}, x_{2}, \ldots, x_{n}\)</span> on arvude hulk, mille harmoonilist keskmist soovitakse leida ning <span class="math inline">\(n\)</span> on arvude hulga suurus.</p>
-<p><strong>R keskkonnas:</strong></p>
+<p><strong>R keskkonnas</strong></p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="karakteristikud.html#cb39-1" tabindex="-1"></a><span class="co"># Tunnuse pöördväärtuse keskmisest võetakse pöördväärtus:</span></span>
 <span id="cb39-2"><a href="karakteristikud.html#cb39-2" tabindex="-1"></a><span class="dv">1</span><span class="sc">/</span><span class="fu">mean</span>(<span class="dv">1</span><span class="sc">/</span>df<span class="sc">$</span>d)</span></code></pre></div>
 <pre><code>[1] 22,222</code></pre>
-<p><strong>Exceli keskkonnas:</strong></p>
+<p><strong>MS Exceli keskkonnas</strong></p>
 </div>
 </div>
 <div id="kvantiilid" class="section level2 hasAnchor" number="4.2">
@@ -338,10 +338,10 @@ Kui on teada juhusliku suuruse jaotusfunktsioon F(x), siis saab juhusliku suurus
 <div id="mediaan" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> Mediaan<a href="karakteristikud.html#mediaan" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Mediaan väärtus, mis jagab andmed kaheks võrdselt suureks pooleks. See ei sõltu ekstreemsetest väärtustest ega hajutatud andmetest.</p>
-<p>Mediaani arvutamine:</p>
+<p><strong>R keskkonnas</strong></p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="karakteristikud.html#cb41-1" tabindex="-1"></a><span class="fu">median</span>(df<span class="sc">$</span>d)</span></code></pre></div>
 <pre><code>[1] 23,2</code></pre>
-<p>Exceli keskkonnas:</p>
+<p><strong>MS Exceli keskkonnas</strong></p>
 
 </div>
 </div>

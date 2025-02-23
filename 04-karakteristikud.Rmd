@@ -5,6 +5,7 @@ Statistilised karakteristikud on kvantitatiivsed või kvalitatiivsed omadused, m
 Juhuslik suurus on täielikult kirjeldatud üldkogumi jaotus- või tihedusfunktsiooniga (jaotusega). Juhusliku suuruse iseloomustamiseks teatud aspektist kasutatakse erinevaid arvkarakteristikuid. Neist tähtsaim on **keskväärtus** ehk matemaatiline ootus, mida tähistatakse EX ja mis on defineeritud järgnevalt.
 
 Pideva juhusliku suuruse korral:
+
 \[EX = \sum_{-\infty}^{\infty} x \cdot f(x) dx\]
 
 Diskreetse juhusliku suuruse korral:
@@ -24,7 +25,7 @@ Kus \(x_{i}\) on iga andmehulga liige ning \(n\) on andmehulga suurus.
 ```{r, include = F}
 ```
 
-**R keskkonnas:**
+**R keskkonnas**
 
 ```{r}
 # Laadime proovitükkide andmed
@@ -33,7 +34,7 @@ df <- readxl::read_excel("data/naited.xlsx","prt_andmed")
 mean(df$d)
 ```
 
-**Exceli keskkonnas:**
+**MS Exceli keskkonnas**
 
 ```{excel}
 =MEAN(andme_vektor)
@@ -41,6 +42,7 @@ mean(df$d)
 
 
 ### Ruutkeskmine
+
 Ruutkeskmine on üks keskmise leidmise meetoditest, mis annab ülevaate andmehulgast ning aitab mõõta andmete hajuvust. Ruutkeskmise leidmiseks tuleb iga andmehulga liige ruutu võtta, seejärel leida nende aritmeetiline keskmine ning võtta sellest ruutjuur. Matemaatiliselt väljendatuna on ruutkeskmine järgmine:
 
 \[ \bar x_{ruut}=\sqrt{\frac{1}{N}\sum_{i=1}^{k}n_i \cdot x_i^2} \],
@@ -49,14 +51,14 @@ kus \(x_{i}\) on iga andmehulga liige ning \(n\) on andmehulga suurus.
 
 Metsanduses on ruutkeskmine kasutusel keskmise diameetri arvutamisel.
 
-**R keskkonnas:**
+**R keskkonnas**
 
 ```{r}
 # Tunnusest arvutatakse ruut ning keskmisest võetakse ruutjuur:
 sqrt(mean(df$d^2))
 ```
 
-**Exceli keskkonnas:**
+**MS Exceli keskkonnas**
 
 ```{excel}
 =SQRT(MEAN(andmeplokk^2))
@@ -75,14 +77,14 @@ kus:
 
 
 
-**R keskkonnas:**
+**R keskkonnas**
 
 ```{r}
 # Tunnusest arvutatakse logaritm ning keskmisest võetakse exponent:
 exp(mean(log(df$d)))
 ```
 
-**Exceli keskkonnas:**
+**MS Exceli keskkonnas**
 
 ```{excel}
 =GEOMEAN(andmeplokk)
@@ -98,14 +100,14 @@ Harmoonilist keskmist arvutatakse valemiga:
 \[\bar x_{harm} = \frac{N}{\sum_{i=1}^k n_i / x_i},\]
 kus \(x_{1}, x_{2}, \ldots, x_{n}\) on arvude hulk, mille harmoonilist keskmist soovitakse leida ning \(n\) on arvude hulga suurus.
 
-**R keskkonnas:**
+**R keskkonnas**
 
 ```{r}
 # Tunnuse pöördväärtuse keskmisest võetakse pöördväärtus:
 1/mean(1/df$d)
 ```
 
-**Exceli keskkonnas:**
+**MS Exceli keskkonnas**
 
 ```{excel}
 =HARMEAN(andmeplokk)
@@ -137,12 +139,13 @@ Kui on teada juhusliku suuruse jaotusfunktsioon F(x), siis saab juhusliku suurus
 Mediaan väärtus, mis jagab andmed kaheks võrdselt suureks pooleks. See ei sõltu ekstreemsetest väärtustest ega hajutatud andmetest.
 
 
-Mediaani arvutamine:
+**R keskkonnas**
+
 ```{r}
 median(df$d)
 ```
 
-Exceli keskkonnas:
+**MS Exceli keskkonnas**
 
 ```{excel}
 =MEDIAN(andmeplokk)
