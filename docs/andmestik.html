@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Peatükk 2 Andmestik | Metsanduslik statistika R ja MS Excel keskkonnas</title>
   <meta name="description" content="Peatükk 2 Andmestik | Metsanduslik statistika R ja MS Excel keskkonnas" />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Peatükk 2 Andmestik | Metsanduslik statistika R ja MS Excel keskkonnas" />
   <meta property="og:type" content="book" />
@@ -307,10 +307,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-3"><a href="andmestik.html#cb9-3" tabindex="-1"></a><span class="co"># Loome kahemõõtmelise maatriksi juhuslikest arvudest</span></span>
 <span id="cb9-4"><a href="andmestik.html#cb9-4" tabindex="-1"></a>minu_maatriks <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">runif</span>(<span class="dv">12</span>), <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">4</span>)</span>
 <span id="cb9-5"><a href="andmestik.html#cb9-5" tabindex="-1"></a><span class="fu">print</span>(minu_maatriks)</span></code></pre></div>
-<pre><code>        [,1]     [,2]    [,3]     [,4]
-[1,] 0,81844 0,636994 0,99395 0,044324
-[2,] 0,86149 0,773740 0,25679 0,894683
-[3,] 0,27266 0,067897 0,96199 0,254428</code></pre>
+<pre><code>        [,1]    [,2]     [,3]    [,4]
+[1,] 0,50333 0,28001 0,162793 0,70546
+[2,] 0,55297 0,47275 0,881314 0,68701
+[3,] 0,13312 0,78595 0,047463 0,51277</code></pre>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="andmestik.html#cb11-1" tabindex="-1"></a><span class="co"># Loome kolmemõõtmelise maatriksi juhuslikest arvudest</span></span>
 <span id="cb11-2"><a href="andmestik.html#cb11-2" tabindex="-1"></a>minu_array <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="fu">runif</span>(<span class="dv">12</span>), <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code></pre></div>
 <p>Maatriksit saab kasutada erinevate arvutusoperatsioonide tegemiseks, nagu maatriksite korrutamine, liitmine, lahutamine jne. Samuti on võimalik maatriksit indekseerida ja välja printida konkreetseid ridu ja veerge.</p>

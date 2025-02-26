@@ -70,7 +70,11 @@ for(x in list.files("peatykid/pildid", "*.png", full.names = T))
 
 # Sissejuhatus  
 
+Õpiku väljaandmist on toetatud Haridus- ja Teadusministeeriumi programmist "Eestikeelsete kõrgkooliõpikute loomise toetamise põhimõtted 2018-2027".
+
 Käesolev õpik on mõeldud metsandusüliõpilastele, kes soovivad omandada matemaatilise statistika põhitõdesid praktilises kontekstis. Materjali koostamisel on lähtutud eeldusest, et lugejatel ei pruugi olla sügavamat matemaatilist ettevalmistust. Statistika terminoloogiaga saab tutvuda  *[andmeanalüüsi ja statistika oskussõnastikus](https://sonaveeb.ee/ds/aso)*.  
+
+Lisaks käesolevale õpikule on metsanduslike näidetega statistika õpiku avaldatud varem, mida kasutatakse õppetöös: Kiviste, A. 2007. Matemaatiline statistika MS Exceli keskkonnas. Tartu. 86 lk.
 
 Metsanduses toimub pidev andmete kogumine ja nende töötlemine. Kõiki soovitud andmeid ei ole võimalik alati mõõta ning seetõttu tuletatakse need erinevate mudelite abil. Sellised mudelid on saadud statistilise andmetöötluse ja modelleerimise abil. Seetõttu on andmete töötlemisel oluline tunda ka statistika põhitõdesid, et mõista paremini andmetest järelduste ja otsuste tegemisel. Õpiku näited keskenduvad metsanduslikele andmetele. Tarkvarana on kasutatud statistikatarkvara **R** ja **MS Excel**, kuid nende valikul on oluline märkida nende erinevaid võimekusi:  
 
