@@ -68,9 +68,17 @@ for(x in list.files("peatykid/pildid", "*.png", full.names = T))
 
 ```
 
+
 # Sissejuhatus  
 
+## Õpiku väljaandmine
 Õpiku väljaandmist on toetatud Haridus- ja Teadusministeeriumi programmist "Eestikeelsete kõrgkooliõpikute loomise toetamise põhimõtted 2018-2027".
+
+![](pildid/eki_logo.png)
+![](pildid/htm_logo.png)
+
+
+## Õpik
 
 Käesolev õpik on mõeldud metsandusüliõpilastele, kes soovivad omandada matemaatilise statistika põhitõdesid praktilises kontekstis. Materjali koostamisel on lähtutud eeldusest, et lugejatel ei pruugi olla sügavamat matemaatilist ettevalmistust. Statistika terminoloogiaga saab tutvuda  *[andmeanalüüsi ja statistika oskussõnastikus](https://sonaveeb.ee/ds/aso)*.  
 

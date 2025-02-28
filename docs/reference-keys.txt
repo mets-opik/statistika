@@ -12,6 +12,8 @@ fig:unnamed-chunk-70
 fig:unnamed-chunk-73
 fig:unnamed-chunk-74
 sissejuhatus
+õpiku-väljaandmine
+õpik
 statistikaprogramm-r
 r-i-paketid
 ms-excel

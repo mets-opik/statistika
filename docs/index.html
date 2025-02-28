@@ -139,11 +139,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul class="summary">
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#statistikaprogramm-r"><i class="fa fa-check"></i><b>1.1</b> Statistikaprogramm R</a>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="#%C3%B5piku-v%C3%A4ljaandmine"><i class="fa fa-check"></i><b>1.1</b> Õpiku väljaandmine</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="#%C3%B5pik"><i class="fa fa-check"></i><b>1.2</b> Õpik</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#statistikaprogramm-r"><i class="fa fa-check"></i><b>1.3</b> Statistikaprogramm R</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#r-i-paketid"><i class="fa fa-check"></i><b>1.1.1</b> R-i paketid</a></li>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#r-i-paketid"><i class="fa fa-check"></i><b>1.3.1</b> R-i paketid</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#ms-excel"><i class="fa fa-check"></i><b>1.2</b> MS Excel</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#ms-excel"><i class="fa fa-check"></i><b>1.4</b> MS Excel</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="andmestik.html"><a href="andmestik.html"><i class="fa fa-check"></i><b>2</b> Andmestik</a>
 <ul>
@@ -261,7 +263,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="sissejuhatus" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Peatükk 1</span> Sissejuhatus<a href="index.html#sissejuhatus" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="õpiku-väljaandmine" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Õpiku väljaandmine<a href="#%C3%B5piku-v%C3%A4ljaandmine" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Õpiku väljaandmist on toetatud Haridus- ja Teadusministeeriumi programmist “Eestikeelsete kõrgkooliõpikute loomise toetamise põhimõtted 2018-2027”.</p>
+<p><img src="pildid/eki_logo.png" />
+<img src="pildid/htm_logo.png" /></p>
+</div>
+<div id="õpik" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Õpik<a href="#%C3%B5pik" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Käesolev õpik on mõeldud metsandusüliõpilastele, kes soovivad omandada matemaatilise statistika põhitõdesid praktilises kontekstis. Materjali koostamisel on lähtutud eeldusest, et lugejatel ei pruugi olla sügavamat matemaatilist ettevalmistust. Statistika terminoloogiaga saab tutvuda <em><a href="https://sonaveeb.ee/ds/aso">andmeanalüüsi ja statistika oskussõnastikus</a></em>.</p>
 <p>Lisaks käesolevale õpikule on metsanduslike näidetega statistika õpiku avaldatud varem, mida kasutatakse õppetöös: Kiviste, A. 2007. Matemaatiline statistika MS Exceli keskkonnas. Tartu. 86 lk.</p>
 <p>Metsanduses toimub pidev andmete kogumine ja nende töötlemine. Kõiki soovitud andmeid ei ole võimalik alati mõõta ning seetõttu tuletatakse need erinevate mudelite abil. Sellised mudelid on saadud statistilise andmetöötluse ja modelleerimise abil. Seetõttu on andmete töötlemisel oluline tunda ka statistika põhitõdesid, et mõista paremini andmetest järelduste ja otsuste tegemisel. Õpiku näited keskenduvad metsanduslikele andmetele. Tarkvarana on kasutatud statistikatarkvara <strong>R</strong> ja <strong>MS Excel</strong>, kuid nende valikul on oluline märkida nende erinevaid võimekusi:</p>
@@ -272,8 +281,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>Need tarkvarad täiendavad üksteist. MS Excel sobib hästi andmete esmaseks töötluseks, R aga detailsemaks analüüsiks. Näiteks võib MS Excelis ette valmistatud andmeid edasi analüüsida R-is. Samuti on võimalik integreerida R-skripte Exceli makrotesse või kasutada Pythoni skripte R-i keskkonnas, et laiendada funktsionaalsust, aga neid integratsioone käesolev õpik ei käsitle. Sellised moodulipõhised lahendused muudavad tarkvaravahendid paindlikumaks, kuid nõuavad aga pidevat oskuste arendamist.</p>
 <p>Oluline on mõista, et üksik tarkvara ei suuda katta kõiki analüüsivajadusi. Seetõttu on õpikus rõhk praktilistel lahendustel, mis õpetavad ülesannete jaoks optimaalsete tööriistade valikut. Statistika valdkond areneb kiiresti – nii meetodid, tarkvarad kui rakendusvaldkonnad muutuvad. Käesolevat õpikut uuendatakse regulaarselt, et kajastada ajakohaseid standardeid ja tarkvarauuendusi.</p>
-<div id="statistikaprogramm-r" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Statistikaprogramm R<a href="index.html#statistikaprogramm-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="statistikaprogramm-r" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Statistikaprogramm R<a href="index.html#statistikaprogramm-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R on tarkvarakeskkond, mis on loodud spetsiaalselt statistiliseks arvutamiseks ja andmete graafiliseks esitamiseks. See on avatud lähtekoodiga projekt, mida toetab suur kogukond ning mida eelistavad andmeteadlased ja statistikud üle kogu maailma oma andmeanalüüsi vajadusteks. R pakub laia valikut tööriistu andmete importimiseks, töötlemiseks, modelleerimiseks, analüüsiks ja visualiseerimiseks. Järgnevalt on ülevaade R-i peamistest kasutusvõimalustest statistilise analüüsi tegemiseks.</p>
 <p><strong>Andmete importimine ja töötlemine</strong></p>
 <ul>
@@ -301,8 +311,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Tugev kogukond.</strong> R-i kasutajate ja arendajate kogukond on väga aktiivne, pakkudes tuge, juhendeid ja ressursse, mis aitavad lahendada keerulisi analüütilisi väljakutseid.</li>
 <li><strong>Õpikud ja juhendid.</strong> R-i kasutamiseks on koostatud erinevaid õpikud, mis on mõeldud nii algajatele kui ka edasijõudnutele. Veebilehel <a href="https://bookdown.org/">https://bookdown.org/</a> on mitmed sellised õpikud.</li>
 </ul>
-<div id="r-i-paketid" class="section level3 hasAnchor" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> R-i paketid<a href="index.html#r-i-paketid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="r-i-paketid" class="section level3 hasAnchor" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> R-i paketid<a href="index.html#r-i-paketid" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Statistikaprogramm põhineb pakettidel. Iga pakett on meetodite ja funktsioonide kogumik ning need võimaldavad teha kindlaid protseduure. Kasutajal on võimalik installeerida teiste poolt koostatud pakette või neid vajadusel ise koostada. R-i paketid on tööriistade, funktsioonide ja andmete kogumikud, mis laiendavad R-i põhifunktsionaalsust ning võimaldavad lahendada erinevaid andmetöötluse, statistilise analüüsi ja visualiseerimise ülesandeid. Enamik pakette on loodud R-i kogukonna liikmete poolt. CRAN (Comprehensive R Archive Network) on ametlik hoidla, kuhu arendajad saavad pakette üles laadida ning kasutajad neid alla laadida.</p>
 <p>Pakettide installeerimiseks kasutatakse funktsiooni <code>install.packages()</code>. Näiteks:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
@@ -319,8 +329,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Igal paketil on põhjalik dokumentatsioon, millele pääseb ligi, kasutades <code>help()</code> või <code>?</code> süntaksit. Paljud paketid pakuvad ka sissejuhatavaid õpetusi ja veebipõhiseid juhendeid.</p>
 </div>
 </div>
-<div id="ms-excel" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> MS Excel<a href="index.html#ms-excel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ms-excel" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> MS Excel<a href="index.html#ms-excel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>MS Excel on laialdaselt kasutatav tabelarvutusprogramm, mis pakub mitmekülgseid tööriistu andmete analüüsimiseks, visualiseerimiseks ja esitlemiseks. MS Exceli kasutusvõimalused statistilise analüüsi tegemiseks hõlmavad mitmesuguseid funktsioone ja lisavahendeid, mis võimaldavad kasutajatel teostada põhjalikke analüüse erinevate andmekogumite põhjal. Järgnevalt on toodud ülevaade peamistest MS Exceli kasutusvõimalustest statistiliseks analüüsiks.</p>
 <p><strong>Andmete importimine ja korraldamine</strong></p>
 <ul>
